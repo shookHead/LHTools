@@ -1,0 +1,16 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/shookHead/LHPodSpec.git'
+
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'LHTools_Example' do
+  pod 'LHTools', :path => '../'
+
+  target 'LHTools_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end

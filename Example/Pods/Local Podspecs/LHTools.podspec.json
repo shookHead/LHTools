@@ -1,0 +1,27 @@
+{
+  "name": "LHTools",
+  "version": "0.1.0",
+  "summary": "A short description of LHTools.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/shookHead/LHTools",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "shookHead": "lin.hai2020@foxmail.com"
+  },
+  "source": {
+    "git": "https://github.com/shookHead/LHTools.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "LHTools/Classes/**/*",
+  "resource_bundles": {
+    "LHTools": [
+      "LHTools/Assets/**/*"
+    ]
+  }
+}
