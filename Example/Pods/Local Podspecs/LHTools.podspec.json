@@ -21,7 +21,7 @@
   "source_files": "LHTools/Classes/**/*",
   "resource_bundles": {
     "LHTools": [
-      "LHTools/Assets/**/*"
+      "LHTools/Assets/**"
     ]
   }
 }
