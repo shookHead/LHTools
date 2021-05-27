@@ -39,5 +39,21 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit'#, 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+   s.dependency 'Alamofire'
+   s.dependency 'Kingfisher'
+   s.dependency 'HandyJSON'
+   s.dependency 'MJRefresh'
+   s.dependency 'SwiftyUserDefaults'
+   s.dependency 'IQKeyboardManagerSwift'
+   s.dependency 'SQLite.swift'
+   s.dependency 'Hero'
+   
+   s.dependency 'NVActivityIndicatorView'
+   s.dependency 'CLImagePickerTool'
+   s.dependency 'JXPhotoBrowser'
+   s.dependency 'Charts'
+   s.dependency 'JXSegmentedView'
+   s.dependency 'JXPagingView/Paging'
+   s.dependency 'AttributedString'
+   s.dependency 'LTMorphingLabel'
 end

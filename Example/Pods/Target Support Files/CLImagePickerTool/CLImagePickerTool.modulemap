@@ -1,0 +1,6 @@
+framework module CLImagePickerTool {
+  umbrella header "CLImagePickerTool-umbrella.h"
+
+  export *
+  module * { export * }
+}

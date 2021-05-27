@@ -1,0 +1,6 @@
+framework module AttributedString {
+  umbrella header "AttributedString-umbrella.h"
+
+  export *
+  module * { export * }
+}
