@@ -18,5 +18,8 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "LHTools/Classes/**/*"
+  "swift_versions": "5.0",
+  "source_files": "LHTools/Classes/**/*",
+  "frameworks": "UIKit",
+  "swift_version": "5.0"
 }
