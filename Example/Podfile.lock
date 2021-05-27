@@ -4,7 +4,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - LHTools (0.1.0)
+  - LHTools (0.0.1)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  LHTools: bf5ba410aec6aff8c73d06f6281f72059a356218
+  LHTools: ed48e0f3742d3df00b7aa1b619f96e16707ff550
 
 PODFILE CHECKSUM: 650b9e013e31478684bfd6681a7cba6be544010f
 

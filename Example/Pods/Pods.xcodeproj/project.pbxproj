@@ -668,21 +668,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0731858C7DDD9016334FC54FD6092ED2 /* Release */ = {
+		23385632BDE1AD15D1D6D93D2F7A9787 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DFBF3512B6F06C9CAF7BB0F0EEA5FCB6 /* LHTools.release.xcconfig */;
+			baseConfigurationReference = DE8B11A51886DE49ABA5D58309D9F9F9 /* LHTools.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/LHTools";
 				IBSC_MODULE = LHTools;
 				INFOPLIST_FILE = "Target Support Files/LHTools/ResourceBundle-LHTools-LHTools-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = LHTools;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Release;
+			name = Debug;
 		};
 		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -750,38 +750,6 @@
 			};
 			name = Debug;
 		};
-		38C2CC7BDD00D9A04B9097E09184DF3A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DFBF3512B6F06C9CAF7BB0F0EEA5FCB6 /* LHTools.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LHTools/LHTools-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LHTools/LHTools-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LHTools/LHTools.modulemap";
-				PRODUCT_MODULE_NAME = LHTools;
-				PRODUCT_NAME = LHTools;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		3AD1C588C3B3EC10044FFE202FD576F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4C6513B09838318BD763CFD5390D1DE0 /* FBSnapshotTestCase.release.xcconfig */;
@@ -813,22 +781,6 @@
 			};
 			name = Release;
 		};
-		503832BB930F3252B8587B838565D4A8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE8B11A51886DE49ABA5D58309D9F9F9 /* LHTools.debug.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/LHTools";
-				IBSC_MODULE = LHTools;
-				INFOPLIST_FILE = "Target Support Files/LHTools/ResourceBundle-LHTools-LHTools-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_NAME = LHTools;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		5D9D3855A628EB8FC812D24DB1556B22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B814F15B143068C069ACB7DF4EA1039D /* Pods-LHTools_Tests.debug.xcconfig */;
@@ -855,6 +807,36 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		79F5A0E4B59D6CDB74955378790093E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE8B11A51886DE49ABA5D58309D9F9F9 /* LHTools.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LHTools/LHTools-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LHTools/LHTools-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LHTools/LHTools.modulemap";
+				PRODUCT_MODULE_NAME = LHTools;
+				PRODUCT_NAME = LHTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -893,37 +875,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		962940D762A32D0C1F3089549690C1D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE8B11A51886DE49ABA5D58309D9F9F9 /* LHTools.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LHTools/LHTools-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LHTools/LHTools-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LHTools/LHTools.modulemap";
-				PRODUCT_MODULE_NAME = LHTools;
-				PRODUCT_NAME = LHTools;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		98C21292435CD115650FC71363187F76 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1050,6 +1001,22 @@
 			};
 			name = Release;
 		};
+		CCB38DC1223B01D16E6436BB8A896570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFBF3512B6F06C9CAF7BB0F0EEA5FCB6 /* LHTools.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/LHTools";
+				IBSC_MODULE = LHTools;
+				INFOPLIST_FILE = "Target Support Files/LHTools/ResourceBundle-LHTools-LHTools-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = LHTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		E5206B57404300D76E01C0C53AAC28CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EC87030CE9FD05172F169BD3E61CD41 /* Pods-LHTools_Example.debug.xcconfig */;
@@ -1082,6 +1049,37 @@
 			};
 			name = Debug;
 		};
+		EA63D7A4E935F1BC5461702A6D42BCEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFBF3512B6F06C9CAF7BB0F0EEA5FCB6 /* LHTools.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LHTools/LHTools-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LHTools/LHTools-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LHTools/LHTools.modulemap";
+				PRODUCT_MODULE_NAME = LHTools;
+				PRODUCT_NAME = LHTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1097,8 +1095,8 @@
 		48254FE4E01F9C2C4A9480DAE8DE9A52 /* Build configuration list for PBXNativeTarget "LHTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				962940D762A32D0C1F3089549690C1D1 /* Debug */,
-				38C2CC7BDD00D9A04B9097E09184DF3A /* Release */,
+				79F5A0E4B59D6CDB74955378790093E5 /* Debug */,
+				EA63D7A4E935F1BC5461702A6D42BCEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1124,8 +1122,8 @@
 		F92498024082117C74F4D5009BBD6104 /* Build configuration list for PBXNativeTarget "LHTools-LHTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				503832BB930F3252B8587B838565D4A8 /* Debug */,
-				0731858C7DDD9016334FC54FD6092ED2 /* Release */,
+				23385632BDE1AD15D1D6D93D2F7A9787 /* Debug */,
+				CCB38DC1223B01D16E6436BB8A896570 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
