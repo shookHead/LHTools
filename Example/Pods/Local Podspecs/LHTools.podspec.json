@@ -18,10 +18,5 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "LHTools/Classes/**/*",
-  "resource_bundles": {
-    "LHTools": [
-      "LHTools/Assets/**"
-    ]
-  }
+  "source_files": "LHTools/Classes/**/*"
 }
