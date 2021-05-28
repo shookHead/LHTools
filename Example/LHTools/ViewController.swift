@@ -18,7 +18,10 @@ class ViewController: UIViewController {
         let lab = UILabel()
         lab.backgroundColor = .KRed
         Hud.showText("dd")
-
+        let imgView = UIImageView()
+        imgView.image = #imageLiteral(resourceName: "photoDelete")
+        imgView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        view.addSubview(imgView)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let v = UIView()
