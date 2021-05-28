@@ -38,7 +38,7 @@ open class HostConfig{
     var names:[String] = []
     var tfArray:[UITextField] = []
     
-    init(_ names:[String]) {
+    public init(_ names:[String]) {
         if cache[.isTestHost] == true{
             self.isTestHost = true
         }else{

@@ -95,7 +95,7 @@ open class ScanVC: BaseVC {
         self.endScaning()
     }
     
-    public func initUI() {
+    open func initUI() {
         self.view.addSubview(scanView)
         
         let bezierPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: KScreenWidth, height: KScreenHeight), cornerRadius: 0)
@@ -117,7 +117,7 @@ open class ScanVC: BaseVC {
         self.view.addSubview(naviView)
     }
     
-    @objc public func timeRepateAction(){
+    @objc open func timeRepateAction(){
         sliderView.frame = CGRect(x: 0, y: -30, width: holeH, height: 30)
         UIView.animate(withDuration: 2-0.1) {
             self.sliderView.frame = CGRect(x: 0, y: self.holeH, width: self.holeH, height: 30)
@@ -198,7 +198,7 @@ open class ScanVC: BaseVC {
     }
     
     // 拿到扫描内容 重写
-    func receiveScanCode(_ code:String?){
+    open func receiveScanCode(_ code:String?){
         print(code ?? "")
     }
 }

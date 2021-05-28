@@ -20,8 +20,8 @@ open class BMTimeIntervalPicker: UIView {
 
     // MARK: -  ---------------------- public ------------------------
 
-    var startTime: Date!
-    var endTime: Date!
+    open var startTime: Date!
+    open var endTime: Date!
 
     var resultCallBack:((BMTimeIntervalPicker)->(Bool))!
     

@@ -89,7 +89,7 @@ open class BMApiTemplete<ValueType> : BMApiSet{
 
     let url: String
 
-    var urlWithHost:String{
+    open var urlWithHost:String{
         return self.host + self.url
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class BMBasePicker: UIView {
+open class BMBasePicker: UIView {
     
     public static var tintColor:UIColor = .KBlue
     
@@ -78,7 +78,7 @@ public class BMBasePicker: UIView {
         contentView.addSubview(pickerView)
     }
 
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required public init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
 }
 

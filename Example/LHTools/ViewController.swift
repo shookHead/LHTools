@@ -7,27 +7,16 @@
 //
 
 import UIKit
-import LHTools
+@_exported import LHTools
 class ViewController: UIViewController {
     @IBOutlet weak var tf: LHLimitWordTF!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var str = "442"
-        tf.maxNum = 5
-        let lab = UILabel()
-        lab.backgroundColor = .KRed
-        Hud.showText("dd")
-        let imgView = UIImageView()
-        imgView.image = #imageLiteral(resourceName: "photoDelete")
-        imgView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        view.addSubview(imgView)
+        alertShow.maxP = 1
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let v = UIView()
-        v.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
-        v.backgroundColor = .white
-        PopViewManager.show(contentView: v)
+
 
     }
 }

@@ -34,7 +34,7 @@ public enum BMDatePickerMode:UInt8 {
 }
 
 
-public class BMDatePicker: BMBasePicker {
+open class BMDatePicker: BMBasePicker {
     public var showInfinit : Bool = false
     public var infinitText = "永 久"
     
@@ -121,14 +121,14 @@ public class BMDatePicker: BMBasePicker {
     
     private var selectedIndexArr:Array<Int> = Array()
 
-    init(_ selected:@escaping (_ time:Date?) -> () ) {
+    public init(_ selected:@escaping (_ time:Date?) -> () ) {
         self.datePickMode = .ymd
         self.selected = selected
         super.init()
         self.bgLab.font = UIFont.boldSystemFont(ofSize: 60)
         self.setContentH(240)
     }
-    required init?(coder aDecoder: NSCoder) {   fatalError("init(coder:) has not been implemented") }
+    required public init?(coder aDecoder: NSCoder) {   fatalError("init(coder:) has not been implemented") }
 }
 
 // MARK: - 子类 需要 继承的方法

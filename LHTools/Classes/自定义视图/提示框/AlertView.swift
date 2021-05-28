@@ -39,7 +39,7 @@ public var alertShow = AlertViewShow()
 public class AlertViewShow: NSObject,UITextFieldDelegate {
     var _pointLength = 0
     var _vc = UIViewController()
-    var maxP:Double = 10000000
+    open var maxP:Double = 10000000
     var canZero = false
     //pointLength设置小数点数
     /// 输入框

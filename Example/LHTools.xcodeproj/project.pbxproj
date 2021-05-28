@@ -16,6 +16,9 @@
 		77D8E6E5A6BB6E57602AEAAE /* Pods_LHTools_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F65B99634DBE91A215033C5 /* Pods_LHTools_Example.framework */; };
 		DB046D8A123D36B573A17CA3 /* Pods_LHTools_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07509A03F5415140F749D995 /* Pods_LHTools_Tests.framework */; };
 		F4333C002660918E00D9BFAC /* LHAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4333BFF2660918E00D9BFAC /* LHAssets.xcassets */; };
+		F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */; };
+		F4333C9B26609A5F00D9BFAC /* BaseTabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */; };
+		F4333C9F26609AF700D9BFAC /* Scan_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333C9E26609AF700D9BFAC /* Scan_VC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		AF87F8809564BC84406B33CE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ECFE8EDC6AD47074A330BAC6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F4333BFF2660918E00D9BFAC /* LHAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LHAssets.xcassets; sourceTree = "<group>"; };
+		F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabVC.swift; sourceTree = "<group>"; };
+		F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseTabVC.xib; sourceTree = "<group>"; };
+		F4333C9E26609AF700D9BFAC /* Scan_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan_VC.swift; sourceTree = "<group>"; };
 		F4D3826D265F6840006D6C89 /* GlobalImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalImport.swift; sourceTree = "<group>"; };
 		F4D3826E265F6840006D6C89 /* BMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMConst.swift; sourceTree = "<group>"; };
 		F4D38271265F6840006D6C89 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
@@ -220,6 +226,9 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */,
+				F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */,
+				F4333C9E26609AF700D9BFAC /* Scan_VC.swift */,
 			);
 			name = "Example for LHTools";
 			path = LHTools;
@@ -823,6 +832,7 @@
 				F4333C002660918E00D9BFAC /* LHAssets.xcassets in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				F4333C9B26609A5F00D9BFAC /* BaseTabVC.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -939,7 +949,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				F4333C9F26609AF700D9BFAC /* Scan_VC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
