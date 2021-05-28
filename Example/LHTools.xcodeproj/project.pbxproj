@@ -19,6 +19,8 @@
 		F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */; };
 		F4333C9B26609A5F00D9BFAC /* BaseTabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */; };
 		F4333C9F26609AF700D9BFAC /* Scan_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333C9E26609AF700D9BFAC /* Scan_VC.swift */; };
+		F4333D042660B31600D9BFAC /* LHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D38279265F6840006D6C89 /* LHTextField.swift */; };
+		F4333D052660B31600D9BFAC /* LHLimitWordTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3827A265F6840006D6C89 /* LHLimitWordTF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -948,6 +950,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4333D042660B31600D9BFAC /* LHTextField.swift in Sources */,
+				F4333D052660B31600D9BFAC /* LHLimitWordTF.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F4333C9F26609AF700D9BFAC /* Scan_VC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
