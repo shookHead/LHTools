@@ -22,8 +22,8 @@ class ViewController: UIViewController {
 }
 
 // 易城市接口基类
-public class YiChengShi<ValueType> : BMApiTemplete<ValueType> {
-    public override var host: String{
+class YiChengShi<ValueType> : BMApiTemplete<ValueType> {
+    override var host: String{
 //        return HostConfig.getHost("http://192.168.1.134:8084/", index: 0)
         return HostConfig.getHost("https://api.yichengshi.cn/", index: 0)
     }
