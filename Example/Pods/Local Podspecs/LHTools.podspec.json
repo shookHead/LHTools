@@ -20,7 +20,16 @@
   },
   "swift_versions": "5.0",
   "source_files": "LHTools/Classes/**/*",
-  "frameworks": "UIKit",
+  "resource_bundles": {
+    "LHTools": [
+      "LHTools/Assets/*.xcassets",
+      "LHTools/Assets/*.sqlite"
+    ]
+  },
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
   "dependencies": {
     "Alamofire": [
 

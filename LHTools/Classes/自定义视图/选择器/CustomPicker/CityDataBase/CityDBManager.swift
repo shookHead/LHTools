@@ -29,8 +29,9 @@ public class CityDBManager {
     }()
 
     init() {
-        let path = Bundle.main.path(forResource: "city_db", ofType: "sqlite")
-        db = try! Connection(path!, readonly: true)
+        if let path = Bundle(for: LHTools.self).resourcePath?.appending("/city_db.sqlite") {
+            db = try! Connection(path, readonly: true)
+        }
     }
     
     public func getAddressModel(_ provinceId:Int64!,_ cityId:Int64!,_ districtsId:Int64!) -> Array<Address>{

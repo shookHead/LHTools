@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         alertShow.maxP = 1
+//        let path = Bundle.main.path(forResource: "city_db", ofType: "LHTools/sqlite")
+//        print(path)
+//        let path = Bundle(for: LHTools.self).resourcePath?.appending("/city_db.sqlite")
+//        print(path)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 

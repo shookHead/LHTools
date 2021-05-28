@@ -21,6 +21,9 @@
 		F4333C9F26609AF700D9BFAC /* Scan_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333C9E26609AF700D9BFAC /* Scan_VC.swift */; };
 		F4333D042660B31600D9BFAC /* LHTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D38279265F6840006D6C89 /* LHTextField.swift */; };
 		F4333D052660B31600D9BFAC /* LHLimitWordTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3827A265F6840006D6C89 /* LHLimitWordTF.swift */; };
+		F4333D702660D03E00D9BFAC /* city_db.sqlite in Sources */ = {isa = PBXBuildFile; fileRef = F4D3827F265F6840006D6C89 /* city_db.sqlite */; };
+		F4333D8C2660D56D00D9BFAC /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333D8B2660D56D00D9BFAC /* Bundle+Extensions.swift */; };
+		F4333D902660D81A00D9BFAC /* LHTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333D8F2660D81A00D9BFAC /* LHTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,8 @@
 		F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabVC.swift; sourceTree = "<group>"; };
 		F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseTabVC.xib; sourceTree = "<group>"; };
 		F4333C9E26609AF700D9BFAC /* Scan_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan_VC.swift; sourceTree = "<group>"; };
+		F4333D8B2660D56D00D9BFAC /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		F4333D8F2660D81A00D9BFAC /* LHTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHTools.swift; sourceTree = "<group>"; };
 		F4D3826D265F6840006D6C89 /* GlobalImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalImport.swift; sourceTree = "<group>"; };
 		F4D3826E265F6840006D6C89 /* BMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMConst.swift; sourceTree = "<group>"; };
 		F4D38271265F6840006D6C89 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
@@ -282,11 +287,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F4333C1E2660931800D9BFAC /* 222 */ = {
+		F4333D8A2660D55F00D9BFAC /* 获取文件 */ = {
 			isa = PBXGroup;
 			children = (
+				F4333D8B2660D56D00D9BFAC /* Bundle+Extensions.swift */,
 			);
-			name = 222;
+			path = "获取文件";
 			sourceTree = "<group>";
 		};
 		F4D3826B265F6840006D6C89 /* LHTools */ = {
@@ -302,8 +308,8 @@
 		F4D3826C265F6840006D6C89 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F4333C1E2660931800D9BFAC /* 222 */,
 				F4D3826D265F6840006D6C89 /* GlobalImport.swift */,
+				F4333D8F2660D81A00D9BFAC /* LHTools.swift */,
 				F4D3826E265F6840006D6C89 /* BMConst.swift */,
 				F4D3826F265F6840006D6C89 /* 自定义视图 */,
 				F4D382D5265F6841006D6C89 /* 扩展 */,
@@ -693,6 +699,7 @@
 		F4D382FB265F6841006D6C89 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
+				F4333D8A2660D55F00D9BFAC /* 获取文件 */,
 				F4D382FC265F6841006D6C89 /* 请求 */,
 				F4D382FF265F6841006D6C89 /* 约束 */,
 				F4D38301265F6841006D6C89 /* 缓存 */,
@@ -950,12 +957,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4333D702660D03E00D9BFAC /* city_db.sqlite in Sources */,
 				F4333D042660B31600D9BFAC /* LHTextField.swift in Sources */,
 				F4333D052660B31600D9BFAC /* LHLimitWordTF.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F4333C9F26609AF700D9BFAC /* Scan_VC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */,
+				F4333D902660D81A00D9BFAC /* LHTools.swift in Sources */,
+				F4333D8C2660D56D00D9BFAC /* Bundle+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1107,6 +1117,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1123,6 +1134,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
