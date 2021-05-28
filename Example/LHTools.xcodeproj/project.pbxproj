@@ -145,7 +145,6 @@
 		F4D382EF265F6841006D6C89 /* Dictionary+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utils.swift"; sourceTree = "<group>"; };
 		F4D382F0265F6841006D6C89 /* Sequence+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Json.swift"; sourceTree = "<group>"; };
 		F4D382F2265F6841006D6C89 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
-		F4D382F3265F6841006D6C89 /* BMback_Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BMback_Icon@3x.png"; sourceTree = "<group>"; };
 		F4D382F4265F6841006D6C89 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		F4D382F5265F6841006D6C89 /* BaseCollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollVC.swift; sourceTree = "<group>"; };
 		F4D382F6265F6841006D6C89 /* BaseTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarVC.swift; sourceTree = "<group>"; };
@@ -669,7 +668,6 @@
 			isa = PBXGroup;
 			children = (
 				F4D382F2265F6841006D6C89 /* BaseVC.swift */,
-				F4D382F3265F6841006D6C89 /* BMback_Icon@3x.png */,
 				F4D382F4265F6841006D6C89 /* WebVC.swift */,
 				F4D382F5265F6841006D6C89 /* BaseCollVC.swift */,
 				F4D382F6265F6841006D6C89 /* BaseTabbarVC.swift */,
