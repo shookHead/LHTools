@@ -29,7 +29,7 @@ public class CityDBManager {
     }()
 
     init() {
-        if let path = Bundle(for: LHTools.self).resourcePath?.appending("/city_db.sqlite") {
+        if let path = Bundle.current()?.path(forResource: "city_db", ofType: "sqlite") {
             db = try! Connection(path, readonly: true)
         }
     }

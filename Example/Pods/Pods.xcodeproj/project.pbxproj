@@ -1105,7 +1105,7 @@
 		0725D03F2CA29C6F8415757D60AF544A /* IgnoreSubviewModifiersPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IgnoreSubviewModifiersPreprocessor.swift; path = Sources/Preprocessors/IgnoreSubviewModifiersPreprocessor.swift; sourceTree = "<group>"; };
 		072B26C13EDC4268394AD7579FF9A46F /* SectionProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SectionProvider.swift; sourceTree = "<group>"; };
 		0770C3992A579A0CF9A1A14090F53735 /* BarLineChartViewBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarLineChartViewBase.swift; path = Source/Charts/Charts/BarLineChartViewBase.swift; sourceTree = "<group>"; };
-		07928762D9A8551470DAAD7C1E1F53A5 /* JXSegmentedView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JXSegmentedView.framework; path = JXSegmentedView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07928762D9A8551470DAAD7C1E1F53A5 /* JXSegmentedView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JXSegmentedView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07AD849F8B6C8C7B6016E4A4DD6CD062 /* DataApproximator+N.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DataApproximator+N.swift"; path = "Source/Charts/Filters/DataApproximator+N.swift"; sourceTree = "<group>"; };
 		07C2ECFA370B6818263FA2452E423E0E /* ic_redo@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_redo@2x.png"; path = "CLImagePickerTool/CLImagePickerTool/images/ic_redo@2x.png"; sourceTree = "<group>"; };
 		07DF7C4F9916A950E765BA0C9C5FDC90 /* PieChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartView.swift; path = Source/Charts/Charts/PieChartView.swift; sourceTree = "<group>"; };
@@ -1135,7 +1135,7 @@
 		0F8F3BF3B9F412FCD568D22475EB74D2 /* HeroModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroModifier.swift; path = Sources/HeroModifier.swift; sourceTree = "<group>"; };
 		104A748B3C05F4A00492E3A4E760729F /* Bundle+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		105A97AFE37DC3970B132895A8FB57BF /* CLSingleTypeCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLSingleTypeCell.swift; path = CLImagePickerTool/CLImagePickerTool/views/CLSingleTypeCell.swift; sourceTree = "<group>"; };
-		117887665FB3C7A539BB6F806956A01A /* JXPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JXPhotoBrowser.framework; path = JXPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		117887665FB3C7A539BB6F806956A01A /* JXPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JXPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1186BCA7402407F0D22FFB08F446C808 /* NVActivityIndicatorAnimationBallRotateChase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallRotateChase.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationBallRotateChase.swift; sourceTree = "<group>"; };
 		127AA823144AF6A81862C3CD4DE0471B /* IValueFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IValueFormatter.swift; path = Source/Charts/Formatters/IValueFormatter.swift; sourceTree = "<group>"; };
 		12B6864FE7B37D785E6DD55E1158640E /* XAxisRendererRadarChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxisRendererRadarChart.swift; path = Source/Charts/Renderers/XAxisRendererRadarChart.swift; sourceTree = "<group>"; };
@@ -1144,7 +1144,7 @@
 		13124D7E7FBFFAF1086AE7A87AB62DE0 /* Sparkle.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Sparkle.png; path = LTMorphingLabel/Particles/Sparkle.png; sourceTree = "<group>"; };
 		137C263BA17D90CB211AB6351C6561E1 /* JXPhotoBrowserSmoothZoomAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPhotoBrowserSmoothZoomAnimator.swift; path = Sources/JXPhotoBrowser/JXPhotoBrowserSmoothZoomAnimator.swift; sourceTree = "<group>"; };
 		13BD6E4946082ABC2177D16A2280B1D0 /* MJRefreshTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshTrailer.m; path = MJRefresh/Base/MJRefreshTrailer.m; sourceTree = "<group>"; };
-		13E778F4B833EE5D7ABE882406A8215E /* Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Hero.framework; path = Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E778F4B833EE5D7ABE882406A8215E /* Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		147DA74272ED70015E4A3D1FD631958C /* UIColor+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		14B27EFE7FD12097018BEF3C02A1D305 /* CandleChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/CandleChartDataSet.swift; sourceTree = "<group>"; };
 		14B30901AADA98B904A3658BF8E51E35 /* HandyJSON-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HandyJSON-Info.plist"; sourceTree = "<group>"; };
@@ -1183,7 +1183,7 @@
 		1DFABCAAE2CC496CCE18B9441822B3CB /* SQLite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLite.h; path = Sources/SQLite/SQLite.h; sourceTree = "<group>"; };
 		1E485DB36E06ABDC4D28280A8B776718 /* SpaceProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SpaceProvider.swift; sourceTree = "<group>"; };
 		1EE75FFD91120FFED5585538D973E99B /* clr_blue@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "clr_blue@3x.png"; path = "CLImagePickerTool/CLImagePickerTool/images/clr_blue@3x.png"; sourceTree = "<group>"; };
-		1EF89C2ADA96DB267929D5A7D3214302 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LTMorphingLabel.framework; path = LTMorphingLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF89C2ADA96DB267929D5A7D3214302 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LTMorphingLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC441C7512799D4E99832A5A018E245 /* ic_pen_grey@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_pen_grey@2x.png"; path = "CLImagePickerTool/CLImagePickerTool/images/ic_pen_grey@2x.png"; sourceTree = "<group>"; };
 		1FCCBED3D188575073EF86C4C50391A6 /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/CacheSerializer.swift; sourceTree = "<group>"; };
 		1FF1B59B4254ACD73A8DC69549F00777 /* JXSegmentedView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXSegmentedView-prefix.pch"; sourceTree = "<group>"; };
@@ -1226,7 +1226,7 @@
 		2BEC2EE9E88E6C87E1170DD687D98F82 /* MJRefreshNormalHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshNormalHeader.h; path = MJRefresh/Custom/Header/MJRefreshNormalHeader.h; sourceTree = "<group>"; };
 		2C5E60ADB2DE066A095CA8BCA6362856 /* JXPagingView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JXPagingView.release.xcconfig; sourceTree = "<group>"; };
 		2C75EFD8B77F4D5CB92942AA13EE59BC /* ChartDataRendererBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartDataRendererBase.swift; path = Source/Charts/Renderers/ChartDataRendererBase.swift; sourceTree = "<group>"; };
-		2CBDDDCBD9CB38F7C5CBD3C85AD31C15 /* Pods_LHTools_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LHTools_Example.framework; path = "Pods-LHTools_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CBDDDCBD9CB38F7C5CBD3C85AD31C15 /* Pods_LHTools_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHTools_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEEC0EF2E618F52DAF98E7785DC9DF2 /* JXPhotoBrowser.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JXPhotoBrowser.modulemap; sourceTree = "<group>"; };
 		2D3818D40904549D2E0F73F83E7EF029 /* JXPhotoBrowserView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPhotoBrowserView.swift; path = Sources/JXPhotoBrowser/JXPhotoBrowserView.swift; sourceTree = "<group>"; };
 		2D410B782190C888D13A2A4B826C000D /* HeroModifier+Advanced.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroModifier+Advanced.swift"; path = "Sources/HeroModifier+Advanced.swift"; sourceTree = "<group>"; };
@@ -1237,7 +1237,7 @@
 		2E87CD75E814389CC36CB07576F0E812 /* Charts-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Charts-umbrella.h"; sourceTree = "<group>"; };
 		2F0F64B61D895700E6955331171BF12E /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		2F478340D83D0F4AE8BCEE5AEA8281B2 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/SQLite/Typed/Operators.swift; sourceTree = "<group>"; };
-		2F4A1CCB21DB7EA5A2ACEB11E374FBCA /* JXPagingView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JXPagingView.framework; path = JXPagingView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F4A1CCB21DB7EA5A2ACEB11E374FBCA /* JXPagingView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JXPagingView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD7225D2878BB4C08D7F73658E6AC67 /* IQKeyboardManagerConstantsInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardManagerConstantsInternal.swift; path = IQKeyboardManagerSwift/Constants/IQKeyboardManagerConstantsInternal.swift; sourceTree = "<group>"; };
 		3119F00BE879CE9145EAF424C91681F9 /* UILabelLayoutManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UILabelLayoutManagerDelegate.swift; path = Sources/Extension/UIKit/UILabel/UILabelLayoutManagerDelegate.swift; sourceTree = "<group>"; };
 		314956E51C13CC63793FC11CE7FD44E1 /* CLImagePickerTool.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CLImagePickerTool.modulemap; sourceTree = "<group>"; };
@@ -1248,7 +1248,7 @@
 		330EAD1E133633FDEC3A6B3F7659D76E /* LTCharacterDiffResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LTCharacterDiffResult.swift; path = LTMorphingLabel/LTCharacterDiffResult.swift; sourceTree = "<group>"; };
 		337BEC433EF7735D61AF0BD2BEB0010E /* JXPhotoBrowserNoneAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPhotoBrowserNoneAnimator.swift; path = Sources/JXPhotoBrowser/JXPhotoBrowserNoneAnimator.swift; sourceTree = "<group>"; };
 		33A8261ED63768B083F8DD656787CFBF /* MJRefreshConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshConst.m; path = MJRefresh/MJRefreshConst.m; sourceTree = "<group>"; };
-		33A8CE0CE874714076FF1562BEE82686 /* CLImagePickerTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CLImagePickerTool.framework; path = CLImagePickerTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33A8CE0CE874714076FF1562BEE82686 /* CLImagePickerTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CLImagePickerTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		341B34B2BB7941204D6569E7F4264B31 /* IQToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQToolbar.swift; path = IQKeyboardManagerSwift/IQToolbar/IQToolbar.swift; sourceTree = "<group>"; };
 		3500EA665A552E0877EEA3DD63DF806A /* MJRefreshHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHeader.m; path = MJRefresh/Base/MJRefreshHeader.m; sourceTree = "<group>"; };
 		357CE2B5E3E9C3891C6B79E10783EB70 /* LineRadarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineRadarChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/LineRadarChartDataSet.swift; sourceTree = "<group>"; };
@@ -1297,7 +1297,7 @@
 		3FD8B51B17F3B4E8F2568D241433844F /* HostConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HostConfig.swift; sourceTree = "<group>"; };
 		3FFE0BBCC36C06DA37EC8979D963187F /* Platform+Color.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Platform+Color.swift"; path = "Source/Charts/Utils/Platform+Color.swift"; sourceTree = "<group>"; };
 		402FC2E039FDD368F88BC9172CE98157 /* Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Sources/Extension/Extension.swift; sourceTree = "<group>"; };
-		40C3527C6078478B48430D6EF1375194 /* CLImagePickerTool.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CLImagePickerTool.bundle; path = "CLImagePickerTool-CLImagePickerTool.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C3527C6078478B48430D6EF1375194 /* CLImagePickerTool.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLImagePickerTool.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		40F9FD9B9025F86A3BAEE62AB1553BA6 /* BarHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarHighlighter.swift; path = Source/Charts/Highlight/BarHighlighter.swift; sourceTree = "<group>"; };
 		41F79AFBD9A355E96AB33C442A22964B /* JXSegmentedComponetGradientView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedComponetGradientView.swift; path = Sources/Indicator/JXSegmentedComponetGradientView.swift; sourceTree = "<group>"; };
 		4202950886BBD1E92B0CB25F31EF0F7D /* JXPhotoBrowserImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPhotoBrowserImageView.swift; path = Sources/JXPhotoBrowser/JXPhotoBrowserImageView.swift; sourceTree = "<group>"; };
@@ -1369,7 +1369,7 @@
 		5C3DC2417F92075843DCF82421E4A503 /* CLCircleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLCircleView.swift; path = CLImagePickerTool/CLImagePickerTool/views/CLCircleView.swift; sourceTree = "<group>"; };
 		5C54974657037512C5AC65D7A26CB628 /* CustomFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomFunctions.swift; path = Sources/SQLite/Typed/CustomFunctions.swift; sourceTree = "<group>"; };
 		5C75E3C964C5CC980C6B57EB0E69FD0A /* ic_pen@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_pen@3x.png"; path = "CLImagePickerTool/CLImagePickerTool/images/ic_pen@3x.png"; sourceTree = "<group>"; };
-		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DD5A39B05551E962B5C461AF9270B85 /* CollectionReloadable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionReloadable.swift; sourceTree = "<group>"; };
 		5E1D663A7F34A98E942F65A49CD057ED /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallClipRotateMultiple.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationBallClipRotateMultiple.swift; sourceTree = "<group>"; };
 		5E61AE666E2C4A63011A8438C681AAA2 /* CBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBridge.swift; path = Source/CBridge.swift; sourceTree = "<group>"; };
@@ -1530,7 +1530,7 @@
 		8687BF2616F901A44B0FFD5B3FE78BCE /* JXPhotoBrowser-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JXPhotoBrowser-prefix.pch"; sourceTree = "<group>"; };
 		86C9B917F916423AED8B4B30C0CFC597 /* CLImagePickerTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLImagePickerTool.swift; path = CLImagePickerTool/CLImagePickerTool/CLImagePickerTool.swift; sourceTree = "<group>"; };
 		86D82258C69CC524E78452A9A9842118 /* NVActivityIndicatorAnimationBallDoubleBounce.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallDoubleBounce.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationBallDoubleBounce.swift; sourceTree = "<group>"; };
-		86F349B277117008A9BE973D555FE657 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		86F349B277117008A9BE973D555FE657 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		874FCF24762E011390A2F2FAB5FB8473 /* CrossShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrossShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/CrossShapeRenderer.swift; sourceTree = "<group>"; };
 		8753FC3FBAF4A62F297DA471093E1464 /* BubbleChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/BubbleChartDataSet.swift; sourceTree = "<group>"; };
 		878EB9937E37326CA32571A326388986 /* MJRefreshGifHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshGifHeader.m; path = MJRefresh/Custom/Header/MJRefreshGifHeader.m; sourceTree = "<group>"; };
@@ -1591,7 +1591,7 @@
 		97397C37FDB6D8D8E6856919DD3723F2 /* NVActivityIndicatorAnimationPacman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationPacman.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationPacman.swift; sourceTree = "<group>"; };
 		97625CE61FB701E2E2908956AE0826BE /* SwiftyUserDefaults-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyUserDefaults-Info.plist"; sourceTree = "<group>"; };
 		9807550908A698E6E0F70FA52D221772 /* Sequence+Json.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Sequence+Json.swift"; sourceTree = "<group>"; };
-		982BADC1D46A50A21AA98C405446E4AC /* LHTools.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LHTools.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		982BADC1D46A50A21AA98C405446E4AC /* LHTools.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = LHTools.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98624195A456905E9F7B498A0C613572 /* ClosureLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ClosureLayout.swift; sourceTree = "<group>"; };
 		9969B4D059C2B1C22763A194B18CF4DF /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
 		998AE8F14D8968018402FDC898484393 /* AnyViewSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnyViewSource.swift; sourceTree = "<group>"; };
@@ -1603,11 +1603,11 @@
 		9CA06ACF35E9FDDCEDDADE30E0471846 /* Interpolation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Interpolation.swift; path = Sources/Interpolation.swift; sourceTree = "<group>"; };
 		9CDDB1A62A16B8E8714C77068EABD737 /* CLImagePickerListCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = CLImagePickerListCell.xib; path = CLImagePickerTool/CLImagePickerTool/views/CLImagePickerListCell.xib; sourceTree = "<group>"; };
 		9D43EB648074E61F1B6B1BE1DE3B1794 /* NVActivityIndicatorAnimationBallScale.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallScale.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationBallScale.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DD422834FE3D12941D7E67DAC24C87D /* SimpleLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SimpleLayout.swift; sourceTree = "<group>"; };
 		9E4364276D2DC7C92AC82D1E105238C2 /* FTS4.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS4.swift; path = Sources/SQLite/Extensions/FTS4.swift; sourceTree = "<group>"; };
 		9E4BC0D7F89FF4A40AD654E3EA051571 /* JXPagingView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JXPagingView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E834D35A9C1135C10DD24411CC02008 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		9E834D35A9C1135C10DD24411CC02008 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9EC7813D9FB41CBE8D21263FC2F620FA /* IHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IHighlighter.swift; path = Source/Charts/Highlight/IHighlighter.swift; sourceTree = "<group>"; };
 		9EFC39E048E00A1903BDA3F64C92677E /* CGSizeExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGSizeExtension.swift; path = Sources/Extension/CoreGraphics/CGSizeExtension.swift; sourceTree = "<group>"; };
 		9F33E785AF36D023DB003B981FFAF0E6 /* ic_msk_grey@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_msk_grey@3x.png"; path = "CLImagePickerTool/CLImagePickerTool/images/ic_msk_grey@3x.png"; sourceTree = "<group>"; };
@@ -1618,8 +1618,8 @@
 		A0C8F1A6BF6852AEE830AD72148B9CA4 /* BuiltIns.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BuiltIns.swift; path = Sources/BuiltIns.swift; sourceTree = "<group>"; };
 		A0F45786D9506419C8789B398B64F5FA /* JXSegmentedTitleGradientItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleGradientItemModel.swift; path = Sources/TitleGradient/JXSegmentedTitleGradientItemModel.swift; sourceTree = "<group>"; };
 		A0F46948C97804B1CC97FF1350DF61F1 /* JXPhotoBrowser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JXPhotoBrowser-dummy.m"; sourceTree = "<group>"; };
-		A1B9F27862201CD82B398E0B35B14128 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NVActivityIndicatorView.framework; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1C1B977ED8804E8AEEC884E7359EE58 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Charts.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B9F27862201CD82B398E0B35B14128 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1C1B977ED8804E8AEEC884E7359EE58 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DB499F94439CE78A6F9BD6CE73D54F /* ILineChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ILineChartDataSet.swift; path = Source/Charts/Data/Interfaces/ILineChartDataSet.swift; sourceTree = "<group>"; };
 		A20AFAAD82C64E458D423862CE1B4584 /* Platform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Source/Charts/Utils/Platform.swift; sourceTree = "<group>"; };
 		A21060CD6F5BBB4873068DC248F8FFBD /* Measuable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Measuable.swift; path = Source/Measuable.swift; sourceTree = "<group>"; };
@@ -1648,7 +1648,7 @@
 		A8C3238D278427FD6C45302CCB481F95 /* HandyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HandyJSON.modulemap; sourceTree = "<group>"; };
 		A8E07C9E4A1152286E2FEC49D538D8DA /* NVActivityIndicatorView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NVActivityIndicatorView.release.xcconfig; sourceTree = "<group>"; };
 		A8E52FE2E80C0478254EAEE143D4D739 /* LayoutContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LayoutContext.swift; sourceTree = "<group>"; };
-		A8E950A16D00F649C54FFB30F81D7842 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IQKeyboardManagerSwift.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8E950A16D00F649C54FFB30F81D7842 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8EB3C0A3038FA514884E6A98C725E8E /* JXSegmentedTitleImageCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleImageCell.swift; path = Sources/TitleImage/JXSegmentedTitleImageCell.swift; sourceTree = "<group>"; };
 		A926516D970F7478FB4C6FF7E59F3B78 /* ResourceBundle-CLImagePickerTool-CLImagePickerTool-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-CLImagePickerTool-CLImagePickerTool-Info.plist"; sourceTree = "<group>"; };
 		A9309B4CC14BA34A1B7A611566823230 /* ScatterChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartData.swift; path = Source/Charts/Data/Implementations/Standard/ScatterChartData.swift; sourceTree = "<group>"; };
@@ -1704,7 +1704,7 @@
 		B589C900498E8F592A23BE98C4091B6B /* ic_redo@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ic_redo@3x.png"; path = "CLImagePickerTool/CLImagePickerTool/images/ic_redo@3x.png"; sourceTree = "<group>"; };
 		B656ABC3D59471A6683C2C568794FEFF /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Indicator.swift; sourceTree = "<group>"; };
 		B6F420CBAFE6E4542B3C48D8AAF4535C /* PieHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieHighlighter.swift; path = Source/Charts/Highlight/PieHighlighter.swift; sourceTree = "<group>"; };
-		B7715718A7E1E513F9BC2E99B977FCA9 /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyUserDefaults.framework; path = SwiftyUserDefaults.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7715718A7E1E513F9BC2E99B977FCA9 /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyUserDefaults.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7BC45CBB418ADE8921EBEFD83B62E7F /* Blob.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Blob.swift; path = Sources/SQLite/Core/Blob.swift; sourceTree = "<group>"; };
 		B7C072B458C617731850389A02033348 /* InputBrush.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputBrush.swift; path = CLImagePickerTool/CLImagePickerTool/Board/InputBrush.swift; sourceTree = "<group>"; };
 		B7DBC8A26196DAFF33CFC200C2913305 /* EnumTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnumTransform.swift; path = Source/EnumTransform.swift; sourceTree = "<group>"; };
@@ -1721,7 +1721,7 @@
 		BA6A293B45310599C22220A0B2D54532 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		BAA7D31A8D836214652E40A4AF7EDDA1 /* BasicProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BasicProvider.swift; sourceTree = "<group>"; };
 		BAB23B4B048FDEEA398A237E8B0990E1 /* Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kingfisher.swift; path = Sources/Kingfisher.swift; sourceTree = "<group>"; };
-		BB5D9D48EB2D3C90E04F14B1A2AA089E /* Pods_LHTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LHTools_Tests.framework; path = "Pods-LHTools_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB5D9D48EB2D3C90E04F14B1A2AA089E /* Pods_LHTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHTools_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8593988EC3537AF3F3D13B4B3D4334 /* Range.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Range.swift; path = Source/Charts/Highlight/Range.swift; sourceTree = "<group>"; };
 		BBA0192E5378E21E847D3BF9F4FB3F49 /* Array+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
 		BBEBB1B02E4570680C1C9C3A1C57B5EB /* LHTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LHTools.release.xcconfig; sourceTree = "<group>"; };
@@ -1742,7 +1742,7 @@
 		C116749E1045749EFD8700DCE19EB385 /* ItemProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ItemProvider.swift; sourceTree = "<group>"; };
 		C11E33A57523544CB5A040E90206C201 /* NVActivityIndicatorAnimationLineScalePulseOut.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationLineScalePulseOut.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationLineScalePulseOut.swift; sourceTree = "<group>"; };
 		C1A34DBD877C40F661EA9D699ECC2C5E /* BMConst.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BMConst.swift; path = LHTools/Classes/BMConst.swift; sourceTree = "<group>"; };
-		C1A6BF3FA6BA3357BF0BF3A1A3FB1511 /* LHTools.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = LHTools.bundle; path = "LHTools-LHTools.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1A6BF3FA6BA3357BF0BF3A1A3FB1511 /* LHTools.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LHTools.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20B6320375DAD7F379D0704E20C5C7D /* Description.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Description.swift; path = Source/Charts/Components/Description.swift; sourceTree = "<group>"; };
 		C248A7CC01C61FC2BAFD7E24BE3592CB /* LTMorphingLabel+Sparkle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LTMorphingLabel+Sparkle.swift"; path = "LTMorphingLabel/LTMorphingLabel+Sparkle.swift"; sourceTree = "<group>"; };
 		C2C7D22F719C1D2FC4F3FCA9B9DB14BF /* ScatterChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartRenderer.swift; path = Source/Charts/Renderers/ScatterChartRenderer.swift; sourceTree = "<group>"; };
@@ -1751,7 +1751,7 @@
 		C3346534750E60B88B4E777ED1EE7567 /* CALayer+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CALayer+Hero.swift"; path = "Sources/Extensions/CALayer+Hero.swift"; sourceTree = "<group>"; };
 		C351E0B3BAE2548E7B0AE986BF8415BB /* AnimatedZoomViewJob.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedZoomViewJob.swift; path = Source/Charts/Jobs/AnimatedZoomViewJob.swift; sourceTree = "<group>"; };
 		C3F27116CFF1E7E7A65E4B7095D7D299 /* XAxisRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxisRenderer.swift; path = Source/Charts/Renderers/XAxisRenderer.swift; sourceTree = "<group>"; };
-		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3F44C782D64D7EB20B61CE3844EBFAD /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C455C6F9E20199F24DD50B9C142ADCC9 /* JXPagingSmoothView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPagingSmoothView.swift; path = Sources/JXPagingView/JXPagingSmoothView.swift; sourceTree = "<group>"; };
 		C57D061AEC694B25E79DA83F9D699599 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		C5855D00E704272D6165E7D479507792 /* NVActivityIndicatorAnimationCubeTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationCubeTransition.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationCubeTransition.swift; sourceTree = "<group>"; };
@@ -1783,7 +1783,7 @@
 		CC92C6AB671F174C9F6CFEF92DA97F07 /* SQLiteObjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLiteObjc.h; path = Sources/SQLiteObjc/include/SQLiteObjc.h; sourceTree = "<group>"; };
 		CC9B0A896FD041DD50BDB6B903B9DBAC /* HeroTargetState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTargetState.swift; path = Sources/HeroTargetState.swift; sourceTree = "<group>"; };
 		CCDC959D6EAA5DCBEF6C1CC555407230 /* Deserializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deserializer.swift; path = Source/Deserializer.swift; sourceTree = "<group>"; };
-		CD54121DDA84872534168702B5F92950 /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HandyJSON.framework; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD54121DDA84872534168702B5F92950 /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE41C48963D31BAF57FCECD59E6CB36 /* UIScrollView+CollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIScrollView+CollectionKit.swift"; sourceTree = "<group>"; };
 		CDF92D4B22E96242738AA7E2BC9B17B9 /* MJRefreshStateTrailer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateTrailer.m; path = MJRefresh/Custom/Trailer/MJRefreshStateTrailer.m; sourceTree = "<group>"; };
 		CDFA8055E8F0D3BBDCE41BBE70803B83 /* CLPreviewVideoCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLPreviewVideoCell.swift; path = CLImagePickerTool/CLImagePickerTool/views/CLPreviewVideoCell.swift; sourceTree = "<group>"; };
@@ -1827,7 +1827,7 @@
 		D687BF92E50095431B1B5B96BF1A9816 /* SQLite.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SQLite.swift-dummy.m"; sourceTree = "<group>"; };
 		D68B1F8D9CAA29640AB8281071947FAF /* JXPhotoBrowserZoomAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXPhotoBrowserZoomAnimator.swift; path = Sources/JXPhotoBrowser/JXPhotoBrowserZoomAnimator.swift; sourceTree = "<group>"; };
 		D6A7F6607256BDEFAD0978693BBB61E2 /* Fill.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fill.swift; path = Source/Charts/Utils/Fill.swift; sourceTree = "<group>"; };
-		D6E0B0A39E7074DF849331BEB9BDF550 /* AttributedString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AttributedString.framework; path = AttributedString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E0B0A39E7074DF849331BEB9BDF550 /* AttributedString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AttributedString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7335F378DC7048F4686871C659419BF /* photo_sel_photoPicker.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = photo_sel_photoPicker.png; path = CLImagePickerTool/CLImagePickerTool/images/photo_sel_photoPicker.png; sourceTree = "<group>"; };
 		D7847FF25A40F21DC4FFA9A2FEE8F3BB /* AttributedString-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AttributedString-Info.plist"; sourceTree = "<group>"; };
 		D794EB4B0558EDAD1986C7309D1FD26E /* IRadarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IRadarChartDataSet.swift; path = Source/Charts/Data/Interfaces/IRadarChartDataSet.swift; sourceTree = "<group>"; };
@@ -1850,7 +1850,7 @@
 		DC605AA6689932CFBEDA0DBEF1C517B5 /* JXSegmentedAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedAnimator.swift; path = Sources/Common/JXSegmentedAnimator.swift; sourceTree = "<group>"; };
 		DCBB41F66A6F79F70C968655F10887B4 /* DefaultsKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultsKey.swift; path = Sources/DefaultsKey.swift; sourceTree = "<group>"; };
 		DCC0E235F94D9FDE50A46822440E47E4 /* LineScatterCandleRadarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineScatterCandleRadarChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/LineScatterCandleRadarChartDataSet.swift; sourceTree = "<group>"; };
-		DCF1D9D6A9C0AF7C45EED09AEFD74CB3 /* city_db.sqlite */ = {isa = PBXFileReference; includeInIndex = 1; name = city_db.sqlite; path = LHTools/Assets/city_db.sqlite; sourceTree = "<group>"; };
+		DCF1D9D6A9C0AF7C45EED09AEFD74CB3 /* city_db.sqlite */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = city_db.sqlite; path = LHTools/Assets/city_db.sqlite; sourceTree = "<group>"; };
 		DD3A01B5EE4895F237B9F6CA87D4611E /* Pods-LHTools_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LHTools_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DD5FD24081F2F4B27F268BB63FF75618 /* Pods-LHTools_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LHTools_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		DD7B0C9BDF73F26980E78AE5CC65D115 /* JXSegmentedDotItemModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedDotItemModel.swift; path = Sources/Dot/JXSegmentedDotItemModel.swift; sourceTree = "<group>"; };
@@ -1860,7 +1860,7 @@
 		DE93F870F83D844FD2DBA263EC95C328 /* BaseBrush.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseBrush.swift; path = CLImagePickerTool/CLImagePickerTool/Board/BaseBrush.swift; sourceTree = "<group>"; };
 		DEFFDA85BD72F58BE09B8874833C5B70 /* Pods-LHTools_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LHTools_Example.modulemap"; sourceTree = "<group>"; };
 		DF16455901E179224C6E9DB5152E2842 /* NVActivityIndicatorAnimationBallZigZag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallZigZag.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationBallZigZag.swift; sourceTree = "<group>"; };
-		DF2EFC84DCB3A04F0D3A1F8825DE3DCC /* LHTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LHTools.framework; path = LHTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF2EFC84DCB3A04F0D3A1F8825DE3DCC /* LHTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LHTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3DA806B4240AF93131589C8E9F2551 /* MJRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJRefresh.release.xcconfig; sourceTree = "<group>"; };
 		DF484C60BED27E1B5A9FE4B8346835A9 /* SwiftyUserDefaults-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyUserDefaults-dummy.m"; sourceTree = "<group>"; };
 		DFD7F6052DF86F4ED6C010EA874CEDD0 /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Kingfisher.modulemap; sourceTree = "<group>"; };
@@ -1880,7 +1880,7 @@
 		E367D36AA71980841C5DACF3024C5274 /* HeroPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroPlugin.swift; path = Sources/HeroPlugin.swift; sourceTree = "<group>"; };
 		E42F39BBA553FC4161D80C81B722E5F8 /* BuiltInBridgeType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BuiltInBridgeType.swift; path = Source/BuiltInBridgeType.swift; sourceTree = "<group>"; };
 		E46AE891D4D43FFB0D621D584C201B4E /* Statement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = Sources/SQLite/Core/Statement.swift; sourceTree = "<group>"; };
-		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MJRefresh.framework; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E49D6D248DD1CEE584E6776B9164A1B2 /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56BDE3B856E5E6D8AC5EE715E8CD89E /* NavgationVCExt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavgationVCExt.swift; path = CLImagePickerTool/CLImagePickerTool/Category/NavgationVCExt.swift; sourceTree = "<group>"; };
 		E57B733D8820DCB4EA85AB19E78761C1 /* Hero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hero.release.xcconfig; sourceTree = "<group>"; };
 		E586CB77D25075D3802EFD7E6A373750 /* NVActivityIndicatorAnimationBallPulseRise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallPulseRise.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationBallPulseRise.swift; sourceTree = "<group>"; };
@@ -1934,7 +1934,7 @@
 		F4AE8EE0D169025F9D441F194F414521 /* BubbleChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleChartData.swift; path = Source/Charts/Data/Implementations/Standard/BubbleChartData.swift; sourceTree = "<group>"; };
 		F4DA9259CFEE220811C19A9E6366FDC2 /* ChartDataEntryBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartDataEntryBase.swift; path = Source/Charts/Data/Implementations/Standard/ChartDataEntryBase.swift; sourceTree = "<group>"; };
 		F5327C468C05FA593671283E5B4B4D0B /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
-		F5FA45A44C42CC2CA3A324A3E914CE19 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SQLite.framework; path = SQLite.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5FA45A44C42CC2CA3A324A3E914CE19 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F714933F5939DC6DCA8C12531D7D4EF4 /* IQInvocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQInvocation.swift; path = IQKeyboardManagerSwift/IQToolbar/IQInvocation.swift; sourceTree = "<group>"; };
 		F7302DEB5B325B3D02E73D5D732F37C9 /* DefaultsBridges.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultsBridges.swift; path = Sources/DefaultsBridges.swift; sourceTree = "<group>"; };
 		F74292835F8D057F22EE5D59FC7C16E6 /* RectangleBrush.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RectangleBrush.swift; path = CLImagePickerTool/CLImagePickerTool/Board/RectangleBrush.swift; sourceTree = "<group>"; };
@@ -2182,7 +2182,6 @@
 			children = (
 				D20C3E8E21FCCB04D73D47B5C100FB3F /* Kingfisher+Utils.swift */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -2234,7 +2233,6 @@
 				7CB34330069BB13F964FBD67D63C9DED /* JXSegmentedViewTool.swift */,
 				CFDB3E198E11C09A2F169B1BBA13E2D1 /* Support Files */,
 			);
-			name = JXSegmentedView;
 			path = JXSegmentedView;
 			sourceTree = "<group>";
 		};
@@ -2348,7 +2346,6 @@
 				020BA463A4BB6379CBF107D0946738DF /* UIViewController+Hero.swift */,
 				A52CBD9C5E46613D0BC7F5FC306486DB /* Support Files */,
 			);
-			name = Hero;
 			path = Hero;
 			sourceTree = "<group>";
 		};
@@ -2359,7 +2356,6 @@
 				A9F9578515335DAFF17158FCE68051BC /* CycleCell.swift */,
 				B8DEE38FB285A1E9CE168A99DF0B29B0 /* CycleView.swift */,
 			);
-			name = "轮播";
 			path = "轮播";
 			sourceTree = "<group>";
 		};
@@ -2370,7 +2366,6 @@
 				FE490DBBD4BADC763093C0D4672DD54B /* Dictionary+Utils.swift */,
 				9807550908A698E6E0F70FA52D221772 /* Sequence+Json.swift */,
 			);
-			name = Set;
 			path = Set;
 			sourceTree = "<group>";
 		};
@@ -2404,7 +2399,6 @@
 				C995B5A28BEFC2EE22D90AECCB0EFBB0 /* Validation.swift */,
 				B6EFBF778DA1270AC4D3C7F01A7082C2 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -2499,7 +2493,6 @@
 			children = (
 				147DA74272ED70015E4A3D1FD631958C /* UIColor+Utils.swift */,
 			);
-			name = Color;
 			path = Color;
 			sourceTree = "<group>";
 		};
@@ -2542,7 +2535,6 @@
 				26EB99E0C864A15E61387373190BB3C4 /* UIImageSizeSource.swift */,
 				D59378E5C3CB1F7A3A1BB3DDBAC87359 /* ViewSource.swift */,
 			);
-			name = "Source数据源";
 			path = "Source数据源";
 			sourceTree = "<group>";
 		};
@@ -2551,7 +2543,6 @@
 			children = (
 				B4864CB90773CB980211B12F701A3814 /* NibLoadable.swift */,
 			);
-			name = Xib;
 			path = Xib;
 			sourceTree = "<group>";
 		};
@@ -2565,7 +2556,6 @@
 				248CD94AA49B1D3715AC68294271B750 /* Source数据源 */,
 				B87F097FC76E3554F78DD90D09DF222C /* Utils */,
 			);
-			name = CollectionKit;
 			path = CollectionKit;
 			sourceTree = "<group>";
 		};
@@ -2578,7 +2568,6 @@
 				01D46391754CB0474BB78A78BDA29A67 /* BMSinglePicker.swift */,
 				DBD576A03836E116B73C6637EE9E23AB /* CityDataBase */,
 			);
-			name = CustomPicker;
 			path = CustomPicker;
 			sourceTree = "<group>";
 		};
@@ -2587,7 +2576,6 @@
 			children = (
 				3FD8B51B17F3B4E8F2568D241433844F /* HostConfig.swift */,
 			);
-			name = "测试服切换工具";
 			path = "测试服切换工具";
 			sourceTree = "<group>";
 		};
@@ -2612,7 +2600,6 @@
 				39BB828AE0636C221FE38D0182EB68CB /* Number+Formate.swift */,
 				5EF8A37F68FEF9BC8032A018F22C7CA7 /* Number+String.swift */,
 			);
-			name = Number;
 			path = Number;
 			sourceTree = "<group>";
 		};
@@ -2621,7 +2608,6 @@
 			children = (
 				E22E96B559521F00AE76DAD00F25205E /* DOFavoriteButton.swift */,
 			);
-			name = "点赞动画";
 			path = "点赞动画";
 			sourceTree = "<group>";
 		};
@@ -2632,7 +2618,6 @@
 				7CAED7BD7FB04DDD354E15F193399BF0 /* CollectionReuseViewManager.swift */,
 				53092D5093F2DC0902B27BC8554F531B /* CollectionView.swift */,
 			);
-			name = Base;
 			path = Base;
 			sourceTree = "<group>";
 		};
@@ -2672,7 +2657,6 @@
 				DED2270DD45994DE9E0C1DDCB3B8CF1A /* standard */,
 				5D7FDBD898CE10100CE6EC94406CA6F5 /* Support Files */,
 			);
-			name = SQLite.swift;
 			path = SQLite.swift;
 			sourceTree = "<group>";
 		};
@@ -2697,7 +2681,6 @@
 			children = (
 				890F51568851364669806B51B71CEAEF /* BMIndicatorView.swift */,
 			);
-			name = "加载等待";
 			path = "加载等待";
 			sourceTree = "<group>";
 		};
@@ -2721,7 +2704,6 @@
 				AFB2AAD58812E3DD6FE7EAFC5A21FB95 /* Date+String.swift */,
 				DB9DB9FF6398324A43DD56E58025CA5D /* Date+Utils.swift */,
 			);
-			name = Date;
 			path = Date;
 			sourceTree = "<group>";
 		};
@@ -2766,7 +2748,6 @@
 				6E4FEE9C0C9B8DAECF5DFAC8011CDC44 /* URLTransform.swift */,
 				CAD7A6137DE38098FCC0571903551C59 /* Support Files */,
 			);
-			name = HandyJSON;
 			path = HandyJSON;
 			sourceTree = "<group>";
 		};
@@ -2820,7 +2801,6 @@
 				F3029806E34EE0C95CF021348C156CAA /* 多图选择控件 */,
 				C2D97C976E9E1C53D2DE8737733DD1D3 /* 快速上传 */,
 			);
-			name = "图片上传";
 			path = "图片上传";
 			sourceTree = "<group>";
 		};
@@ -2882,7 +2862,6 @@
 				643B05FD3F480F584D5CDE6C1DEC7B3D /* Paging */,
 				C2AB076334B21F3A3C5ADCB80A610209 /* Support Files */,
 			);
-			name = JXPagingView;
 			path = JXPagingView;
 			sourceTree = "<group>";
 		};
@@ -2892,7 +2871,6 @@
 				DC91B1BA6DB945FD62CDF1CC84139C98 /* Core */,
 				2917592B8889A5E07D947C9FA06E3CFD /* Support Files */,
 			);
-			name = Charts;
 			path = Charts;
 			sourceTree = "<group>";
 		};
@@ -2902,7 +2880,6 @@
 				3A192BB5AB7018A947B6347B04F4119A /* Network.swift */,
 				EEA4036C0F561548280EBDB46D61C91D /* ZBJsonModel.swift */,
 			);
-			name = "请求";
 			path = "请求";
 			sourceTree = "<group>";
 		};
@@ -2924,7 +2901,6 @@
 				1C2A4CF5E8BE100FC69AC534AA54AF0B /* SimpleViewProvider.swift */,
 				1E485DB36E06ABDC4D28280A8B776718 /* SpaceProvider.swift */,
 			);
-			name = Provider;
 			path = Provider;
 			sourceTree = "<group>";
 		};
@@ -2933,7 +2909,6 @@
 			children = (
 				0468ED9D9254F9BB6B70DA676EC9F1D0 /* BMTimeIntervalPicker.swift */,
 			);
-			name = "时间段选择器";
 			path = "时间段选择器";
 			sourceTree = "<group>";
 		};
@@ -2942,7 +2917,6 @@
 			children = (
 				104A748B3C05F4A00492E3A4E760729F /* Bundle+Extensions.swift */,
 			);
-			name = "获取文件";
 			path = "获取文件";
 			sourceTree = "<group>";
 		};
@@ -2951,7 +2925,6 @@
 			children = (
 				2E18CE8EDB01E27C20C9F7CCC8E1B1CB /* BMCache.swift */,
 			);
-			name = "缓存";
 			path = "缓存";
 			sourceTree = "<group>";
 		};
@@ -2962,7 +2935,6 @@
 				80480D6A322D4C0FAD1AF193E7AED1C1 /* Hud.swift */,
 				8677294C3D87FC6C4CA190093AD4A875 /* MBProgressHud.swift */,
 			);
-			name = "提示框";
 			path = "提示框";
 			sourceTree = "<group>";
 		};
@@ -3016,7 +2988,6 @@
 				167DB4A4E0586DF67F1AAE143F627F1B /* Resources */,
 				05DFCCDDB5CC2C463485A92AFEAB88A7 /* Support Files */,
 			);
-			name = CLImagePickerTool;
 			path = CLImagePickerTool;
 			sourceTree = "<group>";
 		};
@@ -3026,7 +2997,6 @@
 				E16AC1C64B5D99E75AED6ADBAC577C58 /* JXPopupView.swift */,
 				D887878EE7362FBCB6B3B9150EB758AC /* PopViewManager.swift */,
 			);
-			name = PopView;
 			path = PopView;
 			sourceTree = "<group>";
 		};
@@ -3037,7 +3007,6 @@
 				01990692617F3B8EE1EC755A42AB6A50 /* String+Substring.swift */,
 				CC413EE88E9B8B05451897CDCDA5361D /* String+Utils.swift */,
 			);
-			name = String;
 			path = String;
 			sourceTree = "<group>";
 		};
@@ -3049,7 +3018,6 @@
 				B1E24B2A0EA17B3E1E7450BDC5171ED8 /* ScaleAnimator.swift */,
 				AA219BD37A4729B46D9639113A578024 /* SimpleAnimator.swift */,
 			);
-			name = "Animator动画";
 			path = "Animator动画";
 			sourceTree = "<group>";
 		};
@@ -3088,7 +3056,6 @@
 				ECD2FBE59D61BC89BD1D62673199912F /* JXPhotoBrowserZoomSupportedCell.swift */,
 				E688C53C3D749C50E9961391AC7BE82F /* Support Files */,
 			);
-			name = JXPhotoBrowser;
 			path = JXPhotoBrowser;
 			sourceTree = "<group>";
 		};
@@ -3097,7 +3064,6 @@
 			children = (
 				67B2E43B1B15758A1B951DE8FD6B2C56 /* BMScaleView.swift */,
 			);
-			name = "图片缩放预览";
 			path = "图片缩放预览";
 			sourceTree = "<group>";
 		};
@@ -3107,7 +3073,6 @@
 				03E7EEF532CE9C4C3DEBD786C9B7F0FC /* BMPicker.swift */,
 				27936176B97445AC9266111C85C2C943 /* CustomPicker */,
 			);
-			name = "选择器";
 			path = "选择器";
 			sourceTree = "<group>";
 		};
@@ -3179,7 +3144,6 @@
 				A9552397E84FF084B589675EBA31A960 /* IQUIViewController+Additions.swift */,
 				3A7F520511452A6CF564C55B8CFCB3A4 /* Support Files */,
 			);
-			name = IQKeyboardManagerSwift;
 			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
 		};
@@ -3200,7 +3164,6 @@
 				130BAD3BB7FE9016133972B402319C55 /* WaterfallLayout.swift */,
 				7127A6A1F501D3F7606441235B209F34 /* WrapperLayout.swift */,
 			);
-			name = Layout;
 			path = Layout;
 			sourceTree = "<group>";
 		};
@@ -3228,7 +3191,6 @@
 				CDE41C48963D31BAF57FCECD59E6CB36 /* UIScrollView+CollectionKit.swift */,
 				4C31AC9633EDBE0EAC0AAF6AC6DF1500 /* UIView+CollectionKit.swift */,
 			);
-			name = Utils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -3252,7 +3214,6 @@
 				01A6A6E927674A8C64A384E62DC921B3 /* Resources */,
 				E0F536A54C76E4A82FA8C7E36364B291 /* Support Files */,
 			);
-			name = LTMorphingLabel;
 			path = LTMorphingLabel;
 			sourceTree = "<group>";
 		};
@@ -3276,7 +3237,6 @@
 			children = (
 				C8972D9F8A207BE1B02EBA956718FFB2 /* ImageChooseTools.swift */,
 			);
-			name = "快速上传";
 			path = "快速上传";
 			sourceTree = "<group>";
 		};
@@ -3323,7 +3283,6 @@
 			children = (
 				B11530BC03419D3AF3209AD56C5DB8F8 /* UINavigationController+Utils.swift */,
 			);
-			name = Nav;
 			path = Nav;
 			sourceTree = "<group>";
 		};
@@ -3388,7 +3347,6 @@
 				2734406A89043C234CA59B49439AAF2C /* UITextViewExtension.swift */,
 				95E9538C6A485C43B36A935870D78886 /* Support Files */,
 			);
-			name = AttributedString;
 			path = AttributedString;
 			sourceTree = "<group>";
 		};
@@ -3400,7 +3358,6 @@
 				23EE96ED2F64F70FE8194342A38B13E2 /* UIView+IBInspectable.swift */,
 				6B4D8ECD93ED3CE7078E718F0D67E817 /* UIView+Utils.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -3422,7 +3379,6 @@
 				0BBD3F89B011F2ADEAC87B889006EC2E /* PropertyWrappers.swift */,
 				FDAD7BBCEA2FD66D8C8CDF2FDDC7E19D /* Support Files */,
 			);
-			name = SwiftyUserDefaults;
 			path = SwiftyUserDefaults;
 			sourceTree = "<group>";
 		};
@@ -3432,7 +3388,6 @@
 				038396319F5D84FB8E94FE5D825FF0C6 /* LHLimitWordTF.swift */,
 				3952ACB90B50FDEE0082D4B0F09B52F6 /* LHTextField.swift */,
 			);
-			name = "输入框限制";
 			path = "输入框限制";
 			sourceTree = "<group>";
 		};
@@ -3454,7 +3409,6 @@
 			children = (
 				A001D5801244353FD814D1E0B8762B6D /* CityDBManager.swift */,
 			);
-			name = CityDataBase;
 			path = CityDataBase;
 			sourceTree = "<group>";
 		};
@@ -3610,7 +3564,6 @@
 			children = (
 				642110902ADB0654F44CFB056D683F0B /* QRCodeManager.swift */,
 			);
-			name = "二维码";
 			path = "二维码";
 			sourceTree = "<group>";
 		};
@@ -3619,7 +3572,6 @@
 			children = (
 				4CA0C5D1A695B8D20492D0E4F0F80420 /* ConstantsLayout.swift */,
 			);
-			name = "约束";
 			path = "约束";
 			sourceTree = "<group>";
 		};
@@ -3758,7 +3710,6 @@
 				11F96F58155E9E5C3C3F6C18C2176C81 /* Resources */,
 				A5E34FDFFE7FC00DE383A49C724B4166 /* Support Files */,
 			);
-			name = MJRefresh;
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
@@ -3786,7 +3737,6 @@
 			children = (
 				5BB9FC5BD0503406D03539C343BFEAD3 /* MultiImgChooseView.swift */,
 			);
-			name = "多图选择控件";
 			path = "多图选择控件";
 			sourceTree = "<group>";
 		};
@@ -3812,7 +3762,6 @@
 				5BE1E8AF28BDB9A7F1681C5613878932 /* Base */,
 				C9985DD9F6377CECE3B52529449A9DC8 /* Support Files */,
 			);
-			name = NVActivityIndicatorView;
 			path = NVActivityIndicatorView;
 			sourceTree = "<group>";
 		};
@@ -3860,7 +3809,6 @@
 				562DE2E7719A1DCC979DD701B635DAAE /* UIButton+Kingfisher.swift */,
 				3AB207F3D7B2E5BF54D237A7E243CFAA /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -4480,6 +4428,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 1E085E6448194B89802E5C2B4B8EF4A4 /* Products */;
@@ -6836,8 +6785,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

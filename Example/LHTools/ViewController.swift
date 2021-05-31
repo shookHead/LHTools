@@ -18,6 +18,9 @@ class ViewController: UIViewController {
 //        print(path)
 //        let path = Bundle(for: LHTools.self).resourcePath?.appending("/city_db.sqlite")
 //        print(path)
+//        let cityArr = CityDBManager.share.getAddressModel(1, 1, model?.districtId ?? 0)
+        let city = CityDBManager.share.getAddressModel(1, 1, 1)
+        print(city)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
