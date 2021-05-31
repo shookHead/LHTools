@@ -58,4 +58,6 @@ TODO: Add long description of the pod here.
    s.dependency 'JXPagingView/Paging'
    s.dependency 'AttributedString'
    s.dependency 'LTMorphingLabel'
+   s.dependency 'CollectionKit'
+   
 end

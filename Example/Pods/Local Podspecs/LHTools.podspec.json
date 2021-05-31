@@ -22,8 +22,7 @@
   "source_files": "LHTools/Classes/**/*",
   "resource_bundles": {
     "LHTools": [
-      "LHTools/Assets/*.xcassets",
-      "LHTools/Assets/*.sqlite"
+      "LHTools/Assets/**/*"
     ]
   },
   "frameworks": [
@@ -77,6 +76,9 @@
 
     ],
     "LTMorphingLabel": [
+
+    ],
+    "CollectionKit": [
 
     ]
   },

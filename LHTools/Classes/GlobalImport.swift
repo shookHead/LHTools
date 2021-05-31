@@ -19,6 +19,7 @@
 @_exported import JXPagingView
 @_exported import JXSegmentedView
 
+@_exported import CollectionKit
 
 /**
  *
