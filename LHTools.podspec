@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'LHTools'
   s.version          = '0.0.1'
-  s.summary          = 'A short description of LHTools.'
+  s.summary          = 'A base tool for swift develop'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -41,23 +41,24 @@ TODO: Add long description of the pod here.
 #   s.static_framework = true
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
-   s.dependency 'Alamofire'
-   s.dependency 'Kingfisher'
-   s.dependency 'HandyJSON'
-   s.dependency 'MJRefresh'
-   s.dependency 'SwiftyUserDefaults'
-   s.dependency 'IQKeyboardManagerSwift'
-   s.dependency 'SQLite.swift'
-   s.dependency 'Hero'
-   
-   s.dependency 'NVActivityIndicatorView'
-   s.dependency 'CLImagePickerTool'
-   s.dependency 'JXPhotoBrowser'
-   s.dependency 'Charts'
-   s.dependency 'JXSegmentedView'
-   s.dependency 'JXPagingView/Paging'
-   s.dependency 'AttributedString'
-   s.dependency 'LTMorphingLabel'
-   s.dependency 'CollectionKit'
+#   s.dependency 'Alamofire'
+#   s.dependency 'Kingfisher'
+#   s.dependency 'HandyJSON'
+#   s.dependency 'MJRefresh'
+#   s.dependency 'SwiftyUserDefaults'
+#   s.dependency 'IQKeyboardManagerSwift'
+#   s.dependency 'SQLite.swift'
+#   s.dependency 'Hero'
+#
+#   s.dependency 'NVActivityIndicatorView'
+#   s.dependency 'CLImagePickerTool'
+#   s.dependency 'JXPhotoBrowser'
+#   s.dependency 'Charts'
+#   s.dependency 'JXSegmentedView'
+#   s.dependency 'JXPagingView/Paging'
+#   s.dependency 'AttributedString'
+#   s.dependency 'LTMorphingLabel'
+#   s.dependency 'CollectionKit'
+#   s.dependency 'SnapKit'
    
 end

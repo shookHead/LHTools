@@ -23,9 +23,9 @@
 		F4333D052660B31600D9BFAC /* LHLimitWordTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3827A265F6840006D6C89 /* LHLimitWordTF.swift */; };
 		F4333D702660D03E00D9BFAC /* city_db.sqlite in Sources */ = {isa = PBXBuildFile; fileRef = F4D3827F265F6840006D6C89 /* city_db.sqlite */; };
 		F4333D8C2660D56D00D9BFAC /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333D8B2660D56D00D9BFAC /* Bundle+Extensions.swift */; };
-		F4333D902660D81A00D9BFAC /* LHTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333D8F2660D81A00D9BFAC /* LHTools.swift */; };
 		F46221302664874B00C906A3 /* city_db.sqlite in Sources */ = {isa = PBXBuildFile; fileRef = F4D3827F265F6840006D6C89 /* city_db.sqlite */; };
 		F470EA9E2664D61700C4B2FC /* DistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470EA9D2664D61700C4B2FC /* DistributionView.swift */; };
+		F49A690426808ECC00A7B57D /* SnapKitExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A690326808ECC00A7B57D /* SnapKitExtend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +63,8 @@
 		F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseTabVC.xib; sourceTree = "<group>"; };
 		F4333C9E26609AF700D9BFAC /* Scan_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scan_VC.swift; sourceTree = "<group>"; };
 		F4333D8B2660D56D00D9BFAC /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
-		F4333D8F2660D81A00D9BFAC /* LHTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHTools.swift; sourceTree = "<group>"; };
 		F470EA9D2664D61700C4B2FC /* DistributionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributionView.swift; sourceTree = "<group>"; };
+		F49A690326808ECC00A7B57D /* SnapKitExtend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapKitExtend.swift; sourceTree = "<group>"; };
 		F4D3826D265F6840006D6C89 /* GlobalImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalImport.swift; sourceTree = "<group>"; };
 		F4D3826E265F6840006D6C89 /* BMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMConst.swift; sourceTree = "<group>"; };
 		F4D38271265F6840006D6C89 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
@@ -248,6 +248,14 @@
 			path = "获取文件";
 			sourceTree = "<group>";
 		};
+		F49A690226808EAC00A7B57D /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				F49A690326808ECC00A7B57D /* SnapKitExtend.swift */,
+			);
+			path = SnapKit;
+			sourceTree = "<group>";
+		};
 		F4D3826B265F6840006D6C89 /* LHTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				F4D3826D265F6840006D6C89 /* GlobalImport.swift */,
-				F4333D8F2660D81A00D9BFAC /* LHTools.swift */,
 				F4D3826E265F6840006D6C89 /* BMConst.swift */,
 				F4D3826F265F6840006D6C89 /* 自定义视图 */,
 				F4D382D5265F6841006D6C89 /* 扩展 */,
@@ -433,6 +440,7 @@
 		F4D382D5265F6841006D6C89 /* 扩展 */ = {
 			isa = PBXGroup;
 			children = (
+				F49A690226808EAC00A7B57D /* SnapKit */,
 				F4D382D6265F6841006D6C89 /* Xib */,
 				F4D382D8265F6841006D6C89 /* Color */,
 				F4D382DA265F6841006D6C89 /* Date */,
@@ -627,6 +635,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				596267D67133C11971DAB8CD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -726,18 +735,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B0A506CCD86AE0FF501E0738 /* [CP] Embed Pods Frameworks */ = {
+		596267D67133C11971DAB8CD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LHTools_Tests/Pods-LHTools_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AttributedString/AttributedString.framework",
 				"${BUILT_PRODUCTS_DIR}/CLImagePickerTool/CLImagePickerTool.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
@@ -745,11 +755,14 @@
 				"${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/LHTools/LHTools.framework",
 				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -759,6 +772,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CLImagePickerTool.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
@@ -766,12 +780,33 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXSegmentedView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LHTools.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LHTools_Tests/Pods-LHTools_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0A506CCD86AE0FF501E0738 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LHTools/LHTools.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LHTools.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -809,13 +844,13 @@
 			files = (
 				F4333D702660D03E00D9BFAC /* city_db.sqlite in Sources */,
 				F4333D042660B31600D9BFAC /* LHTextField.swift in Sources */,
+				F49A690426808ECC00A7B57D /* SnapKitExtend.swift in Sources */,
 				F470EA9E2664D61700C4B2FC /* DistributionView.swift in Sources */,
 				F4333D052660B31600D9BFAC /* LHLimitWordTF.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F4333C9F26609AF700D9BFAC /* Scan_VC.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */,
-				F4333D902660D81A00D9BFAC /* LHTools.swift in Sources */,
 				F4333D8C2660D56D00D9BFAC /* Bundle+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
