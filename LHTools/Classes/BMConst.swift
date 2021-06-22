@@ -56,10 +56,7 @@ public extension BMDefaultsKeys{
 }
 
 public let noti = NotificationCenter.default
-///获取随机颜色
-public func RandomColor() -> UIColor{
-    return UIColor.init(red: CGFloat(arc4random()&255)/255, green: CGFloat(arc4random()&255)/255, blue: CGFloat(arc4random()&255)/255, alpha: 1)
-}
+
 public var window:UIWindow! {
     return UIApplication.shared.windows.first {$0.isKeyWindow}
 }

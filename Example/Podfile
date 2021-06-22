@@ -4,6 +4,7 @@ source 'https://github.com/shookHead/LHPodSpec.git'
 use_frameworks!
 
 platform :ios, '9.0'
+#inhibit_all_warnings!
 
 target 'LHTools_Example' do
   pod 'LHTools', :path => '../'
@@ -11,27 +12,34 @@ target 'LHTools_Example' do
   target 'LHTools_Tests' do
     inherit! :search_paths
 
-    pod 'Alamofire'
-    pod 'Kingfisher'
-    pod 'HandyJSON'
-    pod 'MJRefresh'
-    pod 'SwiftyUserDefaults'
-    pod 'IQKeyboardManagerSwift'
-    pod 'SQLite.swift'
-    pod 'Hero'
-    pod 'RxSwift',    '~> 4.0'
-    pod 'RxCocoa',    '~> 4.0'
-    pod 'RxDataSources', '~> 3.0'
-    
-    pod 'NVActivityIndicatorView'
-    pod 'CLImagePickerTool'
-    pod 'JXPhotoBrowser'
-    pod 'Charts'
-    pod 'JXSegmentedView'
-    pod 'JXPagingView/Paging'
-    pod 'AttributedString'
-    pod 'LTMorphingLabel'
-    pod 'CollectionKit'
-    pod 'SnapKit'
+#    pod 'Alamofire'
+#    pod 'Kingfisher'
+#    pod 'HandyJSON'
+#    pod 'MJRefresh'
+#    pod 'SwiftyUserDefaults'
+#    pod 'IQKeyboardManagerSwift'
+#    pod 'SQLite.swift'
+#    pod 'Hero'
+#    pod 'RxSwift',    '~> 4.0'
+#    pod 'RxCocoa',    '~> 4.0'
+#    pod 'RxDataSources', '~> 3.0'
+#    
+#    pod 'NVActivityIndicatorView'
+#    pod 'CLImagePickerTool'
+#    pod 'JXPhotoBrowser'
+#    pod 'Charts'
+#    pod 'JXSegmentedView'
+#    pod 'JXPagingView/Paging'
+#    pod 'AttributedString'
+#    pod 'LTMorphingLabel'
+#    pod 'CollectionKit'
+#    pod 'SnapKit'
   end
 end
+#post_install do |installer|
+#    installer.pods_project.targets.each do |target|
+#        target.build_configurations.each do |config|
+#            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+#        end
+#    end
+#end

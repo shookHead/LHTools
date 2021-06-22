@@ -33,32 +33,36 @@ TODO: Add long description of the pod here.
   
   s.source_files = 'LHTools/Classes/**/*'
   
-   s.resource_bundles = {
-#       'LHTools' => ['LHTools/Assets/*.xcassets','LHTools/Assets/*.sqlite']
-       'LHTools' => ['LHTools/Assets/**/*']
-   }
-#   s.resources    = "LHTools/Assets/*.sqlite"
-#   s.static_framework = true
+#   s.resource_bundles = {
+##       'LHTools' => ['LHTools/Assets/*.xcassets','LHTools/Assets/*.sqlite']
+#       'LHTools' => ['LHTools/Assets/**/*']
+#   }
+   s.resources    = "LHTools/Assets/*.sqlite"
+   s.static_framework = true
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
-#   s.dependency 'Alamofire'
-#   s.dependency 'Kingfisher'
-#   s.dependency 'HandyJSON'
-#   s.dependency 'MJRefresh'
-#   s.dependency 'SwiftyUserDefaults'
-#   s.dependency 'IQKeyboardManagerSwift'
-#   s.dependency 'SQLite.swift'
-#   s.dependency 'Hero'
-#
-#   s.dependency 'NVActivityIndicatorView'
-#   s.dependency 'CLImagePickerTool'
-#   s.dependency 'JXPhotoBrowser'
-#   s.dependency 'Charts'
-#   s.dependency 'JXSegmentedView'
-#   s.dependency 'JXPagingView/Paging'
-#   s.dependency 'AttributedString'
-#   s.dependency 'LTMorphingLabel'
-#   s.dependency 'CollectionKit'
-#   s.dependency 'SnapKit'
+   s.dependency 'Alamofire'
+   s.dependency 'Kingfisher'
+   s.dependency 'HandyJSON'
+   s.dependency 'MJRefresh'
+   s.dependency 'SwiftyUserDefaults'
+   s.dependency 'IQKeyboardManagerSwift'
+   s.dependency 'SQLite.swift'
+   s.dependency 'Hero'
+
+   s.dependency 'NVActivityIndicatorView'
+   s.dependency 'CLImagePickerTool'
+   s.dependency 'JXPhotoBrowser'
+   s.dependency 'SnapKit'
+   
+   s.dependency 'Charts'
+   s.dependency 'JXSegmentedView'
+   s.dependency 'JXPagingView/Paging'
+   s.dependency 'AttributedString'
+   s.dependency 'LTMorphingLabel'
+   s.dependency 'CollectionKit'
+   s.dependency 'RxSwift',    '~> 4.0'
+   s.dependency 'RxCocoa',    '~> 4.0'
+   s.dependency 'RxDataSources', '~> 3.0'
    
 end

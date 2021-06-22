@@ -22,10 +22,6 @@ class ViewController: UIViewController {
         let city = CityDBManager.share.getAddressModel(1, 1, 1)
         print(city)
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-
-    }
 }
 
 // 易城市接口基类

@@ -74,6 +74,10 @@ extension UIColor {
     public func alpha(_ alpha:CGFloat) -> UIColor {
         return self.withAlphaComponent(alpha)
     }
+    ///获取随机颜色
+    public var random: UIColor{
+        return UIColor.init(red: CGFloat(arc4random()&255)/255, green: CGFloat(arc4random()&255)/255, blue: CGFloat(arc4random()&255)/255, alpha: 1)
+    }
 }
 
 
