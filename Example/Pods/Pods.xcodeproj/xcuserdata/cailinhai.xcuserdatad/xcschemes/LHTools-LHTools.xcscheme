@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0FAD0957C2155B13228040F47F5D695"
-               BuildableName = "Pods-LHTools_Example.framework"
-               BlueprintName = "Pods-LHTools_Example"
+               BlueprintIdentifier = "88F282B18452E9EF9F14A14922B3D8E2"
+               BuildableName = "LHTools-LHTools.bundle"
+               BlueprintName = "LHTools-LHTools"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

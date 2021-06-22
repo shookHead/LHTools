@@ -33,11 +33,11 @@ TODO: Add long description of the pod here.
   
   s.source_files = 'LHTools/Classes/**/*'
   
-#   s.resource_bundles = {
-##       'LHTools' => ['LHTools/Assets/*.xcassets','LHTools/Assets/*.sqlite']
-#       'LHTools' => ['LHTools/Assets/**/*']
-#   }
-   s.resources    = "LHTools/Assets/*.sqlite"
+   s.resource_bundles = {
+#       'LHTools' => ['LHTools/Assets/*.xcassets','LHTools/Assets/*.sqlite']
+       'LHTools' => ['LHTools/Assets/**/*']
+   }
+#   s.resources    = "LHTools/Assets/*.sqlite"
    s.static_framework = true
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit', "Foundation"#, 'MapKit'

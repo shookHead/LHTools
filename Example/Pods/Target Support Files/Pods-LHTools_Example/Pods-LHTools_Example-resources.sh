@@ -97,10 +97,10 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/city_db.sqlite"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/LHTools/LHTools.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/city_db.sqlite"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/LHTools/LHTools.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

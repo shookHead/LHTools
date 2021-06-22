@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		77D8E6E5A6BB6E57602AEAAE /* Pods_LHTools_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F65B99634DBE91A215033C5 /* Pods_LHTools_Example.framework */; };
 		DB046D8A123D36B573A17CA3 /* Pods_LHTools_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07509A03F5415140F749D995 /* Pods_LHTools_Tests.framework */; };
+		F40E91A22681E4DD007721CE /* LHTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E919F2681E1E4007721CE /* LHTools.swift */; };
 		F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */; };
 		F4333C9B26609A5F00D9BFAC /* BaseTabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		8F65B99634DBE91A215033C5 /* Pods_LHTools_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHTools_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF87F8809564BC84406B33CE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ECFE8EDC6AD47074A330BAC6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F40E919F2681E1E4007721CE /* LHTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHTools.swift; sourceTree = "<group>"; };
 		F4153BBF2681B21D00B67741 /* GlobalImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalImport.swift; sourceTree = "<group>"; };
 		F4153BC02681B21D00B67741 /* BMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMConst.swift; sourceTree = "<group>"; };
 		F4153BC32681B21D00B67741 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				F4153BBF2681B21D00B67741 /* GlobalImport.swift */,
 				F4153BC02681B21D00B67741 /* BMConst.swift */,
+				F40E919F2681E1E4007721CE /* LHTools.swift */,
 				F4153BC12681B21D00B67741 /* 自定义视图 */,
 				F4153BE92681B21E00B67741 /* 扩展 */,
 				F4153C072681B21E00B67741 /* 基类 */,
@@ -730,11 +733,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example-resources.sh",
-				"${PODS_ROOT}/../../LHTools/Assets/city_db.sqlite",
+				"${PODS_CONFIGURATION_BUILD_DIR}/LHTools/LHTools.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/city_db.sqlite",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LHTools.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -830,6 +833,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F40E91A22681E4DD007721CE /* LHTools.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */,
