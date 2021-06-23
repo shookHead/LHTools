@@ -77,6 +77,14 @@
       "source_files": "LHTools/Classes/View/**/*.swift"
     },
     {
+      "name": "Global",
+      "source_files": [
+        "LHTools/Classes/GlobalImport.swift",
+        "LHTools/Classes/BMConst.swift",
+        "LHTools/Classes/LHTools.swift"
+      ]
+    },
+    {
       "name": "自定义视图",
       "subspecs": [
         {

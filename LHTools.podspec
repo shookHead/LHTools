@@ -37,6 +37,9 @@ TODO: Add long description of the pod here.
   s.subspec 'View' do |ss|
       ss.source_files = 'LHTools/Classes/View/**/*.swift'
   end
+  s.subspec 'Global' do |ss|
+      ss.source_files = 'LHTools/Classes/GlobalImport.swift','LHTools/Classes/BMConst.swift','LHTools/Classes/LHTools.swift'
+  end
   #自定义视图
   s.subspec '自定义视图' do |ss|
       ss.subspec '提示框' do |sss|
