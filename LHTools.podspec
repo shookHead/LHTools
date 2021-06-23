@@ -35,13 +35,48 @@ TODO: Add long description of the pod here.
   s.source_files  = "LHTools", "Classes/**/*.swift"
 
   s.subspec 'View' do |ss|
-      ss.source_files = 'LHTools/Classes/**/*.swift'
-      ss.subspec 'View1' do |sss|
-          sss.source_files = 'LHTools/Classes/工具类/**/*.swift'
-      end
+      ss.source_files = 'LHTools/Classes/View/**/*.swift'
   end
-  s.subspec 'Model' do |ss|
-      ss.source_files = 'LHTools/Classes/基类/**/*.swift'
+  s.subspec '自定义视图' do |ss|
+      ss.subspec '提示框' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/提示框/**/*.swift'
+      end
+      ss.subspec '内阴影' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/内阴影/**/*.swift'
+      end
+      ss.subspec 'PopView' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/PopView/**/*.swift'
+      end
+      ss.subspec '输入框限制' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/输入框限制/**/*.swift'
+      end
+      ss.subspec '选择器' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/选择器/**/*.swift'
+      end
+      ss.subspec '图片上传' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/图片上传/**/*.swift'
+      end
+      ss.subspec '加载等待' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/加载等待/**/*.swift'
+      end
+      ss.subspec '点赞动画' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/点赞动画/**/*.swift'
+      end
+      ss.subspec '时间段选择器' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/时间段选择器/**/*.swift'
+      end
+      ss.subspec '测试服切换工具' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/测试服切换工具/**/*.swift'
+      end
+      ss.subspec '轮播' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/轮播/**/*.swift'
+      end
+      ss.subspec '图片缩放预览' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/图片缩放预览/**/*.swift'
+      end
+      ss.subspec 'PhotoBrowser' do |sss|
+          sss.source_files = 'LHTools/Classes/自定义视图/PhotoBrowser/**/*.swift'
+      end
   end
   
    s.resource_bundles = {

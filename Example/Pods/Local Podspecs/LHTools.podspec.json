@@ -74,17 +74,64 @@
   "subspecs": [
     {
       "name": "View",
-      "source_files": "LHTools/Classes/**/*.swift",
-      "subspecs": [
-        {
-          "name": "View1",
-          "source_files": "LHTools/Classes/工具类/**/*.swift"
-        }
-      ]
+      "source_files": "LHTools/Classes/View/**/*.swift"
     },
     {
-      "name": "Model",
-      "source_files": "LHTools/Classes/基类/**/*.swift"
+      "name": "自定义视图",
+      "subspecs": [
+        {
+          "name": "提示框",
+          "source_files": "LHTools/Classes/自定义视图/提示框/**/*.swift"
+        },
+        {
+          "name": "内阴影",
+          "source_files": "LHTools/Classes/自定义视图/内阴影/**/*.swift"
+        },
+        {
+          "name": "PopView",
+          "source_files": "LHTools/Classes/自定义视图/PopView/**/*.swift"
+        },
+        {
+          "name": "输入框限制",
+          "source_files": "LHTools/Classes/自定义视图/输入框限制/**/*.swift"
+        },
+        {
+          "name": "选择器",
+          "source_files": "LHTools/Classes/自定义视图/选择器/**/*.swift"
+        },
+        {
+          "name": "图片上传",
+          "source_files": "LHTools/Classes/自定义视图/图片上传/**/*.swift"
+        },
+        {
+          "name": "加载等待",
+          "source_files": "LHTools/Classes/自定义视图/加载等待/**/*.swift"
+        },
+        {
+          "name": "点赞动画",
+          "source_files": "LHTools/Classes/自定义视图/点赞动画/**/*.swift"
+        },
+        {
+          "name": "时间段选择器",
+          "source_files": "LHTools/Classes/自定义视图/时间段选择器/**/*.swift"
+        },
+        {
+          "name": "测试服切换工具",
+          "source_files": "LHTools/Classes/自定义视图/测试服切换工具/**/*.swift"
+        },
+        {
+          "name": "轮播",
+          "source_files": "LHTools/Classes/自定义视图/轮播/**/*.swift"
+        },
+        {
+          "name": "图片缩放预览",
+          "source_files": "LHTools/Classes/自定义视图/图片缩放预览/**/*.swift"
+        },
+        {
+          "name": "PhotoBrowser",
+          "source_files": "LHTools/Classes/自定义视图/PhotoBrowser/**/*.swift"
+        }
+      ]
     }
   ],
   "swift_version": "5.0"

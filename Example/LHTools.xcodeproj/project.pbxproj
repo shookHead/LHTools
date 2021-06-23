@@ -24,7 +24,6 @@
 		F495626C2682E18400AFF39F /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495626B2682E18400AFF39F /* UISegmentedControl+Extension.swift */; };
 		F49562982682E68300AFF39F /* PhotoBrowserProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */; };
 		F49562992682E68300AFF39F /* PhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562972682E68300AFF39F /* PhotoBrowser.swift */; };
-		F49562D02683004300AFF39F /* aaaa.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562CF2683004300AFF39F /* aaaa.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,7 +126,6 @@
 		F495626B2682E18400AFF39F /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
 		F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserProgressView.swift; sourceTree = "<group>"; };
 		F49562972682E68300AFF39F /* PhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowser.swift; sourceTree = "<group>"; };
-		F49562CF2683004300AFF39F /* aaaa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aaaa.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,7 +244,6 @@
 		F4153BBD2681B21D00B67741 /* LHTools */ = {
 			isa = PBXGroup;
 			children = (
-				F49562CD2683002D00AFF39F /* Sources */,
 				F4153BBE2681B21D00B67741 /* Classes */,
 				F4153C1D2681B21E00B67741 /* Assets */,
 			);
@@ -648,22 +645,6 @@
 			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
-		F49562CD2683002D00AFF39F /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				F49562CE2683003300AFF39F /* Paging */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		F49562CE2683003300AFF39F /* Paging */ = {
-			isa = PBXGroup;
-			children = (
-				F49562CF2683004300AFF39F /* aaaa.swift */,
-			);
-			path = Paging;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -890,7 +871,6 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */,
 				F49562632682E12A00AFF39F /* LHSwiftFunctions.swift in Sources */,
-				F49562D02683004300AFF39F /* aaaa.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
