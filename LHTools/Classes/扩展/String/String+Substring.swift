@@ -90,6 +90,32 @@ extension String {
         }
         return nil
     }
+    ///截取到某个位置
+    public func substring(toIndex:Int) -> String {
+        if self.count == 0 {
+            return ""
+        }
+        let index = self.index(self.startIndex, offsetBy: toIndex)
+        return String(self.prefix(upTo: index))
+    }
+    ///从某个位置开始截取
+    public func subString(toFrom: Int) -> String {
+        if toFrom >= self.count {
+            return ""
+        }
+        let startIndex = self.index(self.startIndex, offsetBy: toFrom)
+        let endIndex = self.endIndex
+        return String(self[startIndex..<endIndex])
+    }
+    ///从开始截取到结束
+    public func subString(start: Int, end: Int) -> String {
+        if start < end {
+            let startIndex = self.index(self.startIndex, offsetBy: start)
+            let endIndex = self.index(self.startIndex, offsetBy: end)
+            return String(self[startIndex..<endIndex])
+        }
+        return ""
+    }
 }
 
 extension String {

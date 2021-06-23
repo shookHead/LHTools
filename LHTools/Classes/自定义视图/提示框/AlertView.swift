@@ -29,7 +29,96 @@ extension UIViewController{
         self.showAlertView(title, msg, complish: complish, cancel: cancel)
         
     }
+    ///单一提示
+    private func showSingleAlertView(_ title:String, _ msg:String, complish: (() -> ())? = nil){
+        UIView.animate(withDuration: 0.1) {
+            let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "确认", style: .default, handler: { (action) in
+                complish?()
+            })
+            alertVC.addAction(okAction)
+            self.present(alertVC, animated: true, completion: nil)
+        }
+    }
+    private func showAlertView(_ title:String, _ msg:String, okStr:String,cancle:String, complish: (() -> ())? = nil, cancel: (() -> ())? = nil){
+        UIView.animate(withDuration: 0.1) {
+            let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: okStr, style: .default, handler: { (action) in
+                complish?()
+            })
+            let cancelAction = UIAlertAction(title: cancle, style: .cancel , handler:{ (action) in
+                cancel?()
+            })
+            alertVC.addAction(cancelAction)
+            alertVC.addAction(okAction)
+            self.present(alertVC, animated: true, completion: nil)
+        }
+    }
+    //pointLength设置小数点数
+    /// 输入框
+    /// - Parameters:
+    ///   - title: 标题
+    ///   - msg: 提示
+    ///   - placeholder: 占位文字
+    ///   - text: 文字
+    ///   - keyBoard: 类型
+    ///   - pointLength: 小数点
+    ///   - complish: 完成
+    ///   - cancel: 取消
+    private func showAlertTextFieldView(_ title:String, _ msg:String,placeholder:String = "",text:String = "" ,keyBoard:UIKeyboardType = .default, complish: ((String) -> ())? = nil, cancel: (() -> ())? = nil){
+        UIView.animate(withDuration: 0.1) {
+            let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "确认", style: .default, handler: { (action) in
+                let tf = alertVC.textFields!.first
+                complish?(tf!.text!)
+            })
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel , handler:{ (action) in
+                cancel?()
+            })
+            alertVC.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = placeholder
+                textField.keyboardType = keyBoard
+                textField.text = text
+                textField.addTarget(self, action: #selector(self.textDidChange(textField:)), for: .editingChanged)
+            })
+            
+            alertVC.addAction(cancelAction)
+            alertVC.addAction(okAction)
+            self.present(alertVC, animated: true, completion: nil)
+        }
+    }
+
     
+    public func showComfirm(_ title:String, _ msg:String,okStr:String,cancle:String, cancel:(()->())? = nil, complish:(()->())? = nil){
+        self.showAlertView(title, msg, okStr: okStr, cancle: cancle, complish: complish, cancel: cancel)
+    }
+    
+    public func showTextFieldComfirm(_ title:String, _ msg:String,  placeholder:String,text:String = "",keyBoard:UIKeyboardType = .default, cancel:(()->())? = nil, complish:((String)->())? = nil){
+        self.showAlertTextFieldView(title, msg, placeholder: placeholder,text:text, keyBoard: keyBoard, complish: complish, cancel: cancel)
+    }
+    
+    public func showSingleComfirm(_ title:String, _ msg:String, complish:(()->())? = nil){
+        self.showSingleAlertView(title, msg, complish: complish)
+    }
+    //MARK: - 监听文字改变
+    @objc public func textDidChange(textField:UITextField)  {
+        if textField.text == nil {
+            return
+        }
+        var s = textField.text!
+        //清除除数字外的其他字母
+        for i in s {
+            if "0123456789.".contains(i)==false {
+                let index = s.firstIndex(of: i)
+                if index != nil {
+                    s.remove(at: index!)
+                }
+            }
+        }
+        if s.contains(".") {
+            
+        }
+    }
 }
 
 

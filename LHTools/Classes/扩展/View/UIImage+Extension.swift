@@ -160,4 +160,15 @@ extension UIImage{
         UIGraphicsEndImageContext()
         return image
     }
+    /// 保存图片到相册
+    public func saveToPhotoAlbum() {
+        UIImageWriteToSavedPhotosAlbum(self, self, #selector(saveImage(image:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    @objc public func saveImage(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
+        if error == nil {
+            Hud.showText("保存成功")
+            return
+        }
+        lh.judgeAlbumPower()
+    }
 }

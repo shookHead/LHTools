@@ -8,6 +8,7 @@
 import UIKit
 
 
+public let UIViewDefaultFadeDuration: TimeInterval = 0.4
 extension UIView{
     public enum DirectionType {
         ///上往下
@@ -101,6 +102,29 @@ extension UIView{
         transform = CATransform3DScale(transform, x, y, 1)
         self.layer.transform = transform
     }
-
+    //MARK:淡入淡出
+    /// 淡入
+    /// - Parameters:
+    ///   - duration: 时间
+    ///   - delay: 延迟多久淡入
+    ///   - completion: 完成
+    public func fadeIn(_ duration: TimeInterval? = UIViewDefaultFadeDuration, delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
+        fadeTo(1.0, duration: duration, delay: delay, completion: completion)
+    }
+    /// 淡出
+    /// - Parameters:
+    ///   - duration: 时间
+    ///   - delay: 延迟多久淡出
+    ///   - completion: 完成
+    public func fadeOut(_ duration: TimeInterval? = UIViewDefaultFadeDuration, delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
+        fadeTo(0.0, duration: duration, delay: delay, completion: completion)
+    }
+    /// 淡入淡出
+    public func fadeTo(_ value: CGFloat, duration: TimeInterval? = UIViewDefaultFadeDuration, delay: TimeInterval? = 0.0, completion: ((Bool) -> Void)? = nil) {
+        alpha = value == 1 ? 0:1
+        UIView.animate(withDuration: duration ?? UIViewDefaultFadeDuration, delay: delay ?? UIViewDefaultFadeDuration, options: .curveEaseInOut, animations: {
+            self.alpha = value
+        }, completion: completion)
+    }
 
 }

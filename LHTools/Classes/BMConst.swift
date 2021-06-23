@@ -39,7 +39,7 @@ public let KIsIphoneX      = judgeScream()
 /// 导航栏下内容高度
 public let KHeightInNav    = KScreenHeight - KNaviBarH
 /// 导航栏顶部的高度
-let KNaviStatusBar       = CGFloat(KIsIphoneX ? 44.0:20.0)
+public let KNaviStatusBar       = CGFloat(KIsIphoneX ? 44.0:20.0)
 /// 导航栏高度
 public let KNaviBarH       = CGFloat(KIsIphoneX ? 88.0:64.0)
 /// tabbar高度
@@ -54,6 +54,10 @@ public extension BMDefaultsKeys{
     // userId 和 sessionId 已封装进 请求库
     static let userId = BMCacheKey<String?>("userId")
     static let sessionId = BMCacheKey<String?>("sessionId")
+    ///版本更新
+    static let saveVersionInfo = BMCacheKey<Dictionary<String, Any>?>("saveVersionInfo")
+    ///最后更新时间
+    static let saveLastUpdateTime = BMCacheKey<String?>("saveLastUpdateTime")
     
 }
 

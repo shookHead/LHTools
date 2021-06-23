@@ -18,6 +18,12 @@
 		F40E91A22681E4DD007721CE /* LHTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E919F2681E1E4007721CE /* LHTools.swift */; };
 		F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */; };
 		F4333C9B26609A5F00D9BFAC /* BaseTabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */; };
+		F495625E2682E0AE00AFF39F /* RedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495625D2682E0AE00AFF39F /* RedPoint.swift */; };
+		F49562632682E12A00AFF39F /* LHSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562622682E12A00AFF39F /* LHSwiftFunctions.swift */; };
+		F49562672682E16B00AFF39F /* BMSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562662682E16B00AFF39F /* BMSelectView.swift */; };
+		F495626C2682E18400AFF39F /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495626B2682E18400AFF39F /* UISegmentedControl+Extension.swift */; };
+		F49562982682E68300AFF39F /* PhotoBrowserProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */; };
+		F49562992682E68300AFF39F /* PhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562972682E68300AFF39F /* PhotoBrowser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +120,12 @@
 		F4153C1F2681B21E00B67741 /* LHAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LHAssets.xcassets; sourceTree = "<group>"; };
 		F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabVC.swift; sourceTree = "<group>"; };
 		F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseTabVC.xib; sourceTree = "<group>"; };
-		F4CDE7CD2681C7900007BDC5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F495625D2682E0AE00AFF39F /* RedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedPoint.swift; sourceTree = "<group>"; };
+		F49562622682E12A00AFF39F /* LHSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSwiftFunctions.swift; sourceTree = "<group>"; };
+		F49562662682E16B00AFF39F /* BMSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMSelectView.swift; sourceTree = "<group>"; };
+		F495626B2682E18400AFF39F /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
+		F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserProgressView.swift; sourceTree = "<group>"; };
+		F49562972682E68300AFF39F /* PhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +257,7 @@
 				F4153BBF2681B21D00B67741 /* GlobalImport.swift */,
 				F4153BC02681B21D00B67741 /* BMConst.swift */,
 				F40E919F2681E1E4007721CE /* LHTools.swift */,
+				F495625C2682E09800AFF39F /* View */,
 				F4153BC12681B21D00B67741 /* 自定义视图 */,
 				F4153BE92681B21E00B67741 /* 扩展 */,
 				F4153C072681B21E00B67741 /* 基类 */,
@@ -269,6 +281,7 @@
 				F4153BE12681B21E00B67741 /* 测试服切换工具 */,
 				F4153BE32681B21E00B67741 /* 轮播 */,
 				F4153BE72681B21E00B67741 /* 图片缩放预览 */,
+				F49562952682E66C00AFF39F /* PhotoBrowser */,
 			);
 			path = "自定义视图";
 			sourceTree = "<group>";
@@ -313,6 +326,7 @@
 			children = (
 				F4153BCE2681B21D00B67741 /* CustomPicker */,
 				F4153BD52681B21E00B67741 /* BMPicker.swift */,
+				F49562662682E16B00AFF39F /* BMSelectView.swift */,
 			);
 			path = "选择器";
 			sourceTree = "<group>";
@@ -425,6 +439,7 @@
 				F4153BFD2681B21E00B67741 /* String */,
 				F4153C012681B21E00B67741 /* Nav */,
 				F4153C032681B21E00B67741 /* Set */,
+				F495626A2682E18400AFF39F /* SegmentedControl */,
 			);
 			path = "扩展";
 			sourceTree = "<group>";
@@ -536,11 +551,11 @@
 		F4153C102681B21E00B67741 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
+				F49562612682E10B00AFF39F /* Utils */,
 				F4153C112681B21E00B67741 /* 获取文件 */,
 				F4153C122681B21E00B67741 /* 请求 */,
 				F4153C152681B21E00B67741 /* 约束 */,
 				F4153C172681B21E00B67741 /* 缓存 */,
-				F4153C192681B21E00B67741 /* Utils.swift */,
 				F4153C1A2681B21E00B67741 /* 二维码 */,
 			);
 			path = "工具类";
@@ -592,9 +607,42 @@
 			children = (
 				F4153C1E2681B21E00B67741 /* city_db.sqlite */,
 				F4153C1F2681B21E00B67741 /* LHAssets.xcassets */,
-				F4CDE7CD2681C7900007BDC5 /* Settings.bundle */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		F495625C2682E09800AFF39F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F495625D2682E0AE00AFF39F /* RedPoint.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F49562612682E10B00AFF39F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F49562622682E12A00AFF39F /* LHSwiftFunctions.swift */,
+				F4153C192681B21E00B67741 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F495626A2682E18400AFF39F /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				F495626B2682E18400AFF39F /* UISegmentedControl+Extension.swift */,
+			);
+			path = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		F49562952682E66C00AFF39F /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				F49562972682E68300AFF39F /* PhotoBrowser.swift */,
+				F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */,
+			);
+			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -813,10 +861,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F495626C2682E18400AFF39F /* UISegmentedControl+Extension.swift in Sources */,
 				F40E91A22681E4DD007721CE /* LHTools.swift in Sources */,
+				F49562982682E68300AFF39F /* PhotoBrowserProgressView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				F49562672682E16B00AFF39F /* BMSelectView.swift in Sources */,
+				F49562992682E68300AFF39F /* PhotoBrowser.swift in Sources */,
+				F495625E2682E0AE00AFF39F /* RedPoint.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */,
+				F49562632682E12A00AFF39F /* LHSwiftFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,6 +44,24 @@ extension String{
         }
         return rect.size.height
     }
+    public func stringHeight(_ font:UIFont, width:CGFloat) -> CGFloat{
+        let font:UIFont = font
+        let attributes = [NSAttributedString.Key.font:font]
+        let option = NSStringDrawingOptions.usesLineFragmentOrigin
+        var rect:CGRect!
+        if self.count != 0 {
+            rect = self.boundingRect(with: CGSize(width: width, height: 2000), options: option, attributes: attributes, context: nil)
+        }else{
+            rect = " ".boundingRect(with: CGSize(width: width, height: 2000), options: option, attributes: attributes, context: nil)
+        }
+        return rect.size.height
+    }
+    public func stringSize(_ text: String?, font: UIFont, maxSize: CGSize, mode: NSLineBreakMode) -> CGSize {
+        guard let textTemp = text, textTemp.count > 0 else {
+            return CGSize.zero
+        }
+        return textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).size
+    }
 }
 
 // MARK: -  ---------------------- 文字判断处理 ------------------------
@@ -105,6 +123,65 @@ extension String{
             let to = String.Index(to16, within: self)
             else { return nil }
         return from ..< to
+    }
+    ///判断是否为字母+数字
+    public func isLetterWithDigital() ->Bool{
+        let numberRegex:NSPredicate=NSPredicate(format:"SELF MATCHES %@","^.*[0-9]+.*$")
+        let letterRegex:NSPredicate=NSPredicate(format:"SELF MATCHES %@","^.*[A-Za-z]+.*$")
+        if numberRegex.evaluate(with: self) && letterRegex.evaluate(with: self){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    //中文转拼音
+    public func transToPinYin(str:String)->String{
+        //转化为可变字符串
+        let mString = NSMutableString(string: str)
+        //转化为带声调的拼音
+        CFStringTransform(mString, nil, kCFStringTransformToLatin, false)
+        //转化为不带声调
+        CFStringTransform(mString, nil, kCFStringTransformStripDiacritics, false)
+        //转化为不可变字符串
+        let string = NSString(string: mString)
+        //去除字符串之间的空格
+        return string.replacingOccurrences(of: " ", with: "")
+    }
+
+
+    public func getJsonDic() -> Any?{
+        if self.count == 0{
+            return nil
+        }
+        let data = self.data(using: .utf8)
+        let result = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+        return result
+    }
+    ///隐藏中间部分电话号码
+    public func hideFourPhoneNum() -> String{
+        if self.count < 11{
+            return self
+        }
+        guard let s1 = self[0...2] else { return  ""}
+        guard let s2 = self[7...10] else { return "" }
+        let result:String = String(format:"%@****%@",String(s1),String(s2))
+        return result
+    }
+
+    ///是否是手机号码
+    public var isPhone: Bool{
+        if self.count == 11{
+            return true
+        }else{
+            return false
+        }
+    }
+    ///判断是否是邮箱地址
+    public func isEmailAddress() -> Bool {
+        let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest:NSPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: self)
     }
 }
 
