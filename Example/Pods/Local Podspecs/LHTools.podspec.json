@@ -19,7 +19,7 @@
     "ios": "9.0"
   },
   "swift_versions": "5.0",
-  "source_files": "LHTools/Classes/**/*",
+  "source_files": "LHTools/Classes/**/*.swift",
   "resource_bundles": {
     "LHTools": [
       "LHTools/Assets/**/*"
@@ -68,5 +68,11 @@
 
     ]
   },
+  "subspecs": [
+    {
+      "name": "View",
+      "source_files": "LHTools/Assets/**/*.swift"
+    }
+  ],
   "swift_version": "5.0"
 }

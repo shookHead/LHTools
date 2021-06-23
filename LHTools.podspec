@@ -31,15 +31,16 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.0'
   s.swift_version          = '5.0'
   
-  s.source_files = 'LHTools/Classes/**/*'
+  s.source_files = 'LHTools/Classes/**/*.swift'
+  
+  s.subspec 'View' do |ss|
+      ss.source_files = 'LHTools/Assets/**/*.swift'
+  end
   
    s.resource_bundles = {
 #       'LHTools' => ['LHTools/Assets/*.xcassets','LHTools/Assets/*.sqlite']
        'LHTools' => ['LHTools/Assets/**/*']
    }
-   s.subspec 'View' do |View|
-       View.source_files = 'LHTools/Assets/**/*.swift'
-   end
 #   s.resources    = "LHTools/Assets/*.sqlite"
    s.static_framework = true
   # s.public_header_files = 'Pod/Classes/**/*.h'
