@@ -38,6 +38,8 @@ public let KScreenHeight   = UIScreen.main.bounds.height
 public let KIsIphoneX      = judgeScream()
 /// 导航栏下内容高度
 public let KHeightInNav    = KScreenHeight - KNaviBarH
+/// 导航栏顶部的高度
+let KNaviStatusBar       = CGFloat(KIsIphoneX ? 44.0:20.0)
 /// 导航栏高度
 public let KNaviBarH       = CGFloat(KIsIphoneX ? 88.0:64.0)
 /// tabbar高度

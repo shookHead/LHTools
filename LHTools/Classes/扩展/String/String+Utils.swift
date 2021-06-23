@@ -90,6 +90,11 @@ extension String{
         let s = self.trimmingCharacters(in: .whitespaces)
         return s
     }
+    ///去除所有空格
+    var removeAllSapce:String {
+        return self.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
+    }
+
     
     /// NSRange转化为range
     public func range(from nsRange: NSRange) -> Range<String.Index>? {

@@ -27,7 +27,11 @@ extension String{
         guard self.contains("http") else {
             return nil
         }
-        return ImageResource(downloadURL: URL(string: self)!)
+        if let url = URL(string: self) {
+            return ImageResource(downloadURL: url)
+        }else{
+            return nil
+        }
     }
 }
 
