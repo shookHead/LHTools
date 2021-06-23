@@ -66,33 +66,6 @@
     ],
     "SnapKit": [
 
-    ],
-    "Charts": [
-
-    ],
-    "JXSegmentedView": [
-
-    ],
-    "JXPagingView/Paging": [
-
-    ],
-    "AttributedString": [
-
-    ],
-    "LTMorphingLabel": [
-
-    ],
-    "CollectionKit": [
-
-    ],
-    "RxSwift": [
-      "~> 4.0"
-    ],
-    "RxCocoa": [
-      "~> 4.0"
-    ],
-    "RxDataSources": [
-      "~> 3.0"
     ]
   },
   "swift_version": "5.0"

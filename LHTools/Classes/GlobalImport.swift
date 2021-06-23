@@ -16,10 +16,7 @@
 
 @_exported import Hero
 
-@_exported import JXPagingView
-@_exported import JXSegmentedView
 
-@_exported import CollectionKit
 
 /**
  *

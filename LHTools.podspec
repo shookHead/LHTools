@@ -54,15 +54,15 @@ TODO: Add long description of the pod here.
    s.dependency 'CLImagePickerTool'
    s.dependency 'JXPhotoBrowser'
    s.dependency 'SnapKit'
-   
-   s.dependency 'Charts'
-   s.dependency 'JXSegmentedView'
-   s.dependency 'JXPagingView/Paging'
-   s.dependency 'AttributedString'
-   s.dependency 'LTMorphingLabel'
-   s.dependency 'CollectionKit'
-   s.dependency 'RxSwift',    '~> 4.0'
-   s.dependency 'RxCocoa',    '~> 4.0'
-   s.dependency 'RxDataSources', '~> 3.0'
+#
+#   s.dependency 'Charts'
+#   s.dependency 'JXSegmentedView'
+#   s.dependency 'JXPagingView/Paging'
+#   s.dependency 'AttributedString'
+#   s.dependency 'LTMorphingLabel'
+#   s.dependency 'CollectionKit'
+#   s.dependency 'RxSwift',    '~> 4.0'
+#   s.dependency 'RxCocoa',    '~> 4.0'
+#   s.dependency 'RxDataSources', '~> 3.0'
    
 end

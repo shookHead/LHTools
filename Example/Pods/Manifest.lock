@@ -1,55 +1,28 @@
 PODS:
   - Alamofire (4.9.1)
-  - AttributedString (1.6.9)
-  - Charts (3.6.0):
-    - Charts/Core (= 3.6.0)
-  - Charts/Core (3.6.0)
   - CLImagePickerTool (3.1.3)
-  - CollectionKit (2.4.0):
-    - CollectionKit/Core (= 2.4.0)
-  - CollectionKit/Core (2.4.0)
-  - Differentiator (3.1.0)
   - HandyJSON (5.0.2)
   - Hero (1.5.0)
   - IQKeyboardManagerSwift (6.5.6)
-  - JXPagingView/Paging (2.1.0)
   - JXPhotoBrowser (3.1.3)
-  - JXSegmentedView (1.2.7)
   - Kingfisher (4.10.1)
   - LHTools (0.0.1):
     - Alamofire
-    - AttributedString
-    - Charts
     - CLImagePickerTool
-    - CollectionKit
     - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
-    - JXPagingView/Paging
     - JXPhotoBrowser
-    - JXSegmentedView
     - Kingfisher
-    - LTMorphingLabel
     - MJRefresh
     - NVActivityIndicatorView
-    - RxCocoa (~> 4.0)
-    - RxDataSources (~> 3.0)
-    - RxSwift (~> 4.0)
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
-  - LTMorphingLabel (0.9.3)
   - MJRefresh (3.6.1)
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.5.0)
   - SnapKit (4.2.0)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
@@ -62,24 +35,14 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - AttributedString
-    - Charts
     - CLImagePickerTool
-    - CollectionKit
-    - Differentiator
     - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
-    - JXPagingView
     - JXPhotoBrowser
-    - JXSegmentedView
     - Kingfisher
-    - LTMorphingLabel
     - MJRefresh
     - NVActivityIndicatorView
-    - RxCocoa
-    - RxDataSources
-    - RxSwift
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -90,29 +53,19 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AttributedString: 46224811c2a7297af9c5b0b946e2306796d9333a
-  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   CLImagePickerTool: 2ef59c6524efd493571a0ee2bc42f445b4c5b2cb
-  CollectionKit: 8f01e7629185bb81072c4aa734d105df5c2d1c8b
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
-  JXPagingView: ef48a5a2392252c68db7999de38f4761a2707e2a
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
-  JXSegmentedView: eb1cad21f57c2543c00c3e08b8fd3c7ca54f5acd
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  LHTools: 1bb4db8b083fb8a857710fd2d98eda9599876f80
-  LTMorphingLabel: f2b256e4fe665aac27f0d0e8ccdcd79590f0cd70
+  LHTools: 94dad4eb861c67ac9142b2eb0fcb0f71db1dcd8b
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
 
-PODFILE CHECKSUM: 092e23553dff8b31f560f8f51dbf83f88c1cb748
+PODFILE CHECKSUM: 057b0b4049df61ee5b10868b43d830e33fa19577
 
 COCOAPODS: 1.10.1

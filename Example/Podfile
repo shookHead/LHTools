@@ -20,20 +20,22 @@ target 'LHTools_Example' do
 #    pod 'IQKeyboardManagerSwift'
 #    pod 'SQLite.swift'
 #    pod 'Hero'
-#    pod 'RxSwift',    '~> 4.0'
-#    pod 'RxCocoa',    '~> 4.0'
-#    pod 'RxDataSources', '~> 3.0'
-#    
+
 #    pod 'NVActivityIndicatorView'
 #    pod 'CLImagePickerTool'
 #    pod 'JXPhotoBrowser'
+#    pod 'SnapKit'
+
+    
 #    pod 'Charts'
 #    pod 'JXSegmentedView'
 #    pod 'JXPagingView/Paging'
 #    pod 'AttributedString'
 #    pod 'LTMorphingLabel'
 #    pod 'CollectionKit'
-#    pod 'SnapKit'
+#    pod 'RxSwift',    '~> 4.0'
+#    pod 'RxCocoa',    '~> 4.0'
+#    pod 'RxDataSources', '~> 3.0'
   end
 end
 #post_install do |installer|
