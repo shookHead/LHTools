@@ -37,6 +37,9 @@ TODO: Add long description of the pod here.
 #       'LHTools' => ['LHTools/Assets/*.xcassets','LHTools/Assets/*.sqlite']
        'LHTools' => ['LHTools/Assets/**/*']
    }
+   s.subspec 'View' do |ss|
+     ss.source_files = 'LHTools/Assets/View.{swift}'
+   end
 #   s.resources    = "LHTools/Assets/*.sqlite"
    s.static_framework = true
   # s.public_header_files = 'Pod/Classes/**/*.h'
