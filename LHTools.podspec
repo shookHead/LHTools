@@ -34,7 +34,10 @@ TODO: Add long description of the pod here.
   s.source_files = 'LHTools/Classes/**/*.swift'
   
   s.subspec 'View' do |ss|
-      ss.source_files = 'LHTools/Assets/**/*.swift'
+      ss.source_files = 'LHTools/Classes/*.swift'
+  end
+  s.subspec 'Model' do |ss|
+      ss.source_files = 'LHTools/Classes/View/*.swift'
   end
   
    s.resource_bundles = {

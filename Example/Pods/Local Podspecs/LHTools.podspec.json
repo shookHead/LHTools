@@ -71,7 +71,11 @@
   "subspecs": [
     {
       "name": "View",
-      "source_files": "LHTools/Assets/**/*.swift"
+      "source_files": "LHTools/Classes/*.swift"
+    },
+    {
+      "name": "Model",
+      "source_files": "LHTools/Classes/View/*.swift"
     }
   ],
   "swift_version": "5.0"
