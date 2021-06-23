@@ -31,13 +31,14 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.0'
   s.swift_version          = '5.0'
   
-  s.source_files = 'LHTools/Classes/**/*.swift'
-  
+#  s.source_files = 'LHTools/Classes/**/*.swift'
+  s.source_files  = "LHTools", "Classes/**/*.swift"
+
   s.subspec 'View' do |ss|
-      ss.source_files = 'LHTools/Classes/*.swift'
+      ss.source_files = 'LHTools/Classes/**/*.swift'
   end
   s.subspec 'Model' do |ss|
-      ss.source_files = 'LHTools/Classes/View/*.swift'
+      ss.source_files = 'LHTools/Classes/View/**/*.swift'
   end
   
    s.resource_bundles = {

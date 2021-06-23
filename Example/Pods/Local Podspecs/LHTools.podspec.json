@@ -19,7 +19,10 @@
     "ios": "9.0"
   },
   "swift_versions": "5.0",
-  "source_files": "LHTools/Classes/**/*.swift",
+  "source_files": [
+    "LHTools",
+    "Classes/**/*.swift"
+  ],
   "resource_bundles": {
     "LHTools": [
       "LHTools/Assets/**/*"
@@ -71,11 +74,11 @@
   "subspecs": [
     {
       "name": "View",
-      "source_files": "LHTools/Classes/*.swift"
+      "source_files": "LHTools/Classes/**/*.swift"
     },
     {
       "name": "Model",
-      "source_files": "LHTools/Classes/View/*.swift"
+      "source_files": "LHTools/Classes/View/**/*.swift"
     }
   ],
   "swift_version": "5.0"
