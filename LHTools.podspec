@@ -55,6 +55,9 @@ TODO: Add long description of the pod here.
           sss.source_files = 'LHTools/Classes/自定义视图/选择器/BMPicker.swift','LHTools/Classes/自定义视图/选择器/BMSelectView.swift'
           sss.subspec 'CustomPicker' do |ssss|
               ssss.source_files = 'LHTools/Classes/自定义视图/选择器/CustomPicker/BM{City,Base,Date,Single}Picker.swift'
+              ssss.subspec 'CityDataBase' do |sssss|
+                  sssss.source_files = 'LHTools/Classes/自定义视图/选择器/CustomPicker/CityDataBase/CityDBManager.swift'
+              end
           end
       end
       ss.subspec '图片上传' do |sss|
