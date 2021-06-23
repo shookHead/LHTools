@@ -84,10 +84,6 @@
           "source_files": "LHTools/Classes/自定义视图/提示框/**/*.swift"
         },
         {
-          "name": "内阴影",
-          "source_files": "LHTools/Classes/自定义视图/内阴影/**/*.swift"
-        },
-        {
           "name": "PopView",
           "source_files": "LHTools/Classes/自定义视图/PopView/**/*.swift"
         },
@@ -97,7 +93,16 @@
         },
         {
           "name": "选择器",
-          "source_files": "LHTools/Classes/自定义视图/选择器/**/*.swift"
+          "source_files": [
+            "LHTools/Classes/自定义视图/选择器/BMPicker.swift",
+            "LHTools/Classes/自定义视图/选择器/BMSelectView.swift"
+          ],
+          "subspecs": [
+            {
+              "name": "CustomPicker",
+              "source_files": "LHTools/Classes/自定义视图/选择器/CustomPicker/BM{City,Base,Date,Single}Picker.swift"
+            }
+          ]
         },
         {
           "name": "图片上传",

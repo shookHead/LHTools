@@ -270,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				F4153BC22681B21D00B67741 /* 提示框 */,
-				F4153BC62681B21D00B67741 /* 内阴影 */,
 				F4153BC72681B21D00B67741 /* PopView */,
 				F4153BCA2681B21D00B67741 /* 输入框限制 */,
 				F4153BCD2681B21D00B67741 /* 选择器 */,
@@ -294,13 +293,6 @@
 				F4153BC52681B21D00B67741 /* MBProgressHud.swift */,
 			);
 			path = "提示框";
-			sourceTree = "<group>";
-		};
-		F4153BC62681B21D00B67741 /* 内阴影 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "内阴影";
 			sourceTree = "<group>";
 		};
 		F4153BC72681B21D00B67741 /* PopView */ = {

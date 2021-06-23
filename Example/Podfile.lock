@@ -44,7 +44,6 @@ PODS:
     - Kingfisher
     - "LHTools/自定义视图/PhotoBrowser (= 0.0.1)"
     - "LHTools/自定义视图/PopView (= 0.0.1)"
-    - "LHTools/自定义视图/内阴影 (= 0.0.1)"
     - "LHTools/自定义视图/加载等待 (= 0.0.1)"
     - "LHTools/自定义视图/图片上传 (= 0.0.1)"
     - "LHTools/自定义视图/图片缩放预览 (= 0.0.1)"
@@ -74,19 +73,6 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
   - "LHTools/自定义视图/PopView (0.0.1)":
-    - Alamofire
-    - CLImagePickerTool
-    - HandyJSON
-    - Hero
-    - IQKeyboardManagerSwift
-    - JXPhotoBrowser
-    - Kingfisher
-    - MJRefresh
-    - NVActivityIndicatorView
-    - SnapKit
-    - SQLite.swift
-    - SwiftyUserDefaults
-  - "LHTools/自定义视图/内阴影 (0.0.1)":
     - Alamofire
     - CLImagePickerTool
     - HandyJSON
@@ -224,6 +210,20 @@ PODS:
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
     - Kingfisher
+    - "LHTools/自定义视图/选择器/CustomPicker (= 0.0.1)"
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/自定义视图/选择器/CustomPicker (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
     - MJRefresh
     - NVActivityIndicatorView
     - SnapKit
@@ -269,7 +269,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  LHTools: 609b64248e070df02dbf6c6fe424b89dabd69780
+  LHTools: f377225c77fb29acd5564e193f5f708fe0e12fe7
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a

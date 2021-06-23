@@ -37,12 +37,10 @@ TODO: Add long description of the pod here.
   s.subspec 'View' do |ss|
       ss.source_files = 'LHTools/Classes/View/**/*.swift'
   end
+  #自定义视图
   s.subspec '自定义视图' do |ss|
       ss.subspec '提示框' do |sss|
           sss.source_files = 'LHTools/Classes/自定义视图/提示框/**/*.swift'
-      end
-      ss.subspec '内阴影' do |sss|
-          sss.source_files = 'LHTools/Classes/自定义视图/内阴影/**/*.swift'
       end
       ss.subspec 'PopView' do |sss|
           sss.source_files = 'LHTools/Classes/自定义视图/PopView/**/*.swift'
@@ -51,7 +49,10 @@ TODO: Add long description of the pod here.
           sss.source_files = 'LHTools/Classes/自定义视图/输入框限制/**/*.swift'
       end
       ss.subspec '选择器' do |sss|
-          sss.source_files = 'LHTools/Classes/自定义视图/选择器/**/*.swift'
+          sss.source_files = 'LHTools/Classes/自定义视图/选择器/BMPicker.swift','LHTools/Classes/自定义视图/选择器/BMSelectView.swift'
+          sss.subspec 'CustomPicker' do |ssss|
+              ssss.source_files = 'LHTools/Classes/自定义视图/选择器/CustomPicker/BM{City,Base,Date,Single}Picker.swift'
+          end
       end
       ss.subspec '图片上传' do |sss|
           sss.source_files = 'LHTools/Classes/自定义视图/图片上传/**/*.swift'
