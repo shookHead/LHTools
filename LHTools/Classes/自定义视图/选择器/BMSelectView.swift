@@ -7,14 +7,14 @@
 //
 
 import UIKit
-@objc protocol BMSelectViewDelegate {
+@objc public protocol BMSelectViewDelegate {
     ///点击了哪个
     func bmSelectViewDidSelected(index:Int)
     ///消失
     @objc optional func bmSelectViewDisMiss()
 }
-class BMSelectView: UIView {
-    var delegate:BMSelectViewDelegate?
+public class BMSelectView: UIView {
+    open var delegate:BMSelectViewDelegate?
 //    var title = ""
     let tableViewHeadH:CGFloat = 55
     let tableViewW = UIScreen.main.bounds.size.width*0.7
@@ -40,7 +40,7 @@ class BMSelectView: UIView {
         }
         return tab
     }()
-    var titleLable:UILabel = {
+    open var titleLable:UILabel = {
         let lab = UILabel()
         lab.textAlignment = NSTextAlignment.center
         lab.textColor = UIColor.KBlue
@@ -65,11 +65,11 @@ class BMSelectView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
     }
-    func showWithData(arr:Array<Any>,key1:String,title:String,selectedId1:Int) {
+    public func showWithData(arr:Array<Any>,key1:String,title:String,selectedId1:Int) {
         dataArray = arr
         self.key = key1
         self.index = selectedId1
@@ -108,11 +108,11 @@ class BMSelectView: UIView {
     
 }
 extension BMSelectView:UITableViewDelegate,UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellid = "testCellID1"
         let desLab = UILabel()
         var cell = tableView.dequeueReusableCell(withIdentifier: cellid)
@@ -156,19 +156,19 @@ extension BMSelectView:UITableViewDelegate,UITableViewDataSource{
         cell?.selectionStyle = .none
         return cell!
     }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return titleLable
     }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableViewHeadH
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableViewCellH
     }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.bmSelectViewDidSelected(index: indexPath.row)
         table.removeFromSuperview()
         self.removeFromSuperview()
