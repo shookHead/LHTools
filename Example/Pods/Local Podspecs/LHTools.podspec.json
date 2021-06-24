@@ -73,16 +73,16 @@
   },
   "subspecs": [
     {
-      "name": "View",
-      "source_files": "LHTools/Classes/View/**/*.swift"
-    },
-    {
       "name": "Global",
       "source_files": [
         "LHTools/Classes/GlobalImport.swift",
         "LHTools/Classes/BMConst.swift",
         "LHTools/Classes/LHTools.swift"
       ]
+    },
+    {
+      "name": "View",
+      "source_files": "LHTools/Classes/View/**/*.swift"
     },
     {
       "name": "自定义视图",
@@ -120,7 +120,16 @@
         },
         {
           "name": "图片上传",
-          "source_files": "LHTools/Classes/自定义视图/图片上传/**/*.swift"
+          "subspecs": [
+            {
+              "name": "快速上传",
+              "source_files": "LHTools/Classes/自定义视图/图片上传/快速上传/**/*.swift"
+            },
+            {
+              "name": "多图选择控件",
+              "source_files": "LHTools/Classes/自定义视图/图片上传/多图选择控件/**/*.swift"
+            }
+          ]
         },
         {
           "name": "加载等待",
@@ -149,6 +158,88 @@
         {
           "name": "PhotoBrowser",
           "source_files": "LHTools/Classes/自定义视图/PhotoBrowser/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "扩展",
+      "subspecs": [
+        {
+          "name": "Xib",
+          "source_files": "LHTools/Classes/扩展/Xib/**/*.swift"
+        },
+        {
+          "name": "Color",
+          "source_files": "LHTools/Classes/扩展/Color/**/*.swift"
+        },
+        {
+          "name": "SnapKit",
+          "source_files": "LHTools/Classes/扩展/SnapKit/**/*.swift"
+        },
+        {
+          "name": "Date",
+          "source_files": "LHTools/Classes/扩展/Date/**/*.swift"
+        },
+        {
+          "name": "Number",
+          "source_files": "LHTools/Classes/扩展/Number/**/*.swift"
+        },
+        {
+          "name": "View",
+          "source_files": "LHTools/Classes/扩展/View/**/*.swift"
+        },
+        {
+          "name": "Kingfisher",
+          "source_files": "LHTools/Classes/扩展/Kingfisher/**/*.swift"
+        },
+        {
+          "name": "String",
+          "source_files": "LHTools/Classes/扩展/String/**/*.swift"
+        },
+        {
+          "name": "Nav",
+          "source_files": "LHTools/Classes/扩展/Nav/**/*.swift"
+        },
+        {
+          "name": "Set",
+          "source_files": "LHTools/Classes/扩展/Set/**/*.swift"
+        },
+        {
+          "name": "SegmentedControl",
+          "source_files": "LHTools/Classes/扩展/SegmentedControl/**/*.swift"
+        }
+      ]
+    },
+    {
+      "name": "基类",
+      "source_files": "LHTools/Classes/基类/**/*.swift"
+    },
+    {
+      "name": "工具类",
+      "subspecs": [
+        {
+          "name": "Utils",
+          "source_files": "LHTools/Classes/工具类/Utils/**/*.swift"
+        },
+        {
+          "name": "获取文件",
+          "source_files": "LHTools/Classes/工具类/获取文件/**/*.swift"
+        },
+        {
+          "name": "请求",
+          "source_files": "LHTools/Classes/工具类/请求/**/*.swift"
+        },
+        {
+          "name": "约束",
+          "source_files": "LHTools/Classes/工具类/约束/**/*.swift"
+        },
+        {
+          "name": "缓存",
+          "source_files": "LHTools/Classes/工具类/缓存/**/*.swift"
+        },
+        {
+          "name": "二维码",
+          "source_files": "LHTools/Classes/工具类/二维码/**/*.swift"
         }
       ]
     }

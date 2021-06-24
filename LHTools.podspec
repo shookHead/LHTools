@@ -33,12 +33,14 @@ TODO: Add long description of the pod here.
   
 #  s.source_files = 'LHTools/Classes/**/*.swift'
   s.source_files  = "LHTools", "Classes/**/*.swift"
-
-  s.subspec 'View' do |ss|
-      ss.source_files = 'LHTools/Classes/View/**/*.swift'
-  end
+  
+  #Global
   s.subspec 'Global' do |ss|
       ss.source_files = 'LHTools/Classes/GlobalImport.swift','LHTools/Classes/BMConst.swift','LHTools/Classes/LHTools.swift'
+  end
+  #View
+  s.subspec 'View' do |ss|
+      ss.source_files = 'LHTools/Classes/View/**/*.swift'
   end
   #自定义视图
   s.subspec '自定义视图' do |ss|
@@ -61,7 +63,12 @@ TODO: Add long description of the pod here.
           end
       end
       ss.subspec '图片上传' do |sss|
-          sss.source_files = 'LHTools/Classes/自定义视图/图片上传/**/*.swift'
+          sss.subspec '快速上传' do |ssss|
+              ssss.source_files = 'LHTools/Classes/自定义视图/图片上传/快速上传/**/*.swift'
+          end
+          sss.subspec '多图选择控件' do |ssss|
+              ssss.source_files = 'LHTools/Classes/自定义视图/图片上传/多图选择控件/**/*.swift'
+          end
       end
       ss.subspec '加载等待' do |sss|
           sss.source_files = 'LHTools/Classes/自定义视图/加载等待/**/*.swift'
@@ -83,6 +90,67 @@ TODO: Add long description of the pod here.
       end
       ss.subspec 'PhotoBrowser' do |sss|
           sss.source_files = 'LHTools/Classes/自定义视图/PhotoBrowser/**/*.swift'
+      end
+  end
+  #扩展
+  s.subspec '扩展' do |ss|
+      ss.subspec 'Xib' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/Xib/**/*.swift'
+      end
+      ss.subspec 'Color' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/Color/**/*.swift'
+      end
+      ss.subspec 'SnapKit' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/SnapKit/**/*.swift'
+      end
+      ss.subspec 'Date' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/Date/**/*.swift'
+      end
+      ss.subspec 'Number' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/Number/**/*.swift'
+      end
+      ss.subspec 'View' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/View/**/*.swift'
+      end
+      ss.subspec 'Kingfisher' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/Kingfisher/**/*.swift'
+      end
+      ss.subspec 'String' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/String/**/*.swift'
+      end
+      ss.subspec 'Nav' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/Nav/**/*.swift'
+      end
+      ss.subspec 'Set' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/Set/**/*.swift'
+      end
+      ss.subspec 'SegmentedControl' do |sss|
+          sss.source_files = 'LHTools/Classes/扩展/SegmentedControl/**/*.swift'
+      end
+  end
+  #基类
+  s.subspec '基类' do |ss|
+      ss.source_files = 'LHTools/Classes/基类/**/*.swift'
+  end
+  #工具类
+  s.subspec '工具类' do |ss|
+      ss.subspec 'Utils' do |sss|
+          sss.source_files = 'LHTools/Classes/工具类/Utils/**/*.swift'
+      end
+      ss.subspec '获取文件' do |sss|
+          sss.source_files = 'LHTools/Classes/工具类/获取文件/**/*.swift'
+      end
+      ss.subspec '请求' do |sss|
+          sss.source_files = 'LHTools/Classes/工具类/请求/**/*.swift'
+      end
+      ss.subspec '约束' do |sss|
+          sss.source_files = 'LHTools/Classes/工具类/约束/**/*.swift'
+      end
+      ss.subspec '缓存' do |sss|
+          sss.source_files = 'LHTools/Classes/工具类/缓存/**/*.swift'
+      end
+      ss.subspec '二维码' do |sss|
+          sss.source_files = 'LHTools/Classes/工具类/二维码/**/*.swift'
       end
   end
   

@@ -16,6 +16,9 @@ PODS:
     - Kingfisher
     - LHTools/Global (= 0.0.1)
     - LHTools/View (= 0.0.1)
+    - "LHTools/基类 (= 0.0.1)"
+    - "LHTools/工具类 (= 0.0.1)"
+    - "LHTools/扩展 (= 0.0.1)"
     - "LHTools/自定义视图 (= 0.0.1)"
     - MJRefresh
     - NVActivityIndicatorView
@@ -36,6 +39,283 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
   - LHTools/View (0.0.1):
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/基类 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/工具类 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - "LHTools/工具类/Utils (= 0.0.1)"
+    - "LHTools/工具类/二维码 (= 0.0.1)"
+    - "LHTools/工具类/约束 (= 0.0.1)"
+    - "LHTools/工具类/缓存 (= 0.0.1)"
+    - "LHTools/工具类/获取文件 (= 0.0.1)"
+    - "LHTools/工具类/请求 (= 0.0.1)"
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/工具类/Utils (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/工具类/二维码 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/工具类/约束 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/工具类/缓存 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/工具类/获取文件 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/工具类/请求 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - "LHTools/扩展/Color (= 0.0.1)"
+    - "LHTools/扩展/Date (= 0.0.1)"
+    - "LHTools/扩展/Kingfisher (= 0.0.1)"
+    - "LHTools/扩展/Nav (= 0.0.1)"
+    - "LHTools/扩展/Number (= 0.0.1)"
+    - "LHTools/扩展/SegmentedControl (= 0.0.1)"
+    - "LHTools/扩展/Set (= 0.0.1)"
+    - "LHTools/扩展/SnapKit (= 0.0.1)"
+    - "LHTools/扩展/String (= 0.0.1)"
+    - "LHTools/扩展/View (= 0.0.1)"
+    - "LHTools/扩展/Xib (= 0.0.1)"
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/Color (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/Date (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/Kingfisher (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/Nav (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/Number (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/SegmentedControl (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/Set (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/SnapKit (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/String (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/View (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/扩展/Xib (0.0.1)":
     - Alamofire
     - CLImagePickerTool
     - HandyJSON
@@ -113,6 +393,34 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
   - "LHTools/自定义视图/图片上传 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - "LHTools/自定义视图/图片上传/多图选择控件 (= 0.0.1)"
+    - "LHTools/自定义视图/图片上传/快速上传 (= 0.0.1)"
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/自定义视图/图片上传/多图选择控件 (0.0.1)":
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - "LHTools/自定义视图/图片上传/快速上传 (0.0.1)":
     - Alamofire
     - CLImagePickerTool
     - HandyJSON
@@ -297,7 +605,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  LHTools: 5fb3d8cb6ca6e156161fa3aa072d4021326c1429
+  LHTools: d2d5c257ec0f3effec1772c66a27a4f363e16d54
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
