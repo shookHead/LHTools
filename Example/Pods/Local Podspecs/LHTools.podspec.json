@@ -23,11 +23,7 @@
     "LHTools",
     "Classes/**/*.swift"
   ],
-  "resource_bundles": {
-    "LHTools": [
-      "LHTools/Assets/**/*"
-    ]
-  },
+  "resources": "LHTools/Assets/**/*",
   "static_framework": true,
   "frameworks": [
     "UIKit",

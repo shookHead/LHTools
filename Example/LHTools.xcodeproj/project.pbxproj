@@ -24,6 +24,11 @@
 		F495626C2682E18400AFF39F /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495626B2682E18400AFF39F /* UISegmentedControl+Extension.swift */; };
 		F49562982682E68300AFF39F /* PhotoBrowserProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */; };
 		F49562992682E68300AFF39F /* PhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562972682E68300AFF39F /* PhotoBrowser.swift */; };
+		F4AE55602684719D00038342 /* 图片加载失败.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE555F2684719C00038342 /* 图片加载失败.png */; };
+		F4AE5564268471B600038342 /* BMback_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE5563268471B600038342 /* BMback_Icon.png */; };
+		F4AE5568268471C000038342 /* BMImgItems_UploadImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE5567268471C000038342 /* BMImgItems_UploadImg.png */; };
+		F4AE556C268471CA00038342 /* photoDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE556B268471CA00038342 /* photoDelete.png */; };
+		F4AE5570268471D400038342 /* wuwangluo.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE556F268471D400038342 /* wuwangluo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +120,6 @@
 		F4153C1B2681B21E00B67741 /* QRCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeManager.swift; sourceTree = "<group>"; };
 		F4153C1C2681B21E00B67741 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		F4153C1E2681B21E00B67741 /* city_db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = city_db.sqlite; sourceTree = "<group>"; };
-		F4153C1F2681B21E00B67741 /* LHAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LHAssets.xcassets; sourceTree = "<group>"; };
 		F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabVC.swift; sourceTree = "<group>"; };
 		F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseTabVC.xib; sourceTree = "<group>"; };
 		F495625D2682E0AE00AFF39F /* RedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedPoint.swift; sourceTree = "<group>"; };
@@ -124,6 +128,11 @@
 		F495626B2682E18400AFF39F /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
 		F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserProgressView.swift; sourceTree = "<group>"; };
 		F49562972682E68300AFF39F /* PhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowser.swift; sourceTree = "<group>"; };
+		F4AE555F2684719C00038342 /* 图片加载失败.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片加载失败.png"; sourceTree = "<group>"; };
+		F4AE5563268471B600038342 /* BMback_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMback_Icon.png; sourceTree = "<group>"; };
+		F4AE5567268471C000038342 /* BMImgItems_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMImgItems_UploadImg.png; sourceTree = "<group>"; };
+		F4AE556B268471CA00038342 /* photoDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDelete.png; sourceTree = "<group>"; };
+		F4AE556F268471D400038342 /* wuwangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wuwangluo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -585,8 +594,12 @@
 		F4153C1D2681B21E00B67741 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F4AE556F268471D400038342 /* wuwangluo.png */,
+				F4AE556B268471CA00038342 /* photoDelete.png */,
+				F4AE5567268471C000038342 /* BMImgItems_UploadImg.png */,
+				F4AE5563268471B600038342 /* BMback_Icon.png */,
+				F4AE555F2684719C00038342 /* 图片加载失败.png */,
 				F4153C1E2681B21E00B67741 /* city_db.sqlite */,
-				F4153C1F2681B21E00B67741 /* LHAssets.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -715,10 +728,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4AE5564268471B600038342 /* BMback_Icon.png in Resources */,
+				F4AE5570268471D400038342 /* wuwangluo.png in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				F4AE55602684719D00038342 /* 图片加载失败.png in Resources */,
 				F4333C9B26609A5F00D9BFAC /* BaseTabVC.xib in Resources */,
+				F4AE5568268471C000038342 /* BMImgItems_UploadImg.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				F4AE556C268471CA00038342 /* photoDelete.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,11 +779,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/LHTools/LHTools.bundle",
+				"${PODS_ROOT}/../../LHTools/Assets/BMback_Icon.png",
+				"${PODS_ROOT}/../../LHTools/Assets/BMImgItems_UploadImg.png",
+				"${PODS_ROOT}/../../LHTools/Assets/city_db.sqlite",
+				"${PODS_ROOT}/../../LHTools/Assets/photoDelete.png",
+				"${PODS_ROOT}/../../LHTools/Assets/wuwangluo.png",
+				"${PODS_ROOT}/../../LHTools/Assets/图片加载失败.png",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LHTools.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMback_Icon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMImgItems_UploadImg.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/city_db.sqlite",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/photoDelete.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/wuwangluo.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/图片加载失败.png",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

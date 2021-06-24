@@ -186,3 +186,29 @@ extension String{
 }
 
 
+// MARK: -  ---------------------- 日期相关 ------------------------
+extension String{
+    ///返回固定格式字符串的日期
+    public func getTimeString(formate:String) -> String {
+        if self.count == 0 {
+            return ""
+        }
+        let d = self.toDate("yyyy-MM-dd HH:mm:ss")
+        let s = d?.toString(formate) ?? ""
+        return s
+    }
+    public func toDateString(_ fromFormate:String = "yyyy-MM-dd HH:mm:ss",toFormate:String = "yyyy-MM-dd") -> String{
+        if self.count == 0 {
+            return ""
+        }
+        
+        let timeZone = TimeZone.init(identifier: "Asia/Shanghai")
+        let formatter = DateFormatter()
+        formatter.timeZone = timeZone
+        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.dateFormat = fromFormate
+        let date = formatter.date(from: self)
+        let s = date?.toString(toFormate)
+        return s!
+    }
+}

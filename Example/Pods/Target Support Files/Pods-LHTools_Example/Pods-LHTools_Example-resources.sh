@@ -97,10 +97,20 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/LHTools/LHTools.bundle"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/BMback_Icon.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/BMImgItems_UploadImg.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/city_db.sqlite"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/photoDelete.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/wuwangluo.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/图片加载失败.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/LHTools/LHTools.bundle"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/BMback_Icon.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/BMImgItems_UploadImg.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/city_db.sqlite"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/photoDelete.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/wuwangluo.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Assets/图片加载失败.png"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
