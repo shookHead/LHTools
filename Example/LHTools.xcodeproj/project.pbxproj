@@ -24,11 +24,11 @@
 		F495626C2682E18400AFF39F /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495626B2682E18400AFF39F /* UISegmentedControl+Extension.swift */; };
 		F49562982682E68300AFF39F /* PhotoBrowserProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */; };
 		F49562992682E68300AFF39F /* PhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562972682E68300AFF39F /* PhotoBrowser.swift */; };
-		F4AE55602684719D00038342 /* 图片加载失败.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE555F2684719C00038342 /* 图片加载失败.png */; };
-		F4AE5564268471B600038342 /* BMback_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE5563268471B600038342 /* BMback_Icon.png */; };
-		F4AE5568268471C000038342 /* BMImgItems_UploadImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE5567268471C000038342 /* BMImgItems_UploadImg.png */; };
-		F4AE556C268471CA00038342 /* photoDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE556B268471CA00038342 /* photoDelete.png */; };
-		F4AE5570268471D400038342 /* wuwangluo.png in Resources */ = {isa = PBXBuildFile; fileRef = F4AE556F268471D400038342 /* wuwangluo.png */; };
+		F49CCF8A2684849200DEF7D5 /* wuwangluo.png in Resources */ = {isa = PBXBuildFile; fileRef = F49CCF892684849200DEF7D5 /* wuwangluo.png */; };
+		F49CCF8F268484A600DEF7D5 /* BMImgItems_UploadImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F49CCF8B268484A500DEF7D5 /* BMImgItems_UploadImg.png */; };
+		F49CCF90268484A600DEF7D5 /* BMback_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F49CCF8C268484A600DEF7D5 /* BMback_Icon.png */; };
+		F49CCF91268484A600DEF7D5 /* photoDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = F49CCF8D268484A600DEF7D5 /* photoDelete.png */; };
+		F49CCF92268484A600DEF7D5 /* 图片加载失败.png in Resources */ = {isa = PBXBuildFile; fileRef = F49CCF8E268484A600DEF7D5 /* 图片加载失败.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,11 +128,11 @@
 		F495626B2682E18400AFF39F /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
 		F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserProgressView.swift; sourceTree = "<group>"; };
 		F49562972682E68300AFF39F /* PhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowser.swift; sourceTree = "<group>"; };
-		F4AE555F2684719C00038342 /* 图片加载失败.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片加载失败.png"; sourceTree = "<group>"; };
-		F4AE5563268471B600038342 /* BMback_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMback_Icon.png; sourceTree = "<group>"; };
-		F4AE5567268471C000038342 /* BMImgItems_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMImgItems_UploadImg.png; sourceTree = "<group>"; };
-		F4AE556B268471CA00038342 /* photoDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDelete.png; sourceTree = "<group>"; };
-		F4AE556F268471D400038342 /* wuwangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wuwangluo.png; sourceTree = "<group>"; };
+		F49CCF892684849200DEF7D5 /* wuwangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wuwangluo.png; sourceTree = "<group>"; };
+		F49CCF8B268484A500DEF7D5 /* BMImgItems_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMImgItems_UploadImg.png; sourceTree = "<group>"; };
+		F49CCF8C268484A600DEF7D5 /* BMback_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMback_Icon.png; sourceTree = "<group>"; };
+		F49CCF8D268484A600DEF7D5 /* photoDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDelete.png; sourceTree = "<group>"; };
+		F49CCF8E268484A600DEF7D5 /* 图片加载失败.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片加载失败.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -636,11 +636,11 @@
 		F4AE55CB268476D400038342 /* resource */ = {
 			isa = PBXGroup;
 			children = (
-				F4AE556F268471D400038342 /* wuwangluo.png */,
-				F4AE556B268471CA00038342 /* photoDelete.png */,
-				F4AE5567268471C000038342 /* BMImgItems_UploadImg.png */,
-				F4AE5563268471B600038342 /* BMback_Icon.png */,
-				F4AE555F2684719C00038342 /* 图片加载失败.png */,
+				F49CCF8E268484A600DEF7D5 /* 图片加载失败.png */,
+				F49CCF8C268484A600DEF7D5 /* BMback_Icon.png */,
+				F49CCF8B268484A500DEF7D5 /* BMImgItems_UploadImg.png */,
+				F49CCF8D268484A600DEF7D5 /* photoDelete.png */,
+				F49CCF892684849200DEF7D5 /* wuwangluo.png */,
 				F4153C1E2681B21E00B67741 /* city_db.sqlite */,
 			);
 			path = resource;
@@ -736,15 +736,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4AE5564268471B600038342 /* BMback_Icon.png in Resources */,
-				F4AE5570268471D400038342 /* wuwangluo.png in Resources */,
+				F49CCF8F268484A600DEF7D5 /* BMImgItems_UploadImg.png in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				F49CCF92268484A600DEF7D5 /* 图片加载失败.png in Resources */,
+				F49CCF90268484A600DEF7D5 /* BMback_Icon.png in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				F4AE55602684719D00038342 /* 图片加载失败.png in Resources */,
 				F4333C9B26609A5F00D9BFAC /* BaseTabVC.xib in Resources */,
-				F4AE5568268471C000038342 /* BMImgItems_UploadImg.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				F4AE556C268471CA00038342 /* photoDelete.png in Resources */,
+				F49CCF8A2684849200DEF7D5 /* wuwangluo.png in Resources */,
+				F49CCF91268484A600DEF7D5 /* photoDelete.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

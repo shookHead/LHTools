@@ -20,8 +20,8 @@ class ViewController: UIViewController {
 //        let cityArr = CityDBManager.share.getAddressModel(1, 1, model?.districtId ?? 0)
 //        let city = CityDBManager.share.getAddressModel(1, 1, 1)
 //        print(city)
-        let img = UIImageView()
-        img.image = #imageLiteral(resourceName: "BMback_Icon")
+//        let img = UIImageView()
+//        img.image = #imageLiteral(resourceName: "BMback_Icon")
     }
 }
 
