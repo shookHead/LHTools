@@ -97,20 +97,20 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/BMback_Icon.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/BMImgItems_UploadImg.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/city_db.sqlite"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/photoDelete.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/wuwangluo.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/图片加载失败.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/wuwangluo.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/图片加载失败.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/BMback_Icon.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/BMImgItems_UploadImg.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/city_db.sqlite"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/photoDelete.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/wuwangluo.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Assets/图片加载失败.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/wuwangluo.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/图片加载失败.png"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

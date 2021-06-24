@@ -15,6 +15,7 @@ PODS:
     - JXPhotoBrowser
     - Kingfisher
     - LHTools/Global (= 0.0.1)
+    - LHTools/resource (= 0.0.1)
     - LHTools/View (= 0.0.1)
     - "LHTools/基类 (= 0.0.1)"
     - "LHTools/工具类 (= 0.0.1)"
@@ -26,6 +27,19 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
   - LHTools/Global (0.0.1):
+    - Alamofire
+    - CLImagePickerTool
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+  - LHTools/resource (0.0.1):
     - Alamofire
     - CLImagePickerTool
     - HandyJSON
@@ -591,7 +605,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  LHTools: 40af567247cd700f2ce9f2309c84ecaa48d172bc
+  LHTools: 3011903cd1638f448e5a18e7ae5a65f886ceac29
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a

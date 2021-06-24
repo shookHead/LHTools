@@ -29,7 +29,10 @@ public class CityDBManager {
     }()
 
     init() {
-        if let path = Bundle.current()?.path(forResource: "city_db", ofType: "sqlite") {
+//        if let path = Bundle.current()?.path(forResource: "city_db", ofType: "sqlite") {
+//            db = try! Connection(path, readonly: true)
+//        }
+        if let path = Bundle.main.path(forResource: "city_db", ofType: "sqlite") {
             db = try! Connection(path, readonly: true)
         }
     }

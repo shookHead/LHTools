@@ -34,6 +34,14 @@ TODO: Add long description of the pod here.
 #  s.source_files = 'LHTools/Classes/**/*.swift'
   s.source_files  = "LHTools", "Classes/**/*.swift"
   
+#   s.resource_bundles = {
+##       'LHTools' => ['LHTools/Assets/*.xcassets','LHTools/Assets/*.sqlite']
+#       'LHTools' => ['LHTools/Assets/**/*']
+#   }
+   s.resources    = "LHTools/Classes/resource/**/*"
+   s.static_framework = true
+   
+   
   #Global
   s.subspec 'Global' do |ss|
       ss.source_files = 'LHTools/Classes/GlobalImport.swift','LHTools/Classes/BMConst.swift','LHTools/Classes/LHTools.swift'
@@ -151,12 +159,10 @@ TODO: Add long description of the pod here.
       end
   end
   
-#   s.resource_bundles = {
-##       'LHTools' => ['LHTools/Assets/*.xcassets','LHTools/Assets/*.sqlite']
-#       'LHTools' => ['LHTools/Assets/**/*']
-#   }
-   s.resources    = "LHTools/Assets/**/*"
-   s.static_framework = true
+  #基类
+  s.subspec 'resource' do |ss|
+      ss.source_files = 'LHTools/Classes/resource/**/*'
+  end
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
    s.dependency 'Alamofire'

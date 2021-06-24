@@ -269,6 +269,7 @@
 				F4153BE92681B21E00B67741 /* 扩展 */,
 				F4153C072681B21E00B67741 /* 基类 */,
 				F4153C102681B21E00B67741 /* 工具类 */,
+				F4AE55CB268476D400038342 /* resource */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -594,12 +595,6 @@
 		F4153C1D2681B21E00B67741 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				F4AE556F268471D400038342 /* wuwangluo.png */,
-				F4AE556B268471CA00038342 /* photoDelete.png */,
-				F4AE5567268471C000038342 /* BMImgItems_UploadImg.png */,
-				F4AE5563268471B600038342 /* BMback_Icon.png */,
-				F4AE555F2684719C00038342 /* 图片加载失败.png */,
-				F4153C1E2681B21E00B67741 /* city_db.sqlite */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -636,6 +631,19 @@
 				F49562962682E68300AFF39F /* PhotoBrowserProgressView.swift */,
 			);
 			path = PhotoBrowser;
+			sourceTree = "<group>";
+		};
+		F4AE55CB268476D400038342 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				F4AE556F268471D400038342 /* wuwangluo.png */,
+				F4AE556B268471CA00038342 /* photoDelete.png */,
+				F4AE5567268471C000038342 /* BMImgItems_UploadImg.png */,
+				F4AE5563268471B600038342 /* BMback_Icon.png */,
+				F4AE555F2684719C00038342 /* 图片加载失败.png */,
+				F4153C1E2681B21E00B67741 /* city_db.sqlite */,
+			);
+			path = resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -779,12 +787,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example-resources.sh",
-				"${PODS_ROOT}/../../LHTools/Assets/BMback_Icon.png",
-				"${PODS_ROOT}/../../LHTools/Assets/BMImgItems_UploadImg.png",
-				"${PODS_ROOT}/../../LHTools/Assets/city_db.sqlite",
-				"${PODS_ROOT}/../../LHTools/Assets/photoDelete.png",
-				"${PODS_ROOT}/../../LHTools/Assets/wuwangluo.png",
-				"${PODS_ROOT}/../../LHTools/Assets/图片加载失败.png",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/wuwangluo.png",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/图片加载失败.png",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
