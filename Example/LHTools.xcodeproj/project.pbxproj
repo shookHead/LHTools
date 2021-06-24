@@ -64,8 +64,6 @@
 		F4153BC52681B21D00B67741 /* MBProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBProgressHud.swift; sourceTree = "<group>"; };
 		F4153BC82681B21D00B67741 /* PopViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewManager.swift; sourceTree = "<group>"; };
 		F4153BC92681B21D00B67741 /* JXPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXPopupView.swift; sourceTree = "<group>"; };
-		F4153BCB2681B21D00B67741 /* LHTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHTextField.swift; sourceTree = "<group>"; };
-		F4153BCC2681B21D00B67741 /* LHLimitWordTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHLimitWordTF.swift; sourceTree = "<group>"; };
 		F4153BCF2681B21D00B67741 /* BMCityPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCityPicker.swift; sourceTree = "<group>"; };
 		F4153BD12681B21D00B67741 /* CityDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDBManager.swift; sourceTree = "<group>"; };
 		F4153BD22681B21E00B67741 /* BMBasePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMBasePicker.swift; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 			children = (
 				F4153BC22681B21D00B67741 /* 提示框 */,
 				F4153BC72681B21D00B67741 /* PopView */,
-				F4153BCA2681B21D00B67741 /* 输入框限制 */,
 				F4153BCD2681B21D00B67741 /* 选择器 */,
 				F4153BD62681B21E00B67741 /* 图片上传 */,
 				F4153BDB2681B21E00B67741 /* 加载等待 */,
@@ -302,15 +299,6 @@
 				F4153BC92681B21D00B67741 /* JXPopupView.swift */,
 			);
 			path = PopView;
-			sourceTree = "<group>";
-		};
-		F4153BCA2681B21D00B67741 /* 输入框限制 */ = {
-			isa = PBXGroup;
-			children = (
-				F4153BCB2681B21D00B67741 /* LHTextField.swift */,
-				F4153BCC2681B21D00B67741 /* LHLimitWordTF.swift */,
-			);
-			path = "输入框限制";
 			sourceTree = "<group>";
 		};
 		F4153BCD2681B21D00B67741 /* 选择器 */ = {

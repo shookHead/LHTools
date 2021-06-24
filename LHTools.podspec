@@ -50,9 +50,6 @@ TODO: Add long description of the pod here.
       ss.subspec 'PopView' do |sss|
           sss.source_files = 'LHTools/Classes/自定义视图/PopView/**/*.swift'
       end
-      ss.subspec '输入框限制' do |sss|
-          sss.source_files = 'LHTools/Classes/自定义视图/输入框限制/**/*.swift'
-      end
       ss.subspec '选择器' do |sss|
           sss.source_files = 'LHTools/Classes/自定义视图/选择器/BMPicker.swift','LHTools/Classes/自定义视图/选择器/BMSelectView.swift'
           sss.subspec 'CustomPicker' do |ssss|
