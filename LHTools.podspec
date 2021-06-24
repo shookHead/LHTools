@@ -159,10 +159,6 @@ TODO: Add long description of the pod here.
       end
   end
   
-  #基类
-  s.subspec 'resource' do |ss|
-      ss.source_files = 'LHTools/Classes/resource/**/*'
-  end
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
    s.dependency 'Alamofire'
