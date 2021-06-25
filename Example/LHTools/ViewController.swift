@@ -22,6 +22,7 @@ class ViewController: UIViewController {
 //        print(city)
 //        let img = UIImageView()
 //        img.image = #imageLiteral(resourceName: "BMback_Icon")
+        
     }
 }
 

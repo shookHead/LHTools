@@ -234,10 +234,6 @@
           "source_files": "LHTools/Classes/工具类/二维码/**/*.swift"
         }
       ]
-    },
-    {
-      "name": "resource",
-      "source_files": "LHTools/Classes/resource/**/*"
     }
   ],
   "swift_version": "5.0"
