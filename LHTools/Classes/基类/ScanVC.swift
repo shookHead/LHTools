@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 open class ScanVC: BaseVC {
     
@@ -81,6 +82,27 @@ open class ScanVC: BaseVC {
         self.hideNav = true
         self.view.backgroundColor = .black
         self.initUI()
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        if status == AVAuthorizationStatus.restricted || status == AVAuthorizationStatus.denied {
+            lh.topMost()?.showComfirm("访问相机", "您还没有打开相机权限", okStr: "去打开", cancle: "取消", cancel: {
+
+            }, complish: {
+                self.judgeAppSetting()
+            })
+        }else{
+
+        }
+    }
+    ///跳往app设置
+    func judgeAppSetting(){
+        if #available(iOS 10, *) {
+            UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:],
+                                      completionHandler: {
+                                        (success) in
+            })
+        } else {
+            UIApplication.shared.openURL(URL.init(string: UIApplication.openSettingsURLString)!)
+        }
     }
     
     open override func viewDidAppear(_ animated: Bool) {
