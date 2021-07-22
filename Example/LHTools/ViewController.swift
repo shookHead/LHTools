@@ -8,6 +8,7 @@
 
 import UIKit
 @_exported import LHTools
+import Alamofire
 class ViewController: UIViewController {
     
     override func viewDidLoad() {

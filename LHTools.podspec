@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/shookHead/LHTools.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
   s.swift_version          = '5.0'
   
 #  s.source_files = 'LHTools/Classes/**/*.swift'
@@ -160,20 +160,22 @@ TODO: Add long description of the pod here.
   end
   
   # s.public_header_files = 'Pod/Classes/**/*.h'
-   s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
-   s.dependency 'Alamofire'
-   s.dependency 'Kingfisher'
-   s.dependency 'HandyJSON'
-   s.dependency 'MJRefresh'
-   s.dependency 'SwiftyUserDefaults'
-   s.dependency 'IQKeyboardManagerSwift'
-   s.dependency 'SQLite.swift'
-   s.dependency 'Hero'
+    s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
+    s.dependency 'Alamofire'
+    s.dependency 'Kingfisher'
+#   s.dependency 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON.git', :commit => '7e3b212c76dd1b1d88bad592ae8b0aa0b0361e29'
+    s.dependency 'HandyJSON', '5.0.3-beta'
+    s.dependency 'MJRefresh'
+    s.dependency 'SwiftyUserDefaults'
+    s.dependency 'IQKeyboardManagerSwift'
+    s.dependency 'SQLite.swift'
+    s.dependency 'Hero'
 
-   s.dependency 'NVActivityIndicatorView'
-   s.dependency 'CLImagePickerTool'
-   s.dependency 'JXPhotoBrowser'
-   s.dependency 'SnapKit'
+    s.dependency 'NVActivityIndicatorView'
+#    s.dependency 'CLImagePickerTool'
+    s.dependency 'ZLPhotoBrowser'
+    s.dependency 'JXPhotoBrowser'
+    s.dependency 'SnapKit'
 #
 #   s.dependency 'Charts'
 #   s.dependency 'JXSegmentedView'

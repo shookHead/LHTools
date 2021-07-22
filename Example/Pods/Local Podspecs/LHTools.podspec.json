@@ -16,7 +16,7 @@
     "tag": "0.0.1"
   },
   "platforms": {
-    "ios": "9.0"
+    "ios": "10.0"
   },
   "swift_versions": "5.0",
   "source_files": [
@@ -37,7 +37,7 @@
 
     ],
     "HandyJSON": [
-
+      "5.0.3-beta"
     ],
     "MJRefresh": [
 
@@ -57,7 +57,7 @@
     "NVActivityIndicatorView": [
 
     ],
-    "CLImagePickerTool": [
+    "ZLPhotoBrowser": [
 
     ],
     "JXPhotoBrowser": [

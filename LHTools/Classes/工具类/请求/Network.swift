@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Alamofire
 public let network = BMNetwork()
 
 public class HTMLString {}
@@ -107,65 +107,96 @@ open class BMApiTemplete<ValueType> : BMApiSet{
 // MARK: -  ---------------------- 实现 network[.接口] 的调用方式------------------------
 public class BMNetwork{
     
-    static var sessionManager: Alamofire.SessionManager = {
+    static var sessionManager: Session = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 10
-        return Alamofire.SessionManager(configuration: configuration)
+        return Session.init(configuration: configuration, delegate: SessionDelegate.init())
     }()
     
     
     //可以通过 BMNetwork.imgUplodeApi = “”修改
     static var imgUplodeApi = "https://img.163.gg/YmUpload_image"
-    
-    
-    
-    
-    
+
     public func upload(_ img:UIImage, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ imgUrl:String?)->()){
         let newImg = img.fixOrientation()//防止图片被旋转
         let api = BMNetwork.imgUplodeApi
         let imageData = newImg.jpegData(compressionQuality: 0.3)
         let name = "\(Date().toTimeInterval())" + ".jpeg"
-        Alamofire.upload(multipartFormData: { (multipartFormData) in
+        let request = AF.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(imageData!, withName: "file", fileName: name, mimeType: "image/jpeg")
-        }, to: api){ (encodingResult) in
-            switch encodingResult {
-            case .success(let upload, _, _):
-                upload.responseString(completionHandler: { (response) in
-                    switch response.result{
-                    //请求成功
-                    case .success(let jsonString):
-                        if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: jsonString) {
-                            if resp.code == 1{
-                                let data = resp.data
-                                if let url = data?["url"] as? String{
-                                    print(url)
-                                    finish(url)
-                                }else{
-                                    finish(nil)
-                                }
-                            }else{
-                                finish(nil)
-                            }
+        }, to: api, method: .post).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                let json = String(data: response.data!, encoding: String.Encoding.utf8)
+//                success(json ?? "")
+                if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
+                    if resp.code == 1{
+                        let data = resp.data
+                        if let url = data?["url"] as? String{
+                            print(url)
+                            finish(url)
                         }else{
                             finish(nil)
                         }
-                    //常见 访问失败 原因
-                    case .failure(let error ):
-                        print(error)
+                    }else{
                         finish(nil)
                     }
-                })
-                //获取上传进度
-                upload.uploadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                    DispatchQueue.main.sync {
-                        uploading?(progress.fractionCompleted)
-                    }
+                }else{
+                    finish(nil)
                 }
-            case .failure(_):
+                
+            case .failure:
+                let statusCode = response.response?.statusCode
+                print(response.response as Any,statusCode as Any)
                 finish(nil)
             }
         }
+        request.uploadProgress { (progress) in
+            ///正在上传图片
+            DispatchQueue.main.sync {
+                uploading?(progress.fractionCompleted)
+            }
+        }
+//        AF.upload(multipartFormData: { (multipartFormData) in
+//            multipartFormData.append(imageData!, withName: "file", fileName: name, mimeType: "image/jpeg")
+//        }, to: api){ (encodingResult) in
+//            switch encodingResult {
+//            case .success(let upload, _, _):
+//                upload.responseString(completionHandler: { (response) in
+//                    switch response.result{
+//                    //请求成功
+//                    case .success(let jsonString):
+//                        if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: jsonString) {
+//                            if resp.code == 1{
+//                                let data = resp.data
+//                                if let url = data?["url"] as? String{
+//                                    print(url)
+//                                    finish(url)
+//                                }else{
+//                                    finish(nil)
+//                                }
+//                            }else{
+//                                finish(nil)
+//                            }
+//                        }else{
+//                            finish(nil)
+//                        }
+//                    //常见 访问失败 原因
+//                    case .failure(let error ):
+//                        print(error)
+//                        finish(nil)
+//                    }
+//                })
+//                //获取上传进度
+//                upload.uploadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
+//                    DispatchQueue.main.sync {
+//                        uploading?(progress.fractionCompleted)
+//                    }
+//                }
+//            case .failure(_):
+//                finish(nil)
+//            }
+//        }
     }
     
     public subscript<T:HandyJSON>(key: BMApiTemplete<T?>) -> BMRequester_Model<T> {
