@@ -658,7 +658,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				9380CF88C226F62427499BF1 /* [CP] Copy Pods Resources */,
-				BA7C122F4421464CEFF1996F /* [CP] Embed Pods Frameworks */,
+				9C16CD206A54240220F9DA58 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -808,7 +808,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA7C122F4421464CEFF1996F /* [CP] Embed Pods Frameworks */ = {
+		9C16CD206A54240220F9DA58 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

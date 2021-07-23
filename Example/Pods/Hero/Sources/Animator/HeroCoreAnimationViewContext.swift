@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if canImport(UIKit)
+
 import UIKit
 
 extension CALayer {
@@ -36,14 +38,13 @@ extension CALayer {
   }()
 
   @objc dynamic func hero_add(anim: CAAnimation, forKey: String?) {
-    if CALayer.heroAddedAnimations != nil {
-      let copiedAnim = anim.copy() as! CAAnimation
-      copiedAnim.delegate = nil // having delegate resulted some weird animation behavior
-      CALayer.heroAddedAnimations!.append((self, forKey!, copiedAnim))
-      hero_add(anim: anim, forKey: forKey)
-    } else {
-      hero_add(anim: anim, forKey: forKey)
+    if let animationKey = forKey,
+        CALayer.heroAddedAnimations != nil,
+        let copiedAnim = anim.copy() as? CAAnimation {
+        copiedAnim.delegate = nil // having delegate resulted some weird animation behavior
+        CALayer.heroAddedAnimations?.append((self, animationKey, copiedAnim))
     }
+    hero_add(anim: anim, forKey: forKey)
   }
 }
 
@@ -233,9 +234,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       case "cornerRadius", "contentsRect", "contentsScale":
         addAnimation(anim, for: key, to: snapshot.layer)
         if let contentLayer = contentLayer {
+          // swiftlint:disable:next force_cast
           addAnimation(anim.copy() as! CAAnimation, for: key, to: contentLayer)
         }
         if let overlayLayer = overlayLayer {
+          // swiftlint:disable:next force_cast
           addAnimation(anim.copy() as! CAAnimation, for: key, to: overlayLayer)
         }
       case "bounds.size":
@@ -457,3 +460,5 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     return animate(delay: targetState.delay, duration: duration)
   }
 }
+
+#endif

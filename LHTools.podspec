@@ -163,7 +163,6 @@ TODO: Add long description of the pod here.
     s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
     s.dependency 'Alamofire'
     s.dependency 'Kingfisher'
-#   s.dependency 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON.git', :commit => '7e3b212c76dd1b1d88bad592ae8b0aa0b0361e29'
     s.dependency 'HandyJSON', '5.0.3-beta'
     s.dependency 'MJRefresh'
     s.dependency 'SwiftyUserDefaults'

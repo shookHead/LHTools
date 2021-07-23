@@ -46,16 +46,18 @@ class LoadingImageCell: JXPhotoBrowserImageCell {
     public func reloadData(placeholder: UIImage?, urlString: String?) {
         progressView.progress = 0
         let url = urlString.flatMap { URL(string: $0) }
-        imageView.kf.setImage(with: url, placeholder: nil, options: [.transition(.fade(0.3))], progressBlock: { (received, total) in
+        imageView.kf.setImage(with: url, placeholder: nil, options: [.transition(.fade(0.3))]) { (received, total) in
             if total > 0 {
                 self.progressView.progress = CGFloat(received) / CGFloat(total)
             }
-        }) { (img, error, type, url) in
-            if error != nil{
-                print("失败")
+        } completionHandler: { (result) in
+            switch result{
+            case .success(let value):
+                self.progressView.progress = 1.0
+            case .failure(let error):
                 self.imageView.image = #imageLiteral(resourceName: "图片加载失败")
+                self.progressView.progress = 0
             }
-            self.progressView.progress = error == nil ? 1.0 : 0
             self.setNeedsLayout()
         }
     }

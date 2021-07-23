@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (5.4.3)
   - HandyJSON (5.0.3-beta)
-  - Hero (1.5.0)
+  - Hero (1.6.1)
   - IQKeyboardManagerSwift (6.5.6)
   - JXPhotoBrowser (3.1.3)
-  - Kingfisher (4.10.1)
+  - Kingfisher (6.3.0)
   - LHTools (0.0.1):
     - Alamofire
     - HandyJSON (= 5.0.3-beta)
@@ -554,7 +554,7 @@ PODS:
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
-  - SnapKit (4.2.0)
+  - SnapKit (5.0.1)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
@@ -588,14 +588,14 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   HandyJSON: 88e8ea5f66ab65c3b8768499a1935d0509c460d4
-  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   LHTools: aa80b9529386a9f7fd5537948c891bb7a9873707
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
   ZLPhotoBrowser: 193f779936f49a3f485100009efb8e0b8b3fb2fe

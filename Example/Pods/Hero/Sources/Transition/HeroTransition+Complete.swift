@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if canImport(UIKit)
+
 import UIKit
 
 extension HeroTransition {
@@ -87,7 +89,7 @@ extension HeroTransition {
       if isPresenting != finished, !inContainerController, transitionContext != nil {
         // only happens when present a .overFullScreen VC
         // bug: http://openradar.appspot.com/radar?id=5320103646199808
-        UIApplication.shared.keyWindow?.addSubview(isPresenting ? fromView : toView)
+        container.window?.addSubview(isPresenting ? fromView : toView)
       }
     }
 
@@ -143,3 +145,5 @@ extension HeroTransition {
     transitionContext?.completeTransition(finished)
   }
 }
+
+#endif
