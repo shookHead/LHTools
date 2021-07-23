@@ -52,9 +52,9 @@ class LoadingImageCell: JXPhotoBrowserImageCell {
             }
         } completionHandler: { (result) in
             switch result{
-            case .success(let value):
+            case .success:
                 self.progressView.progress = 1.0
-            case .failure(let error):
+            case .failure:
                 self.imageView.image = #imageLiteral(resourceName: "图片加载失败")
                 self.progressView.progress = 0
             }

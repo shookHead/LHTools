@@ -124,79 +124,44 @@ public class BMNetwork{
         let name = "\(Date().toTimeInterval())" + ".jpeg"
         let request = AF.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(imageData!, withName: "file", fileName: name, mimeType: "image/jpeg")
-        }, to: api, method: .post).responseJSON { (response) in
-            switch response.result {
-            case .success:
-                let json = String(data: response.data!, encoding: String.Encoding.utf8)
-//                success(json ?? "")
-                if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
-                    if resp.code == 1{
-                        let data = resp.data
-                        if let url = data?["url"] as? String{
-                            print(url)
-                            finish(url)
+        }, to: api, method: .post)
+        request.uploadProgress { (progress) in
+            DispatchQueue.global().async {
+                uploading?(progress.fractionCompleted)
+                print("progress",progress.fractionCompleted)
+            }
+        }
+        request.responseJSON { (response) in
+            DispatchQueue.global().async {
+                switch response.result {
+                case .success:
+                    DispatchQueue.main.async {
+                        let json = String(data: response.data!, encoding: String.Encoding.utf8)
+        //                success(json ?? "")
+                        if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
+                            if resp.code == 1{
+                                let data = resp.data
+                                if let url = data?["url"] as? String{
+                                    print(url)
+                                    finish(url)
+                                }else{
+                                    finish(nil)
+                                }
+                            }else{
+                                finish(nil)
+                            }
                         }else{
                             finish(nil)
                         }
-                    }else{
-                        finish(nil)
                     }
-                }else{
+                    
+                case .failure:
+                    let statusCode = response.response?.statusCode
+                    print(response.response as Any,statusCode as Any)
                     finish(nil)
                 }
-                
-            case .failure:
-                let statusCode = response.response?.statusCode
-                print(response.response as Any,statusCode as Any)
-                finish(nil)
             }
         }
-        request.uploadProgress { (progress) in
-            ///正在上传图片
-            DispatchQueue.main.sync {
-                uploading?(progress.fractionCompleted)
-            }
-        }
-//        AF.upload(multipartFormData: { (multipartFormData) in
-//            multipartFormData.append(imageData!, withName: "file", fileName: name, mimeType: "image/jpeg")
-//        }, to: api){ (encodingResult) in
-//            switch encodingResult {
-//            case .success(let upload, _, _):
-//                upload.responseString(completionHandler: { (response) in
-//                    switch response.result{
-//                    //请求成功
-//                    case .success(let jsonString):
-//                        if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: jsonString) {
-//                            if resp.code == 1{
-//                                let data = resp.data
-//                                if let url = data?["url"] as? String{
-//                                    print(url)
-//                                    finish(url)
-//                                }else{
-//                                    finish(nil)
-//                                }
-//                            }else{
-//                                finish(nil)
-//                            }
-//                        }else{
-//                            finish(nil)
-//                        }
-//                    //常见 访问失败 原因
-//                    case .failure(let error ):
-//                        print(error)
-//                        finish(nil)
-//                    }
-//                })
-//                //获取上传进度
-//                upload.uploadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-//                    DispatchQueue.main.sync {
-//                        uploading?(progress.fractionCompleted)
-//                    }
-//                }
-//            case .failure(_):
-//                finish(nil)
-//            }
-//        }
     }
     
     public subscript<T:HandyJSON>(key: BMApiTemplete<T?>) -> BMRequester_Model<T> {
