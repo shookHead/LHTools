@@ -9,25 +9,10 @@
 import UIKit
 import Photos
 import ZLPhotoBrowser
-//import CLImagePickerTool
-
-//public class ImageChooseTools: NSObject {
-//
-//}
-
-// 全局持有 防止释放 后 不走回调
-//public var clImgTools:CLImagePickerTool!
 
 public extension UIViewController{
     func chooseSingleImg(_ complish:@escaping (_ img:UIImage?)->() ){
-//        clImgTools = CLImagePickerTool()
-//        clImgTools.cameraOut = true
-//        clImgTools.isHiddenVideo = true
-//        clImgTools.singleImageChooseType = .singlePicture
-//        //单图时 拿到缩略图
-//        clImgTools.cl_setupImagePickerWith(MaxImagesCount: 1, superVC: self) { (_, cutImage) in
-//            complish(cutImage)
-//        }
+        setconfig(maxSelectCount: 1)
         let alertSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let acrion1 = UIAlertAction(title: "拍照", style: .default) { (action) in
             let camera = ZLCustomCamera()
@@ -40,10 +25,8 @@ public extension UIViewController{
             self.showDetailViewController(camera, sender: nil)
         }
         let acrion2 = UIAlertAction(title: "从相册选取", style: .default) { (action) in
-            self.setconfig(maxSelectCount: 1)
             let ps = ZLPhotoPreviewSheet()
             ps.selectImageBlock = { (images, assets, isOriginal) in
-                // your code
                 print(images)
                 if images.count == 0{
                     return
@@ -62,23 +45,9 @@ public extension UIViewController{
     }
 
     func chooseMutiImg(_ num:Int,_ complish:@escaping (_ img:[UIImage])->() ){
-//        clImgTools = CLImagePickerTool()
-//        clImgTools.cameraOut = true
-//        clImgTools.isHiddenVideo = true
-//        //多图时 使用asset 数组
-//        clImgTools.cl_setupImagePickerWith(MaxImagesCount: num, superVC: self) { (asset,cutImage) in
-//            var imageArr = [UIImage]()
-//            CLImagePickerTool.convertAssetArrToOriginImage(assetArr: asset, scale: 0.1, successClouse: { (image, assetItem) in
-//                imageArr.append(image)
-//                if imageArr.count == asset.count {
-//                    complish(imageArr)
-//                }
-//            }, failedClouse: {
-//                complish(imageArr)
-//            })
-//        }
         let alertSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let acrion1 = UIAlertAction(title: "拍照", style: .default) { (action) in
+            self.setconfig(maxSelectCount: 1)
             let camera = ZLCustomCamera()
             camera.takeDoneBlock = { (image, videoUrl) in
                 print(image as Any)
@@ -92,7 +61,6 @@ public extension UIViewController{
             self.setconfig(maxSelectCount: num)
             let ps = ZLPhotoPreviewSheet()
             ps.selectImageBlock = { (images, assets, isOriginal) in
-                // your code
                 print(images)
                 if images.count == 0{
                     return
