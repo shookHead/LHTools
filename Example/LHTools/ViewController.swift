@@ -9,21 +9,16 @@
 import UIKit
 @_exported import LHTools
 import Alamofire
+//import MBProgressHUD
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        alertShow.maxP = 1
-//        let path = Bundle.main.path(forResource: "city_db", ofType: "LHTools/sqlite")
-//        print(path)
-//        let path = Bundle(for: LHTools.self).resourcePath?.appending("/city_db.sqlite")
-//        print(path)
-//        let cityArr = CityDBManager.share.getAddressModel(1, 1, model?.districtId ?? 0)
-//        let city = CityDBManager.share.getAddressModel(1, 1, 1)
-//        print(city)
-//        let img = UIImageView()
-//        img.image = #imageLiteral(resourceName: "BMback_Icon")
-        
+//        let camer = CamerView()
+//        view
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
     }
 }
 

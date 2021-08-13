@@ -18,6 +18,9 @@
 		F40E91A22681E4DD007721CE /* LHTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40E919F2681E1E4007721CE /* LHTools.swift */; };
 		F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */; };
 		F4333C9B26609A5F00D9BFAC /* BaseTabVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */; };
+		F46C608A26C622BB00182A77 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C608926C622BB00182A77 /* ImageCell.swift */; };
+		F46C608C26C6254100182A77 /* CamerView_UploadImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F46C608B26C6254100182A77 /* CamerView_UploadImg.png */; };
+		F484C5C026C36DD5005A0C6D /* HotBaseBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C5BF26C36DD5005A0C6D /* HotBaseBtn.swift */; };
 		F495625E2682E0AE00AFF39F /* RedPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F495625D2682E0AE00AFF39F /* RedPoint.swift */; };
 		F49562632682E12A00AFF39F /* LHSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562622682E12A00AFF39F /* LHSwiftFunctions.swift */; };
 		F49562672682E16B00AFF39F /* BMSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49562662682E16B00AFF39F /* BMSelectView.swift */; };
@@ -66,7 +69,6 @@
 		F4153BC02681B21D00B67741 /* BMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMConst.swift; sourceTree = "<group>"; };
 		F4153BC32681B21D00B67741 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		F4153BC42681B21D00B67741 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		F4153BC52681B21D00B67741 /* MBProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBProgressHud.swift; sourceTree = "<group>"; };
 		F4153BC82681B21D00B67741 /* PopViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewManager.swift; sourceTree = "<group>"; };
 		F4153BC92681B21D00B67741 /* JXPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXPopupView.swift; sourceTree = "<group>"; };
 		F4153BCF2681B21D00B67741 /* BMCityPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCityPicker.swift; sourceTree = "<group>"; };
@@ -122,6 +124,10 @@
 		F4153C1E2681B21E00B67741 /* city_db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = city_db.sqlite; sourceTree = "<group>"; };
 		F4333C9826609A5F00D9BFAC /* BaseTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabVC.swift; sourceTree = "<group>"; };
 		F4333C9926609A5F00D9BFAC /* BaseTabVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseTabVC.xib; sourceTree = "<group>"; };
+		F46C608826C61D4F00182A77 /* CamerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerView.swift; sourceTree = "<group>"; };
+		F46C608926C622BB00182A77 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		F46C608B26C6254100182A77 /* CamerView_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CamerView_UploadImg.png; sourceTree = "<group>"; };
+		F484C5BF26C36DD5005A0C6D /* HotBaseBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotBaseBtn.swift; sourceTree = "<group>"; };
 		F495625D2682E0AE00AFF39F /* RedPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedPoint.swift; sourceTree = "<group>"; };
 		F49562622682E12A00AFF39F /* LHSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSwiftFunctions.swift; sourceTree = "<group>"; };
 		F49562662682E16B00AFF39F /* BMSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMSelectView.swift; sourceTree = "<group>"; };
@@ -297,7 +303,6 @@
 			children = (
 				F4153BC32681B21D00B67741 /* Hud.swift */,
 				F4153BC42681B21D00B67741 /* AlertView.swift */,
-				F4153BC52681B21D00B67741 /* MBProgressHud.swift */,
 			);
 			path = "提示框";
 			sourceTree = "<group>";
@@ -362,6 +367,8 @@
 			isa = PBXGroup;
 			children = (
 				F4153BDA2681B21E00B67741 /* MultiImgChooseView.swift */,
+				F46C608826C61D4F00182A77 /* CamerView.swift */,
+				F46C608926C622BB00182A77 /* ImageCell.swift */,
 			);
 			path = "多图选择控件";
 			sourceTree = "<group>";
@@ -602,6 +609,7 @@
 		F495625C2682E09800AFF39F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F484C5BF26C36DD5005A0C6D /* HotBaseBtn.swift */,
 				F495625D2682E0AE00AFF39F /* RedPoint.swift */,
 			);
 			path = View;
@@ -636,6 +644,7 @@
 		F4AE55CB268476D400038342 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				F46C608B26C6254100182A77 /* CamerView_UploadImg.png */,
 				F49CCF8E268484A600DEF7D5 /* 图片加载失败.png */,
 				F49CCF8C268484A600DEF7D5 /* BMback_Icon.png */,
 				F49CCF8B268484A500DEF7D5 /* BMImgItems_UploadImg.png */,
@@ -744,6 +753,7 @@
 				F4333C9B26609A5F00D9BFAC /* BaseTabVC.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				F49CCF8A2684849200DEF7D5 /* wuwangluo.png in Resources */,
+				F46C608C26C6254100182A77 /* CamerView_UploadImg.png in Resources */,
 				F49CCF91268484A600DEF7D5 /* photoDelete.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -789,6 +799,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example-resources.sh",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/wuwangluo.png",
@@ -798,6 +809,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMback_Icon.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMImgItems_UploadImg.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CamerView_UploadImg.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/city_db.sqlite",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/photoDelete.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/wuwangluo.png",
@@ -821,6 +833,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
@@ -836,6 +849,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
@@ -882,8 +896,10 @@
 				F49562982682E68300AFF39F /* PhotoBrowserProgressView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F49562672682E16B00AFF39F /* BMSelectView.swift in Sources */,
+				F46C608A26C622BB00182A77 /* ImageCell.swift in Sources */,
 				F49562992682E68300AFF39F /* PhotoBrowser.swift in Sources */,
 				F495625E2682E0AE00AFF39F /* RedPoint.swift in Sources */,
+				F484C5C026C36DD5005A0C6D /* HotBaseBtn.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F4333C9A26609A5F00D9BFAC /* BaseTabVC.swift in Sources */,
 				F49562632682E12A00AFF39F /* LHSwiftFunctions.swift in Sources */,

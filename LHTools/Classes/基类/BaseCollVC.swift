@@ -77,7 +77,7 @@ open class BaseCollVC: BaseVC {
         }
     }
     //请求数据  重写 请求数据
-    public func loadData(_ page:Int) -> Void {
+    open func loadData(_ page:Int) -> Void {
         return
     }
     @discardableResult

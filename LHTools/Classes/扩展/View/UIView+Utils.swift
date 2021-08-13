@@ -24,7 +24,6 @@ extension UIView{
         self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let img: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return img
     }
     ///删除一个view 下的所有子view

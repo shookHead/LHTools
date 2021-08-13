@@ -165,6 +165,7 @@ TODO: Add long description of the pod here.
     s.dependency 'Kingfisher'
     s.dependency 'HandyJSON', '5.0.3-beta'
     s.dependency 'MJRefresh'
+    s.dependency 'MBProgressHUD'
     s.dependency 'SwiftyUserDefaults'
     s.dependency 'IQKeyboardManagerSwift'
     s.dependency 'SQLite.swift'
@@ -175,6 +176,7 @@ TODO: Add long description of the pod here.
     s.dependency 'ZLPhotoBrowser'
     s.dependency 'JXPhotoBrowser'
     s.dependency 'SnapKit'
+    
 #
 #   s.dependency 'Charts'
 #   s.dependency 'JXSegmentedView'

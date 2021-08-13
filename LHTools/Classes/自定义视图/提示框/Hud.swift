@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 public class Hud: NSObject {
 
@@ -27,14 +28,14 @@ public class Hud: NSObject {
         if Thread.isMainThread {
             self.showHudInView(view: view)
             hud.mode = MBProgressHUDMode.text
-            hud.labelText = text
-            hud.hide(YES, afterDelay: dismissTime)
+            hud.label.text = text
+            hud.hide(animated: true, afterDelay: dismissTime)
         }else{
             DispatchQueue.main.async {
                 self.showHudInView(view: view)
                 hud.mode = MBProgressHUDMode.text
-                hud.labelText = text
-                hud.hide(YES, afterDelay: dismissTime)
+                hud.label.text = text
+                hud.hide(animated: true, afterDelay: dismissTime)
             }
         }
     }
@@ -48,20 +49,20 @@ public class Hud: NSObject {
         if Thread.isMainThread {
             self.showHudInView(view: view)
             hud.mode = MBProgressHUDMode.text
-            hud.labelText = text
-            hud.detailsLabelText = detailText
+            hud.label.text = text
+            hud.detailsLabel.text = detailText
             var time:TimeInterval = 1.5
             if detailText!.count > 0 {
                 ///每7个文字加一秒
                 time = TimeInterval(detailText!.count/7 + 1)
             }
-            hud.hide(YES, afterDelay: TimeInterval(time))
+            hud.hide(animated: true, afterDelay: TimeInterval(time))
         }else{
             DispatchQueue.main.async {
                 self.showHudInView(view: view)
                 hud.mode = MBProgressHUDMode.text
-                hud.labelText = text
-                hud.hide(YES, afterDelay: dismissTime)
+                hud.label.text = text
+                hud.hide(animated: true, afterDelay: dismissTime)
             }
         }
     }
@@ -83,10 +84,10 @@ public class Hud: NSObject {
     @objc public static func hide(_ animation:Bool = false){
         if hud != nil{
             if Thread.isMainThread {
-                hud.hide(animation)
+                hud.hide(animated: animation)
             }else{
                 DispatchQueue.main.async {
-                    hud.hide(animation)
+                    hud.hide(animated: animation)
                 }
             }
         }
@@ -110,10 +111,45 @@ public class Hud: NSObject {
             hud.removeFromSuperview()
         }
         hud = MBProgressHUD(view: view)
+        hud.isOpaque = true//半透明
+        hud.contentColor = UIColor.white
+        hud.bezelView.color = UIColor(red: 60/255.0, green: 60/255.0, blue: 60/255.0, alpha: 1)
+        hud.bezelView.style = .solidColor
         hud.removeFromSuperViewOnHide = true
-        view!.addSubview(Hud.hud)
-        hud.show(false)
-        hud.isOpaque = false
-        hud.opacity = 0.8
+        view.addSubview(Hud.hud)
+        hud.show(animated: false)
+    }
+    public static func showProgress(text:String?) {
+        let view = UIApplication.shared.windows.first {$0.isKeyWindow}
+        self.showHudInView(view: view)
+        hud.mode = .annularDeterminate
+        hud.label.text = text
+    }
+    public static func setPrograss(progress:CGFloat){
+        if hud == nil {
+            return
+        }
+        DispatchQueue.main.async {
+            if let view = UIApplication.shared.windows.first(where: {$0.isKeyWindow}){
+                MBProgressHUD.forView(view)?.progress = Float(progress)
+            }
+        }
     }
 }
+// MARK:使用进度条
+/**
+ func userProgress() {
+     Hud.showProgress(text: "下载中...")
+     DispatchQueue.global().async {
+         var progress:CGFloat = 0.0
+         while progress < 1.0{
+             progress += 0.01
+             print(progress)
+             Hud.setPrograss(progress: progress)
+             usleep(5000)
+         }
+         Hud.hide(true)
+     }
+ }
+ */
+

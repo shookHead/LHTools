@@ -93,7 +93,7 @@ open class BMApiTemplete<ValueType> : BMApiSet{
         return self.host + self.url
     }
     
-    public var defaultParam:Dictionary<String, Any> {
+    open var defaultParam:Dictionary<String, Any> {
         return ["pfDevice":"iPhone","pfAppVersion":Utils.appCurVersion]
     }
     
