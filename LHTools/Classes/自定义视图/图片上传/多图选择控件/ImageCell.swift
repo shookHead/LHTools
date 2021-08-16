@@ -14,14 +14,13 @@ class ImageCell: UICollectionViewCell {
     
     public var delegate :ImageCellDelegate?
     var imageView: UIImageView!
-    lazy var removeBtn: UIButton = {
-        var btn = UIButton()
+    lazy var removeBtn: HotBaseBtn = {
+        var btn = HotBaseBtn()
         btn.setImage(#imageLiteral(resourceName: "photoDelete"), for: .normal)
         return btn
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 5

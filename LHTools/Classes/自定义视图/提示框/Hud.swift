@@ -67,15 +67,17 @@ public class Hud: NSObject {
         }
     }
     /// 显示等待
-    public static func showWait(in view:UIView! = UIApplication.shared.windows.first {$0.isKeyWindow}){
+    public static func showWait(in view:UIView! = UIApplication.shared.windows.first {$0.isKeyWindow},_ text:String = ""){
         if view == nil{
             return
         }
         if Thread.isMainThread {
             self.showHudInView(view: view)
+            hud.label.text = text
         }else{
             DispatchQueue.main.async {
                 self.showHudInView(view: view)
+                hud.label.text = text
             }
         }
     }

@@ -7,18 +7,26 @@
 //
 
 import UIKit
-@_exported import LHTools
+//@_exported import LHTools
+import LHTools
 import Alamofire
-//import MBProgressHUD
 class ViewController: UIViewController {
+    var camer = CamerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let camer = CamerView()
-//        view
+        camer.frame = CGRect(x: 0, y: 100, width: KScreenWidth, height: 120)
+        camer.canMove = true
+        camer.maxCount = 20
+        camer.setViewHeightClosure { (h) in
+            print("高度\(h)")
+//            camer.h = h
+        }
+        view.addSubview(camer)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+//        Hud.showWait()
+        print(camer.selectedPhotosStr)
     }
 }
 
