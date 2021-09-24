@@ -155,11 +155,7 @@ public struct lh{
         let action = UIAlertAction.init(title: "马上更新", style: .default) { (action) in
             let url = URL.init(string: upgradeUrl!)
             if UIApplication.shared.canOpenURL(url!){
-                if #available(iOS 10, *) {
-                    UIApplication.shared.open(url!, options: [:]) { (_) in
-                    }
-                }else{
-                    UIApplication.shared.openURL(url!)
+                UIApplication.shared.open(url!, options: [:]) { (_) in
                 }
             }
             if isMustUpgrade == 1{
@@ -212,14 +208,10 @@ public struct lh{
     }
     ///跳往app设置
     public static func judgeAppSetting(){
-        if #available(iOS 10, *) {
-            UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:],
-                                      completionHandler: {
-                                        (success) in
-            })
-        } else {
-            UIApplication.shared.openURL(URL.init(string: UIApplication.openSettingsURLString)!)
-        }
+        UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:],
+                                  completionHandler: {
+                                    (success) in
+        })
     }
     //MARK:- 权限判断
     ///判断相机权限

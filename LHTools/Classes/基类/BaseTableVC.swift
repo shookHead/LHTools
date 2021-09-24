@@ -67,7 +67,9 @@ open class BaseTableVC: BaseVC {
         tableview?.estimatedSectionFooterHeight = 0
         view.addSubview(tableview!)
         ignoreAutoAdjustScrollViewInsets(tableview)
-        
+        if #available(iOS 15.0, *) {
+            tableview?.sectionHeaderTopPadding = 0
+        }
         indicatorView = BMIndicatorView.showInView(view, frame: rect)
         indicatorView?.bm.addConstraints(cons)
     }

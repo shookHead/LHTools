@@ -46,6 +46,8 @@ public class ZLCustomCamera: UIViewController, CAAnimationDelegate {
     
     @objc public var takeDoneBlock: ( (UIImage?, URL?) -> Void )?
     
+    @objc public var cancelBlock: ( () -> Void )?
+    
     var tipsLabel: UILabel!
     
     var hideTipsTimer: Timer?
@@ -551,7 +553,9 @@ public class ZLCustomCamera: UIViewController, CAAnimationDelegate {
     }
     
     @objc func dismissBtnClick() {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.cancelBlock?()
+        }
     }
     
     @objc func retakeBtnClick() {
@@ -623,7 +627,8 @@ public class ZLCustomCamera: UIViewController, CAAnimationDelegate {
     
     @objc func doneBtnClick() {
         self.recordVideoPlayerLayer?.player?.pause()
-        self.recordVideoPlayerLayer?.player = nil
+        // 置为nil会导致卡顿，先注释，不影响内存释放
+//        self.recordVideoPlayerLayer?.player = nil
         self.dismiss(animated: true) {
             self.takeDoneBlock?(self.takedImage, self.videoUrl)
         }

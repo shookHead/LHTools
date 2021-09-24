@@ -10,23 +10,41 @@ import UIKit
 //@_exported import LHTools
 import LHTools
 import Alamofire
+import Foundation
+import ZLPhotoBrowser
+
 class ViewController: UIViewController {
     var camer = CamerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        camer.frame = CGRect(x: 0, y: 100, width: KScreenWidth, height: 120)
-        camer.canMove = true
-        camer.maxCount = 20
-        camer.setViewHeightClosure { (h) in
-            print("高度\(h)")
-//            camer.h = h
+//        camer.frame = CGRect(x: 0, y: 100, width: KScreenWidth, height: 120)
+//        camer.canMove = true
+//        camer.maxCount = 20
+//        camer.setViewHeightClosure { (h) in
+//            print("高度\(h)")
+////            camer.h = h
+//        }
+//        view.addSubview(camer)
+        let d2 = Date()
+        lh.runThisAfterDelay(seconds: 1) {
+            let d3 = Date()
+            if d3 > d2 {
+                print("开始时间大")
+            }else{
+                print("结束时间大")
+            }
         }
-        view.addSubview(camer)
+    }
+    @objc func btnAction() {
+
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        Hud.showWait()
-        print(camer.selectedPhotosStr)
+        let ps = ZLPhotoPreviewSheet()
+        ps.selectImageBlock = { (images,assets,isoriginal) in
+            
+        }
+        ps.showPreview(sender: self)
     }
 }
 
@@ -41,3 +59,4 @@ extension BMApiSet {
     static let login = YiChengShi<String?>("edcmanageapi/Login_login")
     
 }
+

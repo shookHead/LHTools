@@ -159,11 +159,11 @@ TODO: Add long description of the pod here.
       end
   end
   
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+   s.public_header_files = 'Pod/Classes/**/*.h'
     s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
     s.dependency 'Alamofire'
     s.dependency 'Kingfisher'
-    s.dependency 'HandyJSON', '5.0.3-beta'
+    s.dependency 'HandyJSON'
     s.dependency 'MJRefresh'
     s.dependency 'MBProgressHUD'
     s.dependency 'SwiftyUserDefaults'
@@ -172,7 +172,6 @@ TODO: Add long description of the pod here.
     s.dependency 'Hero'
 
     s.dependency 'NVActivityIndicatorView'
-#    s.dependency 'CLImagePickerTool'
     s.dependency 'ZLPhotoBrowser'
     s.dependency 'JXPhotoBrowser'
     s.dependency 'SnapKit'

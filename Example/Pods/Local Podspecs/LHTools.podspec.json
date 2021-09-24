@@ -25,6 +25,7 @@
   ],
   "resources": "LHTools/Classes/resource/**/*",
   "static_framework": true,
+  "public_header_files": "Pod/Classes/**/*.h",
   "frameworks": [
     "UIKit",
     "Foundation"
@@ -37,7 +38,7 @@
 
     ],
     "HandyJSON": [
-      "5.0.3-beta"
+
     ],
     "MJRefresh": [
 

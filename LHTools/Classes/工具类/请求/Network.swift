@@ -222,10 +222,12 @@ public class BMRequester{
     
     func handelResponce(code:Int?){
         // 重新登录
-        if code == 2{
-            Hud.showText("登录失效，请重新登录")
-            Hud.runAfterHud {
-                noti.post(name: .needRelogin, object: nil)
+        if let _ = cache[.sessionId]{
+            if code == 2{
+                Hud.showText("登录失效，请重新登录")
+                Hud.runAfterHud {
+                    noti.post(name: .needRelogin, object: nil)
+                }
             }
         }
     }

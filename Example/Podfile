@@ -12,18 +12,18 @@ target 'LHTools_Example' do
   target 'LHTools_Tests' do
     inherit! :search_paths
     
-#    pod 'HandyJSON', :git => 'https://github.com/alibaba/HandyJSON.git', :commit => '7e3b212c76dd1b1d88bad592ae8b0aa0b0361e29'
 #    pod 'Alamofire'
 #    pod 'Kingfisher'
 #    pod 'HandyJSON'
 #    pod 'MJRefresh'
+#    pod 'MBProgressHUD'
 #    pod 'SwiftyUserDefaults'
 #    pod 'IQKeyboardManagerSwift'
 #    pod 'SQLite.swift'
 #    pod 'Hero'
-
+#
 #    pod 'NVActivityIndicatorView'
-#    pod 'CLImagePickerTool'
+#    pod 'ZLPhotoBrowser'
 #    pod 'JXPhotoBrowser'
 #    pod 'SnapKit'
 

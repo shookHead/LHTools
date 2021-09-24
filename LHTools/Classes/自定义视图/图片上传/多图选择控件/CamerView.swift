@@ -9,12 +9,10 @@
 import UIKit
 import ZLPhotoBrowser
 public class CamerView: UIView {
-    public var imgName = "CamerView_UploadImg"
+    open var imgName = "CamerView_UploadImg"
     var formIndex:Int!
     var toIndex:Int!
     var moveView:UIImageView!
-    ///是否是原图
-    var isOriginal = false
     ///行间距
     public var lineSpacing:CGFloat = 10
     ///列间距
@@ -205,7 +203,8 @@ public class CamerView: UIView {
             self.setHeightBlock()
         }
     }
-    func reloadViewWithImages(images:[String]) {
+    func reloadViewWithImages(imageStr:String) {
+        let images = imageStr.components(separatedBy: ",")
         self.selectedPhotos = images
         collectionView.reloadData()
         self.setHeightBlock()

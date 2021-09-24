@@ -87,27 +87,14 @@ open class ScanVC: BaseVC {
             lh.topMost()?.showComfirm("访问相机", "您还没有打开相机权限", okStr: "去打开", cancle: "取消", cancel: {
 
             }, complish: {
-                self.judgeAppSetting()
+                ///跳往app设置
+                lh.judgeAppSetting()
             })
-        }else{
-
-        }
-    }
-    ///跳往app设置
-    func judgeAppSetting(){
-        if #available(iOS 10, *) {
-            UIApplication.shared.open(URL.init(string: UIApplication.openSettingsURLString)!, options: [:],
-                                      completionHandler: {
-                                        (success) in
-            })
-        } else {
-            UIApplication.shared.openURL(URL.init(string: UIApplication.openSettingsURLString)!)
         }
     }
     
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         //在viewDidLoad 初始化会造成卡顿
         startScaning()
     }
@@ -132,8 +119,6 @@ open class ScanVC: BaseVC {
         
         sliderView.frame = CGRect(x: 0, y: -30, width: holeH, height: 30)
         slideBGView.addSubview(sliderView)
-        
-        
         
         naviView.addSubview(lightBtn)
         self.view.addSubview(naviView)

@@ -74,7 +74,7 @@ extension UIImage{
             break
             
         case .leftMirrored, .rightMirrored:
-            transform = transform.translatedBy(x: self.size.height, y: 0);
+            transform = transform.translatedBy(x: self.size.height, y: 0)
             transform = transform.scaledBy(x: -1, y: 1)
             break
             

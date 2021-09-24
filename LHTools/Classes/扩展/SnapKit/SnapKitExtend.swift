@@ -1,28 +1,4 @@
-//
-//  SnapKitExtend
-//
-//  MIT License
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-//
-//  Created by charles on 2017/8/2.
-//  Copyright © 2017年 charles. All rights reserved.
+
 //
 import SnapKit
 
@@ -105,23 +81,23 @@ public struct ConstraintArrayDSL {
                         make.right.equalTo(tempSuperView).offset(-tailSpacing)
                     }
                 })
-                prev = v;
+                prev = v
             }
         }else {
             var prev : ConstraintView?
             for (i, v) in self.array.enumerated() {
                 v.snp.makeConstraints({ (make) in
                     guard let prev = prev else {//first one
-                        make.top.equalTo(tempSuperView).offset(leadSpacing);
+                        make.top.equalTo(tempSuperView).offset(leadSpacing)
                         return
                     }
                     make.height.equalTo(prev)
                     make.top.equalTo(prev.snp.bottom).offset(fixedSpacing)
                     if (i == self.array.count - 1) {//last one
-                        make.bottom.equalTo(tempSuperView).offset(-tailSpacing);
+                        make.bottom.equalTo(tempSuperView).offset(-tailSpacing)
                     }
                 })
-                prev = v;
+                prev = v
             }
         }
     }
@@ -147,7 +123,7 @@ public struct ConstraintArrayDSL {
                     make.width.equalTo(fixedItemLength)
                     if prev != nil {
                         if (i == self.array.count - 1) {//last one
-                            make.right.equalTo(tempSuperView).offset(-tailSpacing);
+                            make.right.equalTo(tempSuperView).offset(-tailSpacing)
                         } else {
                             let offset = (CGFloat(1) - (CGFloat(i) / CGFloat(self.array.count - 1))) *
                                 (fixedItemLength + leadSpacing) -
@@ -155,10 +131,10 @@ public struct ConstraintArrayDSL {
                             make.right.equalTo(tempSuperView).multipliedBy(CGFloat(i) / CGFloat(self.array.count - 1)).offset(offset)
                         }
                     }else {//first one
-                        make.left.equalTo(tempSuperView).offset(leadSpacing);
+                        make.left.equalTo(tempSuperView).offset(leadSpacing)
                     }
                 })
-                prev = v;
+                prev = v
             }
         }else {
             var prev : ConstraintView?
@@ -167,7 +143,7 @@ public struct ConstraintArrayDSL {
                     make.height.equalTo(fixedItemLength)
                     if prev != nil {
                         if (i == self.array.count - 1) {//last one
-                            make.bottom.equalTo(tempSuperView).offset(-tailSpacing);
+                            make.bottom.equalTo(tempSuperView).offset(-tailSpacing)
                         }else {
                             let offset = (CGFloat(1) - (CGFloat(i) / CGFloat(self.array.count - 1))) *
                                 (fixedItemLength + leadSpacing) -
@@ -175,10 +151,10 @@ public struct ConstraintArrayDSL {
                             make.bottom.equalTo(tempSuperView).multipliedBy(CGFloat(i) / CGFloat(self.array.count-1)).offset(offset)
                         }
                     }else {//first one
-                        make.top.equalTo(tempSuperView).offset(leadSpacing);
+                        make.top.equalTo(tempSuperView).offset(leadSpacing)
                     }
                 })
-                prev = v;
+                prev = v
             }
         }
     }
@@ -272,7 +248,7 @@ public struct ConstraintArrayDSL {
                 }
                 
                 if currentRow != 0 && currentRow != rowCount - 1 {//other row
-                    make.top.equalTo(self.array[i-columnCount].snp.bottom).offset(fixedLineSpacing);
+                    make.top.equalTo(self.array[i-columnCount].snp.bottom).offset(fixedLineSpacing)
                 }
                 if currentColumn == warpCount - 1 {//last col
                     if currentColumn != 0 {//just one line

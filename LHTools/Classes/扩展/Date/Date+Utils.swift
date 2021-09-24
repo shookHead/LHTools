@@ -19,6 +19,10 @@ extension Optional where Wrapped == Date{
 }
 
 
+prefix operator >
+prefix operator +
+prefix operator -
+prefix operator ==
 extension Date {
     public func toString(_ dateFormat:String="yyyy-MM-dd HH:mm") -> String {
         let timeZone = TimeZone(identifier: "Asia/Shanghai")
@@ -134,5 +138,5 @@ extension Date {
         }
         return weekOfYear
     }
-    
+
 }
