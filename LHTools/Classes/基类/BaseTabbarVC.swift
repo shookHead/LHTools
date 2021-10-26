@@ -15,8 +15,15 @@ open class BaseTabbarVC: UITabBarController,UITabBarControllerDelegate{
         self.delegate = self
 
         self.tabBar.isTranslucent = NO
-        self.tabBar.tintColor = .KBlue
-        self.tabBar.barTintColor = .white
+        if #available(iOS 15.0, *) {
+            let app = UITabBarAppearance()
+            app.backgroundColor = .white
+            self.tabBar.scrollEdgeAppearance = app
+            self.tabBar.standardAppearance = app
+        }else{
+            self.tabBar.tintColor = .KBlue
+            self.tabBar.barTintColor = .white
+        }
     }
 
     

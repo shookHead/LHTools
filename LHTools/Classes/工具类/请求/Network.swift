@@ -107,15 +107,17 @@ open class BMApiTemplete<ValueType> : BMApiSet{
 // MARK: -  ---------------------- 实现 network[.接口] 的调用方式------------------------
 public class BMNetwork{
     
+    //超时时间,可以通过 BMNetwork.timeout = “”修改
+    public static var timeout:TimeInterval = 10
     static var sessionManager: Session = {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 10
+        configuration.timeoutIntervalForRequest = timeout
         return Session.init(configuration: configuration, delegate: SessionDelegate.init())
     }()
     
     
     //可以通过 BMNetwork.imgUplodeApi = “”修改
-    static var imgUplodeApi = "https://img.163.gg/YmUpload_image"
+    public static var imgUplodeApi = "https://img.163.gg/YmUpload_image"
 
     public func upload(_ img:UIImage, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ imgUrl:String?)->()){
         let newImg = img.fixOrientation()//防止图片被旋转
@@ -136,22 +138,19 @@ public class BMNetwork{
                 switch response.result {
                 case .success:
                     DispatchQueue.main.async {
+                        var url:String!
+                        defer {
+                            finish(url)
+                        }
                         let json = String(data: response.data!, encoding: String.Encoding.utf8)
-        //                success(json ?? "")
                         if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
                             if resp.code == 1{
                                 let data = resp.data
-                                if let url = data?["url"] as? String{
-                                    print(url)
-                                    finish(url)
-                                }else{
-                                    finish(nil)
+                                if let urlStr = data?["url"] as? String{
+                                    print(urlStr)
+                                    url = urlStr
                                 }
-                            }else{
-                                finish(nil)
                             }
-                        }else{
-                            finish(nil)
                         }
                     }
                     

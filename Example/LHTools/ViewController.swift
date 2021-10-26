@@ -13,28 +13,28 @@ import Alamofire
 import Foundation
 import ZLPhotoBrowser
 
+class GroupActivityModel: HandyJSON {
+    ///
+    var userActivityId  : Int! = 0
+    ///活动id
+    var activityId  : Int!
+
+    required init() {}
+    func didFinishMapping() {
+
+    }
+}
+
 class ViewController: UIViewController {
     var camer = CamerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        camer.frame = CGRect(x: 0, y: 100, width: KScreenWidth, height: 120)
-//        camer.canMove = true
-//        camer.maxCount = 20
-//        camer.setViewHeightClosure { (h) in
-//            print("高度\(h)")
-////            camer.h = h
-//        }
-//        view.addSubview(camer)
-        let d2 = Date()
-        lh.runThisAfterDelay(seconds: 1) {
-            let d3 = Date()
-            if d3 > d2 {
-                print("开始时间大")
-            }else{
-                print("结束时间大")
-            }
+        let mod = GroupActivityModel()
+        defer {
+            print(mod.activityId ?? "11")
         }
+//        mod.activityId = 1
     }
     @objc func btnAction() {
 

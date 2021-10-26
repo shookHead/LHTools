@@ -3,7 +3,7 @@
 //  wangfuAgent
 //
 //  Created by YiMi on 2018/7/11.
-//  Copyright © 2018 lizhiwei. All rights reserved.
+//  Copyright © 2018 . All rights reserved.
 //
 
 import UIKit
@@ -90,16 +90,6 @@ open class BaseVC: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isTranslucent = false
         edgesForExtendedLayout = []
-        if #available(iOS 15.0, *){
-            let app = UINavigationBarAppearance()
-            app.configureWithOpaqueBackground()  // 重置背景和阴影颜色
-            app.backgroundColor = .white  // 设置导航栏背景色
-            app.backgroundEffect = nil
-            app.shadowColor = .white
-            app.shadowImage = UIColor.clear.image  // 设置导航栏下边界分割线透明
-            navigationController?.navigationBar.scrollEdgeAppearance = app  // 带scroll滑动的页面
-            navigationController?.navigationBar.standardAppearance = app // 常规页面
-        }
     }
 
     open override func viewWillAppear(_ animated: Bool) {
@@ -112,7 +102,6 @@ open class BaseVC: UIViewController {
         
         navigationController?.setNavigationBarHidden(hideNav, animated: true)
         navigationController?.interactivePopGestureRecognizer?.isEnabled = popGestureEnable
-        return
         if !hideNav {
             let att = [NSAttributedString.Key.foregroundColor : barContenColor!,
                        NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
@@ -120,10 +109,12 @@ open class BaseVC: UIViewController {
                 let app = UINavigationBarAppearance()
                 app.configureWithOpaqueBackground()  // 重置背景和阴影颜色
                 app.titleTextAttributes = att
-                app.backgroundColor = barBGColor  // 设置导航栏背景色
-//                app.backgroundEffect = nil
-//                app.shadowColor = .clear
-//                app.shadowImage = UIColor.clear.image  // 设置导航栏下边界分割线透明
+                app.backgroundColor = barBGColor == nil ? .white:barBGColor  // 设置导航栏背景色
+                if let b = self.hideNavBottonLine, b == true{
+                    app.backgroundEffect = nil
+                    app.shadowColor = .clear
+                    app.shadowImage = UIColor.clear.image  // 设置导航栏下边界分割线透明
+                }
                 navigationController?.navigationBar.scrollEdgeAppearance = app  // 带scroll滑动的页面
                 navigationController?.navigationBar.standardAppearance = app // 常规页面
             }else{
@@ -131,15 +122,14 @@ open class BaseVC: UIViewController {
                 if let _ = barContenColor {//设置中间文字大小和颜色
                     navigationController?.navigationBar.titleTextAttributes = att
                 }
+                if let b = self.hideNavBottonLine, b == true{
+                    self.findHairlineImageViewUnder(sView: self.navigationController?.navigationBar)?.isHidden = true
+                }
             }
         }
         
-        
         IQKeyboardManager.shared.shouldResignOnTouchOutside = self.autoHideKeyboard
         IQKeyboardManager.shared.enableAutoToolbar = self.autoToolbar
-        if let b = self.hideNavBottonLine, b == true{
-            self.findHairlineImageViewUnder(sView: self.navigationController?.navigationBar)?.isHidden = true
-        }
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
