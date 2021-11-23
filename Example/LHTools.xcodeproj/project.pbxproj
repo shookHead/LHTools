@@ -47,80 +47,82 @@
 		8F65B99634DBE91A215033C5 /* Pods_LHTools_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHTools_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF87F8809564BC84406B33CE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ECFE8EDC6AD47074A330BAC6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		F45B3DDA26E8A49D00CA9FC2 /* GlobalImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalImport.swift; sourceTree = "<group>"; };
-		F45B3DDB26E8A49D00CA9FC2 /* BMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMConst.swift; sourceTree = "<group>"; };
-		F45B3DDE26E8A49E00CA9FC2 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
-		F45B3DDF26E8A49E00CA9FC2 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		F45B3DE226E8A49E00CA9FC2 /* PopViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewManager.swift; sourceTree = "<group>"; };
-		F45B3DE326E8A49E00CA9FC2 /* JXPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXPopupView.swift; sourceTree = "<group>"; };
-		F45B3DE726E8A49E00CA9FC2 /* BMCityPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCityPicker.swift; sourceTree = "<group>"; };
-		F45B3DE926E8A49E00CA9FC2 /* CityDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDBManager.swift; sourceTree = "<group>"; };
-		F45B3DEA26E8A49E00CA9FC2 /* BMBasePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMBasePicker.swift; sourceTree = "<group>"; };
-		F45B3DEB26E8A49E00CA9FC2 /* BMDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMDatePicker.swift; sourceTree = "<group>"; };
-		F45B3DEC26E8A49E00CA9FC2 /* BMSinglePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSinglePicker.swift; sourceTree = "<group>"; };
-		F45B3DED26E8A49E00CA9FC2 /* BMPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMPicker.swift; sourceTree = "<group>"; };
-		F45B3DEE26E8A49E00CA9FC2 /* BMSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSelectView.swift; sourceTree = "<group>"; };
-		F45B3DF126E8A49E00CA9FC2 /* ImageChooseTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageChooseTools.swift; sourceTree = "<group>"; };
-		F45B3DF326E8A49E00CA9FC2 /* CamerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerView.swift; sourceTree = "<group>"; };
-		F45B3DF426E8A49E00CA9FC2 /* MultiImgChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImgChooseView.swift; sourceTree = "<group>"; };
-		F45B3DF526E8A49E00CA9FC2 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
-		F45B3DF726E8A49E00CA9FC2 /* PhotoBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowser.swift; sourceTree = "<group>"; };
-		F45B3DF826E8A49E00CA9FC2 /* PhotoBrowserProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserProgressView.swift; sourceTree = "<group>"; };
-		F45B3DFA26E8A49E00CA9FC2 /* BMIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIndicatorView.swift; sourceTree = "<group>"; };
-		F45B3DFC26E8A49E00CA9FC2 /* DOFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOFavoriteButton.swift; sourceTree = "<group>"; };
-		F45B3DFE26E8A49E00CA9FC2 /* BMTimeIntervalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMTimeIntervalPicker.swift; sourceTree = "<group>"; };
-		F45B3E0026E8A49E00CA9FC2 /* HostConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostConfig.swift; sourceTree = "<group>"; };
-		F45B3E0226E8A49E00CA9FC2 /* CellFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFlowLayout.swift; sourceTree = "<group>"; };
-		F45B3E0326E8A49E00CA9FC2 /* CycleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleCell.swift; sourceTree = "<group>"; };
-		F45B3E0426E8A49E00CA9FC2 /* CycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
-		F45B3E0626E8A49E00CA9FC2 /* BMScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMScaleView.swift; sourceTree = "<group>"; };
-		F45B3E0926E8A49E00CA9FC2 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		F45B3E0B26E8A49E00CA9FC2 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
-		F45B3E0D26E8A49E00CA9FC2 /* SnapKitExtend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitExtend.swift; sourceTree = "<group>"; };
-		F45B3E0F26E8A49E00CA9FC2 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
-		F45B3E1026E8A49E00CA9FC2 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
-		F45B3E1226E8A49E00CA9FC2 /* Number+Formate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Formate.swift"; sourceTree = "<group>"; };
-		F45B3E1326E8A49E00CA9FC2 /* Number+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+String.swift"; sourceTree = "<group>"; };
-		F45B3E1526E8A49E00CA9FC2 /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
-		F45B3E1726E8A49E00CA9FC2 /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
-		F45B3E1826E8A49E00CA9FC2 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		F45B3E1926E8A49E00CA9FC2 /* UIButton+uploadImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+uploadImg.swift"; sourceTree = "<group>"; };
-		F45B3E1A26E8A49E00CA9FC2 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
-		F45B3E1C26E8A49E00CA9FC2 /* Kingfisher+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher+Utils.swift"; sourceTree = "<group>"; };
-		F45B3E1E26E8A49E00CA9FC2 /* String+Substring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
-		F45B3E1F26E8A49E00CA9FC2 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
-		F45B3E2026E8A49E00CA9FC2 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
-		F45B3E2226E8A49E00CA9FC2 /* UINavigationController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Utils.swift"; sourceTree = "<group>"; };
-		F45B3E2426E8A49E00CA9FC2 /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
-		F45B3E2526E8A49E00CA9FC2 /* Dictionary+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utils.swift"; sourceTree = "<group>"; };
-		F45B3E2626E8A49E00CA9FC2 /* Sequence+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Json.swift"; sourceTree = "<group>"; };
-		F45B3E2826E8A49E00CA9FC2 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
-		F45B3E2926E8A49E00CA9FC2 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
-		F45B3E2A26E8A49E00CA9FC2 /* BaseCollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollVC.swift; sourceTree = "<group>"; };
-		F45B3E2B26E8A49E00CA9FC2 /* BaseTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarVC.swift; sourceTree = "<group>"; };
-		F45B3E2C26E8A49E00CA9FC2 /* BaseTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
-		F45B3E2D26E8A49E00CA9FC2 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
-		F45B3E2E26E8A49E00CA9FC2 /* ScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanVC.swift; sourceTree = "<group>"; };
-		F45B3E2F26E8A49E00CA9FC2 /* BaseNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationVC.swift; sourceTree = "<group>"; };
-		F45B3E3126E8A49E00CA9FC2 /* RedPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedPoint.swift; sourceTree = "<group>"; };
-		F45B3E3226E8A49E00CA9FC2 /* HotBaseBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotBaseBtn.swift; sourceTree = "<group>"; };
-		F45B3E3526E8A49E00CA9FC2 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
-		F45B3E3726E8A49E00CA9FC2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		F45B3E3826E8A49E00CA9FC2 /* ZBJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBJsonModel.swift; sourceTree = "<group>"; };
-		F45B3E3A26E8A49E00CA9FC2 /* ConstantsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsLayout.swift; sourceTree = "<group>"; };
-		F45B3E3C26E8A49E00CA9FC2 /* LHSwiftFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHSwiftFunctions.swift; sourceTree = "<group>"; };
-		F45B3E3D26E8A49E00CA9FC2 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		F45B3E3F26E8A49E00CA9FC2 /* BMCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCache.swift; sourceTree = "<group>"; };
-		F45B3E4026E8A49E00CA9FC2 /* LHClearCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHClearCache.swift; sourceTree = "<group>"; };
-		F45B3E4226E8A49E00CA9FC2 /* QRCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeManager.swift; sourceTree = "<group>"; };
-		F45B3E4426E8A49E00CA9FC2 /* 图片加载失败.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片加载失败.png"; sourceTree = "<group>"; };
-		F45B3E4526E8A49E00CA9FC2 /* BMback_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMback_Icon.png; sourceTree = "<group>"; };
-		F45B3E4626E8A49E00CA9FC2 /* CamerView_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CamerView_UploadImg.png; sourceTree = "<group>"; };
-		F45B3E4726E8A49E00CA9FC2 /* city_db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = city_db.sqlite; sourceTree = "<group>"; };
-		F45B3E4826E8A49E00CA9FC2 /* BMImgItems_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMImgItems_UploadImg.png; sourceTree = "<group>"; };
-		F45B3E4926E8A49E00CA9FC2 /* photoDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDelete.png; sourceTree = "<group>"; };
-		F45B3E4A26E8A49E00CA9FC2 /* wuwangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wuwangluo.png; sourceTree = "<group>"; };
-		F45B3E4B26E8A49E00CA9FC2 /* LHTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHTools.swift; sourceTree = "<group>"; };
+		F41E2E39274C7F5B00C19995 /* GlobalImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalImport.swift; sourceTree = "<group>"; };
+		F41E2E3A274C7F5B00C19995 /* BMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMConst.swift; sourceTree = "<group>"; };
+		F41E2E3D274C7F5B00C19995 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
+		F41E2E3E274C7F5B00C19995 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		F41E2E41274C7F5B00C19995 /* PopViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewManager.swift; sourceTree = "<group>"; };
+		F41E2E42274C7F5B00C19995 /* JXPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXPopupView.swift; sourceTree = "<group>"; };
+		F41E2E46274C7F5B00C19995 /* BMCityPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCityPicker.swift; sourceTree = "<group>"; };
+		F41E2E49274C7F5B00C19995 /* CityDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDBManager.swift; sourceTree = "<group>"; };
+		F41E2E4A274C7F5B00C19995 /* BMBasePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMBasePicker.swift; sourceTree = "<group>"; };
+		F41E2E4B274C7F5B00C19995 /* LHSinglePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHSinglePicker.swift; sourceTree = "<group>"; };
+		F41E2E4C274C7F5B00C19995 /* BMDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMDatePicker.swift; sourceTree = "<group>"; };
+		F41E2E4D274C7F5B00C19995 /* BMSinglePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSinglePicker.swift; sourceTree = "<group>"; };
+		F41E2E4E274C7F5B00C19995 /* BMPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMPicker.swift; sourceTree = "<group>"; };
+		F41E2E4F274C7F5B00C19995 /* BMSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSelectView.swift; sourceTree = "<group>"; };
+		F41E2E52274C7F5B00C19995 /* ImageChooseTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageChooseTools.swift; sourceTree = "<group>"; };
+		F41E2E54274C7F5B00C19995 /* CamerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerView.swift; sourceTree = "<group>"; };
+		F41E2E55274C7F5B00C19995 /* MultiImgChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImgChooseView.swift; sourceTree = "<group>"; };
+		F41E2E56274C7F5B00C19995 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		F41E2E58274C7F5B00C19995 /* PhotoBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowser.swift; sourceTree = "<group>"; };
+		F41E2E59274C7F5B00C19995 /* PhotoBrowserProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserProgressView.swift; sourceTree = "<group>"; };
+		F41E2E5B274C7F5B00C19995 /* BMIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIndicatorView.swift; sourceTree = "<group>"; };
+		F41E2E5D274C7F5B00C19995 /* DOFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOFavoriteButton.swift; sourceTree = "<group>"; };
+		F41E2E5F274C7F5B00C19995 /* BMTimeIntervalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMTimeIntervalPicker.swift; sourceTree = "<group>"; };
+		F41E2E61274C7F5B00C19995 /* HostConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostConfig.swift; sourceTree = "<group>"; };
+		F41E2E63274C7F5B00C19995 /* CellFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFlowLayout.swift; sourceTree = "<group>"; };
+		F41E2E64274C7F5B00C19995 /* CycleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleCell.swift; sourceTree = "<group>"; };
+		F41E2E65274C7F5B00C19995 /* CycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleView.swift; sourceTree = "<group>"; };
+		F41E2E67274C7F5B00C19995 /* BMScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMScaleView.swift; sourceTree = "<group>"; };
+		F41E2E6A274C7F5B00C19995 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		F41E2E6C274C7F5B00C19995 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		F41E2E6E274C7F5B00C19995 /* SnapKitExtend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitExtend.swift; sourceTree = "<group>"; };
+		F41E2E70274C7F5B00C19995 /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		F41E2E71274C7F5B00C19995 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		F41E2E73274C7F5B00C19995 /* Number+Formate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Formate.swift"; sourceTree = "<group>"; };
+		F41E2E74274C7F5B00C19995 /* Number+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+String.swift"; sourceTree = "<group>"; };
+		F41E2E76274C7F5B00C19995 /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
+		F41E2E78274C7F5B00C19995 /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		F41E2E79274C7F5B00C19995 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		F41E2E7A274C7F5B00C19995 /* UIButton+uploadImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+uploadImg.swift"; sourceTree = "<group>"; };
+		F41E2E7B274C7F5B00C19995 /* UIView+IBInspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectable.swift"; sourceTree = "<group>"; };
+		F41E2E7D274C7F5B00C19995 /* Kingfisher+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher+Utils.swift"; sourceTree = "<group>"; };
+		F41E2E7F274C7F5B00C19995 /* String+Substring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
+		F41E2E80274C7F5B00C19995 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		F41E2E81274C7F5B00C19995 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		F41E2E83274C7F5B00C19995 /* UINavigationController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Utils.swift"; sourceTree = "<group>"; };
+		F41E2E85274C7F5B00C19995 /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
+		F41E2E86274C7F5B00C19995 /* Dictionary+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utils.swift"; sourceTree = "<group>"; };
+		F41E2E87274C7F5B00C19995 /* Sequence+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Json.swift"; sourceTree = "<group>"; };
+		F41E2E89274C7F5B00C19995 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		F41E2E8A274C7F5B00C19995 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
+		F41E2E8B274C7F5B00C19995 /* BaseCollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollVC.swift; sourceTree = "<group>"; };
+		F41E2E8C274C7F5B00C19995 /* BaseTabbarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarVC.swift; sourceTree = "<group>"; };
+		F41E2E8D274C7F5B00C19995 /* BaseTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
+		F41E2E8E274C7F5B00C19995 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		F41E2E8F274C7F5B00C19995 /* ScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanVC.swift; sourceTree = "<group>"; };
+		F41E2E90274C7F5B00C19995 /* BaseNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationVC.swift; sourceTree = "<group>"; };
+		F41E2E92274C7F5B00C19995 /* RedPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedPoint.swift; sourceTree = "<group>"; };
+		F41E2E93274C7F5B00C19995 /* HotBaseBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotBaseBtn.swift; sourceTree = "<group>"; };
+		F41E2E96274C7F5B00C19995 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		F41E2E98274C7F5B00C19995 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		F41E2E99274C7F5B00C19995 /* ZBJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBJsonModel.swift; sourceTree = "<group>"; };
+		F41E2E9B274C7F5B00C19995 /* ConstantsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsLayout.swift; sourceTree = "<group>"; };
+		F41E2E9D274C7F5B00C19995 /* LHSwiftFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHSwiftFunctions.swift; sourceTree = "<group>"; };
+		F41E2E9E274C7F5B00C19995 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F41E2EA0274C7F5B00C19995 /* BMCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCache.swift; sourceTree = "<group>"; };
+		F41E2EA1274C7F5B00C19995 /* LHClearCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHClearCache.swift; sourceTree = "<group>"; };
+		F41E2EA3274C7F5B00C19995 /* QRCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeManager.swift; sourceTree = "<group>"; };
+		F41E2EA5274C7F5B00C19995 /* 图片加载失败.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片加载失败.png"; sourceTree = "<group>"; };
+		F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMback_Icon.png; sourceTree = "<group>"; };
+		F41E2EA7274C7F5B00C19995 /* CamerView_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CamerView_UploadImg.png; sourceTree = "<group>"; };
+		F41E2EA8274C7F5B00C19995 /* city_db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = city_db.sqlite; sourceTree = "<group>"; };
+		F41E2EA9274C7F5B00C19995 /* BMImgItems_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMImgItems_UploadImg.png; sourceTree = "<group>"; };
+		F41E2EAA274C7F5B00C19995 /* photoDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDelete.png; sourceTree = "<group>"; };
+		F41E2EAB274C7F5B00C19995 /* wuwangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wuwangluo.png; sourceTree = "<group>"; };
+		F41E2EAC274C7F5B00C19995 /* LHTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHTools.swift; sourceTree = "<group>"; };
+		F41E2EAE274C891A00C19995 /* BigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigView.swift; sourceTree = "<group>"; };
 		F4BFB1EC26D8E30D00CD4B5F /* ResourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
 		F4BFB1ED26D8E30D00CD4B5F /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,7 +180,7 @@
 		607FACD21AFB9204008FA782 /* Example for LHTools */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DD926E8A49D00CA9FC2 /* Classes */,
+				F41E2E38274C7F5B00C19995 /* Classes */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				F4BFB1EB26D8E30D00CD4B5F /* 下载 */,
@@ -237,404 +239,406 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F45B3DD926E8A49D00CA9FC2 /* Classes */ = {
+		F41E2E38274C7F5B00C19995 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DDA26E8A49D00CA9FC2 /* GlobalImport.swift */,
-				F45B3DDB26E8A49D00CA9FC2 /* BMConst.swift */,
-				F45B3DDC26E8A49D00CA9FC2 /* 自定义视图 */,
-				F45B3E0726E8A49E00CA9FC2 /* 扩展 */,
-				F45B3E2726E8A49E00CA9FC2 /* 基类 */,
-				F45B3E3026E8A49E00CA9FC2 /* View */,
-				F45B3E3326E8A49E00CA9FC2 /* 工具类 */,
-				F45B3E4326E8A49E00CA9FC2 /* resource */,
-				F45B3E4B26E8A49E00CA9FC2 /* LHTools.swift */,
+				F41E2E39274C7F5B00C19995 /* GlobalImport.swift */,
+				F41E2E3A274C7F5B00C19995 /* BMConst.swift */,
+				F41E2E3B274C7F5B00C19995 /* 自定义视图 */,
+				F41E2E68274C7F5B00C19995 /* 扩展 */,
+				F41E2E88274C7F5B00C19995 /* 基类 */,
+				F41E2E91274C7F5B00C19995 /* View */,
+				F41E2E94274C7F5B00C19995 /* 工具类 */,
+				F41E2EA4274C7F5B00C19995 /* resource */,
+				F41E2EAC274C7F5B00C19995 /* LHTools.swift */,
 			);
 			name = Classes;
 			path = ../../LHTools/Classes;
 			sourceTree = "<group>";
 		};
-		F45B3DDC26E8A49D00CA9FC2 /* 自定义视图 */ = {
+		F41E2E3B274C7F5B00C19995 /* 自定义视图 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DDD26E8A49D00CA9FC2 /* 提示框 */,
-				F45B3DE026E8A49E00CA9FC2 /* 内阴影 */,
-				F45B3DE126E8A49E00CA9FC2 /* PopView */,
-				F45B3DE426E8A49E00CA9FC2 /* 输入框限制 */,
-				F45B3DE526E8A49E00CA9FC2 /* 选择器 */,
-				F45B3DEF26E8A49E00CA9FC2 /* 图片上传 */,
-				F45B3DF626E8A49E00CA9FC2 /* PhotoBrowser */,
-				F45B3DF926E8A49E00CA9FC2 /* 加载等待 */,
-				F45B3DFB26E8A49E00CA9FC2 /* 点赞动画 */,
-				F45B3DFD26E8A49E00CA9FC2 /* 时间段选择器 */,
-				F45B3DFF26E8A49E00CA9FC2 /* 测试服切换工具 */,
-				F45B3E0126E8A49E00CA9FC2 /* 轮播 */,
-				F45B3E0526E8A49E00CA9FC2 /* 图片缩放预览 */,
+				F41E2E3C274C7F5B00C19995 /* 提示框 */,
+				F41E2E3F274C7F5B00C19995 /* 内阴影 */,
+				F41E2E40274C7F5B00C19995 /* PopView */,
+				F41E2E43274C7F5B00C19995 /* 输入框限制 */,
+				F41E2E44274C7F5B00C19995 /* 选择器 */,
+				F41E2E50274C7F5B00C19995 /* 图片上传 */,
+				F41E2E57274C7F5B00C19995 /* PhotoBrowser */,
+				F41E2E5A274C7F5B00C19995 /* 加载等待 */,
+				F41E2E5C274C7F5B00C19995 /* 点赞动画 */,
+				F41E2E5E274C7F5B00C19995 /* 时间段选择器 */,
+				F41E2E60274C7F5B00C19995 /* 测试服切换工具 */,
+				F41E2E62274C7F5B00C19995 /* 轮播 */,
+				F41E2E66274C7F5B00C19995 /* 图片缩放预览 */,
 			);
 			path = "自定义视图";
 			sourceTree = "<group>";
 		};
-		F45B3DDD26E8A49D00CA9FC2 /* 提示框 */ = {
+		F41E2E3C274C7F5B00C19995 /* 提示框 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DDE26E8A49E00CA9FC2 /* Hud.swift */,
-				F45B3DDF26E8A49E00CA9FC2 /* AlertView.swift */,
+				F41E2E3D274C7F5B00C19995 /* Hud.swift */,
+				F41E2E3E274C7F5B00C19995 /* AlertView.swift */,
 			);
 			path = "提示框";
 			sourceTree = "<group>";
 		};
-		F45B3DE026E8A49E00CA9FC2 /* 内阴影 */ = {
+		F41E2E3F274C7F5B00C19995 /* 内阴影 */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = "内阴影";
 			sourceTree = "<group>";
 		};
-		F45B3DE126E8A49E00CA9FC2 /* PopView */ = {
+		F41E2E40274C7F5B00C19995 /* PopView */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DE226E8A49E00CA9FC2 /* PopViewManager.swift */,
-				F45B3DE326E8A49E00CA9FC2 /* JXPopupView.swift */,
+				F41E2E41274C7F5B00C19995 /* PopViewManager.swift */,
+				F41E2E42274C7F5B00C19995 /* JXPopupView.swift */,
 			);
 			path = PopView;
 			sourceTree = "<group>";
 		};
-		F45B3DE426E8A49E00CA9FC2 /* 输入框限制 */ = {
+		F41E2E43274C7F5B00C19995 /* 输入框限制 */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = "输入框限制";
 			sourceTree = "<group>";
 		};
-		F45B3DE526E8A49E00CA9FC2 /* 选择器 */ = {
+		F41E2E44274C7F5B00C19995 /* 选择器 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DE626E8A49E00CA9FC2 /* CustomPicker */,
-				F45B3DED26E8A49E00CA9FC2 /* BMPicker.swift */,
-				F45B3DEE26E8A49E00CA9FC2 /* BMSelectView.swift */,
+				F41E2E45274C7F5B00C19995 /* CustomPicker */,
+				F41E2E4E274C7F5B00C19995 /* BMPicker.swift */,
+				F41E2E4F274C7F5B00C19995 /* BMSelectView.swift */,
+				F41E2EAE274C891A00C19995 /* BigView.swift */,
 			);
 			path = "选择器";
 			sourceTree = "<group>";
 		};
-		F45B3DE626E8A49E00CA9FC2 /* CustomPicker */ = {
+		F41E2E45274C7F5B00C19995 /* CustomPicker */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DE726E8A49E00CA9FC2 /* BMCityPicker.swift */,
-				F45B3DE826E8A49E00CA9FC2 /* CityDataBase */,
-				F45B3DEA26E8A49E00CA9FC2 /* BMBasePicker.swift */,
-				F45B3DEB26E8A49E00CA9FC2 /* BMDatePicker.swift */,
-				F45B3DEC26E8A49E00CA9FC2 /* BMSinglePicker.swift */,
+				F41E2E46274C7F5B00C19995 /* BMCityPicker.swift */,
+				F41E2E48274C7F5B00C19995 /* CityDataBase */,
+				F41E2E4A274C7F5B00C19995 /* BMBasePicker.swift */,
+				F41E2E4B274C7F5B00C19995 /* LHSinglePicker.swift */,
+				F41E2E4C274C7F5B00C19995 /* BMDatePicker.swift */,
+				F41E2E4D274C7F5B00C19995 /* BMSinglePicker.swift */,
 			);
 			path = CustomPicker;
 			sourceTree = "<group>";
 		};
-		F45B3DE826E8A49E00CA9FC2 /* CityDataBase */ = {
+		F41E2E48274C7F5B00C19995 /* CityDataBase */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DE926E8A49E00CA9FC2 /* CityDBManager.swift */,
+				F41E2E49274C7F5B00C19995 /* CityDBManager.swift */,
 			);
 			path = CityDataBase;
 			sourceTree = "<group>";
 		};
-		F45B3DEF26E8A49E00CA9FC2 /* 图片上传 */ = {
+		F41E2E50274C7F5B00C19995 /* 图片上传 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DF026E8A49E00CA9FC2 /* 快速上传 */,
-				F45B3DF226E8A49E00CA9FC2 /* 多图选择控件 */,
+				F41E2E51274C7F5B00C19995 /* 快速上传 */,
+				F41E2E53274C7F5B00C19995 /* 多图选择控件 */,
 			);
 			path = "图片上传";
 			sourceTree = "<group>";
 		};
-		F45B3DF026E8A49E00CA9FC2 /* 快速上传 */ = {
+		F41E2E51274C7F5B00C19995 /* 快速上传 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DF126E8A49E00CA9FC2 /* ImageChooseTools.swift */,
+				F41E2E52274C7F5B00C19995 /* ImageChooseTools.swift */,
 			);
 			path = "快速上传";
 			sourceTree = "<group>";
 		};
-		F45B3DF226E8A49E00CA9FC2 /* 多图选择控件 */ = {
+		F41E2E53274C7F5B00C19995 /* 多图选择控件 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DF326E8A49E00CA9FC2 /* CamerView.swift */,
-				F45B3DF426E8A49E00CA9FC2 /* MultiImgChooseView.swift */,
-				F45B3DF526E8A49E00CA9FC2 /* ImageCell.swift */,
+				F41E2E54274C7F5B00C19995 /* CamerView.swift */,
+				F41E2E55274C7F5B00C19995 /* MultiImgChooseView.swift */,
+				F41E2E56274C7F5B00C19995 /* ImageCell.swift */,
 			);
 			path = "多图选择控件";
 			sourceTree = "<group>";
 		};
-		F45B3DF626E8A49E00CA9FC2 /* PhotoBrowser */ = {
+		F41E2E57274C7F5B00C19995 /* PhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DF726E8A49E00CA9FC2 /* PhotoBrowser.swift */,
-				F45B3DF826E8A49E00CA9FC2 /* PhotoBrowserProgressView.swift */,
+				F41E2E58274C7F5B00C19995 /* PhotoBrowser.swift */,
+				F41E2E59274C7F5B00C19995 /* PhotoBrowserProgressView.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
-		F45B3DF926E8A49E00CA9FC2 /* 加载等待 */ = {
+		F41E2E5A274C7F5B00C19995 /* 加载等待 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DFA26E8A49E00CA9FC2 /* BMIndicatorView.swift */,
+				F41E2E5B274C7F5B00C19995 /* BMIndicatorView.swift */,
 			);
 			path = "加载等待";
 			sourceTree = "<group>";
 		};
-		F45B3DFB26E8A49E00CA9FC2 /* 点赞动画 */ = {
+		F41E2E5C274C7F5B00C19995 /* 点赞动画 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DFC26E8A49E00CA9FC2 /* DOFavoriteButton.swift */,
+				F41E2E5D274C7F5B00C19995 /* DOFavoriteButton.swift */,
 			);
 			path = "点赞动画";
 			sourceTree = "<group>";
 		};
-		F45B3DFD26E8A49E00CA9FC2 /* 时间段选择器 */ = {
+		F41E2E5E274C7F5B00C19995 /* 时间段选择器 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3DFE26E8A49E00CA9FC2 /* BMTimeIntervalPicker.swift */,
+				F41E2E5F274C7F5B00C19995 /* BMTimeIntervalPicker.swift */,
 			);
 			path = "时间段选择器";
 			sourceTree = "<group>";
 		};
-		F45B3DFF26E8A49E00CA9FC2 /* 测试服切换工具 */ = {
+		F41E2E60274C7F5B00C19995 /* 测试服切换工具 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E0026E8A49E00CA9FC2 /* HostConfig.swift */,
+				F41E2E61274C7F5B00C19995 /* HostConfig.swift */,
 			);
 			path = "测试服切换工具";
 			sourceTree = "<group>";
 		};
-		F45B3E0126E8A49E00CA9FC2 /* 轮播 */ = {
+		F41E2E62274C7F5B00C19995 /* 轮播 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E0226E8A49E00CA9FC2 /* CellFlowLayout.swift */,
-				F45B3E0326E8A49E00CA9FC2 /* CycleCell.swift */,
-				F45B3E0426E8A49E00CA9FC2 /* CycleView.swift */,
+				F41E2E63274C7F5B00C19995 /* CellFlowLayout.swift */,
+				F41E2E64274C7F5B00C19995 /* CycleCell.swift */,
+				F41E2E65274C7F5B00C19995 /* CycleView.swift */,
 			);
 			path = "轮播";
 			sourceTree = "<group>";
 		};
-		F45B3E0526E8A49E00CA9FC2 /* 图片缩放预览 */ = {
+		F41E2E66274C7F5B00C19995 /* 图片缩放预览 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E0626E8A49E00CA9FC2 /* BMScaleView.swift */,
+				F41E2E67274C7F5B00C19995 /* BMScaleView.swift */,
 			);
 			path = "图片缩放预览";
 			sourceTree = "<group>";
 		};
-		F45B3E0726E8A49E00CA9FC2 /* 扩展 */ = {
+		F41E2E68274C7F5B00C19995 /* 扩展 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E0826E8A49E00CA9FC2 /* Xib */,
-				F45B3E0A26E8A49E00CA9FC2 /* Color */,
-				F45B3E0C26E8A49E00CA9FC2 /* SnapKit */,
-				F45B3E0E26E8A49E00CA9FC2 /* Date */,
-				F45B3E1126E8A49E00CA9FC2 /* Number */,
-				F45B3E1426E8A49E00CA9FC2 /* SegmentedControl */,
-				F45B3E1626E8A49E00CA9FC2 /* View */,
-				F45B3E1B26E8A49E00CA9FC2 /* Kingfisher */,
-				F45B3E1D26E8A49E00CA9FC2 /* String */,
-				F45B3E2126E8A49E00CA9FC2 /* Nav */,
-				F45B3E2326E8A49E00CA9FC2 /* Set */,
+				F41E2E69274C7F5B00C19995 /* Xib */,
+				F41E2E6B274C7F5B00C19995 /* Color */,
+				F41E2E6D274C7F5B00C19995 /* SnapKit */,
+				F41E2E6F274C7F5B00C19995 /* Date */,
+				F41E2E72274C7F5B00C19995 /* Number */,
+				F41E2E75274C7F5B00C19995 /* SegmentedControl */,
+				F41E2E77274C7F5B00C19995 /* View */,
+				F41E2E7C274C7F5B00C19995 /* Kingfisher */,
+				F41E2E7E274C7F5B00C19995 /* String */,
+				F41E2E82274C7F5B00C19995 /* Nav */,
+				F41E2E84274C7F5B00C19995 /* Set */,
 			);
 			path = "扩展";
 			sourceTree = "<group>";
 		};
-		F45B3E0826E8A49E00CA9FC2 /* Xib */ = {
+		F41E2E69274C7F5B00C19995 /* Xib */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E0926E8A49E00CA9FC2 /* NibLoadable.swift */,
+				F41E2E6A274C7F5B00C19995 /* NibLoadable.swift */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
 		};
-		F45B3E0A26E8A49E00CA9FC2 /* Color */ = {
+		F41E2E6B274C7F5B00C19995 /* Color */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E0B26E8A49E00CA9FC2 /* UIColor+Utils.swift */,
+				F41E2E6C274C7F5B00C19995 /* UIColor+Utils.swift */,
 			);
 			path = Color;
 			sourceTree = "<group>";
 		};
-		F45B3E0C26E8A49E00CA9FC2 /* SnapKit */ = {
+		F41E2E6D274C7F5B00C19995 /* SnapKit */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E0D26E8A49E00CA9FC2 /* SnapKitExtend.swift */,
+				F41E2E6E274C7F5B00C19995 /* SnapKitExtend.swift */,
 			);
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
-		F45B3E0E26E8A49E00CA9FC2 /* Date */ = {
+		F41E2E6F274C7F5B00C19995 /* Date */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E0F26E8A49E00CA9FC2 /* Date+String.swift */,
-				F45B3E1026E8A49E00CA9FC2 /* Date+Utils.swift */,
+				F41E2E70274C7F5B00C19995 /* Date+String.swift */,
+				F41E2E71274C7F5B00C19995 /* Date+Utils.swift */,
 			);
 			path = Date;
 			sourceTree = "<group>";
 		};
-		F45B3E1126E8A49E00CA9FC2 /* Number */ = {
+		F41E2E72274C7F5B00C19995 /* Number */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E1226E8A49E00CA9FC2 /* Number+Formate.swift */,
-				F45B3E1326E8A49E00CA9FC2 /* Number+String.swift */,
+				F41E2E73274C7F5B00C19995 /* Number+Formate.swift */,
+				F41E2E74274C7F5B00C19995 /* Number+String.swift */,
 			);
 			path = Number;
 			sourceTree = "<group>";
 		};
-		F45B3E1426E8A49E00CA9FC2 /* SegmentedControl */ = {
+		F41E2E75274C7F5B00C19995 /* SegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E1526E8A49E00CA9FC2 /* UISegmentedControl+Extension.swift */,
+				F41E2E76274C7F5B00C19995 /* UISegmentedControl+Extension.swift */,
 			);
 			path = SegmentedControl;
 			sourceTree = "<group>";
 		};
-		F45B3E1626E8A49E00CA9FC2 /* View */ = {
+		F41E2E77274C7F5B00C19995 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E1726E8A49E00CA9FC2 /* UIView+Utils.swift */,
-				F45B3E1826E8A49E00CA9FC2 /* UIImage+Extension.swift */,
-				F45B3E1926E8A49E00CA9FC2 /* UIButton+uploadImg.swift */,
-				F45B3E1A26E8A49E00CA9FC2 /* UIView+IBInspectable.swift */,
+				F41E2E78274C7F5B00C19995 /* UIView+Utils.swift */,
+				F41E2E79274C7F5B00C19995 /* UIImage+Extension.swift */,
+				F41E2E7A274C7F5B00C19995 /* UIButton+uploadImg.swift */,
+				F41E2E7B274C7F5B00C19995 /* UIView+IBInspectable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		F45B3E1B26E8A49E00CA9FC2 /* Kingfisher */ = {
+		F41E2E7C274C7F5B00C19995 /* Kingfisher */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E1C26E8A49E00CA9FC2 /* Kingfisher+Utils.swift */,
+				F41E2E7D274C7F5B00C19995 /* Kingfisher+Utils.swift */,
 			);
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
-		F45B3E1D26E8A49E00CA9FC2 /* String */ = {
+		F41E2E7E274C7F5B00C19995 /* String */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E1E26E8A49E00CA9FC2 /* String+Substring.swift */,
-				F45B3E1F26E8A49E00CA9FC2 /* String+MD5.swift */,
-				F45B3E2026E8A49E00CA9FC2 /* String+Utils.swift */,
+				F41E2E7F274C7F5B00C19995 /* String+Substring.swift */,
+				F41E2E80274C7F5B00C19995 /* String+MD5.swift */,
+				F41E2E81274C7F5B00C19995 /* String+Utils.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
 		};
-		F45B3E2126E8A49E00CA9FC2 /* Nav */ = {
+		F41E2E82274C7F5B00C19995 /* Nav */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E2226E8A49E00CA9FC2 /* UINavigationController+Utils.swift */,
+				F41E2E83274C7F5B00C19995 /* UINavigationController+Utils.swift */,
 			);
 			path = Nav;
 			sourceTree = "<group>";
 		};
-		F45B3E2326E8A49E00CA9FC2 /* Set */ = {
+		F41E2E84274C7F5B00C19995 /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E2426E8A49E00CA9FC2 /* Array+Utils.swift */,
-				F45B3E2526E8A49E00CA9FC2 /* Dictionary+Utils.swift */,
-				F45B3E2626E8A49E00CA9FC2 /* Sequence+Json.swift */,
+				F41E2E85274C7F5B00C19995 /* Array+Utils.swift */,
+				F41E2E86274C7F5B00C19995 /* Dictionary+Utils.swift */,
+				F41E2E87274C7F5B00C19995 /* Sequence+Json.swift */,
 			);
 			path = Set;
 			sourceTree = "<group>";
 		};
-		F45B3E2726E8A49E00CA9FC2 /* 基类 */ = {
+		F41E2E88274C7F5B00C19995 /* 基类 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E2826E8A49E00CA9FC2 /* BaseVC.swift */,
-				F45B3E2926E8A49E00CA9FC2 /* WebVC.swift */,
-				F45B3E2A26E8A49E00CA9FC2 /* BaseCollVC.swift */,
-				F45B3E2B26E8A49E00CA9FC2 /* BaseTabbarVC.swift */,
-				F45B3E2C26E8A49E00CA9FC2 /* BaseTableVC.swift */,
-				F45B3E2D26E8A49E00CA9FC2 /* BaseCell.swift */,
-				F45B3E2E26E8A49E00CA9FC2 /* ScanVC.swift */,
-				F45B3E2F26E8A49E00CA9FC2 /* BaseNavigationVC.swift */,
+				F41E2E89274C7F5B00C19995 /* BaseVC.swift */,
+				F41E2E8A274C7F5B00C19995 /* WebVC.swift */,
+				F41E2E8B274C7F5B00C19995 /* BaseCollVC.swift */,
+				F41E2E8C274C7F5B00C19995 /* BaseTabbarVC.swift */,
+				F41E2E8D274C7F5B00C19995 /* BaseTableVC.swift */,
+				F41E2E8E274C7F5B00C19995 /* BaseCell.swift */,
+				F41E2E8F274C7F5B00C19995 /* ScanVC.swift */,
+				F41E2E90274C7F5B00C19995 /* BaseNavigationVC.swift */,
 			);
 			path = "基类";
 			sourceTree = "<group>";
 		};
-		F45B3E3026E8A49E00CA9FC2 /* View */ = {
+		F41E2E91274C7F5B00C19995 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E3126E8A49E00CA9FC2 /* RedPoint.swift */,
-				F45B3E3226E8A49E00CA9FC2 /* HotBaseBtn.swift */,
+				F41E2E92274C7F5B00C19995 /* RedPoint.swift */,
+				F41E2E93274C7F5B00C19995 /* HotBaseBtn.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		F45B3E3326E8A49E00CA9FC2 /* 工具类 */ = {
+		F41E2E94274C7F5B00C19995 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E3426E8A49E00CA9FC2 /* 获取文件 */,
-				F45B3E3626E8A49E00CA9FC2 /* 请求 */,
-				F45B3E3926E8A49E00CA9FC2 /* 约束 */,
-				F45B3E3B26E8A49E00CA9FC2 /* Utils */,
-				F45B3E3E26E8A49E00CA9FC2 /* 缓存 */,
-				F45B3E4126E8A49E00CA9FC2 /* 二维码 */,
+				F41E2E95274C7F5B00C19995 /* 获取文件 */,
+				F41E2E97274C7F5B00C19995 /* 请求 */,
+				F41E2E9A274C7F5B00C19995 /* 约束 */,
+				F41E2E9C274C7F5B00C19995 /* Utils */,
+				F41E2E9F274C7F5B00C19995 /* 缓存 */,
+				F41E2EA2274C7F5B00C19995 /* 二维码 */,
 			);
 			path = "工具类";
 			sourceTree = "<group>";
 		};
-		F45B3E3426E8A49E00CA9FC2 /* 获取文件 */ = {
+		F41E2E95274C7F5B00C19995 /* 获取文件 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E3526E8A49E00CA9FC2 /* Bundle+Extensions.swift */,
+				F41E2E96274C7F5B00C19995 /* Bundle+Extensions.swift */,
 			);
 			path = "获取文件";
 			sourceTree = "<group>";
 		};
-		F45B3E3626E8A49E00CA9FC2 /* 请求 */ = {
+		F41E2E97274C7F5B00C19995 /* 请求 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E3726E8A49E00CA9FC2 /* Network.swift */,
-				F45B3E3826E8A49E00CA9FC2 /* ZBJsonModel.swift */,
+				F41E2E98274C7F5B00C19995 /* Network.swift */,
+				F41E2E99274C7F5B00C19995 /* ZBJsonModel.swift */,
 			);
 			path = "请求";
 			sourceTree = "<group>";
 		};
-		F45B3E3926E8A49E00CA9FC2 /* 约束 */ = {
+		F41E2E9A274C7F5B00C19995 /* 约束 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E3A26E8A49E00CA9FC2 /* ConstantsLayout.swift */,
+				F41E2E9B274C7F5B00C19995 /* ConstantsLayout.swift */,
 			);
 			path = "约束";
 			sourceTree = "<group>";
 		};
-		F45B3E3B26E8A49E00CA9FC2 /* Utils */ = {
+		F41E2E9C274C7F5B00C19995 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E3C26E8A49E00CA9FC2 /* LHSwiftFunctions.swift */,
-				F45B3E3D26E8A49E00CA9FC2 /* Utils.swift */,
+				F41E2E9D274C7F5B00C19995 /* LHSwiftFunctions.swift */,
+				F41E2E9E274C7F5B00C19995 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		F45B3E3E26E8A49E00CA9FC2 /* 缓存 */ = {
+		F41E2E9F274C7F5B00C19995 /* 缓存 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E3F26E8A49E00CA9FC2 /* BMCache.swift */,
-				F45B3E4026E8A49E00CA9FC2 /* LHClearCache.swift */,
+				F41E2EA0274C7F5B00C19995 /* BMCache.swift */,
+				F41E2EA1274C7F5B00C19995 /* LHClearCache.swift */,
 			);
 			path = "缓存";
 			sourceTree = "<group>";
 		};
-		F45B3E4126E8A49E00CA9FC2 /* 二维码 */ = {
+		F41E2EA2274C7F5B00C19995 /* 二维码 */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E4226E8A49E00CA9FC2 /* QRCodeManager.swift */,
+				F41E2EA3274C7F5B00C19995 /* QRCodeManager.swift */,
 			);
 			path = "二维码";
 			sourceTree = "<group>";
 		};
-		F45B3E4326E8A49E00CA9FC2 /* resource */ = {
+		F41E2EA4274C7F5B00C19995 /* resource */ = {
 			isa = PBXGroup;
 			children = (
-				F45B3E4426E8A49E00CA9FC2 /* 图片加载失败.png */,
-				F45B3E4526E8A49E00CA9FC2 /* BMback_Icon.png */,
-				F45B3E4626E8A49E00CA9FC2 /* CamerView_UploadImg.png */,
-				F45B3E4726E8A49E00CA9FC2 /* city_db.sqlite */,
-				F45B3E4826E8A49E00CA9FC2 /* BMImgItems_UploadImg.png */,
-				F45B3E4926E8A49E00CA9FC2 /* photoDelete.png */,
-				F45B3E4A26E8A49E00CA9FC2 /* wuwangluo.png */,
+				F41E2EA5274C7F5B00C19995 /* 图片加载失败.png */,
+				F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */,
+				F41E2EA7274C7F5B00C19995 /* CamerView_UploadImg.png */,
+				F41E2EA8274C7F5B00C19995 /* city_db.sqlite */,
+				F41E2EA9274C7F5B00C19995 /* BMImgItems_UploadImg.png */,
+				F41E2EAA274C7F5B00C19995 /* photoDelete.png */,
+				F41E2EAB274C7F5B00C19995 /* wuwangluo.png */,
 			);
 			path = resource;
 			sourceTree = "<group>";

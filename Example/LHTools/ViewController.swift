@@ -31,21 +31,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let mod = GroupActivityModel()
-        defer {
-            print(mod.activityId ?? "11")
-        }
-//        mod.activityId = 1
+        mod.userActivityId = 1
+        mod.activityId = 33
+        var arr:[GroupActivityModel] = []
+        arr.append(mod)
+        let dic = arr.toJSON()[0]!
+        
+        print(dic["activityId"])
+        
     }
     @objc func btnAction() {
 
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let ps = ZLPhotoPreviewSheet()
-        ps.selectImageBlock = { (images,assets,isoriginal) in
-            
-        }
-        ps.showPreview(sender: self)
+//        LHSinglePicker.in
+        let daa = Array<String>()
+//        let picker = BMSinglePicker(data, 0)
+        
     }
+
 }
 
 // 易城市接口基类
@@ -59,4 +63,5 @@ extension BMApiSet {
     static let login = YiChengShi<String?>("edcmanageapi/Login_login")
     
 }
+
 
