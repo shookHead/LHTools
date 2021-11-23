@@ -53,14 +53,6 @@
 		F41E2E3E274C7F5B00C19995 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F41E2E41274C7F5B00C19995 /* PopViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewManager.swift; sourceTree = "<group>"; };
 		F41E2E42274C7F5B00C19995 /* JXPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JXPopupView.swift; sourceTree = "<group>"; };
-		F41E2E46274C7F5B00C19995 /* BMCityPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCityPicker.swift; sourceTree = "<group>"; };
-		F41E2E49274C7F5B00C19995 /* CityDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDBManager.swift; sourceTree = "<group>"; };
-		F41E2E4A274C7F5B00C19995 /* BMBasePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMBasePicker.swift; sourceTree = "<group>"; };
-		F41E2E4B274C7F5B00C19995 /* LHSinglePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHSinglePicker.swift; sourceTree = "<group>"; };
-		F41E2E4C274C7F5B00C19995 /* BMDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMDatePicker.swift; sourceTree = "<group>"; };
-		F41E2E4D274C7F5B00C19995 /* BMSinglePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSinglePicker.swift; sourceTree = "<group>"; };
-		F41E2E4E274C7F5B00C19995 /* BMPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMPicker.swift; sourceTree = "<group>"; };
-		F41E2E4F274C7F5B00C19995 /* BMSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSelectView.swift; sourceTree = "<group>"; };
 		F41E2E52274C7F5B00C19995 /* ImageChooseTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageChooseTools.swift; sourceTree = "<group>"; };
 		F41E2E54274C7F5B00C19995 /* CamerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerView.swift; sourceTree = "<group>"; };
 		F41E2E55274C7F5B00C19995 /* MultiImgChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImgChooseView.swift; sourceTree = "<group>"; };
@@ -122,7 +114,14 @@
 		F41E2EAA274C7F5B00C19995 /* photoDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDelete.png; sourceTree = "<group>"; };
 		F41E2EAB274C7F5B00C19995 /* wuwangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wuwangluo.png; sourceTree = "<group>"; };
 		F41E2EAC274C7F5B00C19995 /* LHTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHTools.swift; sourceTree = "<group>"; };
-		F41E2EAE274C891A00C19995 /* BigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigView.swift; sourceTree = "<group>"; };
+		F41E2EB1274C916C00C19995 /* BMCityPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCityPicker.swift; sourceTree = "<group>"; };
+		F41E2EB3274C916C00C19995 /* CityDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDBManager.swift; sourceTree = "<group>"; };
+		F41E2EB4274C916C00C19995 /* BMBasePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMBasePicker.swift; sourceTree = "<group>"; };
+		F41E2EB5274C916C00C19995 /* LHSinglePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHSinglePicker.swift; sourceTree = "<group>"; };
+		F41E2EB6274C916C00C19995 /* BMDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMDatePicker.swift; sourceTree = "<group>"; };
+		F41E2EB7274C916C00C19995 /* BMSinglePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSinglePicker.swift; sourceTree = "<group>"; };
+		F41E2EB8274C916C00C19995 /* BMPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMPicker.swift; sourceTree = "<group>"; };
+		F41E2EB9274C916C00C19995 /* BMSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSelectView.swift; sourceTree = "<group>"; };
 		F4BFB1EC26D8E30D00CD4B5F /* ResourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
 		F4BFB1ED26D8E30D00CD4B5F /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,11 +258,11 @@
 		F41E2E3B274C7F5B00C19995 /* 自定义视图 */ = {
 			isa = PBXGroup;
 			children = (
+				F41E2EAF274C916C00C19995 /* 选择器 */,
 				F41E2E3C274C7F5B00C19995 /* 提示框 */,
 				F41E2E3F274C7F5B00C19995 /* 内阴影 */,
 				F41E2E40274C7F5B00C19995 /* PopView */,
 				F41E2E43274C7F5B00C19995 /* 输入框限制 */,
-				F41E2E44274C7F5B00C19995 /* 选择器 */,
 				F41E2E50274C7F5B00C19995 /* 图片上传 */,
 				F41E2E57274C7F5B00C19995 /* PhotoBrowser */,
 				F41E2E5A274C7F5B00C19995 /* 加载等待 */,
@@ -306,38 +305,6 @@
 			children = (
 			);
 			path = "输入框限制";
-			sourceTree = "<group>";
-		};
-		F41E2E44274C7F5B00C19995 /* 选择器 */ = {
-			isa = PBXGroup;
-			children = (
-				F41E2E45274C7F5B00C19995 /* CustomPicker */,
-				F41E2E4E274C7F5B00C19995 /* BMPicker.swift */,
-				F41E2E4F274C7F5B00C19995 /* BMSelectView.swift */,
-				F41E2EAE274C891A00C19995 /* BigView.swift */,
-			);
-			path = "选择器";
-			sourceTree = "<group>";
-		};
-		F41E2E45274C7F5B00C19995 /* CustomPicker */ = {
-			isa = PBXGroup;
-			children = (
-				F41E2E46274C7F5B00C19995 /* BMCityPicker.swift */,
-				F41E2E48274C7F5B00C19995 /* CityDataBase */,
-				F41E2E4A274C7F5B00C19995 /* BMBasePicker.swift */,
-				F41E2E4B274C7F5B00C19995 /* LHSinglePicker.swift */,
-				F41E2E4C274C7F5B00C19995 /* BMDatePicker.swift */,
-				F41E2E4D274C7F5B00C19995 /* BMSinglePicker.swift */,
-			);
-			path = CustomPicker;
-			sourceTree = "<group>";
-		};
-		F41E2E48274C7F5B00C19995 /* CityDataBase */ = {
-			isa = PBXGroup;
-			children = (
-				F41E2E49274C7F5B00C19995 /* CityDBManager.swift */,
-			);
-			path = CityDataBase;
 			sourceTree = "<group>";
 		};
 		F41E2E50274C7F5B00C19995 /* 图片上传 */ = {
@@ -641,6 +608,37 @@
 				F41E2EAB274C7F5B00C19995 /* wuwangluo.png */,
 			);
 			path = resource;
+			sourceTree = "<group>";
+		};
+		F41E2EAF274C916C00C19995 /* 选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				F41E2EB0274C916C00C19995 /* CustomPicker */,
+				F41E2EB8274C916C00C19995 /* BMPicker.swift */,
+				F41E2EB9274C916C00C19995 /* BMSelectView.swift */,
+			);
+			path = "选择器";
+			sourceTree = "<group>";
+		};
+		F41E2EB0274C916C00C19995 /* CustomPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F41E2EB1274C916C00C19995 /* BMCityPicker.swift */,
+				F41E2EB2274C916C00C19995 /* CityDataBase */,
+				F41E2EB4274C916C00C19995 /* BMBasePicker.swift */,
+				F41E2EB5274C916C00C19995 /* LHSinglePicker.swift */,
+				F41E2EB6274C916C00C19995 /* BMDatePicker.swift */,
+				F41E2EB7274C916C00C19995 /* BMSinglePicker.swift */,
+			);
+			path = CustomPicker;
+			sourceTree = "<group>";
+		};
+		F41E2EB2274C916C00C19995 /* CityDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				F41E2EB3274C916C00C19995 /* CityDBManager.swift */,
+			);
+			path = CityDataBase;
 			sourceTree = "<group>";
 		};
 		F4BFB1EB26D8E30D00CD4B5F /* 下载 */ = {

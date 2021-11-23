@@ -114,7 +114,6 @@ open class BMDatePicker: BMBasePicker {
 
     public var selected: ((_:Date?)->())
     
-    
     private var componentsArray:Array<Array<String>> = Array()
     
     private var dateFormateArr:Array<String> = Array()

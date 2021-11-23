@@ -7,19 +7,6 @@
 //
 
 import UIKit
-//import LHTools_Example
-
-public class LHPicker: NSObject {
-    public static func creat<T>(data:Array<T>, _ selected:@escaping(_:T)->(), _ changed:((_:T)->())? = nil) {
-//        let picker = LHSinglePicker()
-//        let picker = LHSinglePicker<T>(data,0,selected,changed)
-//        BMSinglePicker
-        let arr = Array<String>()
-//        let picker = LHSinglePicker(arr, 0, selected, changed)
-//        let v = BigView()
-        
-    }
-}
 public class BMPicker: NSObject {
 
     /// 简单的选择器
@@ -38,21 +25,21 @@ public class BMPicker: NSObject {
         let picker = BMSinglePicker(data, newIndex, selected, changed)
         return picker
     }
-    /// 简单的选择器
-    ///
+    
+    /// 简单的模型选择器
     /// - Parameters:
-    ///   - dataArray   : 用于显示的字符串数组
-    ///   - index       : 初始选择的值
-    ///   - selected    : 点击确认后 回调 返回索引
-    ///   - changed     : 数据改变 回调 返回索引
+    ///  - dataArray   : 用于显示的模型数组
+    ///  - index       : 初始选择的值
+    ///  - key       : 显示哪个
+    ///  - selected    : 点击确认后 回调 返回模型
+    ///  - changed     : 数据改变 回调 返回模型
     /// - Returns: 返回选择器对象   调用show方法之前 可用于修改参数
-    public static func singlePicker1(_ data:Array<String>,_ index:Int, _ selected:@escaping(_:Int)->(), _ changed:((_:Int)->())? = nil) -> BMSinglePicker{
+    public static func singleModelPicker<T:HandyJSON>(_ data:Array<T>,_ index:Int,_ key:String, _ selected:@escaping(_:T)->(), _ changed:((_:T)->())? = nil) -> LHSinglePicker<T>{
         var newIndex = index
         if index < 0 || index >= data.count{
             newIndex = 0
         }
-        let picker = BMSinglePicker(data, newIndex, selected, changed)
-//        let picker = LHSinglePicker(data,newIndex,selected,changed)
+        let picker = LHSinglePicker(data,newIndex,key,selected,changed)
         return picker
     }
 

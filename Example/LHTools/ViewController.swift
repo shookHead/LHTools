@@ -14,15 +14,18 @@ import Foundation
 import ZLPhotoBrowser
 
 class GroupActivityModel: HandyJSON {
+    var name:String! = ""{
+        didSet{
+            pick_name = name
+        }
+    }
     ///
     var userActivityId  : Int! = 0
     ///活动id
     var activityId  : Int!
-
+    var pick_name:String! = ""
+    
     required init() {}
-    func didFinishMapping() {
-
-    }
 }
 
 class ViewController: UIViewController {
@@ -30,26 +33,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mod = GroupActivityModel()
-        mod.userActivityId = 1
-        mod.activityId = 33
-        var arr:[GroupActivityModel] = []
-        arr.append(mod)
-        let dic = arr.toJSON()[0]!
-        
-        print(dic["activityId"])
-        
+
     }
     @objc func btnAction() {
 
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        LHSinglePicker.in
-        let daa = Array<String>()
-//        let picker = BMSinglePicker(data, 0)
         
+        BMPicker.datePicker(currentTime: nil, startTime: nil, endTime: nil) { time in
+            
+        }.show()
     }
-
 }
 
 // 易城市接口基类
