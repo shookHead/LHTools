@@ -214,6 +214,10 @@
       "name": "工具类",
       "subspecs": [
         {
+          "name": "VideoPlayer",
+          "source_files": "LHTools/Classes/工具类/VideoPlayer/**/*.swift"
+        },
+        {
           "name": "Utils",
           "source_files": "LHTools/Classes/工具类/Utils/**/*.swift"
         },

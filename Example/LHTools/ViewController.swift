@@ -33,16 +33,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let s = ""
+        s.callPhone()
     }
     @objc func btnAction() {
 
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        BMPicker.datePicker(currentTime: nil, startTime: nil, endTime: nil) { time in
-            
-        }.show()
+//        Player
     }
 }
 
@@ -52,6 +51,11 @@ class YiChengShi<ValueType> : BMApiTemplete<ValueType> {
 //        return HostConfig.getHost("http://192.168.1.134:8084/", index: 0)
         return HostConfig.getHost("https://api.yichengshi.cn/", index: 0)
     }
+    
+    override var defaultParam: Dictionary<String, Any>{
+        return [:]
+    }
+    
 }
 extension BMApiSet {
     static let login = YiChengShi<String?>("edcmanageapi/Login_login")
