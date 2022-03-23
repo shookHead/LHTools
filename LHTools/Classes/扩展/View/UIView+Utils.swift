@@ -7,8 +7,8 @@
 
 import UIKit
 
-
-public let UIViewDefaultFadeDuration: TimeInterval = 0.4
+/// 默认渐变时间
+public var UIViewDefaultFadeDuration: TimeInterval = 0.4
 extension UIView{
     public enum DirectionType {
         ///上往下
@@ -126,4 +126,97 @@ extension UIView{
         }, completion: completion)
     }
 
+}
+
+//MARK: - 实现圆角、阴影和边框共存
+extension UIView{
+    /// 无边框阴影
+    /// - Parameters:
+    ///   - backgroundColor: 背景颜色
+    ///   - shadowColor: 阴影颜色
+    ///   - shadowOffset: 阴影偏移范围
+    ///   - shadowOpacity: 阴影透明度
+    ///   - shadowRadius: 阴影半径
+    ///   - cornerRadius: 控件半径
+    public func setViewShadow(backgroundColor:UIColor,shadowColor:CGColor,shadowOffset:CGSize,shadowOpacity:Float,shadowRadius:CGFloat,cornerRadius:CGFloat) {
+        let curView = self
+        curView.backgroundColor = backgroundColor
+        curView.layer.shadowColor = shadowColor
+        curView.layer.shadowOffset = shadowOffset
+        curView.layer.shadowOpacity = shadowOpacity
+        curView.layer.shadowRadius = shadowRadius
+        curView.layer.cornerRadius = cornerRadius
+    }
+    /// 渐变背景色+圆角阴影
+    /// - Parameters:
+    ///   - colors: 渐变背景色数组
+    ///   - locations: 渐变从哪里到哪里[0,1]
+    ///   - direction: 渐变方向
+    ///   - shadowColor: 阴影颜色
+    ///   - shadowOffset: 阴影偏移范围
+    ///   - shadowOpacity: 阴影透明度
+    ///   - shadowRadius: 阴影半径
+    ///   - cornerRadius: 控件半径
+    public func setViewColorShadow(colors:[CGColor],locations:[NSNumber]?,direction:DirectionType = .vertical,shadowColor:CGColor,shadowOffset:CGSize,shadowOpacity:Float,shadowRadius:CGFloat,cornerRadius:CGFloat) {
+        let curView = self
+        //设置渐变色
+        let gradient = CAGradientLayer()
+        gradient.colors = colors
+        gradient.locations = locations
+        gradient.frame = curView.bounds
+        //(这里的起始和终止位置就是按照坐标系,四个角分别是左上(0,0),左下(0,1),右上(1,0),右下(1,1))
+        if direction == .vertical {
+            gradient.startPoint = CGPoint.init(x: 0, y: 0)
+            gradient.endPoint = CGPoint.init(x: 1, y: 0)
+        }else if direction == .horizontal {
+            gradient.startPoint = CGPoint.init(x: 0, y: 0)
+            gradient.endPoint = CGPoint.init(x: 0, y: 1)
+        }else{
+            gradient.startPoint = CGPoint(x:0, y:0)
+            gradient.endPoint = CGPoint(x:1, y:1)
+        }
+//        gradient.startPoint = startPoint
+//        gradient.endPoint = endPoint
+        //圆角阴影设置
+        gradient.shadowColor = shadowColor
+        gradient.shadowOffset = shadowOffset
+        gradient.shadowOpacity = shadowOpacity
+        gradient.shadowRadius = shadowRadius
+        gradient.cornerRadius = cornerRadius
+        curView.layer.addSublayer(gradient)
+    }
+    /// 边框圆角阴影
+    /// - Parameters:
+    ///   - backgroundColor: 背景颜色
+    ///   - shadowColor: 阴影颜色
+    ///   - shadowOffset: 阴影偏移范围
+    ///   - shadowOpacity: 阴影透明度
+    ///   - shadowRadius: 阴影半径
+    ///   - borderWidth: 控件边框宽度
+    ///   - borderColor: 控件边框颜色
+    ///   - cornerRadius: 控件半径
+    public func setViewBorderShadow(backgroundColor:UIColor,shadowColor:CGColor,shadowOffset:CGSize,shadowOpacity:Float,shadowRadius:CGFloat,borderWidth:CGFloat,borderColor:CGColor,cornerRadius:CGFloat) {
+        let curView = self
+        curView.backgroundColor = backgroundColor
+        curView.layer.shadowColor = shadowColor
+        curView.layer.shadowOffset = shadowOffset
+        curView.layer.shadowOpacity = shadowOpacity
+        curView.layer.shadowRadius = shadowRadius
+        curView.layer.borderWidth = borderWidth
+        curView.layer.borderColor = borderColor
+        curView.layer.cornerRadius = cornerRadius
+    }
+}
+//MARK: - 晃动
+public extension UIView {
+    func shake() {
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "transform.rotation.z"
+        animation.values = [(-2.0 / 180 * .pi), (2.0 / 180 * .pi), (-2.0 / 180 * .pi)]
+        animation.duration = 0.5
+        animation.repeatCount = MAXFLOAT
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = .forwards
+        layer.add(animation, forKey: "swifty_shake")
+    }
 }

@@ -36,8 +36,8 @@ extension String{
 }
 
 extension UIImageView {
-    public func setUrlImage(_ url:String) {
-        self.kf.setImage(with: url.resource)
+    public func setImage(_ url:String,placeholder: Placeholder? = nil,options: KingfisherOptionsInfo? = [.transition(.fade(0.2))],completionHandler: ((Result<RetrieveImageResult, KingfisherError>) -> Void)? = nil) {
+        self.kf.setImage(with: url.resource, placeholder: placeholder, options: options,completionHandler: completionHandler)
     }
 }
 

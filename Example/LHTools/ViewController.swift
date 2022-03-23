@@ -34,10 +34,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let s = ""
+        view.backgroundColor = .red
         s.callPhone()
     }
     @objc func btnAction() {
-
+        let imageView = UIImageView()
+        imageView.setImage("")
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         

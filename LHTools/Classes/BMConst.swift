@@ -63,12 +63,14 @@ public extension BMDefaultsKeys{
 
 public let noti = NotificationCenter.default
 
-public var window:UIWindow! {
-    return UIApplication.shared.windows.first {$0.isKeyWindow}
-}
 public extension NSNotification.Name {
     static let needRelogin = NSNotification.Name("needRelogin")
 }
-
-
+///打印
+public func lhPrint(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+    #if DEBUG // 判断是否在测试环境下
+    print(items, separator, terminator)
+    #else
+    #endif
+}
 
