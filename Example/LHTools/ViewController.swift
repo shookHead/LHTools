@@ -12,6 +12,7 @@ import LHTools
 import Alamofire
 import Foundation
 import ZLPhotoBrowser
+import SwiftUI
 
 class GroupActivityModel: HandyJSON {
     var name:String! = ""{
@@ -42,8 +43,9 @@ class ViewController: UIViewController {
         imageView.setImage("")
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-//        Player
+        BMPicker.lh_datePicker(currentTime: nil, startTime: nil, endTime: nil) { time in
+            print(time?.toString("yyyy-MM-dd HH:mm"))
+        }.show()
     }
 }
 

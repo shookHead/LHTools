@@ -51,6 +51,7 @@
 		AF87F8809564BC84406B33CE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ECFE8EDC6AD47074A330BAC6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F4110B122760A03400F3A94C /* String+Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Tools.swift"; sourceTree = "<group>"; };
+		F4142A15280FB9A6000ED2FA /* LHDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHDatePicker.swift; sourceTree = "<group>"; };
 		F41E2E39274C7F5B00C19995 /* GlobalImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalImport.swift; sourceTree = "<group>"; };
 		F41E2E3A274C7F5B00C19995 /* BMConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMConst.swift; sourceTree = "<group>"; };
 		F41E2E3D274C7F5B00C19995 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
@@ -644,6 +645,7 @@
 				F41E2EB5274C916C00C19995 /* LHSinglePicker.swift */,
 				F41E2EB6274C916C00C19995 /* BMDatePicker.swift */,
 				F41E2EB7274C916C00C19995 /* BMSinglePicker.swift */,
+				F4142A15280FB9A6000ED2FA /* LHDatePicker.swift */,
 			);
 			path = CustomPicker;
 			sourceTree = "<group>";

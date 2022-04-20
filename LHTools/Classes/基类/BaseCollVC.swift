@@ -101,7 +101,7 @@ open class BaseCollVC: BaseVC {
             }else if resp?.code == -1 && page == 1{
                 self.dataArr = []
             }else{
-                if self.showRequestError == false{
+                if self.showRequestError == true{
                     Hud.showText(resp?.msg ?? "")
                 }
             }

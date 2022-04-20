@@ -88,9 +88,13 @@ open class BMBasePicker: UIView {
     /// 内容高度（其他控件跟着调节）
     ///
     /// - Parameter high: 下方内容高度
-    public func setContentH(_ high:CGFloat){
-        contentViewY = UIScreen.main.bounds.height - high - 15
-        contentViewY = KIsIphoneX ? contentViewY! - 34 : contentViewY!
+    public func setContentH(_ high:CGFloat,contentY:CGFloat = 0){
+        if contentY == 0 {
+            contentViewY = UIScreen.main.bounds.height - high - 15
+            contentViewY = KIsIphoneX ? contentViewY! - 34 : contentViewY!
+        }else{
+            contentViewY = contentY
+        }
         let leftBlock:CGFloat   = 10.0 // 选择器 距左 宽度
         let comfirmBtnH:CGFloat = 44 //确认按钮 高度
         contentView.frame   = CGRect(x: leftBlock, y: contentViewY!, width: UIScreen.main.bounds.width-leftBlock*2, height: high)
@@ -98,6 +102,7 @@ open class BMBasePicker: UIView {
         bgLab.frame         = CGRect(x: 15, y: 0, width: contentView.frame.size.width-30, height: contentView.frame.size.height-comfirmBtnH)
         pickerView.frame    = CGRect(x: 0, y: 0, width: contentView.frame.size.width, height: contentView.frame.size.height-comfirmBtnH)
     }
+
     /// 显示
     public func show(){
         let w = UIApplication.shared.windows.filter({$0.isKeyWindow}).first
