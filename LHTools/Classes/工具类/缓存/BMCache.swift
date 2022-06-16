@@ -116,12 +116,14 @@ public class BMCache{
 //    }
     
     //包含save的字段退出后不会被清除
-    public func clearCache(_ needSaveAccount:Bool = false)  {
+    public func clearCache(_ needSaveAccount:Bool = false,_ arr:[String] = [])  {
         let dic = Defaults.dictionaryRepresentation()
         for key in dic{
             if needSaveAccount {
                 if (key.key == "userId" || key.key == "sessionId") {continue}
             }
+            let arrs = arr.filter({ $0 == key.key})
+            if arrs.count == 1 {continue}
             if !(key.key.contains("save")) {
                 Defaults.removeObject(forKey: key.key)
             }

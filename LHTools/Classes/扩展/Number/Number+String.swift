@@ -19,9 +19,13 @@ extension Int{
 extension String{
     ///判断 是否 是 数字
     public var isPurnInt:Bool {
-        let scan: Scanner = Scanner(string: self)
-        var val:Int = 0
-        return scan.scanInt(&val) && scan.isAtEnd
+        if let _ = Double(self){
+            return true
+        }
+        return false
+//        let scan: Scanner = Scanner(string: self)
+//        var val:Int = 0
+//        return scan.scanInt(&val) && scan.isAtEnd
     }
     
     public func  toInt() -> Int{

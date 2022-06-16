@@ -51,6 +51,7 @@ open class BaseTableVC: BaseVC {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        cache[.reload] = false
     }
     
     public func initTableView(rect:CGRect ,_ style:UITableView.Style = .plain) -> Void {
@@ -101,7 +102,15 @@ open class BaseTableVC: BaseVC {
         tableview?.mj_footer?.resetNoMoreData()
         loadData(1)
     }
-    
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if appearTimes > 1 {
+            if let reload = cache[.reload],reload == true {
+                loadNewData()
+                cache[.reload] = false
+            }
+        }
+    }
     @objc public func loadMoreData() -> Void {
         if tableview?.mj_footer != nil && tableview?.mj_footer?.state != .noMoreData{
             loadData(pageNo+1)

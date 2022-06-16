@@ -17,6 +17,7 @@
 		DB046D8A123D36B573A17CA3 /* Pods_LHTools_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07509A03F5415140F749D995 /* Pods_LHTools_Tests.framework */; };
 		F42F22F32788314700E42E4F /* LH_Use.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F22F22788314700E42E4F /* LH_Use.swift */; };
 		F4334717277B044F00F57015 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4334716277B044F00F57015 /* UILabel+Extension.swift */; };
+		F44C7AB82859D68D003F1848 /* globe.html in Resources */ = {isa = PBXBuildFile; fileRef = F44C7AB72859D68C003F1848 /* globe.html */; };
 		F4618A79277ED27400DFF371 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4618A78277ED27400DFF371 /* Player.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,11 +130,13 @@
 		F41E2EB9274C916C00C19995 /* BMSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSelectView.swift; sourceTree = "<group>"; };
 		F42F22F22788314700E42E4F /* LH_Use.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LH_Use.swift; sourceTree = "<group>"; };
 		F4334716277B044F00F57015 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		F44C7AB72859D68C003F1848 /* globe.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = globe.html; sourceTree = "<group>"; };
 		F4618A78277ED27400DFF371 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F4B9D36B27670EB400D01F13 /* UIControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Extension.swift"; sourceTree = "<group>"; };
 		F4B9D36C276721BA00D01F13 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		F4BFB1EC26D8E30D00CD4B5F /* ResourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
 		F4BFB1ED26D8E30D00CD4B5F /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		F4CB08AC2835E75400F293E9 /* MYDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,7 @@
 			children = (
 				F41E2E38274C7F5B00C19995 /* Classes */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				F44C7AB72859D68C003F1848 /* globe.html */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				F4BFB1EB26D8E30D00CD4B5F /* 下载 */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -639,13 +643,14 @@
 		F41E2EB0274C916C00C19995 /* CustomPicker */ = {
 			isa = PBXGroup;
 			children = (
-				F41E2EB1274C916C00C19995 /* BMCityPicker.swift */,
 				F41E2EB2274C916C00C19995 /* CityDataBase */,
+				F41E2EB1274C916C00C19995 /* BMCityPicker.swift */,
 				F41E2EB4274C916C00C19995 /* BMBasePicker.swift */,
 				F41E2EB5274C916C00C19995 /* LHSinglePicker.swift */,
 				F41E2EB6274C916C00C19995 /* BMDatePicker.swift */,
 				F41E2EB7274C916C00C19995 /* BMSinglePicker.swift */,
 				F4142A15280FB9A6000ED2FA /* LHDatePicker.swift */,
+				F4CB08AC2835E75400F293E9 /* MYDatePicker.swift */,
 			);
 			path = CustomPicker;
 			sourceTree = "<group>";
@@ -767,6 +772,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				F44C7AB82859D68D003F1848 /* globe.html in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

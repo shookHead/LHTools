@@ -20,9 +20,7 @@ open class ScanVC: BaseVC {
     public var scanHoleY: CGFloat {
         return (KScreenHeight - holeH)*0.4
     }
-    public var holeRect:CGRect{
-        return CGRect(x: KScreenWidth * 0.15, y: scanHoleY, width: holeH, height: holeH)
-    }
+    public var holeRect:CGRect!
     
     public var naviView:UIView = {
         let v = UIView(frame: CGRect(x: 0, y: 0, width: KScreenWidth, height: KNaviBarH))
@@ -91,6 +89,7 @@ open class ScanVC: BaseVC {
                 lh.judgeAppSetting()
             })
         }
+        
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -106,7 +105,12 @@ open class ScanVC: BaseVC {
     
     open func initUI() {
         self.view.addSubview(scanView)
-        
+        if UIDevice.current.model == "iPad" {
+            let wh:CGFloat = 330
+            holeRect = CGRect(x: (KScreenWidth - wh)/2, y: (KScreenHeight - wh)/2 - 30, width: wh , height: wh)
+        }else{
+            holeRect = CGRect(x: KScreenWidth * 0.15, y: scanHoleY, width: holeH, height: holeH)
+        }
         let bezierPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: KScreenWidth, height: KScreenHeight), cornerRadius: 0)
         bezierPath.append(UIBezierPath(roundedRect: holeRect, cornerRadius: 0).reversing())
         let shapeLayer = CAShapeLayer()
@@ -187,6 +191,34 @@ open class ScanVC: BaseVC {
             previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             previewLayer?.frame = view.layer.bounds
             scanView.layer.addSublayer(previewLayer!)
+            
+            if UIDevice.current.model == "iPad" {
+                
+//                let orientation = UIApplication.shared.statusBarOrientation
+                let orientation = UIDevice.current.orientation
+                let stuckview = previewLayer
+                if let layerRect = previewLayer?.bounds{
+                    switch orientation {
+                    case .landscapeLeft:
+                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: M_PI + M_PI_2))// 270 degrees
+                        stuckview?.bounds = CGRect(x: 0, y: 0, width: layerRect.size.height ?? 0, height: layerRect.size.width ?? 0)
+                        print("1")
+                    case .landscapeRight:
+                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: M_PI_2))// 90 degrees
+                        stuckview?.bounds = CGRect(x: 0, y: 0, width: layerRect.size.height ?? 0, height: layerRect.size.width ?? 0)
+                        print("2")
+                    case .portraitUpsideDown:
+                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: M_PI))// 180 degrees
+                        stuckview?.bounds = layerRect
+                        print("3")
+                    default:
+                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: 0.0))
+                        stuckview?.bounds = layerRect
+                        print("4")
+                    }
+                    stuckview?.position = CGPoint(x: layerRect.midX, y: layerRect.midY)
+                }
+            }
             captureSession?.startRunning()
             
             timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(timeRepateAction), userInfo: nil, repeats: true)

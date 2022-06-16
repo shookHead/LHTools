@@ -1,16 +1,13 @@
 //
-//  LHDatePicker.swift
+//  MYDatePicker.swift
 //  LHTools
 //
-//  Created by clh on 2022/4/20.
+//  Created by clh on 2022/5/19.
 //  Copyright © 2022 CocoaPods. All rights reserved.
 //
 
 import UIKit
-
-
-
-open class LHDatePicker: BMBasePicker {
+open class MYDatePicker: BMBasePicker {
     public var endTime:Date?
     public var startTime:Date?
     public var showInfinit : Bool = false
@@ -142,7 +139,7 @@ open class LHDatePicker: BMBasePicker {
 }
 
 // MARK: - 子类 需要 继承的方法
-extension LHDatePicker{
+extension MYDatePicker{
 
     public override func comfirm() {
         if let d = endTime {

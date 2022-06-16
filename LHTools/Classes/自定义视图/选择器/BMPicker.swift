@@ -70,14 +70,36 @@ public class BMPicker: NSObject {
     ///   - endTime: 截止时间 可为空
     ///   - finish: 确认点击后回调
     /// - Returns: 返回选择器对象   调用show方法之前 可用于修改参数
-    public static func lh_datePicker(currentTime:Date?=nil,startTime:Date?=nil,endTime:Date?=nil,selected:@escaping (_ time:Date?) -> () ) -> LHDatePicker{
+    public static func lh_datePicker(currentTime:Date?=nil,startTime:Date?=nil,endTime:Date?=nil,mode:BMDatePickerMode = .ymd_hm,selected:@escaping (_ time:Date?) -> () ) -> LHDatePicker{
         let picker = LHDatePicker(selected)
-        picker.datePickMode = .ymd_hm
+        picker.datePickMode = mode
         if currentTime != nil {
             picker.date = currentTime!
         }else{
             picker.date = Date(timeIntervalSinceNow: 0)
         }
+        picker.endTime = endTime
+        picker.startTime = startTime
+        return picker
+    }
+    /// 时间选择器
+    ///
+    /// - Parameters:
+    ///   - currentTime: 当前时间 可为空
+    ///   - startTime: 起始时间 可为空
+    ///   - endTime: 截止时间 可为空
+    ///   - finish: 确认点击后回调
+    /// - Returns: 返回选择器对象   调用show方法之前 可用于修改参数
+    public static func my_datePicker(currentTime:Date?=nil,startTime:Date?=nil,endTime:Date?=nil,mode:BMDatePickerMode = .ymd_hm,selected:@escaping (_ time:Date?) -> () ) -> MYDatePicker{
+        let picker = MYDatePicker(selected)
+        picker.datePickMode = mode
+        if currentTime != nil {
+            picker.date = currentTime!
+        }else{
+            picker.date = Date(timeIntervalSinceNow: 0)
+        }
+        picker.endTime = endTime
+        picker.startTime = startTime
         return picker
     }
     
@@ -125,15 +147,4 @@ public class BMPicker: NSObject {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
 

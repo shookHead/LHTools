@@ -105,6 +105,9 @@ extension String{
     
     ///去除前后空格
     public func clearSpace() -> String {
+        if self.count == 0 {
+            return ""
+        }
         let s = self.trimmingCharacters(in: .whitespaces)
         return s
     }

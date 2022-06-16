@@ -20,7 +20,7 @@ open class BaseNavigationVC: UINavigationController {
         if viewControllers.count > 0 {
             let vc = viewController as! BaseVC
             viewController.hidesBottomBarWhenPushed = true
-            viewController.navigationItem.leftBarButtonItem = self.barItem(vc, title: "", imgName: "BMback_Icon", action: #selector(vc.back))
+            viewController.navigationItem.leftBarButtonItem = self.barItem(vc, title: "", imgName: backImageStr, action: #selector(vc.back))
         }
         super.pushViewController(viewController, animated: animated)
     }

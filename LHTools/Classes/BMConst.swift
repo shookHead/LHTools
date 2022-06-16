@@ -59,6 +59,8 @@ public extension BMDefaultsKeys{
     ///最后更新时间
     static let saveLastUpdateTime = BMCacheKey<String?>("saveLastUpdateTime")
     
+    ///是否需要刷新
+    static let reload = BMCacheKey<Bool?>("reload")
 }
 
 public let noti = NotificationCenter.default
@@ -74,3 +76,4 @@ public func lhPrint(_ items: Any..., separator: String = " ", terminator: String
     #endif
 }
 
+public var backImageStr = "BMback_Icon"

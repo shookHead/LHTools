@@ -13,6 +13,7 @@ import Alamofire
 import Foundation
 import ZLPhotoBrowser
 import SwiftUI
+import WebKit
 
 class GroupActivityModel: HandyJSON {
     var name:String! = ""{
@@ -28,15 +29,23 @@ class GroupActivityModel: HandyJSON {
     
     required init() {}
 }
-
 class ViewController: UIViewController {
     var camer = CamerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let s = ""
-        view.backgroundColor = .red
-        s.callPhone()
+//        let s = ""
+//        view.backgroundColor = .red
+//        s.callPhone()
+        let webView = WKWebView()
+                self.view.addSubview(webView)
+                webView.frame = self.view.bounds
+                
+//                let filePath = Bundle.main.path(forResource: "globe", ofType: "html")
+        if let url = Bundle.main.url(forResource: "globe", withExtension: "html") {
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
     }
     @objc func btnAction() {
         let imageView = UIImageView()

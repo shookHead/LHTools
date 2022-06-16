@@ -104,7 +104,7 @@
           "subspecs": [
             {
               "name": "CustomPicker",
-              "source_files": "LHTools/Classes/自定义视图/选择器/CustomPicker/{BM,LH}{City,Base,Date,Single}Picker.swift",
+              "source_files": "LHTools/Classes/自定义视图/选择器/CustomPicker/{BM,LH,MY}{City,Base,Date,Single}Picker.swift",
               "subspecs": [
                 {
                   "name": "CityDataBase",

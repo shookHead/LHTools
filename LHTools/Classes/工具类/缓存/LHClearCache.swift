@@ -15,10 +15,10 @@ public enum LHClearCacheType:String{
 }
 public class LHClearCache: NSObject {
     ///清除缓存 Library/Caches
-    public static func clearCaches(_ complete: @escaping (() -> ())){
+    public static func clearCaches(_ arr:[String] = [] , _ complete: @escaping (() -> ())){
         do {
             try deleteLibraryFolderContents(folder: "Caches")
-            cache.clearCache(true)
+            cache.clearCache(true, arr)
             DispatchQueue.global().async {
                 complete()
                 //print("clear done")
