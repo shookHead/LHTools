@@ -23,16 +23,16 @@ class ImageCell: UICollectionViewCell {
         super.init(frame: frame)
         imageView = UIImageView()
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 5
+        imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.borderWidth = 0.5
-        imageView.layer.borderColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
+//        imageView.layer.borderWidth = 0.5
+//        imageView.layer.borderColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
         imageView.isUserInteractionEnabled = true
         contentView.addSubview(imageView)
         
         contentView.addSubview(removeBtn)
-        imageView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9764705882, blue: 0.9882352941, alpha: 1)
+//        imageView.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9764705882, blue: 0.9882352941, alpha: 1)
         let gesture = UILongPressGestureRecognizer.init(target: self, action: #selector(longPressClick(_ :)))
         self.addGestureRecognizer(gesture)
     }

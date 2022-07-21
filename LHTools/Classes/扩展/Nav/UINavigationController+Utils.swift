@@ -30,14 +30,11 @@ extension UINavigationController{
     ///   - arr: 需要移除的控制器
     public func removeVC(arr:[String]) {
         var childrens = children
-        for i in (0..<(arr.count-1)).reversed() {
-            let vc1 = children[i]
-            let name1 = String(describing: vc1.classForCoder)
-            for _ in 0..<arr.count {
-//                let vc2 = arr[i]
-//                let name2 = String(describing: vc2.classForCoder)
-                let name2 = arr[i]
-                if name1 == name2 {
+        for i in (0..<(childrens.count-1)).reversed(){
+            let vc = childrens[i]
+            let name = String(describing: vc.classForCoder)
+            for s in arr {
+                if name.contains(s)  {
                     childrens.remove(at: i)
                 }
             }

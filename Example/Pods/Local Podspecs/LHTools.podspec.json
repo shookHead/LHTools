@@ -242,6 +242,15 @@
           "source_files": "LHTools/Classes/工具类/二维码/**/*.swift"
         }
       ]
+    },
+    {
+      "name": "Other",
+      "subspecs": [
+        {
+          "name": "Distrib",
+          "source_files": "LHTools/Classes/Other/Distrib/*.swift"
+        }
+      ]
     }
   ],
   "swift_version": "5.0"

@@ -49,6 +49,9 @@ public let KBottomH        = CGFloat(KIsIphoneX ? 34:0)
 /// 375下的尺寸  size*KRatio375
 public let KRatio375       = UIScreen.main.bounds.width / 375.0
 
+///全局返回按钮颜色
+public var globalBackColor:UIColor = #colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.2588235294, alpha: 1)
+
 // 支持基础数据类型，自定义模型<:HandyJSON>,数组，字典
 public extension BMDefaultsKeys{
     // userId 和 sessionId 已封装进 请求库

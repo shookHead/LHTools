@@ -161,6 +161,12 @@ TODO: Add long description of the pod here.
           sss.source_files = 'LHTools/Classes/工具类/二维码/**/*.swift'
       end
   end
+  #其他第三方
+  s.subspec 'Other' do |ss|
+      ss.subspec 'Distrib' do |sss|
+          sss.source_files = 'LHTools/Classes/Other/Distrib/*.swift'
+      end
+  end
   
    s.public_header_files = 'Pod/Classes/**/*.h'
     s.frameworks = 'UIKit', "Foundation"#, 'MapKit'

@@ -9,7 +9,7 @@
 import UIKit
 import ZLPhotoBrowser
 public class CamerView: UIView {
-    open var imgName = "CamerView_UploadImg"
+    public static var imgName = "CamerView_UploadImg"
     var formIndex:Int!
     var toIndex:Int!
     var moveView:UIImageView!
@@ -38,11 +38,12 @@ public class CamerView: UIView {
         didSet{
             layout.scrollDirection = scrollDirection
             collectionView.collectionViewLayout = layout
+            collectionView.reloadData()
         }
     }
     lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         return layout
     }()
     /// 页面传参回调
@@ -55,7 +56,7 @@ public class CamerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
         addSubview(collectionView)
@@ -74,7 +75,7 @@ public class CamerView: UIView {
     }
     func openCamera() {
         var vc = UIViewController()
-        let rootVc = window?.rootViewController
+        let rootVc = lh.topMost()
         if rootVc == nil {
             return
         }
@@ -195,12 +196,25 @@ public class CamerView: UIView {
     }
     func add(url:String,index:Int) {
         selectedPhotos.append(url)
+        if #available(iOS 13.0, *) {
+            updateCollectionView(index: index)
+        }else{
+            if maxCount <= selectedPhotos.count {
+                collectionView.reloadData()
+            }else{
+                updateCollectionView(index: index)
+            }
+        }
+
+//        collectionView.reloadData()
+    }
+    func updateCollectionView(index:Int) {
         collectionView.performBatchUpdates {
             let indexPath = IndexPath.init(row: index, section: 0)
-            self.collectionView.insertItems(at: [indexPath])
-        } completion: { (_) in
-            self.collectionView.reloadData()
-            self.setHeightBlock()
+            collectionView.insertItems(at: [indexPath])
+        } completion: { [self] (_) in
+            collectionView.reloadData()
+            setHeightBlock()
         }
     }
     func reloadViewWithImages(imageStr:String) {
@@ -220,7 +234,7 @@ extension CamerView: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCell
         if indexPath.row == self.selectedPhotos.count{
-            cell.imageView.image = UIImage(named: imgName)
+            cell.imageView.image = UIImage(named: CamerView.imgName)
             cell.removeBtn.isHidden = true
         }else{
             let imgUrl = selectedPhotos[indexPath.row]
@@ -245,7 +259,7 @@ extension CamerView: UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     }
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let totalWH = collectionView.bounds.width - (columnCount - 1) * itemSpacing - edg.left - edg.right
-        let singleWH = totalWH / columnCount
+        let singleWH = totalWH / columnCount - 0.01
         return CGSize(width: singleWH, height: singleWH)
     }
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -9,7 +9,7 @@
 import UIKit
 import JXPhotoBrowser
 
-class PhotoBrowser: NSObject {
+public class PhotoBrowser: NSObject {
 
     public static func show(images:Array<String>,index:Int=0)  {
         let browser = JXPhotoBrowser()

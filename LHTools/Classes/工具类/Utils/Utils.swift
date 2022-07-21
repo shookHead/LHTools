@@ -36,6 +36,17 @@ public class Utils: NSObject {
     public static let deviceUUID:String? = {
         return UIDevice.current.identifierForVendor?.uuidString
     }()
+    ///此方法需要开启keychain 保证UUID不变
+    public static let keychainDeviceUUID:String? = {
+        let keychain = KeychainSwift()
+        if let uuid = keychain.get("keychainDeviceUUID") {
+            return uuid
+        }
+        if let uuid = UIDevice.current.identifierForVendor?.uuidString{
+            keychain.set(uuid, forKey: "keychainDeviceUUID")
+        }
+        return nil
+    }()
 
 }
 

@@ -24,18 +24,30 @@ public class Hud: NSObject {
         if view == nil{
             return
         }
-        
-        if Thread.isMainThread {
-            self.showHudInView(view: view)
-            hud.mode = MBProgressHUDMode.text
-            hud.label.text = text
-            hud.hide(animated: true, afterDelay: dismissTime)
+        if KScreenWidth <= 375 {
+            
         }else{
-            DispatchQueue.main.async {
+            
+        }
+        let maxW = KScreenWidth - 103.0
+        let size = text!.stringSize(text, font: UIFont.boldSystemFont(ofSize: 16), maxSize: CGSize(width: maxW, height: 1000), mode: .byWordWrapping)
+        print(size)
+        let margin = KScreenWidth > 375 ? 2.0:12.0
+        if size.width >= (maxW - margin) {
+            showDetailText("", text,in:view)
+        }else{
+            if Thread.isMainThread {
                 self.showHudInView(view: view)
                 hud.mode = MBProgressHUDMode.text
                 hud.label.text = text
                 hud.hide(animated: true, afterDelay: dismissTime)
+            }else{
+                DispatchQueue.main.async {
+                    self.showHudInView(view: view)
+                    hud.mode = MBProgressHUDMode.text
+                    hud.label.text = text
+                    hud.hide(animated: true, afterDelay: dismissTime)
+                }
             }
         }
     }

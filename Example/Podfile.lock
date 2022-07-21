@@ -13,6 +13,7 @@ PODS:
     - JXPhotoBrowser
     - Kingfisher
     - LHTools/Global (= 0.0.1)
+    - LHTools/Other (= 0.0.1)
     - LHTools/View (= 0.0.1)
     - "LHTools/基类 (= 0.0.1)"
     - "LHTools/工具类 (= 0.0.1)"
@@ -26,6 +27,35 @@ PODS:
     - SwiftyUserDefaults
     - ZLPhotoBrowser
   - LHTools/Global (0.0.1):
+    - Alamofire
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+    - ZLPhotoBrowser
+  - LHTools/Other (0.0.1):
+    - Alamofire
+    - HandyJSON
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - LHTools/Other/Distrib (= 0.0.1)
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+    - ZLPhotoBrowser
+  - LHTools/Other/Distrib (0.0.1):
     - Alamofire
     - HandyJSON
     - Hero
@@ -648,7 +678,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
-  LHTools: 5bbeea0c515b16a73e972ff937d7468e2864ecd8
+  LHTools: 9fdf833ef5bdecb8f44a3dcfd82617182d2ed56d
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667

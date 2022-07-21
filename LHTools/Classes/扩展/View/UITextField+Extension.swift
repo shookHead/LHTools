@@ -14,7 +14,7 @@ extension UITextField {
     ///   - string: 字符串
     ///   - color: 颜色
     ///   - font: 字体
-    func setPlaceholder(_ string: String, color: UIColor? = nil, font: UIFont? = nil) {
+    public func setPlaceholder(_ string: String, color: UIColor? = nil, font: UIFont? = nil) {
         let attributedString = NSMutableAttributedString(string: string)
         if let color = color {
             attributedString.addAttributes([NSAttributedString.Key.foregroundColor: color], range: NSRange(location: 0, length: string.count))

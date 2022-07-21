@@ -19,11 +19,22 @@ extension UILabel{
         let size = stringSize(maxSize: maxSize)
         return size.height
     }
+    ///计算UILabel宽高
     public func stringSize(maxSize: CGSize) -> CGSize {
         guard let textTemp = text, textTemp.count > 0 else {
             return CGSize.zero
         }
         return textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
+    }
+    ///计算UILabel宽高 带NSMutableParagraphStyle
+    public func stringSizeParaStyle(maxSize: CGSize,paraStyle:NSMutableParagraphStyle) -> CGSize {
+        guard let textTemp = text, textTemp.count > 0 else {
+            return CGSize.zero
+        }
+        var textDict:[NSAttributedString.Key : Any] = [:]
+        textDict[.font] = self.font
+        textDict[.paragraphStyle] = paraStyle
+        return textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textDict, context: nil).size
     }
     ///拿到最后一个文字的位置
     public func getLast(width:CGFloat) -> CGPoint{
