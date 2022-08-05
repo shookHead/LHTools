@@ -65,7 +65,7 @@ extension String{
 }
 
 // MARK: -  ---------------------- 文字判断处理 ------------------------
-extension String{
+public extension String{
     /// if nil or "" return false
     public var notEmpty: Bool {
         return !self.isEmpty

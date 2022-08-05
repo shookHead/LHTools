@@ -81,7 +81,7 @@ open class BMApiSet {
 //
 open class BMApiTemplete<ValueType> : BMApiSet{
 
-    open var method: HTTPMethod = .get
+    open var method: HTTPMethod = .post
 
     open var host: String{
         return ""
