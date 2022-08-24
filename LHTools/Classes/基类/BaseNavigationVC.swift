@@ -8,6 +8,7 @@
 
 import UIKit
 
+public var backImageStr = "BMback_Icon"
 open class BaseNavigationVC: UINavigationController {
 
     open override func viewDidLoad() {
@@ -18,9 +19,10 @@ open class BaseNavigationVC: UINavigationController {
     // 拦截 push 操作
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if viewControllers.count > 0 {
-            let vc = viewController as! BaseVC
+            if let vc = viewController as? BaseVC {
+                viewController.navigationItem.leftBarButtonItem = self.barItem(vc, title: "", imgName: backImageStr, action: #selector(vc.back),color: globalBackColor)
+            }
             viewController.hidesBottomBarWhenPushed = true
-            viewController.navigationItem.leftBarButtonItem = self.barItem(vc, title: "", imgName: backImageStr, action: #selector(vc.back),color: globalBackColor)
         }
         super.pushViewController(viewController, animated: animated)
     }

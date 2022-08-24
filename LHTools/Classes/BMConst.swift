@@ -79,4 +79,3 @@ public func lhPrint(_ items: Any..., separator: String = " ", terminator: String
     #endif
 }
 
-public var backImageStr = "BMback_Icon"

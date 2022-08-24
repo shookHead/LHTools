@@ -28,7 +28,7 @@ public class BMIndicatorView: UIView {
     
     public var contentImgView:UIImageView!
     public var contentLab:UILabel!
-    public var noDataImageName:String?
+    public static var noDataImageName:String?
     
     public var requestImageName:String!
     public var requestBtn:UIButton!
@@ -147,8 +147,8 @@ public class BMIndicatorView: UIView {
         self.alpha = 1
         state = .noData
         var imageAlpha:CGFloat = 0
-        if noDataImageName != nil{
-            self.contentImgView?.image = UIImage(named: self.noDataImageName!)
+        if BMIndicatorView.noDataImageName != nil{
+            self.contentImgView?.image = UIImage(named: BMIndicatorView.noDataImageName!)
             contentLab.y = self.contentImgView.maxY + 10
             imageAlpha = 1
         }else{

@@ -42,3 +42,24 @@ extension UINavigationController{
         viewControllers = childrens
     }
 }
+extension UIViewController{
+    public func dismissToRootViewController() {
+        var vc = self
+        while vc.presentingViewController != nil {
+            vc = vc.presentingViewController!
+        }
+        vc.dismiss(animated: true, completion: nil)
+    }
+    public func dismissViewControllerClass(as aClass: AnyClass) {
+        let disvc = String(describing: aClass)
+        var vc = self
+        while let oldvc = vc.presentingViewController{
+            let name = String(describing: oldvc.classForCoder)
+            vc = oldvc
+            if name == disvc {
+                break
+            }
+        }
+        vc.dismiss(animated: true, completion: nil)
+    }
+}

@@ -118,6 +118,7 @@ public class BMNetwork{
     
     //可以通过 BMNetwork.imgUplodeApi = “”修改
     public static var imgUplodeApi = "https://img.163.gg/YmUpload_image"
+    public static var videoUplodeApi = "https://img.163.gg/YmUpload_videoFile"
 
     public func upload(_ img:UIImage, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ imgUrl:String?)->()){
         let newImg = img.fixOrientation()//防止图片被旋转
@@ -163,6 +164,51 @@ public class BMNetwork{
         }
     }
     
+    public func uploadVideo(_ file:String, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ fileUrl:String?)->()){
+        guard let fileData = FileManager.default.contents(atPath: file) else {
+            finish(nil)
+            return
+        }
+        let api = BMNetwork.videoUplodeApi
+        let name = "\(Date().toTimeInterval())" + ".mp4"
+        let request = AF.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(fileData, withName: "file", fileName: name, mimeType: "video/mp4")
+        }, to: api, method: .post)
+        request.uploadProgress { (progress) in
+            DispatchQueue.global().async {
+                uploading?(progress.fractionCompleted)
+                print("progress",progress.fractionCompleted)
+            }
+        }
+        request.responseJSON { (response) in
+            DispatchQueue.global().async {
+                switch response.result {
+                case .success:
+                    DispatchQueue.main.async {
+                        var url:String!
+                        defer {
+                            finish(url)
+                        }
+                        let json = String(data: response.data!, encoding: String.Encoding.utf8)
+                        if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
+                            if resp.code == 1{
+                                let data = resp.data
+                                if let urlStr = data?["url"] as? String{
+                                    print(urlStr)
+                                    url = urlStr
+                                }
+                            }
+                        }
+                    }
+                    
+                case .failure:
+                    let statusCode = response.response?.statusCode
+                    print(response.response as Any,statusCode as Any)
+                    finish(nil)
+                }
+            }
+        }
+    }
     public subscript<T:HandyJSON>(key: BMApiTemplete<T?>) -> BMRequester_Model<T> {
         get { return BMRequester_Model(key)}
         set { }
