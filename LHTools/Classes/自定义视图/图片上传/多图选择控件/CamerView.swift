@@ -217,7 +217,7 @@ public class CamerView: UIView {
             setHeightBlock()
         }
     }
-    func reloadViewWithImages(imageStr:String) {
+    public func reloadViewWithImages(imageStr:String) {
         let images = imageStr.components(separatedBy: ",")
         self.selectedPhotos = images
         collectionView.reloadData()
