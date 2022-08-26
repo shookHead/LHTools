@@ -20,9 +20,6 @@
 		F44C7AB82859D68D003F1848 /* globe.html in Resources */ = {isa = PBXBuildFile; fileRef = F44C7AB72859D68C003F1848 /* globe.html */; };
 		F4603953286452560073A5D3 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4603952286452560073A5D3 /* KeychainSwiftDistrib.swift */; };
 		F4618A79277ED27400DFF371 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4618A78277ED27400DFF371 /* Player.swift */; };
-		F4EA3F2628B60FC300D96393 /* scan-light@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4EA3F2328B60FC200D96393 /* scan-light@3x.png */; };
-		F4EA3F2728B60FC300D96393 /* scan-slider.png in Resources */ = {isa = PBXBuildFile; fileRef = F4EA3F2428B60FC300D96393 /* scan-slider.png */; };
-		F4EA3F2828B60FC300D96393 /* scan-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F4EA3F2528B60FC300D96393 /* scan-bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -799,12 +796,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				F4EA3F2828B60FC300D96393 /* scan-bg.png in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				F4EA3F2628B60FC300D96393 /* scan-light@3x.png in Resources */,
 				F44C7AB82859D68D003F1848 /* globe.html in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				F4EA3F2728B60FC300D96393 /* scan-slider.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
