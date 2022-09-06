@@ -55,21 +55,18 @@ public class CamerView: UIView {
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: layout)
+        collectionView = UICollectionView.init(frame: self.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
         addSubview(collectionView)
         collectionView.register(ImageCell.classForCoder(), forCellWithReuseIdentifier: "imageCell")
-        collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(0)
-            make.left.equalTo(0)
-            make.right.equalTo(0)
-            make.bottom.equalTo(0)
-        }
         collectionView.reloadData()
     }
-    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionView.frame = self.bounds
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -136,6 +133,7 @@ public class CamerView: UIView {
         setViewHeightClosure = closure
     }
     func setHeightBlock() {
+        layoutSubviews()
         if let block = setViewHeightClosure {
             var h:CGFloat = 0
             let totalWH = collectionView.bounds.width - (columnCount - 1) * itemSpacing - edg.left - edg.right

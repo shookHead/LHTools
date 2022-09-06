@@ -171,4 +171,22 @@ extension UIImage{
         }
         lh.judgeAlbumPower()
     }
+    ///生成带渐变色的图片
+    public static func gradientImageWithBounds(bounds: CGRect, colors: [CGColor]) -> UIImage {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = colors
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+
+        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        if let context = UIGraphicsGetCurrentContext() {
+            gradientLayer.render(in: context )
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return image!
+
+        }
+        return UIImage()
+    }
 }

@@ -62,17 +62,23 @@ extension String{
         }
         return textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).size
     }
+    public func stringSize(font: UIFont, maxSize: CGSize) -> CGSize {
+        guard self.count > 0 else {
+            return CGSize.zero
+        }
+        return self.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).size
+    }
 }
 
 // MARK: -  ---------------------- 文字判断处理 ------------------------
 public extension String{
     /// if nil or "" return false
-    public var notEmpty: Bool {
+    var notEmpty: Bool {
         return !self.isEmpty
     }
     
     /// 用于textviewDelegate里 获得输入后的问字
-    mutating public func replace(nsRange:NSRange,text:String){
+    mutating func replace(nsRange:NSRange,text:String){
         guard
             let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
             let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
@@ -83,7 +89,7 @@ public extension String{
         self.replaceSubrange(range, with: text)
     }
     
-    public func substring(_ toIndex:Int) -> String {
+    func substring(_ toIndex:Int) -> String {
         if self.count == 0 {
             return ""
         }
@@ -93,18 +99,18 @@ public extension String{
     
     
     
-    public var urlEncode:String?{
+    var urlEncode:String?{
         let new = self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         return new
     }
 
-    public var image:UIImage?{
+    var image:UIImage?{
         return UIImage(named: self)
     }
 
     
     ///去除前后空格
-    public func clearSpace() -> String {
+    func clearSpace() -> String {
         if self.count == 0 {
             return ""
         }
@@ -118,7 +124,7 @@ public extension String{
 
     
     /// NSRange转化为range
-    public func range(from nsRange: NSRange) -> Range<String.Index>? {
+    func range(from nsRange: NSRange) -> Range<String.Index>? {
         guard
             let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
             let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
@@ -128,7 +134,7 @@ public extension String{
         return from ..< to
     }
     ///判断是否为字母+数字
-    public func isLetterWithDigital() ->Bool{
+    func isLetterWithDigital() ->Bool{
         let numberRegex:NSPredicate=NSPredicate(format:"SELF MATCHES %@","^.*[0-9]+.*$")
         let letterRegex:NSPredicate=NSPredicate(format:"SELF MATCHES %@","^.*[A-Za-z]+.*$")
         if numberRegex.evaluate(with: self) && letterRegex.evaluate(with: self){
@@ -139,7 +145,7 @@ public extension String{
     }
 
     ///是否是手机号码
-    public var isPhone: Bool{
+    var isPhone: Bool{
         if self.count == 11{
             return true
         }else{
@@ -147,7 +153,7 @@ public extension String{
         }
     }
     ///判断是否是邮箱地址
-    public func isEmailAddress() -> Bool {
+    func isEmailAddress() -> Bool {
         let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let emailTest:NSPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: self)

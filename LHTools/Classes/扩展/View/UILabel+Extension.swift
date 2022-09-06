@@ -24,7 +24,32 @@ extension UILabel{
         guard let textTemp = text, textTemp.count > 0 else {
             return CGSize.zero
         }
-        return textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
+        let size = textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
+        if numberOfLines == 0 {
+            return size
+        }
+        let singleSize = "好".boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
+        let h = size.height > CGFloat(numberOfLines) * singleSize.height ? CGFloat(numberOfLines) * singleSize.height:size.height
+        return CGSize(width: size.width, height: h)
+    }
+    ///此方法需先设置宽度
+    public func stringGetHeight(minH:CGFloat? = nil) -> CGFloat {
+        guard let textTemp = text, textTemp.count > 0 else {
+            return minH == nil ? 0:18
+        }
+        let size = textTemp.boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
+        if numberOfLines == 0 {
+            if let minHeight = minH {
+                return size.height < minHeight ? minHeight:size.height
+            }
+            return size.height
+        }
+        let singleSize = "好".boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
+        let h = size.height > CGFloat(numberOfLines) * singleSize.height ? CGFloat(numberOfLines) * singleSize.height:size.height
+        if let minHeight = minH {
+            return h < minHeight ? minHeight:h
+        }
+        return h
     }
     ///计算UILabel宽高 带NSMutableParagraphStyle
     public func stringSizeParaStyle(maxSize: CGSize,paraStyle:NSMutableParagraphStyle) -> CGSize {
