@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 import Photos
-
+import ZLPhotoBrowser
 open class ScanVC: BaseVC {
     
     open override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -42,11 +42,19 @@ open class ScanVC: BaseVC {
     }()
     
     public var lightBtn:UIButton = {
-        let btn = UIButton(frame: CGRect(x: KScreenWidth-60, y: KNaviBarH-44, width: 60, height: 44))
+        let btn = UIButton(frame: CGRect(x: KScreenWidth-44, y: KNaviBarH-44, width: 44, height: 44))
         let img = #imageLiteral(resourceName: "scan-light").withRenderingMode(.alwaysTemplate)
         btn.setImage(img, for: .normal)
         btn.tintColor = .white
         btn.addTarget(self, action: #selector(openLight), for: .touchUpInside)
+        return btn
+    }()
+    public var albumBtn:UIButton = {
+        let btn = UIButton(frame: CGRect(x: KScreenWidth-88, y: KNaviBarH-44, width: 44, height: 44))
+        let img = #imageLiteral(resourceName: "scan-album").withRenderingMode(.alwaysTemplate)
+        btn.setImage(img, for: .normal)
+        btn.tintColor = .white
+        btn.addTarget(self, action: #selector(albumBtnAction), for: .touchUpInside)
         return btn
     }()
     
@@ -125,6 +133,7 @@ open class ScanVC: BaseVC {
         slideBGView.addSubview(sliderView)
         
         naviView.addSubview(lightBtn)
+        naviView.addSubview(albumBtn)
         self.view.addSubview(naviView)
     }
     
@@ -139,7 +148,41 @@ open class ScanVC: BaseVC {
     @objc open override func back(){
         pop()
     }
-    
+    ///打开相册
+    @objc func albumBtnAction() {
+//        self.setconfig(maxSelectCount: maxCount - selectedPhotos.count)
+        let config = ZLPhotoConfiguration.default()
+        config.maxSelectCount = 1
+        config.allowSelectVideo = false
+        config.allowSelectGif = false
+        config.allowEditImage = false
+        config.allowSelectOriginal = false
+        config.allowSelectImage  = true
+        let ps = ZLPhotoPreviewSheet()
+        ps.selectImageBlock = { (images, assets, isOriginal) in
+            print(images)
+            if let image = images.bm_object(0) {
+                let code = self.rescan(image)
+                if code.count > 0 {
+                    self.endScaning()
+                    self.receiveScanCode(code)
+                }else{
+                    Hud.showText("扫描不到二维码")
+                }
+            }
+        }
+        ps.showPhotoLibrary(sender: self)
+    }
+    func rescan(_ image:UIImage) -> String {
+        //创建图片扫描仪
+        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+        //获取到二维码数据
+        let featureArr = detector?.features(in: CIImage.init(cgImage: image.cgImage!))
+        if let feature = featureArr?.first as? CIQRCodeFeature {
+            return feature.messageString ?? ""
+        }
+        return ""
+    }
     // 打开或关闭闪光灯
     @objc func openLight(){
         if lightBtn.isSelected{

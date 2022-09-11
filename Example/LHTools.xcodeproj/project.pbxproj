@@ -20,6 +20,7 @@
 		F44C7AB82859D68D003F1848 /* globe.html in Resources */ = {isa = PBXBuildFile; fileRef = F44C7AB72859D68C003F1848 /* globe.html */; };
 		F4603953286452560073A5D3 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4603952286452560073A5D3 /* KeychainSwiftDistrib.swift */; };
 		F4618A79277ED27400DFF371 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4618A78277ED27400DFF371 /* Player.swift */; };
+		F47762BE28CDF8C700BA438B /* scan-album@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F47762BD28CDF8C600BA438B /* scan-album@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		F44C7AB72859D68C003F1848 /* globe.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = globe.html; sourceTree = "<group>"; };
 		F4603952286452560073A5D3 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
 		F4618A78277ED27400DFF371 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F47762BD28CDF8C600BA438B /* scan-album@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan-album@3x.png"; sourceTree = "<group>"; };
 		F4B9D36B27670EB400D01F13 /* UIControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Extension.swift"; sourceTree = "<group>"; };
 		F4B9D36C276721BA00D01F13 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		F4BFB1EC26D8E30D00CD4B5F /* ResourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 		F41E2EA4274C7F5B00C19995 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				F47762BD28CDF8C600BA438B /* scan-album@3x.png */,
 				F4EA3F2528B60FC300D96393 /* scan-bg.png */,
 				F4EA3F2328B60FC200D96393 /* scan-light@3x.png */,
 				F4EA3F2428B60FC300D96393 /* scan-slider.png */,
@@ -798,6 +801,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				F44C7AB82859D68D003F1848 /* globe.html in Resources */,
+				F47762BE28CDF8C700BA438B /* scan-album@3x.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -846,6 +850,7 @@
 				"${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-album@3x.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-bg.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-light@3x.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-slider.png",
@@ -859,6 +864,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CamerView_UploadImg.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/city_db.sqlite",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/photoDelete.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-album@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-bg.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-light@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-slider.png",

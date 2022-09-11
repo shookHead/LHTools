@@ -34,7 +34,7 @@ extension UINavigationController{
             let vc = childrens[i]
             let name = String(describing: vc.classForCoder)
             for s in arr {
-                if name.contains(s)  {
+                if name == s  {
                     childrens.remove(at: i)
                 }
             }

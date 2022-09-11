@@ -113,6 +113,7 @@ public class CamerView: UIView {
         config.allowSelectGif = false
         config.allowEditImage = false
         config.allowSelectOriginal = false
+        config.allowSelectImage  = true
     }
     func save(image: UIImage?) {
         if let image = image {
