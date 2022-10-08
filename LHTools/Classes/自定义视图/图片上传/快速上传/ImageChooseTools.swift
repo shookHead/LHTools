@@ -2,7 +2,7 @@
 //  ImageChooseTools.swift
 //  wangfuAgent
 //
-//  Created by lzw on 2018/7/24.
+//  Created by  on 2018/7/24.
 //  Copyright © 2018 zhuanbangTec. All rights reserved.
 //
 
@@ -76,6 +76,18 @@ public extension UIViewController{
         alertSheet.addAction(acrion2)
         alertSheet.addAction(acrion3)
         self.present(alertSheet, animated: true, completion: nil)
+    }
+    func chooseCamera(_ selectedCameraCount:Int = 1,_ complish:@escaping (_ img:UIImage?)->() ) {
+        setconfig(maxSelectCount: selectedCameraCount)
+        let ps = ZLPhotoPreviewSheet()
+        ps.selectImageBlock = { (images, assets, isOriginal) in
+            print(images)
+            if images.count == 0{
+                return
+            }
+            complish(images[0])
+        }
+        ps.showPhotoLibrary(sender: self)
     }
     func setconfig(maxSelectCount:Int) {
         let config = ZLPhotoConfiguration.default()

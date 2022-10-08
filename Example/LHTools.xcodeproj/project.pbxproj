@@ -20,7 +20,6 @@
 		F44C7AB82859D68D003F1848 /* globe.html in Resources */ = {isa = PBXBuildFile; fileRef = F44C7AB72859D68C003F1848 /* globe.html */; };
 		F4603953286452560073A5D3 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4603952286452560073A5D3 /* KeychainSwiftDistrib.swift */; };
 		F4618A79277ED27400DFF371 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4618A78277ED27400DFF371 /* Player.swift */; };
-		F47762BE28CDF8C700BA438B /* scan-album@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F47762BD28CDF8C600BA438B /* scan-album@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -801,7 +800,6 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				F44C7AB82859D68D003F1848 /* globe.html in Resources */,
-				F47762BE28CDF8C700BA438B /* scan-album@3x.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

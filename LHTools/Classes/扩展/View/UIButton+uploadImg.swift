@@ -2,7 +2,7 @@
 //  UIView+uploadImg.swift
 //  wangfuAgent
 //
-//  Created by lzw on 2018/7/25.
+//  Created by  on 2018/7/25.
 //  Copyright © 2018 zhuanbangTec. All rights reserved.
 //
 

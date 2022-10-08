@@ -109,6 +109,8 @@ public class BMNetwork{
     
     //超时时间,可以通过 BMNetwork.timeout = “”修改
     public static var timeout:TimeInterval = 10
+    public static var quality:TimeInterval = 0.3
+    
     static var sessionManager: Session = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = timeout
@@ -123,7 +125,7 @@ public class BMNetwork{
     public func upload(_ img:UIImage, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ imgUrl:String?)->()){
         let newImg = img.fixOrientation()//防止图片被旋转
         let api = BMNetwork.imgUplodeApi
-        let imageData = newImg.jpegData(compressionQuality: 0.3)
+        let imageData = newImg.jpegData(compressionQuality: BMNetwork.quality)
         let name = "\(Date().toTimeInterval())" + ".jpeg"
         let request = AF.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(imageData!, withName: "file", fileName: name, mimeType: "image/jpeg")
@@ -266,13 +268,17 @@ public class BMRequester{
     }
     
     func handelResponce(code:Int?){
+        var msg = ""
         // 重新登录
         if let _ = cache[.sessionId]{
-            if code == 2{
-                Hud.showText("登录失效，请重新登录")
-                Hud.runAfterHud {
-                    noti.post(name: .needRelogin, object: nil)
-                }
+            msg = "登录失效，请重新登录"
+        }else{
+            msg = "未登录，请登录"
+        }
+        if code == 2{
+            Hud.showText(msg)
+            Hud.runAfterHud {
+                noti.post(name: .needRelogin, object: nil)
             }
         }
     }
@@ -366,8 +372,11 @@ public class BMRequester_Model<T:HandyJSON>: BMRequester{
                 print("code:\(mod!.code ?? -99)")
                 print("msg:\(mod!.msg ?? "")")
                 print("data:\(jsonStr ?? ""))")
-                self.handelResponce(code: mod?.code)
                 finish(mod)
+                if params != nil && params!["needOperationLogin"] != nil{
+                    return
+                }
+                self.handelResponce(code: mod?.code)
             }else{
                 print(" ***** 解析失败： ***** ")
                 if jsonStr != nil{
@@ -426,8 +435,11 @@ public class BMRequester_ModelList<T:HandyJSON> : BMRequester{
                 print("code:\(mod!.code ?? -99)")
                 print("msg:\(mod!.msg ?? "")")
                 print("data:\(String(describing: jsonStr!)))")
-                self.handelResponce(code: mod?.code)
                 finish(mod)
+                if params != nil && params!["needOperationLogin"] != nil{
+                    return
+                }
+                self.handelResponce(code: mod?.code)
             }else{
                 print(" ***** 解析失败： ***** ")
                 if jsonStr != nil{
@@ -468,8 +480,11 @@ public class BMRequester_Int : BMRequester{
                 print("code:\(mod!.code ?? -99)")
                 print("msg:\(mod!.msg ?? "")")
                 print("data:\(String(describing: jsonStr!)))")
-                self.handelResponce(code: mod?.code)
                 finish(mod)
+                if params != nil && params!["needOperationLogin"] != nil{
+                    return
+                }
+                self.handelResponce(code: mod?.code)
             }else{
                 print(" ***** 解析失败： ***** ")
                 if jsonStr != nil{
@@ -509,8 +524,11 @@ public class BMRequester_String : BMRequester{
                 print("code:\(mod!.code ?? -99)")
                 print("msg:\(mod!.msg ?? "")")
                 print("data:\(String(describing: jsonStr!)))")
-                self.handelResponce(code: mod?.code)
                 finish(mod)
+                if params != nil && params!["needOperationLogin"] != nil{
+                    return
+                }
+                self.handelResponce(code: mod?.code)
             }else{
                 print(" ***** 解析失败： ***** ")
                 if jsonStr != nil{
@@ -552,8 +570,11 @@ public class BMRequester_Dic : BMRequester{
                 print("code:\(mod!.code ?? -99)")
                 print("msg:\(mod!.msg ?? "")")
                 print("data:\(String(describing: jsonStr!)))")
-                self.handelResponce(code: mod?.code)
                 finish(mod)
+                if params != nil && params!["needOperationLogin"] != nil{
+                    return
+                }
+                self.handelResponce(code: mod?.code)
             }else{
                 print(" ***** 解析失败： ***** ")
                 if jsonStr != nil{

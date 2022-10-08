@@ -2,7 +2,7 @@
 //  Const.swift
 //  wangfuAgent
 //
-//  Created by lzw on 2018/7/11.
+//  Created by  on 2018/7/11.
 //  Copyright © 2018 zhuanbangTec. All rights reserved.
 //
 
@@ -29,6 +29,28 @@ public func judgeScream() -> Bool {
         return false
     }
 }
+public enum SafeDirect{
+    case top
+    case left
+    case bottom
+    case right
+}
+func safeArea(_ direct:SafeDirect) -> CGFloat{
+    if #available(iOS 11.0, *) {
+        if let inset = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.safeAreaInsets{
+            if direct == .top{ return inset.top }
+            if direct == .left{ return inset.left }
+            if direct == .bottom{ return inset.bottom }
+            if direct == .right{ return inset.right }
+        }
+        return 0
+    }
+    return 0
+}
+/// safeArea
+let safeArea_Top    = safeArea(.top)
+/// safeArea
+let safeArea_Bottom = safeArea(.bottom)
 
 /// 屏幕的宽度
 public let KScreenWidth    = UIScreen.main.bounds.width
@@ -41,9 +63,9 @@ public let KHeightInNav    = KScreenHeight - KNaviBarH
 /// 导航栏顶部的高度
 public let KNaviStatusBar       = CGFloat(KIsIphoneX ? 44.0:20.0)
 /// 导航栏高度
-public let KNaviBarH       = CGFloat(KIsIphoneX ? 88.0:64.0)
+public let KNaviBarH       = safeArea(.top) + 44
 /// tabbar高度
-public let KTabBarH        = CGFloat(KIsIphoneX ? 83.0:49.0)
+public let KTabBarH        = safeArea(.bottom) + 49
 /// 底部多余的高度
 public let KBottomH        = CGFloat(KIsIphoneX ? 34:0)
 /// 375下的尺寸  size*KRatio375
@@ -70,6 +92,7 @@ public let noti = NotificationCenter.default
 
 public extension NSNotification.Name {
     static let needRelogin = NSNotification.Name("needRelogin")
+    static let outLogin = NSNotification.Name("outLogin")
 }
 ///打印
 public func lhPrint(_ items: Any..., separator: String = " ", terminator: String = "\n") {
