@@ -77,8 +77,20 @@ public extension UIViewController{
         alertSheet.addAction(acrion3)
         self.present(alertSheet, animated: true, completion: nil)
     }
+    func setconfig(maxSelectCount:Int) {
+        let config = ZLPhotoConfiguration.default()
+        config.maxSelectCount = maxSelectCount
+        config.allowSelectVideo = false
+        config.allowSelectGif = false
+        config.allowEditImage = false
+        config.allowSelectOriginal = true
+        config.allowPreviewPhotos = true
+    }
     func chooseCamera(_ selectedCameraCount:Int = 1,_ complish:@escaping (_ img:UIImage?)->() ) {
         setconfig(maxSelectCount: selectedCameraCount)
+        let config = ZLPhotoConfiguration.default()
+        config.allowSelectOriginal = false
+        config.allowPreviewPhotos = false
         let ps = ZLPhotoPreviewSheet()
         ps.selectImageBlock = { (images, assets, isOriginal) in
             print(images)
@@ -88,14 +100,6 @@ public extension UIViewController{
             complish(images[0])
         }
         ps.showPhotoLibrary(sender: self)
-    }
-    func setconfig(maxSelectCount:Int) {
-        let config = ZLPhotoConfiguration.default()
-        config.maxSelectCount = maxSelectCount
-        config.allowSelectVideo = false
-        config.allowSelectGif = false
-        config.allowEditImage = false
-        config.allowSelectImage  = true
     }
 }
 

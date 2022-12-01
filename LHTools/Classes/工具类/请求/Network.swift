@@ -108,7 +108,7 @@ open class BMApiTemplete<ValueType> : BMApiSet{
 public class BMNetwork{
     
     //超时时间,可以通过 BMNetwork.timeout = “”修改
-    public static var timeout:TimeInterval = 10
+    public static var timeout:TimeInterval = 30
     public static var quality:TimeInterval = 0.3
     
     static var sessionManager: Session = {

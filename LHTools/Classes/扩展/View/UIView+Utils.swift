@@ -157,12 +157,12 @@ extension UIView{
     ///   - shadowOpacity: 阴影透明度
     ///   - shadowRadius: 阴影半径
     ///   - cornerRadius: 控件半径
-    public func setViewColorShadow(colors:[CGColor],locations:[NSNumber]?,direction:DirectionType = .vertical,shadowColor:CGColor,shadowOffset:CGSize,shadowOpacity:Float,shadowRadius:CGFloat,cornerRadius:CGFloat) {
+    public func setViewColorShadow(colors:[UIColor],locations:[CGFloat]?,direction:DirectionType = .vertical,shadowColor:CGColor,shadowOffset:CGSize,shadowOpacity:Float,shadowRadius:CGFloat,cornerRadius:CGFloat) {
         let curView = self
         //设置渐变色
         let gradient = CAGradientLayer()
-        gradient.colors = colors
-        gradient.locations = locations
+        gradient.colors = colors.map(\.cgColor)
+        gradient.locations = locations?.map { NSNumber(value: Double($0)) }
         gradient.frame = curView.bounds
         //(这里的起始和终止位置就是按照坐标系,四个角分别是左上(0,0),左下(0,1),右上(1,0),右下(1,1))
         if direction == .vertical {

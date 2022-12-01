@@ -1,13 +1,14 @@
-//
-//  DOFavoriteButton.swift
-//  DOFavoriteButton
-//
-//  Created by Daiki Okumura on 2015/07/09.
-//  Copyright (c) 2015 Daiki Okumura. All rights reserved.
-//
-//  This software is released under the MIT License.
-//  http://opensource.org/licenses/mit-license.php
-//
+
+/**
+    let button = DOFavoriteButton.init(frame: CGRect(x: 0, y: 100, width: 44, height: 44),image: UIImage(named: "sh-collection"))
+    button.setImage(UIImage.init(named: "sh-collection-selected"), for: .selected)
+    button.addTarget(self, action: #selector(buttonAction(_ :)), for: .touchUpInside)
+    button.imageColorOff = UIColor.brown
+    button.imageColorOn = #colorLiteral(red: 0.987212956, green: 0.1081883237, blue: 0.3431215286, alpha: 1)
+    button.circleColor = UIColor.green
+    button.lineColor = UIColor.blue
+    self.view.addSubview(button)
+ */
 
 import UIKit
 

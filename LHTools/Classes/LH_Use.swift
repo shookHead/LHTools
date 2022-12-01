@@ -8,6 +8,8 @@
 
 import UIKit
 
+//CoreAnimation---CATransform3DExtensions
+
 //MARK: - 控制器的过渡动画
 /*
  @objc func push() {
@@ -35,5 +37,18 @@ import UIKit
          navigationController.popViewController(animated: false)
      }
  }
-
 */   
+
+/**
+    let colors1:[UIColor] = []
+    let arr = colors1.map(\.cgColor)
+ */
+
+
+/**
+    let locations: [CGFloat] = []
+    let arr = locations.map { NSNumber(value: Double($0)) }
+ */
+
+
+
