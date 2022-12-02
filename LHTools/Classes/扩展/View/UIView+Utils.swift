@@ -26,6 +26,21 @@ extension UIView{
         UIGraphicsEndImageContext()
         return img
     }
+    public func toSnapshot(atFrame:CGRect) -> UIImage? {
+        if atFrame == CGRect.zero { return nil }
+        UIGraphicsBeginImageContextWithOptions(CGSize.init(width: atFrame.maxX, height: atFrame.maxY), false, 0)
+        self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        //            view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        var image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        if atFrame.origin.x > 0 || atFrame.origin.y > 0 { // 剪切图片
+            let imageRef = image?.cgImage
+            if let subImgRef = imageRef?.cropping(to: atFrame){
+                image = UIImage.init(cgImage: subImgRef)
+            }
+        }
+        return image
+    }
     ///删除一个view 下的所有子view
     public func clearAll(){
         if self.subviews.count > 0 {
