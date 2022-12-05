@@ -26,7 +26,8 @@ public extension UIViewController{
         }
         let acrion2 = UIAlertAction(title: "从相册选取", style: .default) { (action) in
             let ps = ZLPhotoPreviewSheet()
-            ps.selectImageBlock = { (images, assets, isOriginal) in
+            ps.selectImageBlock = { (results, isOriginal) in
+                let images = results.map { $0.image }
                 print(images)
                 if images.count == 0{
                     return
@@ -60,7 +61,8 @@ public extension UIViewController{
         let acrion2 = UIAlertAction(title: "从相册选取", style: .default) { (action) in
             self.setconfig(maxSelectCount: num)
             let ps = ZLPhotoPreviewSheet()
-            ps.selectImageBlock = { (images, assets, isOriginal) in
+            ps.selectImageBlock = { (results, isOriginal) in
+                let images = results.map { $0.image }
                 print(images)
                 if images.count == 0{
                     return
@@ -92,7 +94,8 @@ public extension UIViewController{
         config.allowSelectOriginal = false
         config.allowPreviewPhotos = false
         let ps = ZLPhotoPreviewSheet()
-        ps.selectImageBlock = { (images, assets, isOriginal) in
+        ps.selectImageBlock = { (results, isOriginal) in
+            let images = results.map { $0.image }
             print(images)
             if images.count == 0{
                 return

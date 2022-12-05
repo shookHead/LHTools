@@ -24,162 +24,240 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
 import UIKit
 
-extension UIColor {
-    
-    class var navBarColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.navBarColor
+extension ZLPhotoBrowserWrapper where Base: UIColor {
+    static var navBarColor: UIColor {
+        ZLPhotoUIConfiguration.default().navBarColor
     }
     
-    class var navBarColorOfPreviewVC: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.navBarColorOfPreviewVC
+    static var navBarColorOfPreviewVC: UIColor {
+        ZLPhotoUIConfiguration.default().navBarColorOfPreviewVC
     }
     
     /// 相册列表界面导航标题颜色
-    class var navTitleColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.navTitleColor
+    static var navTitleColor: UIColor {
+        ZLPhotoUIConfiguration.default().navTitleColor
     }
     
     /// 预览大图界面导航标题颜色
-    class var navTitleColorOfPreviewVC: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.navTitleColorOfPreviewVC
+    static var navTitleColorOfPreviewVC: UIColor {
+        ZLPhotoUIConfiguration.default().navTitleColorOfPreviewVC
     }
     
     /// 框架样式为 embedAlbumList 时，title view 背景色
-    class var navEmbedTitleViewBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.navEmbedTitleViewBgColor
+    static var navEmbedTitleViewBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().navEmbedTitleViewBgColor
     }
     
     /// 预览选择模式下 上方透明背景色
-    class var previewBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.previewBgColor
+    static var previewBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().sheetTranslucentColor
     }
     
     /// 预览选择模式下 拍照/相册/取消 的背景颜色
-    class var previewBtnBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.previewBtnBgColor
+    static var previewBtnBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().sheetBtnBgColor
     }
     
     /// 预览选择模式下 拍照/相册/取消 的字体颜色
-    class var previewBtnTitleColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.previewBtnTitleColor
+    static var previewBtnTitleColor: UIColor {
+        ZLPhotoUIConfiguration.default().sheetBtnTitleColor
     }
     
     /// 预览选择模式下 选择照片大于0时，取消按钮title颜色
-    class var previewBtnHighlightTitleColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.previewBtnHighlightTitleColor
+    static var previewBtnHighlightTitleColor: UIColor {
+        ZLPhotoUIConfiguration.default().sheetBtnTitleTintColor
     }
     
     /// 相册列表界面背景色
-    class var albumListBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.albumListBgColor
+    static var albumListBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().albumListBgColor
+    }
+    
+    /// 嵌入式相册列表下方透明区域颜色
+    static var embedAlbumListTranslucentColor: UIColor {
+        ZLPhotoUIConfiguration.default().embedAlbumListTranslucentColor
     }
     
     /// 相册列表界面 相册title颜色
-    class var albumListTitleColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.albumListTitleColor
+    static var albumListTitleColor: UIColor {
+        ZLPhotoUIConfiguration.default().albumListTitleColor
     }
     
     /// 相册列表界面 数量label颜色
-    class var albumListCountColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.albumListCountColor
+    static var albumListCountColor: UIColor {
+        ZLPhotoUIConfiguration.default().albumListCountColor
     }
     
     /// 分割线颜色
-    class var separatorLineColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.separatorColor
+    static var separatorLineColor: UIColor {
+        ZLPhotoUIConfiguration.default().separatorColor
     }
     
     /// 小图界面背景色
-    class var thumbnailBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.thumbnailBgColor
+    static var thumbnailBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().thumbnailBgColor
+    }
+    
+    /// 预览大图界面背景色
+    static var previewVCBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().previewVCBgColor
     }
     
     /// 相册列表界面底部工具条底色
-    class var bottomToolViewBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBgColor
+    static var bottomToolViewBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBgColor
     }
     
     /// 预览大图界面底部工具条底色
-    class var bottomToolViewBgColorOfPreviewVC: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBgColorOfPreviewVC
+    static var bottomToolViewBgColorOfPreviewVC: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBgColorOfPreviewVC
     }
     
     /// 相册列表界面底部工具栏按钮 可交互 状态标题颜色
-    class var bottomToolViewBtnNormalTitleColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBtnNormalTitleColor
+    static var bottomToolViewBtnNormalTitleColor: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBtnNormalTitleColor
+    }
+    
+    /// 相册列表界面底部工具栏 `完成` 按钮 可交互 状态标题颜色
+    static var bottomToolViewDoneBtnNormalTitleColor: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewDoneBtnNormalTitleColor
     }
     
     /// 预览大图界面底部工具栏按钮 可交互 状态标题颜色
-    class var bottomToolViewBtnNormalTitleColorOfPreviewVC: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBtnNormalTitleColorOfPreviewVC
+    static var bottomToolViewBtnNormalTitleColorOfPreviewVC: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBtnNormalTitleColorOfPreviewVC
+    }
+    
+    /// 预览大图界面底部工具栏 `完成` 按钮 可交互 状态标题颜色
+    static var bottomToolViewDoneBtnNormalTitleColorOfPreviewVC: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewDoneBtnNormalTitleColorOfPreviewVC
     }
     
     /// 相册列表界面底部工具栏按钮 不可交互 状态标题颜色
-    class var bottomToolViewBtnDisableTitleColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBtnDisableTitleColor
+    static var bottomToolViewBtnDisableTitleColor: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBtnDisableTitleColor
+    }
+    
+    /// 相册列表界面底部工具栏 `完成` 按钮 不可交互 状态标题颜色
+    static var bottomToolViewDoneBtnDisableTitleColor: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewDoneBtnDisableTitleColor
     }
     
     /// 预览大图界面底部工具栏按钮 不可交互 状态标题颜色
-    class var bottomToolViewBtnDisableTitleColorOfPreviewVC: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBtnDisableTitleColorOfPreviewVC
+    static var bottomToolViewBtnDisableTitleColorOfPreviewVC: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBtnDisableTitleColorOfPreviewVC
+    }
+    
+    /// 预览大图界面底部工具栏 `完成` 按钮 不可交互 状态标题颜色
+    static var bottomToolViewDoneBtnDisableTitleColorOfPreviewVC: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewDoneBtnDisableTitleColorOfPreviewVC
     }
     
     /// 相册列表界面底部工具栏按钮 可交互 状态背景颜色
-    class var bottomToolViewBtnNormalBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBtnNormalBgColor
+    static var bottomToolViewBtnNormalBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBtnNormalBgColor
     }
     
     /// 预览大图界面底部工具栏按钮 可交互 状态背景颜色
-    class var bottomToolViewBtnNormalBgColorOfPreviewVC: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBtnNormalBgColorOfPreviewVC
+    static var bottomToolViewBtnNormalBgColorOfPreviewVC: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBtnNormalBgColorOfPreviewVC
     }
     
     /// 相册列表界面底部工具栏按钮 不可交互 状态背景颜色
-    class var bottomToolViewBtnDisableBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBtnDisableBgColor
+    static var bottomToolViewBtnDisableBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBtnDisableBgColor
     }
     
     /// 预览大图界面底部工具栏按钮 不可交互 状态背景颜色
-    class var bottomToolViewBtnDisableBgColorOfPreviewVC: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.bottomToolViewBtnDisableBgColorOfPreviewVC
+    static var bottomToolViewBtnDisableBgColorOfPreviewVC: UIColor {
+        ZLPhotoUIConfiguration.default().bottomToolViewBtnDisableBgColorOfPreviewVC
     }
     
     /// iOS14 limited 权限时候，小图界面下方显示 选择更多图片 标题颜色
-    class var selectMorePhotoWhenAuthIsLismitedTitleColor: UIColor {
-        return ZLPhotoConfiguration.default().themeColorDeploy.selectMorePhotoWhenAuthIsLismitedTitleColor
+    static var limitedAuthorityTipsColor: UIColor {
+        return ZLPhotoUIConfiguration.default().limitedAuthorityTipsColor
     }
     
     /// 自定义相机录制视频时，进度条颜色
-    class var cameraRecodeProgressColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.cameraRecodeProgressColor
+    static var cameraRecodeProgressColor: UIColor {
+        ZLPhotoUIConfiguration.default().cameraRecodeProgressColor
     }
     
     /// 已选cell遮罩层颜色
-    class var selectedMaskColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.selectedMaskColor
+    static var selectedMaskColor: UIColor {
+        ZLPhotoUIConfiguration.default().selectedMaskColor
     }
     
     /// 已选cell border颜色
-    class var selectedBorderColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.selectedBorderColor
+    static var selectedBorderColor: UIColor {
+        ZLPhotoUIConfiguration.default().selectedBorderColor
     }
     
     /// 不能选择的cell上方遮罩层颜色
-    class var invalidMaskColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.invalidMaskColor
+    static var invalidMaskColor: UIColor {
+        ZLPhotoUIConfiguration.default().invalidMaskColor
+    }
+    
+    /// 选中图片右上角index text color
+    static var indexLabelTextColor: UIColor {
+        ZLPhotoUIConfiguration.default().indexLabelTextColor
     }
     
     /// 选中图片右上角index background color
-    class var indexLabelBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.indexLabelBgColor
+    static var indexLabelBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().indexLabelBgColor
     }
     
     /// 拍照cell 背景颜色
-    class var cameraCellBgColor: UIColor {
-        ZLPhotoConfiguration.default().themeColorDeploy.cameraCellBgColor
+    static var cameraCellBgColor: UIColor {
+        ZLPhotoUIConfiguration.default().cameraCellBgColor
     }
     
+    /// 调整图片slider默认色
+    static var adjustSliderNormalColor: UIColor {
+        ZLPhotoUIConfiguration.default().adjustSliderNormalColor
+    }
+    
+    /// 调整图片slider高亮色
+    static var adjustSliderTintColor: UIColor {
+        ZLPhotoUIConfiguration.default().adjustSliderTintColor
+    }
+    
+    /// 图片编辑器中各种工具下方标题普通状态下的颜色
+    static var imageEditorToolTitleNormalColor: UIColor {
+        ZLPhotoUIConfiguration.default().imageEditorToolTitleNormalColor
+    }
+    
+    /// 图片编辑器中各种工具下方标题高亮状态下的颜色
+    static var imageEditorToolTitleTintColor: UIColor {
+        ZLPhotoUIConfiguration.default().imageEditorToolTitleTintColor
+    }
+    
+    /// 图片编辑器中各种工具图标高亮状态下的颜色
+    static var imageEditorToolIconTintColor: UIColor? {
+        ZLPhotoUIConfiguration.default().imageEditorToolIconTintColor
+    }
+    
+    /// 编辑器中垃圾箱普通状态下的颜色
+    static var trashCanBackgroundNormalColor: UIColor {
+        ZLPhotoUIConfiguration.default().trashCanBackgroundNormalColor
+    }
+    
+    /// 编辑器中垃圾箱高亮状态下的颜色
+    static var trashCanBackgroundTintColor: UIColor {
+        ZLPhotoUIConfiguration.default().trashCanBackgroundTintColor
+    }
+}
+
+extension ZLPhotoBrowserWrapper where Base: UIColor {
+    /// - Parameters:
+    ///   - r: 0~255
+    ///   - g: 0~255
+    ///   - b: 0~255
+    ///   - a: 0~1
+    static func rgba(_ r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat = 1) -> UIColor {
+        return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
+    }
 }

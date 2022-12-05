@@ -11,14 +11,15 @@
 "back" = "Indietro";
 "edit" = "Modifica";
 "revert" = "Annulla";
+"brightness" = "Luminosità";
+"contrast" = "Contrasto";
+"saturation" = "Saturazione";
 
 "photo" = "Fotografie";
 "preview" = "Anteprima";
 
-"noPhotoTips" = "Niente foto";
-"notAllowMixSelect" = "Impossibile selezionare il video";
+"noPhotoTips" = "Niente fotos";
 
-"loading" = "Caricamento, in attesa per favore";
 "hudLoading" = "in attesa...";
 
 "exceededMaxSelectCount" = "Conteggio massimo per la selezione: %ld";
@@ -27,10 +28,12 @@
 "exceededMaxVideoSelectCount" = "Conteggio massimo per la selezione dei video: %ld";
 "lessThanMinVideoSelectCount" = "Conteggio minimo per la selezione del video: %ld";
 
-"noCameraAuthority" = "Consenti a %@ di accedere alla fotocamera del tuo dispositivo in \"Impostazioni\" -> \"Privacy\" -> \"Fotocamera\"";
-"noPhotoLibratyAuthority" = "Consenti a %@ di accedere al tuo album in \"Impostazioni\" -> \"Privacy\" -> \"Foto\"";
-"noMicrophoneAuthority" = "Consenti a %@ di accedere al microfono del tuo dispositivo in \"Impostazioni\" -> \"Privacy\" -> \"Microfono\"";
+"noCameraAuthority" = "Consenti a %@ di accedere alla fotocamera del tuo dispositivo in \"Impostazioni\" > \"Privacy\" > \"Fotocamera\"";
+"noPhotoLibratyAuthority" = "Consenti a %@ di accedere al tuo album in \"Impostazioni\" > \"Privacy\" > \"Foto\"";
+"noMicrophoneAuthority" = "Impossibile registrare I'audio. Vai a \"Impostazioni\" > \"%@\" e attiva I'accesso al microfono";
 "cameraUnavailable" = "La fotocamera non è disponibile";
+"keepRecording" = "Continua a registrare";
+"gotoSettings" = "Vai a lmpostazioni";
 
 "iCloudVideoLoadFaild" = "Impossibile sincronizzare da iCloud";
 "imageLoadFailed" = "Caricamento fallito";

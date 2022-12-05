@@ -29,26 +29,25 @@ import Foundation
 private class BundleFinder {}
 
 extension Bundle {
+    private static var bundle: Bundle?
     
-    private static var bundle: Bundle? = nil
-    
-    static var normal_module: Bundle? = {
+    static var normalModule: Bundle? = {
         let bundleName = "ZLPhotoBrowser"
 
         var candidates = [
             // Bundle should be present here when the package is linked into an App.
             Bundle.main.resourceURL,
-
+            
             // Bundle should be present here when the package is linked into a framework.
             Bundle(for: ZLPhotoPreviewSheet.self).resourceURL,
-
+            
             // For command-line tools.
             Bundle.main.bundleURL,
         ]
         
         #if SWIFT_PACKAGE
-        // For SWIFT_PACKAGE.
-        candidates.append(Bundle.module.bundleURL)
+            // For SWIFT_PACKAGE.
+            candidates.append(Bundle.module.bundleURL)
         #endif
 
         for candidate in candidates {
@@ -61,16 +60,16 @@ extension Bundle {
         return nil
     }()
     
-    static var spm_module: Bundle? = {
+    static var spmModule: Bundle? = {
         let bundleName = "ZLPhotoBrowser_ZLPhotoBrowser"
 
         let candidates = [
             // Bundle should be present here when the package is linked into an App.
             Bundle.main.resourceURL,
-
+            
             // Bundle should be present here when the package is linked into a framework.
             Bundle(for: BundleFinder.self).resourceURL,
-
+            
             // For command-line tools.
             Bundle.main.bundleURL,
         ]
@@ -86,22 +85,22 @@ extension Bundle {
     }()
     
     static var zlPhotoBrowserBundle: Bundle? {
-        return normal_module ?? spm_module
+        return normalModule ?? spmModule
     }
     
     class func resetLanguage() {
-        self.bundle = nil
+        bundle = nil
     }
     
     class func zlLocalizedString(_ key: String) -> String {
-        if self.bundle == nil {
-            guard let path = Bundle.zlPhotoBrowserBundle?.path(forResource: self.getLanguage(), ofType: "lproj") else {
+        if bundle == nil {
+            guard let path = Bundle.zlPhotoBrowserBundle?.path(forResource: getLanguage(), ofType: "lproj") else {
                 return ""
             }
-            self.bundle = Bundle(path: path)
+            bundle = Bundle(path: path)
         }
         
-        let value = self.bundle?.localizedString(forKey: key, value: nil, table: nil)
+        let value = bundle?.localizedString(forKey: key, value: nil, table: nil)
         return Bundle.main.localizedString(forKey: key, value: value, table: nil)
     }
     
@@ -134,6 +133,16 @@ extension Bundle {
                 language = "ms"
             } else if language.hasPrefix("it") {
                 language = "it"
+            } else if language.hasPrefix("id") {
+                language = "id"
+            } else if language.hasPrefix("pt") {
+                language = "pt-BR"
+            } else if language.hasPrefix("es") {
+                language = "es-419"
+            } else if language.hasPrefix("tr") {
+                language = "tr"
+            } else if language.hasPrefix("ar") {
+                language = "ar"
             } else {
                 language = "en"
             }
@@ -159,10 +168,18 @@ extension Bundle {
             language = "ms"
         case .italian:
             language = "it"
+        case .indonesian:
+            language = "id"
+        case .portuguese:
+            language = "pt-BR"
+        case .spanish:
+            language = "es-419"
+        case .turkish:
+            language = "tr"
+        case .arabic:
+            language = "ar"
         }
         
         return language
     }
-    
-    
 }

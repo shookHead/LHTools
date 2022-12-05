@@ -11,14 +11,15 @@
 "back" = "Retour";
 "edit" = "Modifier";
 "revert" = "Annuler";
+"brightness" = "Luminosité";
+"contrast" = "Contraste";
+"saturation" = "Saturation";
 
 "photo" = "Photos";
 "preview" = "Aperçu";
 
-"noPhotoTips" = "Pas de photo";
-"notAllowMixSelect" = "Impossible de sélectionner la vidéo";
+"noPhotoTips" = "Pas de photos";
 
-"loading" = "chargement, attente s'il vous plaît";
 "hudLoading" = "attendre...";
 
 "exceededMaxSelectCount" = "Nombre maximal de sélections: %ld";
@@ -27,10 +28,12 @@
 "exceededMaxVideoSelectCount" = "Nombre maximal de sélections vidéo: %ld";
 "lessThanMinVideoSelectCount" = "Nombre minimal de sélection de vidéo: %ld";
 
-"noCameraAuthority" = "Veuillez autoriser %@ à accéder à la caméra de votre appareil dans \"Paramètres\" -> \"Confidentialité\" -> \"Caméra\"";
-"noPhotoLibratyAuthority" = "Veuillez autoriser %@ à accéder à votre album dans \"Paramètres\" -> \"Confidentialité\" -> \"Photos\"";
-"noMicrophoneAuthority" = "Veuillez autoriser %@ à accéder au microphone de votre appareil dans \"Paramètres\" -> \"Confidentialité\" -> \"Microphone\"";
+"noCameraAuthority" = "Veuillez autoriser %@ à accéder à la caméra de votre appareil dans \"Paramètres\" > \"Confidentialité\" > \"Caméra\"";
+"noPhotoLibratyAuthority" = "Veuillez autoriser %@ à accéder à votre album dans \"Paramètres\" > \"Confidentialité\" > \"Photos\"";
+"noMicrophoneAuthority" = "Impossible d'enregistrer le son. Rendez-vous dans « Paramètres >> > << %@ » et activez l'accès au microphone";
 "cameraUnavailable" = "La caméra n'est pas disponible";
+"keepRecording" = "Continuer à enregistrer";
+"gotoSettings" = "Accéder à Paramètres";
 
 "iCloudVideoLoadFaild" = "Impossible de synchroniser depuis iCloud";
 "imageLoadFailed" = "chargement échoué";

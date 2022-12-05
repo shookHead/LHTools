@@ -33,75 +33,148 @@ import Photos
 }
 
 public class ZLImagePreviewController: UIViewController {
-
+    
     static let colItemSpacing: CGFloat = 40
     
     static let selPhotoPreviewH: CGFloat = 100
     
-    let datas: [Any]
+    private let datas: [Any]
     
-    var selectStatus: [Bool]
+    private var selectStatus: [Bool]
     
-    let urlType: ( (URL) -> ZLURLType )?
+    private let urlType: ((URL) -> ZLURLType)?
     
-    let urlImageLoader: ( (URL, UIImageView, @escaping ( (CGFloat) -> Void ), @escaping ( () -> Void )) -> Void )?
+    private let urlImageLoader: ((URL, UIImageView, @escaping (CGFloat) -> Void, @escaping () -> Void) -> Void)?
     
-    let showSelectBtn: Bool
+    private let showSelectBtn: Bool
     
-    let showBottomView: Bool
+    private let showBottomView: Bool
+
+    private var currentIndex: Int
     
-    var currentIndex: Int
+    private var indexBeforOrientationChanged: Int
     
-    var indexBeforOrientationChanged: Int
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .clear
+        view.dataSource = self
+        view.delegate = self
+        view.isPagingEnabled = true
+        view.showsHorizontalScrollIndicator = false
+        
+        ZLPhotoPreviewCell.zl.register(view)
+        ZLGifPreviewCell.zl.register(view)
+        ZLLivePhotoPreviewCell.zl.register(view)
+        ZLVideoPreviewCell.zl.register(view)
+        ZLLocalImagePreviewCell.zl.register(view)
+        ZLNetImagePreviewCell.zl.register(view)
+        ZLNetVideoPreviewCell.zl.register(view)
+        
+        return view
+    }()
     
-    var collectionView: UICollectionView!
+    private lazy var navView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .zl.navBarColorOfPreviewVC
+        return view
+    }()
     
-    var navView: UIView!
+    private var navBlurView: UIVisualEffectView?
     
-    var navBlurView: UIVisualEffectView?
+    private lazy var backBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.setImage(.zl.getImage("zl_navBack"), for: .normal)
+        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+        btn.addTarget(self, action: #selector(backBtnClick), for: .touchUpInside)
+        return btn
+    }()
     
-    var backBtn: UIButton!
+    private lazy var indexLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .zl.indexLabelTextColor
+        label.font = ZLLayout.navTitleFont
+        label.textAlignment = .center
+        return label
+    }()
     
-    var indexLabel: UILabel!
+    private lazy var selectBtn: ZLEnlargeButton = {
+        let btn = ZLEnlargeButton(type: .custom)
+        btn.setImage(.zl.getImage("zl_btn_circle"), for: .normal)
+        btn.setImage(.zl.getImage("zl_btn_selected"), for: .selected)
+        btn.enlargeInset = 10
+        btn.addTarget(self, action: #selector(selectBtnClick), for: .touchUpInside)
+        return btn
+    }()
     
-    var selectBtn: UIButton!
+    private lazy var bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .zl.bottomToolViewBgColorOfPreviewVC
+        return view
+    }()
     
-    var bottomView: UIView!
+    private var bottomBlurView: UIVisualEffectView?
     
-    var bottomBlurView: UIVisualEffectView?
+    private lazy var doneBtn: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.titleLabel?.font = ZLLayout.bottomToolTitleFont
+        btn.setTitle(title, for: .normal)
+        btn.setTitleColor(.zl.bottomToolViewDoneBtnNormalTitleColorOfPreviewVC, for: .normal)
+        btn.setTitleColor(.zl.bottomToolViewDoneBtnDisableTitleColorOfPreviewVC, for: .disabled)
+        btn.addTarget(self, action: #selector(doneBtnClick), for: .touchUpInside)
+        btn.backgroundColor = .zl.bottomToolViewBtnNormalBgColorOfPreviewVC
+        btn.layer.masksToBounds = true
+        btn.layer.cornerRadius = ZLLayout.bottomToolBtnCornerRadius
+        return btn
+    }()
     
-    var doneBtn: UIButton!
+    private var isFirstAppear = true
     
-    var isFirstAppear = true
+    private var hideNavView = false
     
-    var hideNavView = false
+    private var orientation: UIInterfaceOrientation = .unknown
     
-    @objc public var doneBlock: ( ([Any]) -> Void )?
+    @objc public var longPressBlock: ((ZLImagePreviewController?, UIImage?, Int) -> Void)?
     
-    var orientation: UIInterfaceOrientation = .unknown
+    @objc public var doneBlock: (([Any]) -> Void)?
     
-    public override var prefersStatusBarHidden: Bool {
-        return !ZLPhotoConfiguration.default().showStatusBarInPreviewInterface
+    @objc public var videoHttpHeader: [String: Any]?
+    
+    override public var prefersStatusBarHidden: Bool {
+        return !ZLPhotoUIConfiguration.default().showStatusBarInPreviewInterface
     }
     
-    public override var preferredStatusBarStyle: UIStatusBarStyle {
-        return ZLPhotoConfiguration.default().statusBarStyle
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
+        return ZLPhotoUIConfiguration.default().statusBarStyle
+    }
+    
+    deinit {
+        zl_debugPrint("ZLImagePreviewController deinit")
     }
     
     /// - Parameters:
-    ///   - datas: Must be one of PHAsset, UIImage and URL, will filter ohers in init function.
+    ///   - datas: Must be one of PHAsset, UIImage and URL, will filter others in init function.
     ///   - showBottomView: If showSelectBtn is true, showBottomView is always true.
     ///   - index: Index for first display.
     ///   - urlType: Tell me the url is image or video.
     ///   - urlImageLoader: Called when cell will display, cell will layout after callback when image load finish. The first block is progress callback, second is load finish callback.
-    @objc public init(datas: [Any], index: Int = 0, showSelectBtn: Bool = true, showBottomView: Bool = true, urlType: ( (URL) -> ZLURLType )? = nil, urlImageLoader: ( (URL, UIImageView, @escaping ( (CGFloat) -> Void ),  @escaping ( () -> Void )) -> Void )? = nil) {
-        let filterDatas = datas.filter { (obj) -> Bool in
-            return obj is PHAsset || obj is UIImage || obj is URL
+    @objc public init(
+        datas: [Any],
+        index: Int = 0,
+        showSelectBtn: Bool = true,
+        showBottomView: Bool = true,
+        urlType: ((URL) -> ZLURLType)? = nil,
+        urlImageLoader: ((URL, UIImageView, @escaping (CGFloat) -> Void, @escaping () -> Void) -> Void)? = nil
+    ) {
+        let filterDatas = datas.filter { obj -> Bool in
+            obj is PHAsset || obj is UIImage || obj is URL
         }
         self.datas = filterDatas
-        self.selectStatus = Array(repeating: true, count: filterDatas.count)
-        self.currentIndex = index >= filterDatas.count ? 0 : index
-        self.indexBeforOrientationChanged = self.currentIndex
+        selectStatus = Array(repeating: true, count: filterDatas.count)
+        currentIndex = index >= filterDatas.count ? 0 : index
+        indexBeforOrientationChanged = currentIndex
         self.showSelectBtn = showSelectBtn
         self.showBottomView = showSelectBtn ? true : showBottomView
         self.urlType = urlType
@@ -109,32 +182,35 @@ public class ZLImagePreviewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setupUI()
-        self.resetSubViewStatus()
+        setupUI()
+        resetSubViewStatus()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard self.isFirstAppear else { return }
-        self.isFirstAppear = false
+        guard isFirstAppear else {
+            return
+        }
+        isFirstAppear = false
         
-        self.reloadCurrentCell()
+        reloadCurrentCell()
     }
     
-    public override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         var insets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
@@ -143,35 +219,41 @@ public class ZLImagePreviewController: UIViewController {
         }
         insets.top = max(20, insets.top)
         
-        self.collectionView.frame = CGRect(x: -ZLPhotoPreviewController.colItemSpacing / 2, y: 0, width: self.view.frame.width + ZLPhotoPreviewController.colItemSpacing, height: self.view.frame.height)
+        collectionView.frame = CGRect(x: -ZLPhotoPreviewController.colItemSpacing / 2, y: 0, width: view.frame.width + ZLPhotoPreviewController.colItemSpacing, height: view.frame.height)
         
         let navH = insets.top + 44
-        self.navView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: navH)
-        self.navBlurView?.frame = self.navView.bounds
+        navView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: navH)
+        navBlurView?.frame = navView.bounds
         
-        self.backBtn.frame = CGRect(x: insets.left, y: insets.top, width: 60, height: 44)
-        self.indexLabel.frame = CGRect(x: (self.view.frame.width - 80)/2, y: insets.top, width: 80, height: 44)
-        self.selectBtn.frame = CGRect(x: self.view.frame.width - 40 - insets.right, y: insets.top + (44 - 25) / 2, width: 25, height: 25)
+        backBtn.frame = CGRect(x: insets.left, y: insets.top, width: 60, height: 44)
+        indexLabel.frame = CGRect(x: (view.frame.width - 80) / 2, y: insets.top, width: 80, height: 44)
+        selectBtn.frame = CGRect(x: view.frame.width - 40 - insets.right, y: insets.top + (44 - 25) / 2, width: 25, height: 25)
         
         let bottomViewH = ZLLayout.bottomToolViewH
         
-        self.bottomView.frame = CGRect(x: 0, y: self.view.frame.height-insets.bottom-bottomViewH, width: self.view.frame.width, height: bottomViewH+insets.bottom)
-        self.bottomBlurView?.frame = self.bottomView.bounds
+        bottomView.frame = CGRect(x: 0, y: view.frame.height - insets.bottom - bottomViewH, width: view.frame.width, height: bottomViewH + insets.bottom)
+        bottomBlurView?.frame = bottomView.bounds
         
-        self.resetBottomViewFrame()
+        resetBottomViewFrame()
         
         let ori = UIApplication.shared.statusBarOrientation
-        if ori != self.orientation {
-            self.orientation = ori
-            self.collectionView.setContentOffset(CGPoint(x: (self.view.frame.width + ZLPhotoPreviewController.colItemSpacing) * CGFloat(self.indexBeforOrientationChanged), y: 0), animated: false)
-             self.collectionView.performBatchUpdates({
-                self.collectionView.setContentOffset(CGPoint(x: (self.view.frame.width + ZLPhotoPreviewController.colItemSpacing) * CGFloat(self.indexBeforOrientationChanged), y: 0), animated: false)
-             })
+        if ori != orientation {
+            orientation = ori
+            collectionView.setContentOffset(
+                CGPoint(x: (view.frame.width + ZLPhotoPreviewController.colItemSpacing) * CGFloat(indexBeforOrientationChanged), y: 0),
+                animated: false
+            )
+            collectionView.performBatchUpdates({
+                self.collectionView.setContentOffset(
+                    CGPoint(x: (self.view.frame.width + ZLPhotoPreviewController.colItemSpacing) * CGFloat(self.indexBeforOrientationChanged), y: 0),
+                    animated: false
+                )
+            })
         }
     }
     
-    func reloadCurrentCell() {
-        guard let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentIndex, section: 0)) else {
+    private func reloadCurrentCell() {
+        guard let cell = collectionView.cellForItem(at: IndexPath(row: currentIndex, section: 0)) else {
             return
         }
         if let cell = cell as? ZLGifPreviewCell {
@@ -182,202 +264,149 @@ public class ZLImagePreviewController: UIViewController {
     }
     
     private func setupUI() {
-        self.view.backgroundColor = .black
-        self.automaticallyAdjustsScrollViewInsets = false
+        view.backgroundColor = .zl.previewVCBgColor
+        automaticallyAdjustsScrollViewInsets = false
         
-        // nav view
-        self.navView = UIView()
-        self.navView.backgroundColor = .navBarColorOfPreviewVC
-        self.view.addSubview(self.navView)
+        view.addSubview(navView)
         
-        if let effect = ZLPhotoConfiguration.default().navViewBlurEffectOfPreview {
-            self.navBlurView = UIVisualEffectView(effect: effect)
-            self.navView.addSubview(self.navBlurView!)
+        if let effect = ZLPhotoUIConfiguration.default().navViewBlurEffectOfPreview {
+            navBlurView = UIVisualEffectView(effect: effect)
+            navView.addSubview(navBlurView!)
         }
         
-        self.backBtn = UIButton(type: .custom)
-        self.backBtn.setImage(getImage("zl_navBack"), for: .normal)
-        self.backBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
-        self.backBtn.addTarget(self, action: #selector(backBtnClick), for: .touchUpInside)
-        self.navView.addSubview(self.backBtn)
+        navView.addSubview(backBtn)
+        navView.addSubview(indexLabel)
+        navView.addSubview(selectBtn)
+        view.addSubview(collectionView)
+        view.addSubview(bottomView)
         
-        self.indexLabel = UILabel()
-        self.indexLabel.textColor = ZLPhotoConfiguration.default().themeColorDeploy.navTitleColorOfPreviewVC
-        self.indexLabel.font = ZLLayout.navTitleFont
-        self.indexLabel.textAlignment = .center
-        self.navView.addSubview(self.indexLabel)
-        
-        self.selectBtn = UIButton(type: .custom)
-        self.selectBtn.setImage(getImage("zl_btn_circle"), for: .normal)
-        self.selectBtn.setImage(getImage("zl_btn_selected"), for: .selected)
-        self.selectBtn.zl_enlargeValidTouchArea(inset: 10)
-        self.selectBtn.addTarget(self, action: #selector(selectBtnClick), for: .touchUpInside)
-        self.navView.addSubview(self.selectBtn)
-        
-        // collection view
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        self.collectionView.backgroundColor = .clear
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
-        self.collectionView.isPagingEnabled = true
-        self.collectionView.showsHorizontalScrollIndicator = false
-        self.view.addSubview(self.collectionView)
-        
-        ZLPhotoPreviewCell.zl_register(self.collectionView)
-        ZLGifPreviewCell.zl_register(self.collectionView)
-        ZLLivePhotoPreviewCell.zl_register(self.collectionView)
-        ZLVideoPreviewCell.zl_register(self.collectionView)
-        ZLLocalImagePreviewCell.zl_register(self.collectionView)
-        ZLNetImagePreviewCell.zl_register(self.collectionView)
-        ZLNetVideoPreviewCell.zl_register(self.collectionView)
-        
-        // bottom view
-        self.bottomView = UIView()
-        self.bottomView.backgroundColor = .bottomToolViewBgColorOfPreviewVC
-        self.view.addSubview(self.bottomView)
-        
-        if let effect = ZLPhotoConfiguration.default().bottomViewBlurEffectOfPreview {
-            self.bottomBlurView = UIVisualEffectView(effect: effect)
-            self.bottomView.addSubview(self.bottomBlurView!)
+        if let effect = ZLPhotoUIConfiguration.default().bottomViewBlurEffectOfPreview {
+            bottomBlurView = UIVisualEffectView(effect: effect)
+            bottomView.addSubview(bottomBlurView!)
         }
         
-        func createBtn(_ title: String, _ action: Selector) -> UIButton {
-            let btn = UIButton(type: .custom)
-            btn.titleLabel?.font = ZLLayout.bottomToolTitleFont
-            btn.setTitle(title, for: .normal)
-            btn.setTitleColor(.bottomToolViewBtnNormalTitleColorOfPreviewVC, for: .normal)
-            btn.setTitleColor(.bottomToolViewBtnDisableTitleColorOfPreviewVC, for: .disabled)
-            btn.addTarget(self, action: action, for: .touchUpInside)
-            return btn
-        }
-        
-        self.doneBtn = createBtn(localLanguageTextValue(.done), #selector(doneBtnClick))
-        self.doneBtn.backgroundColor = .bottomToolViewBtnNormalBgColorOfPreviewVC
-        self.doneBtn.layer.masksToBounds = true
-        self.doneBtn.layer.cornerRadius = ZLLayout.bottomToolBtnCornerRadius
-        self.bottomView.addSubview(self.doneBtn)
-        
-        self.view.bringSubviewToFront(self.navView)
+        bottomView.addSubview(doneBtn)
+        view.bringSubviewToFront(navView)
     }
     
-    func resetSubViewStatus() {
-        self.indexLabel.text = String(self.currentIndex + 1) + " / " + String(self.datas.count)
+    private func resetSubViewStatus() {
+        indexLabel.text = String(currentIndex + 1) + " / " + String(datas.count)
         
-        if self.showSelectBtn {
-            self.selectBtn.isSelected = self.selectStatus[self.currentIndex]
+        if showSelectBtn {
+            selectBtn.isSelected = selectStatus[currentIndex]
         } else {
-            self.selectBtn.isHidden = true
+            selectBtn.isHidden = true
         }
         
-        self.resetBottomViewFrame()
+        resetBottomViewFrame()
     }
     
-    func resetBottomViewFrame() {
-        if self.showBottomView {
-            let btnY: CGFloat = ZLLayout.bottomToolBtnY
-            
-            var doneTitle = localLanguageTextValue(.done)
-            let selCount = self.selectStatus.filter{ $0 }.count
-            if self.showSelectBtn, selCount > 0 {
-                doneTitle += "(" + String(selCount) + ")"
-            }
-            let doneBtnW = doneTitle.boundingRect(font: ZLLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 30)).width + 20
-            self.doneBtn.frame = CGRect(x: self.bottomView.bounds.width-doneBtnW-15, y: btnY, width: doneBtnW, height: ZLLayout.bottomToolBtnH)
-            self.doneBtn.setTitle(doneTitle, for: .normal)
-        } else {
-            self.bottomView.isHidden = true
+    private func resetBottomViewFrame() {
+        guard showBottomView else {
+            bottomView.isHidden = true
+            return
         }
+        
+        let btnY: CGFloat = ZLLayout.bottomToolBtnY
+        
+        var doneTitle = localLanguageTextValue(.done)
+        let selCount = selectStatus.filter { $0 }.count
+        if showSelectBtn,
+           ZLPhotoConfiguration.default().showSelectCountOnDoneBtn,
+           selCount > 0 {
+            doneTitle += "(" + String(selCount) + ")"
+        }
+        let doneBtnW = doneTitle.zl.boundingRect(font: ZLLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 30)).width + 20
+        doneBtn.frame = CGRect(x: bottomView.bounds.width - doneBtnW - 15, y: btnY, width: doneBtnW, height: ZLLayout.bottomToolBtnH)
+        doneBtn.setTitle(doneTitle, for: .normal)
     }
     
-    func dismiss() {
-        if let nav = self.navigationController {
+    private func dismiss() {
+        if let nav = navigationController {
             let vc = nav.popViewController(animated: true)
             if vc == nil {
                 nav.dismiss(animated: true, completion: nil)
             }
         } else {
-            self.dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
         }
     }
     
     // MARK: btn actions
     
-    @objc func backBtnClick() {
-        self.dismiss()
+    @objc private func backBtnClick() {
+        dismiss()
     }
     
-    @objc func selectBtnClick() {
-        var isSelected = self.selectStatus[self.currentIndex]
-        self.selectBtn.layer.removeAllAnimations()
+    @objc private func selectBtnClick() {
+        var isSelected = selectStatus[currentIndex]
+        selectBtn.layer.removeAllAnimations()
         if isSelected {
             isSelected = false
         } else {
             if ZLPhotoConfiguration.default().animateSelectBtnWhenSelect {
-                self.selectBtn.layer.add(getSpringAnimation(), forKey: nil)
+                selectBtn.layer.add(getSpringAnimation(), forKey: nil)
             }
             isSelected = true
         }
         
-        self.selectStatus[self.currentIndex] = isSelected
-        self.resetSubViewStatus()
+        selectStatus[currentIndex] = isSelected
+        resetSubViewStatus()
     }
     
-    @objc func doneBtnClick() {
-        if self.showSelectBtn {
-            let res = self.datas.enumerated().filter { (index, value) -> Bool in
-                return self.selectStatus[index]
-            }.map { (_, v) -> Any in
-                return v
+    @objc private func doneBtnClick() {
+        if showSelectBtn {
+            let res = datas.enumerated().filter { index, _ -> Bool in
+                self.selectStatus[index]
+            }.map { _, v -> Any in
+                v
             }
-            self.doneBlock?(res)
+            doneBlock?(res)
         } else {
-            self.doneBlock?(self.datas)
+            doneBlock?(datas)
         }
         
-        self.dismiss()
+        dismiss()
     }
     
-    func tapPreviewCell() {
-        self.hideNavView = !self.hideNavView
-        let currentCell = self.collectionView.cellForItem(at: IndexPath(row: self.currentIndex, section: 0))
+    private func tapPreviewCell() {
+        hideNavView.toggle()
+        
+        let currentCell = collectionView.cellForItem(at: IndexPath(row: currentIndex, section: 0))
         if let cell = currentCell as? ZLVideoPreviewCell {
             if cell.isPlaying {
-                self.hideNavView = true
+                hideNavView = true
             }
         }
-        self.navView.isHidden = self.hideNavView
-        if self.showBottomView {
-            self.bottomView.isHidden = self.hideNavView
+        navView.isHidden = hideNavView
+        if showBottomView {
+            bottomView.isHidden = hideNavView
         }
     }
     
 }
 
-
 // scroll view delegate
-extension ZLImagePreviewController {
+public extension ZLImagePreviewController {
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView == self.collectionView else {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView == collectionView else {
             return
         }
         NotificationCenter.default.post(name: ZLPhotoPreviewController.previewVCScrollNotification, object: nil)
         let offset = scrollView.contentOffset
-        var page = Int(round(offset.x / (self.view.bounds.width + ZLPhotoPreviewController.colItemSpacing)))
-        page = max(0, min(page, self.datas.count-1))
-        if page == self.currentIndex {
+        var page = Int(round(offset.x / (view.bounds.width + ZLPhotoPreviewController.colItemSpacing)))
+        page = max(0, min(page, datas.count - 1))
+        if page == currentIndex {
             return
         }
-        self.currentIndex = page
-        self.resetSubViewStatus()
+        currentIndex = page
+        resetSubViewStatus()
     }
     
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.indexBeforOrientationChanged = self.currentIndex
-        let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentIndex, section: 0))
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        indexBeforOrientationChanged = currentIndex
+        let cell = collectionView.cellForItem(at: IndexPath(row: currentIndex, section: 0))
         if let cell = cell as? ZLGifPreviewCell {
             cell.loadGifWhenCellDisplaying()
         } else if let cell = cell as? ZLLivePhotoPreviewCell {
@@ -386,7 +415,6 @@ extension ZLImagePreviewController {
     }
     
 }
-
 
 extension ZLImagePreviewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -403,16 +431,16 @@ extension ZLImagePreviewController: UICollectionViewDataSource, UICollectionView
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
+        return CGSize(width: view.bounds.width, height: view.bounds.height)
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.datas.count
+        return datas.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let config = ZLPhotoConfiguration.default()
-        let obj = self.datas[indexPath.row]
+        let obj = datas[indexPath.row]
         
         let baseCell: ZLPreviewBaseCell
         
@@ -420,7 +448,7 @@ extension ZLImagePreviewController: UICollectionViewDataSource, UICollectionView
             let model = ZLPhotoModel(asset: asset)
             
             if config.allowSelectGif, model.type == .gif {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLGifPreviewCell.zl_identifier(), for: indexPath) as! ZLGifPreviewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLGifPreviewCell.zl.identifier, for: indexPath) as! ZLGifPreviewCell
                 
                 cell.singleTapBlock = { [weak self] in
                     self?.tapPreviewCell()
@@ -429,19 +457,19 @@ extension ZLImagePreviewController: UICollectionViewDataSource, UICollectionView
                 cell.model = model
                 baseCell = cell
             } else if config.allowSelectLivePhoto, model.type == .livePhoto {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLLivePhotoPreviewCell.zl_identifier(), for: indexPath) as! ZLLivePhotoPreviewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLLivePhotoPreviewCell.zl.identifier, for: indexPath) as! ZLLivePhotoPreviewCell
                 
                 cell.model = model
                 
                 baseCell = cell
             } else if config.allowSelectVideo, model.type == .video {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLVideoPreviewCell.zl_identifier(), for: indexPath) as! ZLVideoPreviewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLVideoPreviewCell.zl.identifier, for: indexPath) as! ZLVideoPreviewCell
                 
                 cell.model = model
                 
                 baseCell = cell
             } else {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLPhotoPreviewCell.zl_identifier(), for: indexPath) as! ZLPhotoPreviewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLPhotoPreviewCell.zl.identifier, for: indexPath) as! ZLPhotoPreviewCell
 
                 cell.singleTapBlock = { [weak self] in
                     self?.tapPreviewCell()
@@ -454,40 +482,40 @@ extension ZLImagePreviewController: UICollectionViewDataSource, UICollectionView
             
             return baseCell
         } else if let image = obj as? UIImage {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLLocalImagePreviewCell.zl_identifier(), for: indexPath) as! ZLLocalImagePreviewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLLocalImagePreviewCell.zl.identifier, for: indexPath) as! ZLLocalImagePreviewCell
             
             cell.image = image
             
             baseCell = cell
         } else if let url = obj as? URL {
-            let type = self.urlType?(url) ?? ZLURLType.image
+            let type = urlType?(url) ?? ZLURLType.image
             if type == .image {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLNetImagePreviewCell.zl_identifier(), for: indexPath) as! ZLNetImagePreviewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLNetImagePreviewCell.zl.identifier, for: indexPath) as! ZLNetImagePreviewCell
                 cell.image = nil
                 
-                self.urlImageLoader?(url, cell.preview.imageView, { [weak cell] (progress) in
-                    DispatchQueue.main.async {
+                urlImageLoader?(url, cell.preview.imageView, { [weak cell] progress in
+                    ZLMainAsync {
                         cell?.progress = progress
                     }
                 }, { [weak cell] in
-                    DispatchQueue.main.async {
+                    ZLMainAsync {
                         cell?.preview.resetSubViewSize()
                     }
                 })
                 
                 baseCell = cell
             } else {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLNetVideoPreviewCell.zl_identifier(), for: indexPath) as! ZLNetVideoPreviewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZLNetVideoPreviewCell.zl.identifier, for: indexPath) as! ZLNetVideoPreviewCell
                 
-                cell.videoUrl = url
+                cell.configureCell(videoUrl: url, httpHeader: videoHttpHeader)
                 
                 baseCell = cell
             }
         } else {
             #if DEBUG
-            fatalError("Preview obj must one of PHAsset, UIImage, URL")
+                fatalError("Preview obj must one of PHAsset, UIImage, URL")
             #else
-            return UICollectionViewCell()
+                return UICollectionViewCell()
             #endif
         }
         
@@ -495,8 +523,12 @@ extension ZLImagePreviewController: UICollectionViewDataSource, UICollectionView
             self?.tapPreviewCell()
         }
         
-        (baseCell as? ZLLocalImagePreviewCell)?.longPressBlock = { [weak self] in
-            self?.showSaveImageAlert()
+        (baseCell as? ZLLocalImagePreviewCell)?.longPressBlock = { [weak self, weak baseCell] in
+            if let callback = self?.longPressBlock {
+                callback(self, baseCell?.currentImage, indexPath.row)
+            } else {
+                self?.showSaveImageAlert()
+            }
         }
         
         return baseCell
@@ -508,14 +540,14 @@ extension ZLImagePreviewController: UICollectionViewDataSource, UICollectionView
         }
     }
     
-    func showSaveImageAlert() {
+    private func showSaveImageAlert() {
         func saveImage() {
-            guard let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentIndex, section: 0)) as? ZLLocalImagePreviewCell, let image = cell.currentImage else {
+            guard let cell = collectionView.cellForItem(at: IndexPath(row: currentIndex, section: 0)) as? ZLLocalImagePreviewCell, let image = cell.currentImage else {
                 return
             }
-            let hud = ZLProgressHUD(style: ZLPhotoConfiguration.default().hudStyle)
+            let hud = ZLProgressHUD(style: ZLPhotoUIConfiguration.default().hudStyle)
             hud.show()
-            ZLPhotoManager.saveImageToAlbum(image: image) { [weak self] (suc, _) in
+            ZLPhotoManager.saveImageToAlbum(image: image) { [weak self] suc, _ in
                 hud.hide()
                 if !suc {
                     showAlertView(localLanguageTextValue(.saveImageError), self)
@@ -523,14 +555,11 @@ extension ZLImagePreviewController: UICollectionViewDataSource, UICollectionView
             }
         }
         
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let save = UIAlertAction(title: localLanguageTextValue(.save), style: .default) { (_) in
+        let saveAction = ZLCustomAlertAction(title: localLanguageTextValue(.save), style: .default) { _ in
             saveImage()
         }
-        let cancel = UIAlertAction(title: localLanguageTextValue(.cancel), style: .cancel, handler: nil)
-        alert.addAction(save)
-        alert.addAction(cancel)
-        self.showDetailViewController(alert, sender: nil)
+        let cancelAction = ZLCustomAlertAction(title: localLanguageTextValue(.cancel), style: .cancel, handler: nil)
+        showAlertController(title: nil, message: "", style: .actionSheet, actions: [saveAction, cancelAction], sender: self)
     }
     
 }

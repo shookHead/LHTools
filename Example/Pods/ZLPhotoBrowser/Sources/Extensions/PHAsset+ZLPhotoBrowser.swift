@@ -26,13 +26,15 @@
 
 import Photos
 
-extension PHAsset {
-    
+extension ZLPhotoBrowserWrapper where Base: PHAsset {
     var isInCloud: Bool {
-        guard let resource = PHAssetResource.assetResources(for: self).first else {
+        guard let resource = resource else {
             return false
         }
         return !(resource.value(forKey: "locallyAvailable") as? Bool ?? true)
     }
     
+    var resource: PHAssetResource? {
+        return PHAssetResource.assetResources(for: base).first
+    }
 }

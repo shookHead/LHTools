@@ -13,6 +13,7 @@ public class CamerView: UIView {
     var formIndex:Int!
     var toIndex:Int!
     var moveView:UIImageView!
+    var selectedResults: [ZLResultModel] = []
     ///行间距
     public var lineSpacing:CGFloat = 10
     ///列间距
@@ -90,11 +91,14 @@ public class CamerView: UIView {
         let acrion2 = UIAlertAction(title: "从相册选取", style: .default) { [self] (action) in
             self.setconfig(maxSelectCount: maxCount - selectedPhotos.count)
             let ps = ZLPhotoPreviewSheet()
-            ps.selectImageBlock = { [weak self] (images, assets, isOriginal) in
-                print(images)
-                self?.mutlSelectedPhotos.removeAll()
-                self?.mutlSelectedPhotos += images
-                self?.upDataImagewithimage(index: 0)
+            ps.selectImageBlock = { [weak self] (results, isOriginal) in
+                guard let `self` = self else { return }
+                self.selectedResults = results
+//                print(images)
+                let images = results.map { $0.image }
+                self.mutlSelectedPhotos.removeAll()
+                self.mutlSelectedPhotos += images
+                self.upDataImagewithimage(index: 0)
             }
             ps.showPhotoLibrary(sender: vc)
         }

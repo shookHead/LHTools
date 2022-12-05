@@ -1,8 +1,8 @@
 //
-//  Int+ZLPhotoBrowser.swift
+//  UIView+ZLPhotoBrowser.swift
 //  ZLPhotoBrowser
 //
-//  Created by ruby109 on 2020/11/3.
+//  Created by long on 2022/9/27.
 //
 //  Copyright (c) 2020 Long Zhang <495181165@qq.com>
 //
@@ -24,12 +24,31 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-extension Int {
-    
-    init(_ bool:Bool) {
-        self = bool ? 1 : 0
+extension ZLPhotoBrowserWrapper where Base: UIView {
+    var top: CGFloat {
+        base.frame.minY
     }
     
+    var bottom: CGFloat {
+        base.frame.maxY
+    }
+    
+    var left: CGFloat {
+        base.frame.minX
+    }
+    
+    var right: CGFloat {
+        base.frame.maxX
+    }
+    
+    var width: CGFloat {
+        base.frame.width
+    }
+    
+    var height: CGFloat {
+        base.frame.height
+    }
 }
+

@@ -11,14 +11,15 @@
 "back" = "返回";
 "edit" = "編輯";
 "revert" = "還原";
+"brightness" = "亮度";
+"contrast" = "對比度";
+"saturation" = "飽和度";
 
 "photo" = "照片";
 "preview" = "預覽";
 
 "noPhotoTips" = "無照片";
-"notAllowMixSelect" = "不能同時選擇照片和視頻";
 
-"loading" = "加載中，請稍後";
 "hudLoading" = "正在處理...";
 
 "exceededMaxSelectCount" = "最多只能選擇%ld張圖片";
@@ -27,10 +28,12 @@
 "exceededMaxVideoSelectCount" = "最多只能選擇%ld個視頻";
 "lessThanMinVideoSelectCount" = "最少選擇%ld個視頻";
 
-"noCameraAuthority" = "請在iPhone的\"設置-隱私-相機\"選項中，允許%@訪問你的相機";
-"noPhotoLibratyAuthority" = "請在iPhone的\"設置-隱私-相冊\"選項中，允許%@訪問你的照片";
-"noMicrophoneAuthority" = "請在iPhone的\"設置-隱私-麥克風\"選項中，允許%@訪問你的麥克風";
+"noCameraAuthority" = "請在iPhone的\"設置 > 隱私 > 相機\"選項中，允許%@訪問你的相機";
+"noPhotoLibratyAuthority" = "請在iPhone的\"設置 > 隱私 > 相冊\"選項中，允許%@訪問你的照片";
+"noMicrophoneAuthority" = "無法錄製聲音，前往\"設置 > %@\"中打開麥克風權限";
 "cameraUnavailable" = "相機不可用";
+"keepRecording" = "繼續拍攝";
+"gotoSettings" = "前往設置";
 
 "iCloudVideoLoadFaild" = "iCloud無法同步";
 "imageLoadFailed" = "圖片加載失敗";

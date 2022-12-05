@@ -27,24 +27,36 @@
 import UIKit
 import Photos
 
-class ZLAlbumListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    var navView: UIView!
+class ZLAlbumListController: UIViewController {
     
-    var navBlurView: UIVisualEffectView?
+    private lazy var navView = ZLExternalAlbumListNavView(title: localLanguageTextValue(.photo))
     
-    var albumTitleLabel: UILabel!
+    private var navBlurView: UIVisualEffectView?
     
-    var cancelBtn: UIButton!
+    private lazy var tableView: UITableView = {
+        let view = UITableView(frame: .zero, style: .plain)
+        view.backgroundColor = .zl.albumListBgColor
+        view.tableFooterView = UIView()
+        view.rowHeight = 65
+        view.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+        view.separatorColor = .zl.separatorLineColor
+        view.delegate = self
+        view.dataSource = self
+        
+        if #available(iOS 11.0, *) {
+            view.contentInsetAdjustmentBehavior = .always
+        }
+        
+        ZLAlbumListCell.zl.register(view)
+        return view
+    }()
     
-    var tableView: UITableView!
+    private var arrDataSource: [ZLAlbumListModel] = []
     
-    var arrDataSource: [ZLAlbumListModel] = []
-    
-    var shouldReloadAlbumList = true
+    private var shouldReloadAlbumList = true
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return ZLPhotoConfiguration.default().statusBarStyle
+        return ZLPhotoUIConfiguration.default().statusBarStyle
     }
     
     deinit {
@@ -54,25 +66,25 @@ class ZLAlbumListController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setupUI()
+        setupUI()
         PHPhotoLibrary.shared().register(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
         
-        guard self.shouldReloadAlbumList else {
+        guard shouldReloadAlbumList else {
             return
         }
         
         DispatchQueue.global().async {
-            ZLPhotoManager.getPhotoAlbumList(ascending: ZLPhotoConfiguration.default().sortAscending, allowSelectImage: ZLPhotoConfiguration.default().allowSelectImage, allowSelectVideo: ZLPhotoConfiguration.default().allowSelectVideo) { [weak self] (albumList) in
+            ZLPhotoManager.getPhotoAlbumList(ascending: ZLPhotoConfiguration.default().sortAscending, allowSelectImage: ZLPhotoConfiguration.default().allowSelectImage, allowSelectVideo: ZLPhotoConfiguration.default().allowSelectVideo) { [weak self] albumList in
                 self?.arrDataSource.removeAll()
                 self?.arrDataSource.append(contentsOf: albumList)
                 
                 self?.shouldReloadAlbumList = false
-                DispatchQueue.main.async {
+                ZLMainAsync {
                     self?.tableView.reloadData()
                 }
             }
@@ -87,98 +99,60 @@ class ZLAlbumListController: UIViewController, UITableViewDataSource, UITableVie
         var insets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         var collectionViewInsetTop: CGFloat = 20
         if #available(iOS 11.0, *) {
-            insets = self.view.safeAreaInsets
+            insets = view.safeAreaInsets
             collectionViewInsetTop = navViewNormalH
         } else {
             collectionViewInsetTop += navViewNormalH
         }
         
-        self.navView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: insets.top + navViewNormalH)
-        self.navBlurView?.frame = self.navView.bounds
+        navView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: insets.top + navViewNormalH)
         
-        let albumTitleW = localLanguageTextValue(.photo).boundingRect(font: ZLLayout.navTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 44)).width
-        self.albumTitleLabel.frame = CGRect(x: (self.view.frame.width-albumTitleW)/2, y: insets.top, width: albumTitleW, height: 44)
-        let cancelBtnW = localLanguageTextValue(.cancel).boundingRect(font: ZLLayout.navTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 44)).width + 40
-        self.cancelBtn.frame = CGRect(x: self.view.frame.width-insets.right-cancelBtnW, y: insets.top, width: cancelBtnW, height: 44)
-        
-        self.tableView.frame = CGRect(x: insets.left, y: 0, width: self.view.frame.width - insets.left - insets.right, height: self.view.frame.height)
-        self.tableView.contentInset = UIEdgeInsets(top: collectionViewInsetTop, left: 0, bottom: 0, right: 0)
-        self.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
+        tableView.frame = CGRect(x: insets.left, y: 0, width: view.frame.width - insets.left - insets.right, height: view.frame.height)
+        tableView.contentInset = UIEdgeInsets(top: collectionViewInsetTop, left: 0, bottom: 0, right: 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
     }
     
-    func setupUI() {
-        self.view.backgroundColor = .albumListBgColor
+    private func setupUI() {
+        view.backgroundColor = .zl.albumListBgColor
         
-        self.tableView = UITableView(frame: .zero, style: .plain)
-        self.tableView.backgroundColor = .albumListBgColor
-        self.tableView.tableFooterView = UIView()
-        self.tableView.rowHeight = 65
-        self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
-        self.tableView.separatorColor = .separatorLineColor
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.view.addSubview(self.tableView)
+        view.addSubview(tableView)
         
-        ZLAlbumListCell.zl_register(self.tableView)
-        
-        if #available(iOS 11.0, *) {
-            self.tableView.contentInsetAdjustmentBehavior = .always
+        navView.backBtn.isHidden = true
+        navView.cancelBlock = { [weak self] in
+            let nav = self?.navigationController as? ZLImageNavController
+            nav?.cancelBlock?()
+            nav?.dismiss(animated: true, completion: nil)
         }
-        
-        self.navView = UIView()
-        self.navView.backgroundColor = .navBarColor
-        self.view.addSubview(self.navView)
-        
-        if let effect = ZLPhotoConfiguration.default().navViewBlurEffectOfAlbumList {
-            self.navBlurView = UIVisualEffectView(effect: effect)
-            self.navView.addSubview(self.navBlurView!)
-        }
-        
-        self.albumTitleLabel = UILabel()
-        self.albumTitleLabel.textColor = .navTitleColor
-        self.albumTitleLabel.font = ZLLayout.navTitleFont
-        self.albumTitleLabel.text = localLanguageTextValue(.photo)
-        self.albumTitleLabel.textAlignment = .center
-        self.navView.addSubview(self.albumTitleLabel)
-        
-        self.cancelBtn = UIButton(type: .custom)
-        self.cancelBtn.titleLabel?.font = ZLLayout.navTitleFont
-        self.cancelBtn.setTitle(localLanguageTextValue(.cancel), for: .normal)
-        self.cancelBtn.setTitleColor(.navTitleColor, for: .normal)
-        self.cancelBtn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
-        self.navView.addSubview(self.cancelBtn)
+        view.addSubview(navView)
     }
     
-    @objc func cancelBtnClick() {
-        let nav = self.navigationController as? ZLImageNavController
-        nav?.cancelBlock?()
-        nav?.dismiss(animated: true, completion: nil)
-    }
+}
 
+extension ZLAlbumListController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arrDataSource.count
+        return arrDataSource.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ZLAlbumListCell.zl_identifier(), for: indexPath) as! ZLAlbumListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ZLAlbumListCell.zl.identifier, for: indexPath) as! ZLAlbumListCell
         
-        cell.configureCell(model: self.arrDataSource[indexPath.row], style: .externalAlbumList)
+        cell.configureCell(model: arrDataSource[indexPath.row], style: .externalAlbumList)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = ZLThumbnailViewController(albumList: self.arrDataSource[indexPath.row])
-        self.show(vc, sender: nil)
+        let vc = ZLThumbnailViewController(albumList: arrDataSource[indexPath.row])
+        show(vc, sender: nil)
     }
-
+    
 }
-
 
 extension ZLAlbumListController: PHPhotoLibraryChangeObserver {
     
     func photoLibraryDidChange(_ changeInstance: PHChange) {
-        self.shouldReloadAlbumList = true
+        shouldReloadAlbumList = true
     }
     
 }

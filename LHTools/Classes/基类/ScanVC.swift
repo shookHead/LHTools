@@ -159,7 +159,8 @@ open class ScanVC: BaseVC {
         config.allowSelectOriginal = false
         config.allowSelectImage  = true
         let ps = ZLPhotoPreviewSheet()
-        ps.selectImageBlock = { (images, assets, isOriginal) in
+        ps.selectImageBlock = { (results, isOriginal) in
+            let images = results.map { $0.image }
             print(images)
             if let image = images.bm_object(0) {
                 let code = self.rescan(image)
