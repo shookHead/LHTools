@@ -6,9 +6,9 @@
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
-extension String{
+public extension String{
     //中文转拼音
-    public func transToPinYin(str:String)->String{
+    func transToPinYin(str:String)->String{
         //转化为可变字符串
         let mString = NSMutableString(string: str)
         //转化为带声调的拼音
@@ -21,7 +21,7 @@ extension String{
         return string.replacingOccurrences(of: " ", with: "")
     }
 
-    public func getJsonDic() -> Any?{
+    func getJsonDic() -> Any?{
         if self.count == 0{
             return nil
         }
@@ -30,7 +30,7 @@ extension String{
         return result
     }
     ///隐藏中间部分电话号码
-    public func hideFourPhoneNum() -> String{
+    func hideFourPhoneNum() -> String{
         if self.count < 11{
             return self
         }
@@ -42,7 +42,7 @@ extension String{
 
     
     /// 拨打电话
-    public func callPhone() {
+    func callPhone() {
         let phone = self
         if !phone.isEmpty {
             var tel = "tel://"+phone
@@ -55,6 +55,12 @@ extension String{
             }
         }
     }
-
+    ///将字符串倒叙
+    @discardableResult
+    mutating func reverse() -> String {
+        let chars: [Character] = reversed()
+        self = String(chars)
+        return self
+    }
     
 }

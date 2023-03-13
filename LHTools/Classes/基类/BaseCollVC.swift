@@ -29,6 +29,8 @@ open class BaseCollVC: BaseVC {
     public var showRequestError:Bool = false
     // 是否缓存 有值就缓存 没有就不缓存
     public var listCacheKey:String?
+    // 是否需要刷新
+    public var needReload:Bool = true
     
     public lazy var foot: MJRefreshAutoNormalFooter = {
         let foot = MJRefreshAutoNormalFooter()
@@ -116,7 +118,9 @@ open class BaseCollVC: BaseVC {
                 }
                 
                 finished()
-                self.reloadData(resp!.code)
+                if self.needReload{
+                    self.reloadData(resp!.code)
+                }
             }
         }
     }

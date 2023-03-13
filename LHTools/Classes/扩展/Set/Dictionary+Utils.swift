@@ -54,4 +54,29 @@ extension Dictionary {
 
 
 
+extension Dictionary {
+    /// 检查是否存在在字典里
+    ///
+    ///        let dict: [String: Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
+    ///        dict.has(key: "testKey") -> true
+    ///        dict.has(key: "anotherKey") -> false
+    func has(key: Key) -> Bool {
+        return index(forKey: key) != nil
+    }
+}
 
+public extension Dictionary where Key: StringProtocol {
+    /// 所有的字典里面，字母进行排序
+    ///
+    ///        var dict = ["tEstKeY": "value"]
+    ///        dict.lowercaseAllKeys()
+    ///        print(dict) // prints "["testkey": "value"]"
+    ///
+    mutating func lowercaseAllKeys() {
+        for key in keys {
+            if let lowercaseKey = String(describing: key).lowercased() as? Key {
+                self[lowercaseKey] = removeValue(forKey: key)
+            }
+        }
+    }
+}

@@ -48,6 +48,8 @@ open class BaseTableVC: BaseVC {
     public var showRequestError:Bool = false
     // 是否缓存 有值就缓存 没有就不缓存
     public var listCacheKey:String?
+    // 是否需要刷新
+    public var needReload:Bool = true
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,7 +160,9 @@ open class BaseTableVC: BaseVC {
                 }
                 
                 finished()
-                self.reloadData(resp!.code)
+                if self.needReload{
+                    self.reloadData(resp!.code)
+                }
             }
         }
     }

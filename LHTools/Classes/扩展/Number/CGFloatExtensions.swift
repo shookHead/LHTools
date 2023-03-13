@@ -27,7 +27,9 @@ public extension CGFloat {
         return Foundation.floor(self)
     }
     #endif
-
+    var isInteger:Bool{
+        return Darwin.floor(self) == self
+    }
     /// 是否为正
     var isPositive: Bool {
         return self > 0

@@ -18,16 +18,16 @@ public let KReloadIntervalTime:Double = 600
 public var oemInstitutionNo:String? = nil
 
 public func judgeScream() -> Bool {
-    if #available(iOS 11.0, *) {
-        // 有时候会莫名其妙 keyWindow = nil
-        if let a = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.safeAreaInsets.bottom{
-            return a != 0 ? true:false
-        }else{
-            return true
-        }
-    } else {
-        return false
+    if #available(iOS 13.0, *) {
+        let scene = UIApplication.shared.connectedScenes.first
+        guard let windowScene = scene as? UIWindowScene else { return false }
+        guard let window = windowScene.windows.first else { return false }
+        return window.safeAreaInsets.top > 20 ? true:false
+    } else if #available(iOS 11.0, *) {
+        guard let window = UIApplication.shared.windows.first else { return false }
+        return window.safeAreaInsets.top > 20 ? true:false
     }
+    return false
 }
 public enum SafeDirect{
     case top
@@ -36,6 +36,17 @@ public enum SafeDirect{
     case right
 }
 func safeArea(_ direct:SafeDirect) -> CGFloat{
+    if #available(iOS 13.0, *) {
+        if let inset = UIApplication.shared.connectedScenes.first{
+            guard let windowScene = inset as? UIWindowScene else { return 0 }
+            guard let window = windowScene.windows.first else { return 0 }
+            if direct == .top{ return window.safeAreaInsets.top }
+            if direct == .left{ return window.safeAreaInsets.left }
+            if direct == .bottom{ return window.safeAreaInsets.bottom }
+            if direct == .right{ return window.safeAreaInsets.right }
+        }
+        return 0
+    }
     if #available(iOS 11.0, *) {
         if let inset = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.safeAreaInsets{
             if direct == .top{ return inset.top }
@@ -48,9 +59,9 @@ func safeArea(_ direct:SafeDirect) -> CGFloat{
     return 0
 }
 /// safeArea
-let safeArea_Top    = safeArea(.top)
+public let safeArea_Top    = safeArea(.top)
 /// safeArea
-let safeArea_Bottom = safeArea(.bottom)
+public let safeArea_Bottom = safeArea(.bottom)
 
 /// 屏幕的宽度
 public let KScreenWidth    = UIScreen.main.bounds.width
@@ -60,14 +71,14 @@ public let KScreenHeight   = UIScreen.main.bounds.height
 public let KIsIphoneX      = judgeScream()
 /// 导航栏下内容高度
 public let KHeightInNav    = KScreenHeight - KNaviBarH
-/// 导航栏顶部的高度
-public let KNaviStatusBar       = CGFloat(KIsIphoneX ? 44.0:20.0)
+/// 导航栏顶部状态栏高度
+public let KNaviStatusBar  = safeArea_Top
 /// 导航栏高度
 public let KNaviBarH       = safeArea(.top) + 44
 /// tabbar高度
 public let KTabBarH        = safeArea(.bottom) + 49
-/// 底部多余的高度
-public let KBottomH        = CGFloat(KIsIphoneX ? 34:0)
+/// 底部多余的高度 34
+public let KBottomH        = safeArea(.bottom)
 /// 375下的尺寸  size*KRatio375
 public let KRatio375       = UIScreen.main.bounds.width / 375.0
 

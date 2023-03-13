@@ -205,3 +205,13 @@ public extension Array where Element: Equatable {
         return filter { set.insert($0[keyPath: path]).inserted }
     }
 }
+
+public extension Collection where Element: Equatable {
+    ///
+    ///        [1, 2, 2, 3, 4, 2, 5].indices(of 2) -> [1, 2, 5]
+    ///        [1.2, 2.3, 4.5, 3.4, 4.5].indices(of 2.3) -> [1]
+    ///        ["h", "e", "l", "l", "o"].indices(of "l") -> [2, 3]
+    func indices(of item: Element) -> [Index] {
+        return indices.filter { self[$0] == item }
+    }
+}

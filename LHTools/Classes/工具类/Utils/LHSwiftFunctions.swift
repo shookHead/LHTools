@@ -228,10 +228,11 @@ public struct lh{
         }
     }
     ///判断相册权限
-    public static func judgeAlbumPower(){
+    public static func judgeAlbumPower() -> Bool{
         let authStatus = PHPhotoLibrary.authorizationStatus()
         if authStatus != .restricted && authStatus != .denied {
             //            print("有权限")
+            return true
         }else{
             //            print("没有权限")
             lh.topMost()?.showComfirm("访问相册", "您还没有打开相册权限", okStr: "去打开", cancle: "取消", cancel: {
@@ -239,6 +240,7 @@ public struct lh{
             }, complish: {
                 self.judgeAppSetting()
             })
+            return false
         }
     }
     ///判断定位权限

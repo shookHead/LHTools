@@ -139,4 +139,40 @@ extension Date {
         return weekOfYear
     }
 
+    ///开始时间到结束时间的一个倒计时
+    public func dateDiff(startDate:Date?,endDate:Date?) -> String {
+        if startDate == nil || endDate == nil {
+            return "00:00:00"
+        }
+        let formatter = DateFormatter()
+        let calendar = Calendar.current
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        let diff:DateComponents = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: startDate!, to: endDate!)
+        var hour = "00"
+        if let h = diff.hour{
+            if h >= 10{
+                hour = String(h)
+            }else{
+                hour = "0" + String(h)
+            }
+        }
+        var minute = "00"
+        if let h = diff.minute{
+            if h >= 10{
+                minute = String(h)
+            }else{
+                minute = "0" + String(h)
+            }
+        }
+        var second = "00"
+        if let h = diff.second{
+            if h >= 10{
+                second = String(h)
+            }else{
+                second = "0" + String(h)
+            }
+        }
+        return hour + ":" + minute + ":" + second
+    }
 }

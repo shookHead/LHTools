@@ -114,10 +114,10 @@ public extension String{
         if self.count == 0 {
             return ""
         }
-        let s = self.trimmingCharacters(in: .whitespaces)
+        let s = self.trimmingCharacters(in: .whitespacesAndNewlines)
         return s
     }
-    ///去除所有空格
+    ///去除所有空格,指字符串中所有的
     var removeAllSapce:String {
         return self.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
     }

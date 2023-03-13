@@ -3,8 +3,8 @@
 import SnapKit
 
 public enum ConstraintAxis : Int {
-    case horizontal
-    case vertical
+    case horizontal     //水平
+    case vertical       //竖直
 }
 
 #if os(iOS) || os(tvOS)
@@ -376,34 +376,45 @@ private extension ConstraintView {
         return closestCommonSuperview
     }
 }
-//MARK: 数组布局,自己布局
-/**
- var arr: Array<UIView> = []
- for i in 0..<4 {
-     let subview = UIView()
-     subview.backgroundColor = UIColor.random
-     v.addSubview(subview)
-     v.tag = i
-     arr.append(subview)
- }
-
- arr.snp.makeConstraints { (make) in
-     make.width.height.equalTo(100)
-     make.center.equalTo(CGPoint(x: CGFloat(arc4random_uniform(300)) + 50, y: CGFloat(arc4random_uniform(300)) + 50))
- }
- */
-//MARK: 数组布局,自己布局
-/**
- //        axisType:方向
- //        fixedSpacing:中间间距
- //        leadSpacing:左边距(上边距)
- //        tailSpacing:右边距(下边距)
- arr.snp.distributeViewsAlong(axisType: .horizontal, fixedSpacing: 4, leadSpacing: 20, tailSpacing: 30)
- //        上面的可以约束x+w,还需要另外约束y+h
- //        约束y和height()如果方向是纵向,那么则另外需要设置x+w
- arr.snp.makeConstraints{
-     $0.top.equalTo(100)
-     $0.height.equalTo(CGFloat(arc4random_uniform(100) + 50))
- }
- */
-
+func useSnp() {
+    let v = UIView()
+    var arr: Array<UIView> = []
+    for i in 0..<5 {
+        let subview = UIView()
+        subview.backgroundColor = UIColor.random
+        v.addSubview(subview)
+        subview.tag = i
+        arr.append(subview)
+    }
+//        sc.contentSize = CGSize(width: CGFloat(arr.count * 50), height: sc.h)
+//        //MARK: - 数组布局
+//        arr.snp.makeConstraints{
+//            $0.width.height.equalTo(100)
+//        }
+//
+//        for (i, v) in arr.enumerated() {
+//            v.snp.makeConstraints{
+//                $0.left.equalTo(80 * i)
+//                $0.top.equalTo(100 * i)
+//            }
+//        }
+//        //MARK: - 等间距布局
+//        arr.snp.distributeViewsAlong(axisType: .horizontal, fixedSpacing: 4, leadSpacing: 20, tailSpacing: 30)
+//        arr.snp.makeConstraints{
+//            $0.top.equalTo(100)
+//            $0.height.equalTo(CGFloat(arc4random_uniform(100) + 50))
+//        }
+//
+//        //MARK: - 等大小布局
+//        arr.snp.distributeViewsAlong(axisType: .horizontal,fixedItemLength: 100,leadSpacing: 10,tailSpacing: 0)
+//        arr.snp.makeConstraints { make in
+//            make.top.equalTo(100)
+//            make.height.equalTo(CGFloat(arc4random_uniform(100) + 50))
+//        }
+    
+    //MARK: - 九宫格 固定间距
+    arr.snp.distributeSudokuViews(fixedLineSpacing: 10, fixedInteritemSpacing: 10, warpCount: 3)
+//
+//        //MARK: - 九宫格 固定间距
+//        arr.snp.distributeSudokuViews(fixedLineSpacing: 10, fixedInteritemSpacing: 20, warpCount: 3)
+}
