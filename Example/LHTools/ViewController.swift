@@ -45,6 +45,9 @@ class ViewController: UIViewController {
         var s = "abc"
         s.reverse()
         print(s)
+        
+        let uudi = Utils.keychainDeviceUUID
+        print("uudi:\(uudi)")
     }
     func safeArea(_ direct:SafeDirect) -> CGFloat{
         if #available(iOS 13.0, *) {

@@ -37,7 +37,7 @@ open class HostConfig{
     
     var names:[String] = []
     var tfArray:[UITextField] = []
-    
+    open var apiTF = UITextField()
     public init(_ names:[String]) {
         if cache[.isTestHost] == true{
             self.isTestHost = true
@@ -69,7 +69,7 @@ open class HostConfig{
         let contentW = UIScreen.main.bounds.width - 40
         
         let lab1 = UILabel(frame: CGRect(x: 15, y: 20, width: 80, height: 31))
-        lab1.text = "使用测试服"
+        lab1.text = lhUsingTest
         lab1.font = UIFont.systemFont(ofSize: 15)
         lab1.textColor = UIColor.lightGray
         contentView.addSubview(lab1)
@@ -98,14 +98,14 @@ open class HostConfig{
             lab2.textColor = UIColor.lightGray
             view.addSubview(lab2)
             
-            let tf = UITextField(frame: CGRect(x: 46, y: 30, width: 200, height: 34))
-            tf.placeholder = "api.163.gg"
-            tf.font = UIFont.systemFont(ofSize: 15)
-            tf.textColor = UIColor.lightGray
-            view.addSubview(tf)
-            tfArray.append(tf)
+            apiTF = UITextField(frame: CGRect(x: 46, y: 30, width: 200, height: 34))
+            apiTF.placeholder = "api.163.gg"
+            apiTF.font = UIFont.systemFont(ofSize: 15)
+            apiTF.textColor = UIColor.lightGray
+            view.addSubview(apiTF)
+            tfArray.append(apiTF)
             
-            tf.text = cache[.savedHosts]?.bm_object(i)
+            apiTF.text = cache[.savedHosts]?.bm_object(i)
 
             contentView.addSubview(view)
             y += 75

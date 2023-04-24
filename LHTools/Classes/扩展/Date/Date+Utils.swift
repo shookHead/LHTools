@@ -98,19 +98,19 @@ extension Date {
         let comps = weekday == 0 ? 7 : weekday
         var str = ""
         if comps == 1 {
-            str = "周一"
+            str = lhMonday
         }else if comps == 2 {
-            str = "周二"
+            str = lhTuesday
         }else if comps == 3 {
-            str =  "周三"
+            str =  lhWednesday
         }else if comps == 4 {
-            str =  "周四"
+            str =  lhThursday
         }else if comps == 5 {
-            str =  "周五"
+            str =  lhFriday
         }else if comps == 6 {
-            str =  "周六"
+            str =  lhSaturday
         }else if comps == 7 {
-            str =  "周日"
+            str =  lhSunday
         }
         return str
     }

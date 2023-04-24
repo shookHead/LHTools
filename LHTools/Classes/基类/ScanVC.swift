@@ -90,7 +90,7 @@ open class ScanVC: BaseVC {
         self.initUI()
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         if status == AVAuthorizationStatus.restricted || status == AVAuthorizationStatus.denied {
-            lh.topMost()?.showComfirm("访问相机", "您还没有打开相机权限", okStr: "去打开", cancle: "取消", cancel: {
+            lh.topMost()?.showComfirm(lhAccessingCameras, lhPermissionCamera, okStr: lhGoOpen, cancle: lhCancle, cancel: {
 
             }, complish: {
                 ///跳往app设置
@@ -168,7 +168,7 @@ open class ScanVC: BaseVC {
                     self.endScaning()
                     self.receiveScanCode(code)
                 }else{
-                    Hud.showText("扫描不到二维码")
+                    Hud.showText(lhUnableScanCode)
                 }
             }
         }
@@ -204,11 +204,11 @@ open class ScanVC: BaseVC {
                     device.unlockForConfiguration()
                 }catch{
                     print(error)
-                    Hud.showText("闪光灯无法打开")
+                    Hud.showText(lhFlashCannotTurned)
                     return
                 }
             }else{
-                Hud.showText("当前设备识别不到闪光灯")
+                Hud.showText(lhDeviceCannotFlash)
                 return
             }
             lightBtn.isSelected = true
@@ -303,7 +303,7 @@ extension ScanVC:AVCaptureMetadataOutputObjectsDelegate{
                 self.receiveScanCode(metadataObj.stringValue)
             }
         }else{
-            Hud.showText("二维码识别异常，请重新扫描")
+            Hud.showText(lhCodeRecognitionError)
             Hud.runAfterHud {
                 self.getResult = false
             }

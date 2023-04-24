@@ -108,7 +108,7 @@ public class BMPicker: NSObject {
         let picker = BMDatePicker(selected)
         picker.datePickMode = .ymd
         picker.showInfinit = true
-        picker.infinitText = "永 久"
+        picker.infinitText = lhPermanent
         if currentTime != nil {
             picker.date = currentTime!
         }else{

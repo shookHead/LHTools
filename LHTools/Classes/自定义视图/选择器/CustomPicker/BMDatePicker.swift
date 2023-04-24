@@ -36,7 +36,7 @@ public enum BMDatePickerMode:UInt8 {
 
 open class BMDatePicker: BMBasePicker {
     public var showInfinit : Bool = false
-    public var infinitText = "永 久"
+    public var infinitText = lhPermanent
     
     public var infinitBtn : UIButton?
     //当前时间
@@ -209,21 +209,21 @@ extension BMDatePicker{
     public override func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let arr = componentsArray[component]
         if arr.count == 24{
-            return "\(arr[row])点"
+            return "\(arr[row])" + lhDrop
         }
         if arr.count == 60 && (component == 4 || component == 1){
-            return "\(arr[row])分"
+            return "\(arr[row])" + lhDivide
         }
         if arr.count == 60 && (component == 5 || component == 2){
-            return "\(arr[row])秒"
+            return "\(arr[row])" + lhSecond
         }
         if component == 0{
-            return "\(arr[row])年"
+            return "\(arr[row])" + lhYear
         }
         if component == 1{
-            return "\(arr[row])月"
+            return "\(arr[row])" + lhMonth
         }
-        return "\(arr[row])日"
+        return "\(arr[row])" + lhDay
     }
     
     public func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {

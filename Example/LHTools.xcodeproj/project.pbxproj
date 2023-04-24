@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04599778290BBD1800A7043F /* WorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599777290BBD1800A7043F /* WorkModel.swift */; };
+		049CCEA229F61EB900149F9C /* imageLoadingFailed.png in Resources */ = {isa = PBXBuildFile; fileRef = 049CCEA129F61EB900149F9C /* imageLoadingFailed.png */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		04599777290BBD1800A7043F /* WorkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkModel.swift; sourceTree = "<group>"; };
+		049CCEA029F60F1400149F9C /* LHInternationalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHInternationalization.swift; sourceTree = "<group>"; };
+		049CCEA129F61EB900149F9C /* imageLoadingFailed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageLoadingFailed.png; sourceTree = "<group>"; };
 		04A8D5012912671E00E8B4A3 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		04A8D50229126D5B00E8B4A3 /* CGPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
 		07509A03F5415140F749D995 /* Pods_LHTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHTools_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +119,6 @@
 		F41E2EA0274C7F5B00C19995 /* BMCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCache.swift; sourceTree = "<group>"; };
 		F41E2EA1274C7F5B00C19995 /* LHClearCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHClearCache.swift; sourceTree = "<group>"; };
 		F41E2EA3274C7F5B00C19995 /* QRCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeManager.swift; sourceTree = "<group>"; };
-		F41E2EA5274C7F5B00C19995 /* 图片加载失败.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片加载失败.png"; sourceTree = "<group>"; };
 		F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMback_Icon.png; sourceTree = "<group>"; };
 		F41E2EA7274C7F5B00C19995 /* CamerView_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CamerView_UploadImg.png; sourceTree = "<group>"; };
 		F41E2EA8274C7F5B00C19995 /* city_db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = city_db.sqlite; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 		F41E2E38274C7F5B00C19995 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				049CCEA029F60F1400149F9C /* LHInternationalization.swift */,
 				F42F22F22788314700E42E4F /* LH_Use.swift */,
 				F41E2E39274C7F5B00C19995 /* GlobalImport.swift */,
 				F41E2E3A274C7F5B00C19995 /* BMConst.swift */,
@@ -614,11 +617,11 @@
 		F41E2EA4274C7F5B00C19995 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				049CCEA129F61EB900149F9C /* imageLoadingFailed.png */,
 				F47762BD28CDF8C600BA438B /* scan-album@3x.png */,
 				F4EA3F2528B60FC300D96393 /* scan-bg.png */,
 				F4EA3F2328B60FC200D96393 /* scan-light@3x.png */,
 				F4EA3F2428B60FC300D96393 /* scan-slider.png */,
-				F41E2EA5274C7F5B00C19995 /* 图片加载失败.png */,
 				F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */,
 				F41E2EA7274C7F5B00C19995 /* CamerView_UploadImg.png */,
 				F41E2EA8274C7F5B00C19995 /* city_db.sqlite */,
@@ -788,6 +791,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				049CCEA229F61EB900149F9C /* imageLoadingFailed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,13 +838,13 @@
 				"${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-album@3x.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-bg.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-light@3x.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-slider.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/wuwangluo.png",
-				"${PODS_ROOT}/../../LHTools/Classes/resource/图片加载失败.png",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -848,13 +852,13 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMImgItems_UploadImg.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CamerView_UploadImg.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/city_db.sqlite",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/imageLoadingFailed.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/photoDelete.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-album@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-bg.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-light@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-slider.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/wuwangluo.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/图片加载失败.png",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

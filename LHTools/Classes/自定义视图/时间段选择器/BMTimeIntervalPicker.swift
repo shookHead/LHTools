@@ -77,7 +77,7 @@ open class BMTimeIntervalPicker: UIView {
         _startBtn.addTarget(self, action: #selector(chooseDateAction(_:)), for: .touchUpInside)
         
         _startDescLab = UILabel(frame: CGRect(x: 0, y: 20, width: KScreenWidth/2, height: 20))
-        _startDescLab.text = "开始日期"
+        _startDescLab.text = lhStartDate
         _startDescLab.font = UIFont.systemFont(ofSize: 15)
         _startDescLab.textAlignment = .center
         _whiteView.addSubview(_startDescLab)
@@ -96,7 +96,7 @@ open class BMTimeIntervalPicker: UIView {
         _endBtn.addTarget(self, action: #selector(chooseDateAction(_:)), for: .touchUpInside)
         
         _endDescLab = UILabel(frame: CGRect(x: KScreenWidth/2, y: _startDescLab.y, width: _startDescLab.w, height: _startDescLab.h))
-        _endDescLab.text = "结束日期"
+        _endDescLab.text = lhEndDate
         _endDescLab.font = _startDescLab.font
         _endDescLab.textAlignment = .center
         _whiteView.addSubview(_endDescLab)
@@ -131,14 +131,14 @@ open class BMTimeIntervalPicker: UIView {
         
         // ------  确认取消按钮  ------
         cancelBtn = UIButton(frame: CGRect(x: 0, y: pickerView.maxY + 4, width: KScreenWidth / 2, height: 50))
-        cancelBtn.setTitle("取消", for: .normal)
+        cancelBtn.setTitle(lhCancle, for: .normal)
         cancelBtn.titleLabel?.font = .boldSystemFont(ofSize: 17)
         cancelBtn.setTitleColor(BMTimeIntervalPicker.textGrayColor, for: .normal)
         cancelBtn.addTarget(self, action: #selector(hidden), for: .touchUpInside)
         _whiteView.addSubview(cancelBtn)
         
         commitBtn = UIButton(frame: CGRect(x: KScreenWidth/2, y: cancelBtn.y, width: KScreenWidth/2, height: cancelBtn.h))
-        commitBtn.setTitle("确定", for: .normal)
+        commitBtn.setTitle(lhDetermine, for: .normal)
         commitBtn.titleLabel?.font = .boldSystemFont(ofSize: 17)
         commitBtn.setTitleColor(.white, for: .normal)
         commitBtn.addTarget(self, action: #selector(choose), for: .touchUpInside)
@@ -184,7 +184,7 @@ open class BMTimeIntervalPicker: UIView {
     
     @objc open func choose() {
         if self.endTime.timeIntervalSince(self.startTime) < 0{
-            Hud.showText("日期区间选择错误")
+            Hud.showText(lhDateError)
             return
         }
         
@@ -244,7 +244,7 @@ extension BMTimeIntervalPicker :UIPickerViewDelegate , UIPickerViewDataSource{
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let arr = componentsArray[component]
-        let temp = ["年","月","日","点","分"]
+        let temp = [lhYear,lhMonth,lhDay,lhDrop,lhDivide]
         let res = String(format: "%@%@", arr[row], temp[component])
         return res
     }

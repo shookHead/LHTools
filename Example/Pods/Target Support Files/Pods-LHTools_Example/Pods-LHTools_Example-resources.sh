@@ -101,26 +101,26 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-album@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-bg.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-light@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-slider.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/wuwangluo.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/图片加载失败.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-album@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-bg.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-light@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-slider.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/wuwangluo.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/图片加载失败.png"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

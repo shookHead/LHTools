@@ -14,7 +14,7 @@ public extension UIViewController{
     func chooseSingleImg(_ complish:@escaping (_ img:UIImage?)->() ){
         setconfig(maxSelectCount: 1)
         let alertSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let acrion1 = UIAlertAction(title: "拍照", style: .default) { (action) in
+        let acrion1 = UIAlertAction(title: lhPhotoGraph, style: .default) { (action) in
             let camera = ZLCustomCamera()
             camera.takeDoneBlock = { (image, videoUrl) in
                 print(image as Any)
@@ -24,7 +24,7 @@ public extension UIViewController{
             }
             self.showDetailViewController(camera, sender: nil)
         }
-        let acrion2 = UIAlertAction(title: "从相册选取", style: .default) { (action) in
+        let acrion2 = UIAlertAction(title: lhSelectFromAlbum, style: .default) { (action) in
             let ps = ZLPhotoPreviewSheet()
             ps.selectImageBlock = { (results, isOriginal) in
                 let images = results.map { $0.image }
@@ -36,7 +36,7 @@ public extension UIViewController{
             }
             ps.showPhotoLibrary(sender: self)
         }
-        let acrion3 = UIAlertAction(title: "取消", style: .cancel) { (action) in
+        let acrion3 = UIAlertAction(title: lhCancle, style: .cancel) { (action) in
             
         }
         alertSheet.addAction(acrion1)
@@ -47,7 +47,7 @@ public extension UIViewController{
 
     func chooseMutiImg(_ num:Int,_ complish:@escaping (_ img:[UIImage])->() ){
         let alertSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let acrion1 = UIAlertAction(title: "拍照", style: .default) { (action) in
+        let acrion1 = UIAlertAction(title: lhPhotoGraph, style: .default) { (action) in
             self.setconfig(maxSelectCount: 1)
             let camera = ZLCustomCamera()
             camera.takeDoneBlock = { (image, videoUrl) in
@@ -58,7 +58,7 @@ public extension UIViewController{
             }
             self.showDetailViewController(camera, sender: nil)
         }
-        let acrion2 = UIAlertAction(title: "从相册选取", style: .default) { (action) in
+        let acrion2 = UIAlertAction(title: lhSelectFromAlbum, style: .default) { (action) in
             self.setconfig(maxSelectCount: num)
             let ps = ZLPhotoPreviewSheet()
             ps.selectImageBlock = { (results, isOriginal) in
@@ -71,7 +71,7 @@ public extension UIViewController{
             }
             ps.showPhotoLibrary(sender: self)
         }
-        let acrion3 = UIAlertAction(title: "取消", style: .cancel) { (action) in
+        let acrion3 = UIAlertAction(title: lhCancle, style: .cancel) { (action) in
             
         }
         alertSheet.addAction(acrion1)

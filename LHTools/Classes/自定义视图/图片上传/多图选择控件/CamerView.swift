@@ -79,7 +79,7 @@ public class CamerView: UIView {
         }
         vc = rootVc!
         let alertSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let acrion1 = UIAlertAction(title: "拍照", style: .default) { (action) in
+        let acrion1 = UIAlertAction(title: lhPhotoGraph, style: .default) { (action) in
             self.setconfig(maxSelectCount: 1)
             let camera = ZLCustomCamera()
             camera.takeDoneBlock = { [weak self] (image, videoUrl) in
@@ -88,7 +88,7 @@ public class CamerView: UIView {
             }
             vc.showDetailViewController(camera, sender: nil)
         }
-        let acrion2 = UIAlertAction(title: "从相册选取", style: .default) { [self] (action) in
+        let acrion2 = UIAlertAction(title: lhSelectFromAlbum, style: .default) { [self] (action) in
             self.setconfig(maxSelectCount: maxCount - selectedPhotos.count)
             let ps = ZLPhotoPreviewSheet()
             ps.selectImageBlock = { [weak self] (results, isOriginal) in
@@ -102,7 +102,7 @@ public class CamerView: UIView {
             }
             ps.showPhotoLibrary(sender: vc)
         }
-        let acrion3 = UIAlertAction(title: "取消", style: .cancel) { (action) in
+        let acrion3 = UIAlertAction(title: lhCancle, style: .cancel) { (action) in
             
         }
         alertSheet.addAction(acrion1)
@@ -127,11 +127,11 @@ public class CamerView: UIView {
                     self?.mutlSelectedPhotos.append(image)
                     self?.upDataImagewithimage(index: 0)
                 } else {
-                    Hud.showText("保存图片到相册失败")
+                    Hud.showText(lhFailedSaveImageAlbum)
                 }
             }
         }else{
-            Hud.showText("保存图片到相册失败")
+            Hud.showText(lhFailedSaveImageAlbum)
         }
     }
     public func setViewHeightClosure(_ closure : @escaping (_ height:CGFloat) -> ()){
@@ -178,12 +178,13 @@ public class CamerView: UIView {
         }
     }
     func upDataImagewithimage(index:Int) {
-        Hud.showWait("上传图片\(index)/\(mutlSelectedPhotos.count)")
+        let str = lhPictures + "\(index)/\(mutlSelectedPhotos.count)"
+        Hud.showWait(str)
         network.upload(mutlSelectedPhotos[index]) { (progress) in
             
         } finish: { [self] (imageUrl) in
             if imageUrl == nil{
-                Hud.showText("上传失败")
+                Hud.showText(lhUploadFailed)
                 return
             }
             add(url: imageUrl!, index: selectedPhotos.count)
@@ -192,7 +193,7 @@ public class CamerView: UIView {
             }else{//上传完毕
                 Hud.hide()
                 UIView.animate(withDuration: 0.5) {
-                    collectionView.reloadData()
+                    self.collectionView.reloadData()
                 }
             }
         }

@@ -56,7 +56,7 @@ public class BMSelectView: UIView {
         table.dataSource = self
         let color = UIColor.black
         backgroundColor = color.alpha(0.4)
-        titleLable.text = "请选择"
+        titleLable.text = lhPleaseSelect
         titleLable.frame = CGRect(x: 0, y: 0, width: tableViewW, height: tableViewHeadH)
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(hide))
         self.addGestureRecognizer(tap)

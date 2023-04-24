@@ -40,6 +40,7 @@ open class WebVC: BaseVC ,WKNavigationDelegate{
         self.initUI()
         
         webView.navigationDelegate = self
+        webView.uiDelegate = self
 //        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
         if urlString != nil{
@@ -185,5 +186,46 @@ open class WebVC: BaseVC ,WKNavigationDelegate{
     deinit {
 //        webView.removeObserver(self, forKeyPath:"estimatedProgress")
         webView.navigationDelegate = nil
+    }
+}
+//主要用来把网站的三种弹出框转化为iOS原生的弹出框
+extension WebVC: WKUIDelegate{
+    //闭包：被用作为参数的函数
+
+    //非逃逸闭包-默认：外围函数执行完毕后被释放
+    //逃逸闭包-@escaping：外围函数执行完毕后，他的引用仍旧被其他对象持有，不会被释放
+    //逃逸闭包对内存管理有风险--谨慎使用除非明确知道
+
+    // [js]alert()警告框
+    public func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: lhDetermine, style: .default, handler: { (_) in
+            completionHandler()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+
+    // [js]confirm()确认框
+    public func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: lhCancle, style: .cancel, handler: { (_) in
+            completionHandler(false)
+        }))
+        alert.addAction(UIAlertAction(title: lhDetermine, style: .default, handler: { (_) in
+            completionHandler(true)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+
+    // [js]prompt()输入框
+    public func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+        let alert = UIAlertController(title: nil, message: prompt, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = defaultText
+        }
+        alert.addAction(UIAlertAction(title: lhDetermine, style: .default, handler: { (_) in
+            completionHandler(alert.textFields?.last?.text)
+        }))
+        present(alert, animated: true, completion: nil)
     }
 }

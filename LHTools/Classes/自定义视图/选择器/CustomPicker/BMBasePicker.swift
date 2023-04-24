@@ -24,7 +24,7 @@ open class BMBasePicker: UIView {
     /// 确认按钮
     public var confirmBtn:UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setTitle("确 定", for: .normal)
+        btn.setTitle(lhDetermineSpace, for: .normal)
         btn.backgroundColor     = BMBasePicker.tintColor
         btn.titleLabel?.font    = UIFont.systemFont(ofSize: 16)
         btn.addTarget(self, action: #selector(comfirm), for: .touchUpInside)

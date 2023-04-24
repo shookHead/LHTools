@@ -150,9 +150,10 @@ public struct lh{
             }
             cache[.saveLastUpdateTime] = nowDate
         }
-        let str = String(format: "发现新版本 %@", version2)
+        let s = lhDiscoveringNewVersion
+        let str = String(format: "\(s) %@", version2)
         let alert = UIAlertController.init(title: str, message: msg, preferredStyle: .alert)
-        let action = UIAlertAction.init(title: "马上更新", style: .default) { (action) in
+        let action = UIAlertAction.init(title: lhUpdateNow, style: .default) { (action) in
             let url = URL.init(string: upgradeUrl!)
             if UIApplication.shared.canOpenURL(url!){
                 UIApplication.shared.open(url!, options: [:]) { (_) in
@@ -165,7 +166,7 @@ public struct lh{
         alert.addAction(action)
         //如果非强制 就弹出取消
         if isMustUpgrade == 0 {
-            let cancel = UIAlertAction.init(title: "稍后提醒", style: .cancel) { (action) in
+            let cancel = UIAlertAction.init(title: lhRemindLater, style: .cancel) { (action) in
                 
             }
             alert.addAction(cancel)
@@ -218,7 +219,7 @@ public struct lh{
     public static func judgeCameraPower()  {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         if status == AVAuthorizationStatus.restricted || status == AVAuthorizationStatus.denied {
-            lh.topMost()?.showComfirm("访问相机", "您还没有打开相机权限", okStr: "去打开", cancle: "取消", cancel: {
+            lh.topMost()?.showComfirm(lhAccessingCameras, lhPermissionCamera, okStr: lhGoOpen, cancle: lhCancle, cancel: {
 
             }, complish: {
                 self.judgeAppSetting()
@@ -235,7 +236,7 @@ public struct lh{
             return true
         }else{
             //            print("没有权限")
-            lh.topMost()?.showComfirm("访问相册", "您还没有打开相册权限", okStr: "去打开", cancle: "取消", cancel: {
+            lh.topMost()?.showComfirm(lhAccessingAlbum, lhPermissionAlbum, okStr: lhGoOpen, cancle: lhCancle, cancel: {
 
             }, complish: {
                 self.judgeAppSetting()
@@ -249,7 +250,7 @@ public struct lh{
             //权限打开
         }else{
             //权限没有打开
-            lh.topMost()?.showComfirm("访问定位", "您还没有打开定位权限", okStr: "去打开", cancle: "取消", cancel: {
+            lh.topMost()?.showComfirm(lhAccessLocation, lhPermissionLocation, okStr: lhGoOpen, cancle: lhCancle, cancel: {
 
             }, complish: {
                 lh.judgeAppSetting()

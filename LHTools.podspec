@@ -44,7 +44,7 @@ TODO: Add long description of the pod here.
    
   #Global
   s.subspec 'Global' do |ss|
-      ss.source_files = 'LHTools/Classes/GlobalImport.swift','LHTools/Classes/BMConst.swift','LHTools/Classes/LHTools.swift'
+      ss.source_files = 'LHTools/Classes/GlobalImport.swift','LHTools/Classes/BMConst.swift','LHTools/Classes/LHTools.swift','LHTools/Classes/LHInternationalization.swift'
   end
   #View
   s.subspec 'View' do |ss|

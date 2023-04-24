@@ -22,7 +22,7 @@ public class PhotoBrowser: NSObject {
         browser.reloadCellAtIndex = { context in
             let browserCell = context.cell as? LoadingImageCell
             let indexPath = IndexPath(item: context.index, section: 0)
-            browserCell?.reloadData(placeholder: #imageLiteral(resourceName: "图片加载失败"), urlString: images[indexPath.row])
+            browserCell?.reloadData(placeholder: #imageLiteral(resourceName: "imageLoadingFailed"), urlString: images[indexPath.row])
         }
         // 数字样式的页码指示器
         browser.pageIndicator = JXPhotoBrowserNumberPageIndicator()
@@ -55,7 +55,7 @@ class LoadingImageCell: JXPhotoBrowserImageCell {
             case .success:
                 self.progressView.progress = 1.0
             case .failure:
-                self.imageView.image = #imageLiteral(resourceName: "图片加载失败")
+                self.imageView.image = UIImage.init(named: "imageLoadingFailed")
                 self.progressView.progress = 0
             }
             self.setNeedsLayout()

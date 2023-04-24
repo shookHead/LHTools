@@ -28,7 +28,7 @@ extension UILabel{
         if numberOfLines == 0 {
             return size
         }
-        let singleSize = "好".boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
+        let singleSize = lhGood.boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
         let h = size.height > CGFloat(numberOfLines) * singleSize.height ? CGFloat(numberOfLines) * singleSize.height:size.height
         return CGSize(width: size.width, height: h)
     }
@@ -44,7 +44,7 @@ extension UILabel{
             }
             return size.height
         }
-        let singleSize = "好".boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
+        let singleSize = lhGood.boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
         let h = size.height > CGFloat(numberOfLines) * singleSize.height ? CGFloat(numberOfLines) * singleSize.height:size.height
         if let minHeight = minH {
             return h < minHeight ? minHeight:h

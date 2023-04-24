@@ -77,7 +77,8 @@
       "source_files": [
         "LHTools/Classes/GlobalImport.swift",
         "LHTools/Classes/BMConst.swift",
-        "LHTools/Classes/LHTools.swift"
+        "LHTools/Classes/LHTools.swift",
+        "LHTools/Classes/LHInternationalization.swift"
       ]
     },
     {

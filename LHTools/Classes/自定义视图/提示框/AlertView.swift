@@ -13,10 +13,10 @@ extension UIViewController{
     public func showAlertView(_ title:String, _ msg:String, complish: (() -> ())? = nil, cancel: (() -> ())? = nil){
         UIView.animate(withDuration: 0.1) {
             let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "确认", style: .default, handler: { (action) in
+            let okAction = UIAlertAction(title: lhConfirm, style: .default, handler: { (action) in
                 complish?()
             })
-            let cancelAction = UIAlertAction(title: "取消", style: .cancel , handler:{ (action) in
+            let cancelAction = UIAlertAction(title: lhCancle, style: .cancel , handler:{ (action) in
                 cancel?()
             })
             alertVC.addAction(cancelAction)
@@ -33,7 +33,7 @@ extension UIViewController{
     private func showSingleAlertView(_ title:String, _ msg:String, complish: (() -> ())? = nil){
         UIView.animate(withDuration: 0.1) {
             let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "确认", style: .default, handler: { (action) in
+            let okAction = UIAlertAction(title: lhConfirm, style: .default, handler: { (action) in
                 complish?()
             })
             alertVC.addAction(okAction)
@@ -68,11 +68,11 @@ extension UIViewController{
     private func showAlertTextFieldView(_ title:String, _ msg:String,placeholder:String = "",text:String = "" ,keyBoard:UIKeyboardType = .default, complish: ((String) -> ())? = nil, cancel: (() -> ())? = nil){
         UIView.animate(withDuration: 0.1) {
             let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "确认", style: .default, handler: { (action) in
+            let okAction = UIAlertAction(title: lhConfirm, style: .default, handler: { (action) in
                 let tf = alertVC.textFields!.first
                 complish?(tf!.text!)
             })
-            let cancelAction = UIAlertAction(title: "取消", style: .cancel , handler:{ (action) in
+            let cancelAction = UIAlertAction(title: lhCancle, style: .cancel , handler:{ (action) in
                 cancel?()
             })
             alertVC.addTextField(configurationHandler: { (textField) in
@@ -146,12 +146,12 @@ public class AlertViewShow: NSObject,UITextFieldDelegate {
             self._vc = vc
             self._pointLength = pointLength
             let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "确认", style: .default, handler: { (action) in
+            let okAction = UIAlertAction(title: lhConfirm, style: .default, handler: { (action) in
                 let tf = alertVC.textFields!.first
                 self.initData()
                 complish?(tf!.text!)
             })
-            let cancelAction = UIAlertAction(title: "取消", style: .cancel , handler:{ (action) in
+            let cancelAction = UIAlertAction(title: lhCancle, style: .cancel , handler:{ (action) in
                 self.initData()
                 cancel?()
             })

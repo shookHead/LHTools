@@ -67,7 +67,7 @@ public class BMIndicatorView: UIView {
         w = 70
         h = 20
         activityIndicatorLab = UILabel(frame: .zero)
-        activityIndicatorLab.text = "加载中.."
+        activityIndicatorLab.text = lhLoading
         activityIndicatorLab.textAlignment = .center
         activityIndicatorLab.font = UIFont.systemFont(ofSize: 15)
         activityIndicatorLab.textColor = .KTextLightGray
@@ -90,7 +90,7 @@ public class BMIndicatorView: UIView {
         
         requestBtn = UIButton(type: .system)
         requestBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        requestBtn.setTitle("点击刷新", for: .normal)
+        requestBtn.setTitle(lhClickRefresh, for: .normal)
         requestBtn.setTitleColor(.KTextLightGray, for: .normal)
         requestBtn.layer.cornerRadius = 10
         requestBtn.layer.borderWidth = 1
@@ -100,7 +100,7 @@ public class BMIndicatorView: UIView {
         requestBtn.bm.addConstraints([.center_X(0), .under(contentImgView, 10), .w(85), .h(34)])
         
         self.contentLab = UILabel()
-        self.contentLab.text = "暂无数据\n"
+        self.contentLab.text = lhNoData + "\n"
         self.contentLab.numberOfLines = 0
         self.contentLab.textAlignment = .center
         self.contentLab.font = UIFont.systemFont(ofSize: 16)

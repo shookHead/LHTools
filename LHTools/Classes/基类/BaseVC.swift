@@ -25,7 +25,8 @@ open class BaseVC: UIViewController {
     /// 隐藏导航栏
     public var hideNav = false
     /// 是否可以侧划返回
-    public var popGestureEnable = true
+    public var popGestureEnable = BaseVC.global_popGestureEnable
+    public static var global_popGestureEnable = true
     /// 状态栏颜色  需要指定的  重写该属性
     open override var preferredStatusBarStyle: UIStatusBarStyle{
         get{ return hideNav ? .lightContent : .default }}

@@ -26,23 +26,23 @@ public enum RequestError : Int{
     var msg :String{
         switch  self {
         case .cancel:
-            return "请求被取消"
+            return lhRequestCancelled
         case .timeOut:
-            return "请求超时"
+            return lhRequestTimeout
         case .requestFalid:
-            return "请求地址无效"
+            return lhInvalidRequestAddress
         case .serverConnectFalid:
-            return "服务器无法访问"
+            return lhServerUnreachable
         case .noNetwork:
-            return "无法访问网络"
+            return lhUnableAccessNetwork
         case .jsonDeserializeFalid:
-            return "数据解析失败"
+            return lhDataParsingFailed
         case .responsDeserializeFalid:
-            return "数据解析失败"
+            return lhDataParsingFailed
         case .noMsg:
             return ""
         case .unknow:
-            return "请求失败"
+            return lhRequestFailure
         }
     }
 }
@@ -271,9 +271,9 @@ public class BMRequester{
         var msg = ""
         // 重新登录
         if let _ = cache[.sessionId]{
-            msg = "登录失效，请重新登录"
+            msg = lhLoginFailed
         }else{
-            msg = "未登录，请登录"
+            msg = lhNotLogged
         }
         if code == 2{
             Hud.showText(msg)
@@ -363,7 +363,7 @@ public class BMRequester_Model<T:HandyJSON>: BMRequester{
             if jsonStr == nil{
                 let err = ZBJsonModel<T>()
                 err.code = code
-                err.msg = "网络异常，请求失败"
+                err.msg = lhNetworkException
                 finish(err)
                 return
             }
@@ -386,7 +386,7 @@ public class BMRequester_Model<T:HandyJSON>: BMRequester{
                 }
                 let err = ZBJsonModel<T>()
                 err.code = RequestError.responsDeserializeFalid.rawValue
-                err.msg = "网络异常，请求失败"
+                err.msg = lhNetworkException
                 finish(err)
             }
         }
@@ -417,7 +417,7 @@ public class BMRequester_ModelList<T:HandyJSON> : BMRequester{
             if jsonStr == nil{
                 let err = ZBJsonArrayModel<T>()
                 err.code = code
-                err.msg = "网络异常，请求失败"
+                err.msg = lhNetworkException
                 finish(err)
                 return
             }
@@ -445,11 +445,11 @@ public class BMRequester_ModelList<T:HandyJSON> : BMRequester{
                 if jsonStr != nil{
                     print(jsonStr!)
                 }else{
-                    print("请求失败")
+                    print(lhRequestFailure)
                 }
                 let err = ZBJsonArrayModel<T>()
                 err.code = RequestError.responsDeserializeFalid.rawValue
-                err.msg = "网络异常，请求失败"
+                err.msg = lhNetworkException
                 finish(err)
             }
         }
@@ -490,11 +490,11 @@ public class BMRequester_Int : BMRequester{
                 if jsonStr != nil{
                     print(jsonStr!)
                 }else{
-                    print("请求失败")
+                    print(lhRequestFailure)
                 }
                 let err = ZBJsonInt()
                 err.code = RequestError.responsDeserializeFalid.rawValue
-                err.msg = "网络异常，请求失败"
+                err.msg = lhNetworkException
                 finish(err)
             }
         }
@@ -534,11 +534,11 @@ public class BMRequester_String : BMRequester{
                 if jsonStr != nil{
                     print(jsonStr!)
                 }else{
-                    print("请求失败")
+                    print(lhRequestFailure)
                 }
                 let err = ZBJsonString()
                 err.code = RequestError.responsDeserializeFalid.rawValue
-                err.msg = "网络异常，请求失败"
+                err.msg = lhNetworkException
                 finish(err)
             }
         }
@@ -580,11 +580,11 @@ public class BMRequester_Dic : BMRequester{
                 if jsonStr != nil{
                     print(jsonStr!)
                 }else{
-                    print("请求失败")
+                    print(lhRequestFailure)
                 }
                 let err = ZBJsonDic()
                 err.code = RequestError.responsDeserializeFalid.rawValue
-                err.msg = "网络异常，请求失败"
+                err.msg = lhNetworkException
                 finish(err)
             }
         }

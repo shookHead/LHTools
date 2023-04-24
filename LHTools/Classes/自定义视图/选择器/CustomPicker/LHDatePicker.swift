@@ -14,7 +14,7 @@ open class LHDatePicker: BMBasePicker {
     public var endTime:Date?
     public var startTime:Date?
     public var showInfinit : Bool = false
-    public var infinitText = "永 久"
+    public var infinitText = lhPermanent
     
     public var infinitBtn : UIButton?
     //当前时间
@@ -99,14 +99,14 @@ open class LHDatePicker: BMBasePicker {
     private var selectedIndexArr:Array<Int> = Array()
     lazy var titleLab: UILabel = {
         let lab = UILabel()
-        lab.text = "    选择日期和时间"
+        lab.text = "    " + lhSelectDateTime
         lab.backgroundColor = UIColor.hex("#F8FAFB")
         lab.font = UIFont.boldSystemFont(ofSize: 18)
         return lab
     }()
     lazy var cancleBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitle("取消", for: .normal)
+        btn.setTitle(lhCancle, for: .normal)
         btn.setTitleColor(UIColor.hex("#C0C0C1"), for: .normal)
         btn.titleLabel?.font    = UIFont.systemFont(ofSize: 16)
         return btn
@@ -147,13 +147,13 @@ extension LHDatePicker{
     public override func comfirm() {
         if let d = endTime {
             if d.compare(date) == .orderedAscending {
-                Hud.showText("时间选择错误")
+                Hud.showText(lhTimeSelectionError)
                 return
             }
         }
         if let d = startTime {
             if date < d  {
-                Hud.showText("时间选择错误")
+                Hud.showText(lhTimeSelectionError)
                 return
             }
         }
