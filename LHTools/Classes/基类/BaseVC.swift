@@ -212,7 +212,7 @@ open class BaseVC: UIViewController {
 
 // MARK:  提示框
 extension BaseVC {
-    open func showMask(){
+    public func showMask(){
         if maskView.superview == nil{
             self.window.addSubview(maskView)
             maskView.bm.addConstraints([.fill])
@@ -220,7 +220,7 @@ extension BaseVC {
     }
     
     /// 居中显示View
-    open func showMaskWithViewInCenter(_ content:UIView){
+    public func showMaskWithViewInCenter(_ content:UIView){
         maskView.removeFromSuperview()
         self.window.addSubview(maskView)
         maskView.bm.addConstraints([.fill])
@@ -251,7 +251,7 @@ extension BaseVC {
     }
     
     /// 居下显示View
-    open func showMaskWithViewAtBottom(_ content:UIView){
+    public func showMaskWithViewAtBottom(_ content:UIView){
         maskView.removeFromSuperview()
         self.window.addSubview(maskView)
         maskView.bm.addConstraints([.fill])

@@ -32,22 +32,44 @@ class GroupActivityModel: HandyJSON {
 
 class ViewController: UIViewController {
     var camer = CamerView()
-    
+    var stackView:UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(KIsIphoneX ? "是KIsIphoneX":"不是KIsIphoneX")
-        print(KNaviBarH)
-//        print(safeArea)
-        print(UIDevice.vg_navigationFullHeight())
-        print("顶部安全区高度\(UIDevice.vg_safeDistanceTop())")
-        print(UIDevice.vg_tabBarFullHeight())
-        print(safeArea(.top))
-        var s = "abc"
-        s.reverse()
-        print(s)
+        let uuid = Utils.keychainDeviceUUID
+        print("uuid:\(uuid ?? "")")
+        let m1 = WorkModel()
+        m1.userId = "1"
+        m1.drawWorkId = 2
+        let m2 = WorkModel()
+        m2.userId = "1"
+        m2.drawWorkId = 2
+        if m1 == m2{
+            print("相同")
+        }else{
+            print("不相同")
+        }
+        stackView = UIStackView(frame: CGRect.init(x: 15, y: 40, width: 350, height: 30))
+        stackView.axis = .horizontal///水平方向
+        stackView.spacing = 10.0///每个view间距
+        stackView.distribution = .fillEqually///等宽
+        stackView.backgroundColor = .red
+        view.addSubview(stackView)
+        let label1 = UILabel()
+        label1.backgroundColor = .random
+        label1.text = "label1"
+        let label2 = UILabel()
+        label2.backgroundColor = .random
+        label2.text = "label2"
+        let label3 = UILabel()
+        label3.backgroundColor = .random
+        label3.text = "label3"
         
-        let uudi = Utils.keychainDeviceUUID
-        print("uudi:\(uudi)")
+        stackView.addArrangedSubview(label1)
+        stackView.addArrangedSubview(label2)
+        stackView.addArrangedSubview(label3)
+        let AppScreenWidth = UIScreen.main.bounds.width
+        let AppScreenHeight = UIScreen.main.bounds.height
+        print("\(AppScreenWidth),--\(AppScreenHeight)")
     }
     func safeArea(_ direct:SafeDirect) -> CGFloat{
         if #available(iOS 13.0, *) {
@@ -73,7 +95,12 @@ class ViewController: UIViewController {
         return 0
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        UIView.animate(withDuration: 0.25) {
+            let label3 = UILabel()
+            label3.backgroundColor = .random
+            label3.text = "label3"
+            self.stackView.addArrangedSubview(label3)
+        }
     }
     @objc func buttonAction(_ sender:DOFavoriteButton) {
         if sender.isSelected {

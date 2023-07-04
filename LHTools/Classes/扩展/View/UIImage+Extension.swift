@@ -13,7 +13,7 @@ extension UIImage{
 
     // 选择图片的时候，直接用.name("")
     // 例如 imgView.image = .name("123")
-    open class func name(_ name:String) -> UIImage? {
+    public class func name(_ name:String) -> UIImage? {
         return UIImage(named: name)
     }
     
@@ -169,7 +169,7 @@ extension UIImage{
             Hud.showText(lhSuccessfullySaved)
             return
         }
-        lh.judgeAlbumPower()
+        let _ = lh.judgeAlbumPower()
     }
     ///生成带渐变色的图片
     public static func gradientImageWithBounds(bounds: CGRect, colors: [CGColor]) -> UIImage {

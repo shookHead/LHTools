@@ -12,12 +12,12 @@ extension UILabel{
     ///拿到文本宽度，默认一行
     public func getLabelWidth(maxSize: CGSize = CGSize(width: 10000, height: 0)) -> CGFloat {
         let size = stringSize(maxSize: maxSize)
-        return size.width
+        return ceil(size.width)
     }
     ///拿到文本高度
     public func getLabelHeight(maxSize: CGSize) -> CGFloat {
         let size = stringSize(maxSize: maxSize)
-        return size.height
+        return ceil(size.height)
     }
     ///计算UILabel宽高
     public func stringSize(maxSize: CGSize) -> CGSize {
@@ -30,7 +30,7 @@ extension UILabel{
         }
         let singleSize = lhGood.boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
         let h = size.height > CGFloat(numberOfLines) * singleSize.height ? CGFloat(numberOfLines) * singleSize.height:size.height
-        return CGSize(width: size.width, height: h)
+        return CGSize(width: ceil(size.width), height: ceil(h))
     }
     ///此方法需先设置宽度
     public func stringGetHeight(minH:CGFloat? = nil) -> CGFloat {
@@ -42,10 +42,11 @@ extension UILabel{
             if let minHeight = minH {
                 return size.height < minHeight ? minHeight:size.height
             }
-            return size.height
+            return ceil(size.height)
         }
         let singleSize = lhGood.boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
-        let h = size.height > CGFloat(numberOfLines) * singleSize.height ? CGFloat(numberOfLines) * singleSize.height:size.height
+        var h = size.height > CGFloat(numberOfLines) * singleSize.height ? CGFloat(numberOfLines) * singleSize.height:size.height
+        h = ceil(h)
         if let minHeight = minH {
             return h < minHeight ? minHeight:h
         }
@@ -59,7 +60,8 @@ extension UILabel{
         var textDict:[NSAttributedString.Key : Any] = [:]
         textDict[.font] = self.font
         textDict[.paragraphStyle] = paraStyle
-        return textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textDict, context: nil).size
+        let size = textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textDict, context: nil).size
+        return CGSize(width: ceil(size.width), height: ceil(size.height))
     }
     ///拿到最后一个文字的位置
     public func getLast(width:CGFloat) -> CGPoint{

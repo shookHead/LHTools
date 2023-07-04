@@ -37,7 +37,7 @@ extension UIView{
         }
     }
     
-    open var x:CGFloat{
+    public var x:CGFloat{
         get{
             return self.frame.origin.x
         }
@@ -45,7 +45,7 @@ extension UIView{
             self.frame.origin.x = newValue
         }
     }
-    open var y:CGFloat{
+    public var y:CGFloat{
         get{
             return self.frame.origin.y
         }
@@ -53,7 +53,7 @@ extension UIView{
             self.frame.origin.y = newValue
         }
     }
-    open var w:CGFloat{
+    public var w:CGFloat{
         get{
             return self.frame.width
         }
@@ -61,7 +61,7 @@ extension UIView{
             self.frame.size.width = newValue
         }
     }
-    open var h:CGFloat{
+    public var h:CGFloat{
         get{
             return self.frame.height
         }
@@ -70,7 +70,7 @@ extension UIView{
         }
     }
     
-    open var centerX:CGFloat{
+    public var centerX:CGFloat{
         get{
             return self.center.x
         }
@@ -78,7 +78,7 @@ extension UIView{
             self.center.x = newValue
         }
     }
-    open var centerY:CGFloat{
+    public var centerY:CGFloat{
         get{
             return self.center.y
         }
@@ -86,10 +86,10 @@ extension UIView{
             self.center.y = newValue
         }
     }
-    open var maxY:CGFloat{
+    public var maxY:CGFloat{
         return self.frame.maxY
     }
-    open var maxX:CGFloat{
+    public var maxX:CGFloat{
         return self.frame.maxX
     }
 }

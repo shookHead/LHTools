@@ -24,18 +24,16 @@ public class Hud: NSObject {
         if view == nil{
             return
         }
-        if KScreenWidth <= 375 {
-            
-        }else{
-            
-        }
         let maxW = KScreenWidth - 103.0
-        let size = text!.stringSize(text, font: UIFont.boldSystemFont(ofSize: 16), maxSize: CGSize(width: maxW, height: 1000), mode: .byWordWrapping)
-        print(size)
-        let margin = KScreenWidth > 375 ? 2.0:12.0
-        if size.width >= (maxW - margin) {
-            showDetailText("", text,in:view)
-        }else{
+        let lab = UILabel()
+        lab.textAlignment = .center
+        lab.font = UIFont.systemFont(ofSize: 16)
+        lab.text = text
+        let size1 = lab.stringSize(maxSize: CGSize(width: maxW, height: 1000))
+        lab.numberOfLines = 0
+        let size2 = lab.stringSize(maxSize: CGSize(width: maxW, height: 1000))
+
+        if size2.height == size1.height{
             if Thread.isMainThread {
                 self.showHudInView(view: view)
                 hud.mode = MBProgressHUDMode.text
@@ -49,6 +47,8 @@ public class Hud: NSObject {
                     hud.hide(animated: true, afterDelay: dismissTime)
                 }
             }
+        }else{
+            showDetailText("", text,in:view)
         }
     }
     public static func showDetailText(_ text:String?,_ detailText:String?,in view:UIView! = UIApplication.shared.windows.first {$0.isKeyWindow})  {

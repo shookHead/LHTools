@@ -24,7 +24,7 @@ extension UIButton{
     }
 
 
-    open var isUploading:Bool{
+    public var isUploading:Bool{
         if let v = self.viewWithTag(progressTag){
             if v.alpha == 0{
                 return false

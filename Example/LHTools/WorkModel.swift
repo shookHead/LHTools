@@ -12,12 +12,15 @@ import HandyJSON
 import LHTools
 import UIKit
 class WorkModel :HandyJSON,Equatable{
+//    static func == (lhs: WorkModel, rhs: WorkModel) -> Bool {
+//        var lhsHasher = Hasher()
+//        var rhsHasher = Hasher()
+//        lhs.hash(into: &lhsHasher)
+//        rhs.hash(into: &rhsHasher)
+//        return lhsHasher.finalize() == rhsHasher.finalize()
+//    }
     static func == (lhs: WorkModel, rhs: WorkModel) -> Bool {
-        var lhsHasher = Hasher()
-        var rhsHasher = Hasher()
-        lhs.hash(into: &lhsHasher)
-        rhs.hash(into: &rhsHasher)
-        return lhsHasher.finalize() == rhsHasher.finalize()
+        return lhs.userId == rhs.userId && lhs.drawWorkId == rhs.drawWorkId
     }
     func hash(into hasher: inout Hasher) {
         hasher.combine(drawWorkId)

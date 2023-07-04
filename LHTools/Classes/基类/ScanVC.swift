@@ -30,7 +30,7 @@ open class ScanVC: BaseVC {
         let img = #imageLiteral(resourceName: "fanhui").withRenderingMode(.alwaysTemplate)
         btn.setImage(img, for: .normal)
         btn.tintColor = .white
-        btn.addTarget(self, action: #selector(back), for: .touchUpInside)
+        btn.addTarget(ScanVC.self, action: #selector(back), for: .touchUpInside)
         v.addSubview(btn)
         return v
     }()
@@ -46,7 +46,7 @@ open class ScanVC: BaseVC {
         let img = #imageLiteral(resourceName: "scan-light").withRenderingMode(.alwaysTemplate)
         btn.setImage(img, for: .normal)
         btn.tintColor = .white
-        btn.addTarget(self, action: #selector(openLight), for: .touchUpInside)
+        btn.addTarget(ScanVC.self, action: #selector(openLight), for: .touchUpInside)
         return btn
     }()
     public var albumBtn:UIButton = {
@@ -54,7 +54,7 @@ open class ScanVC: BaseVC {
         let img = #imageLiteral(resourceName: "scan-album").withRenderingMode(.alwaysTemplate)
         btn.setImage(img, for: .normal)
         btn.tintColor = .white
-        btn.addTarget(self, action: #selector(albumBtnAction), for: .touchUpInside)
+        btn.addTarget(ScanVC.self, action: #selector(albumBtnAction), for: .touchUpInside)
         return btn
     }()
     
@@ -244,15 +244,15 @@ open class ScanVC: BaseVC {
                 if let layerRect = previewLayer?.bounds{
                     switch orientation {
                     case .landscapeLeft:
-                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: M_PI + M_PI_2))// 270 degrees
-                        stuckview?.bounds = CGRect(x: 0, y: 0, width: layerRect.size.height ?? 0, height: layerRect.size.width ?? 0)
+                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: .pi + .pi/2))// 270 degrees
+                        stuckview?.bounds = CGRect(x: 0, y: 0, width: layerRect.size.height, height: layerRect.size.width )
                         print("1")
                     case .landscapeRight:
-                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: M_PI_2))// 90 degrees
-                        stuckview?.bounds = CGRect(x: 0, y: 0, width: layerRect.size.height ?? 0, height: layerRect.size.width ?? 0)
+                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: .pi/2))// 90 degrees
+                        stuckview?.bounds = CGRect(x: 0, y: 0, width: layerRect.size.height , height: layerRect.size.width )
                         print("2")
                     case .portraitUpsideDown:
-                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: M_PI))// 180 degrees
+                        stuckview?.setAffineTransform(CGAffineTransform(rotationAngle: .pi))// 180 degrees
                         stuckview?.bounds = layerRect
                         print("3")
                     default:

@@ -31,10 +31,9 @@ extension Dictionary {
     }
     
     public func getJsonStr() -> String?{
-        let data = try? JSONSerialization.data(withJSONObject: self, options: [])
-        if data != nil{
-            let strJson = String(data: data!, encoding: String.Encoding.utf8)
-            return strJson
+        if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions()) {
+            let jsonStr = String(data: jsonData, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+            return String(jsonStr ?? "")
         }
         return nil
     }
@@ -62,6 +61,13 @@ extension Dictionary {
     ///        dict.has(key: "anotherKey") -> false
     func has(key: Key) -> Bool {
         return index(forKey: key) != nil
+    }
+    
+    /// 字典的key或者value组成的数组
+    /// - Parameter map: map
+    /// - Returns: 数组
+    func toArray<V>(_ map: (Key, Value) -> V) -> [V] {
+        return self.map(map)
     }
 }
 

@@ -28,7 +28,7 @@ extension String{
         let attributes = [NSAttributedString.Key.font:font]
         let option = NSStringDrawingOptions.usesLineFragmentOrigin
         let rect:CGRect = self.boundingRect(with: CGSize(width: 2000.0, height: fontSize*1.4), options: option, attributes: attributes, context: nil)
-        return rect.size.width
+        return ceil(rect.size.width)
     }
     
     public func stringHeight(_ fontSize:CGFloat, width:CGFloat) -> CGFloat{
@@ -42,7 +42,7 @@ extension String{
         }else{
             rect = " ".boundingRect(with: CGSize(width: width, height: 2000), options: option, attributes: attributes, context: nil)
         }
-        return rect.size.height
+        return ceil(rect.size.height)
     }
     public func stringHeight(_ font:UIFont, width:CGFloat) -> CGFloat{
         let font:UIFont = font
@@ -54,19 +54,34 @@ extension String{
         }else{
             rect = " ".boundingRect(with: CGSize(width: width, height: 2000), options: option, attributes: attributes, context: nil)
         }
-        return rect.size.height
+        return ceil(rect.size.height)
     }
     public func stringSize(_ text: String?, font: UIFont, maxSize: CGSize, mode: NSLineBreakMode) -> CGSize {
         guard let textTemp = text, textTemp.count > 0 else {
             return CGSize.zero
         }
-        return textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).size
+        let size = textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).size
+        return CGSize(width: ceil(size.width), height: ceil(size.height))
     }
     public func stringSize(font: UIFont, maxSize: CGSize) -> CGSize {
         guard self.count > 0 else {
             return CGSize.zero
         }
-        return self.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).size
+        let size = self.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil).size
+        return CGSize(width: ceil(size.width), height: ceil(size.height))
+    }
+    ///建议使用这个
+    func boundingRect(font: UIFont, limitSize: CGSize) -> CGSize {
+        let style = NSMutableParagraphStyle()
+        style.lineBreakMode = .byCharWrapping
+        
+        let att = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: style]
+        
+        let attContent = NSMutableAttributedString(string: self, attributes: att)
+        
+        let size = attContent.boundingRect(with: limitSize, options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).size
+        
+        return CGSize(width: ceil(size.width), height: ceil(size.height))
     }
 }
 

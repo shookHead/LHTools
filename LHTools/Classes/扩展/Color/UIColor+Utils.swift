@@ -25,26 +25,26 @@ extension UIColor {
 
 extension UIColor {
     
-    open class var maskView: UIColor    { return UIColor.black.withAlphaComponent(0.45)}
+    public class var maskView: UIColor    { return UIColor.black.withAlphaComponent(0.45)}
     
-    open class var KBlue: UIColor       { return #colorLiteral(red: 0.1274686485, green: 0.5686141059, blue: 0.9647058824, alpha: 1) }
-    open class var KRed: UIColor        { return #colorLiteral(red: 0.9803921569, green: 0.333299367, blue: 0.3461571215, alpha: 1) }
-    open class var KOrange: UIColor     { return #colorLiteral(red: 1, green: 0.3843137255, blue: 0.231372549, alpha: 1) }
+    public class var KBlue: UIColor       { return #colorLiteral(red: 0.1274686485, green: 0.5686141059, blue: 0.9647058824, alpha: 1) }
+    public class var KRed: UIColor        { return #colorLiteral(red: 0.9803921569, green: 0.333299367, blue: 0.3461571215, alpha: 1) }
+    public class var KOrange: UIColor     { return #colorLiteral(red: 1, green: 0.3843137255, blue: 0.231372549, alpha: 1) }
     
-    open class var KTextBlack: UIColor  { return #colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.2588235294, alpha: 1) }
-    open class var KTextGray: UIColor   { return #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) }
-    open class var KTextLightGray: UIColor { return #colorLiteral(red: 0.7176470588, green: 0.7176470588, blue: 0.7176470588, alpha: 1) }
-    open class var KBGGray: UIColor     { return #colorLiteral(red: 0.9647058824, green: 0.9764705882, blue: 0.9882352941, alpha: 1) }
-    open class var KBGGrayLine: UIColor { return #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1) }
+    public class var KTextBlack: UIColor  { return #colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.2588235294, alpha: 1) }
+    public class var KTextGray: UIColor   { return #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) }
+    public class var KTextLightGray: UIColor { return #colorLiteral(red: 0.7176470588, green: 0.7176470588, blue: 0.7176470588, alpha: 1) }
+    public class var KBGGray: UIColor     { return #colorLiteral(red: 0.9647058824, green: 0.9764705882, blue: 0.9882352941, alpha: 1) }
+    public class var KBGGrayLine: UIColor { return #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1) }
     
     /// RGB 0～255
-    open class func rgb(_ red:CGFloat, _ green:CGFloat, _ blue:CGFloat) -> UIColor {
+    public class func rgb(_ red:CGFloat, _ green:CGFloat, _ blue:CGFloat) -> UIColor {
         return UIColor.init(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1)
     }
     
     
     /// 支持“#”， 三位"FFF"，六位"FFFFFF"
-    open class func hex(_ hex:String) -> UIColor {
+    public class func hex(_ hex:String) -> UIColor {
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {

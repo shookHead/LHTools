@@ -20,7 +20,8 @@ public extension String{
         //去除字符串之间的空格
         return string.replacingOccurrences(of: " ", with: "")
     }
-
+    
+    ///此方法弃用请使用jsonToDictionary
     func getJsonDic() -> Any?{
         if self.count == 0{
             return nil
@@ -28,6 +29,16 @@ public extension String{
         let data = self.data(using: .utf8)
         let result = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
         return result
+    }
+    //JSON字符串 -> 字典
+    func jsonToDictionary() -> Dictionary<String, Any>? {
+        if let data = (try? JSONSerialization.jsonObject(
+            with: self.data(using: String.Encoding.utf8,allowLossyConversion: true)!,
+            options: JSONSerialization.ReadingOptions.mutableContainers)) as? Dictionary<String, Any> {
+            return data
+        } else {
+            return nil
+        }
     }
     ///隐藏中间部分电话号码
     func hideFourPhoneNum() -> String{
