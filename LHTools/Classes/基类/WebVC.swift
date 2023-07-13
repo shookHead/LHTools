@@ -44,7 +44,8 @@ open class WebVC: BaseVC ,WKNavigationDelegate{
 //        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
         if urlString != nil{
-            var newStr = urlString!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
+//            var newStr = urlString!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
+            var newStr = urlString!
             if !urlString!.contains(".html"){
                 if cache[.sessionId] != nil{
                     let userId = cache[.userId]!
