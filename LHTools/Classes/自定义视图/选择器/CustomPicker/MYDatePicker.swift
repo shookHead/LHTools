@@ -24,7 +24,7 @@ open class MYDatePicker: BMBasePicker {
                 result.append(componentsArray[i][index])
                 formate.append(dateFormateArr[i])
             }
-            return result.toDate(formate)
+            return result.toDate(formate)!
         }
         set{
             for i in 0..<componentsArray.count {

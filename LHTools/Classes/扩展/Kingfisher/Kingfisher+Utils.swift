@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+public typealias ImageResource = Kingfisher.ImageResource
 extension Optional where Wrapped == String{
     public var resource:ImageResource?{
         if self == nil{
