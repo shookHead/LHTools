@@ -173,6 +173,22 @@ public struct lh{
         }
         lh.getWindow()?.rootViewController?.present(alert, animated: false, completion: nil)
     }
+    public var activeWindow: UIWindow? {
+        if #available(iOS 13.0, *) {
+            // 获取连接的 Scenes
+            return UIApplication.shared.connectedScenes
+            // 过滤出活跃的 Scenes
+                .filter({ $0.activationState == .foregroundActive || $0.activationState == .foregroundInactive })
+            // 过滤出第一个 'UIWindowScene'
+                .first(where: { $0 is UIWindowScene })
+            // 获取 'UIWindowScene' 关联的 windows
+                .flatMap({ $0 as? UIWindowScene })?.windows
+            // 获取 'windows' 的 keyWindow
+                .first(where: \.isKeyWindow)
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
     /// 取最顶层的ViewController
     public static func topMost(of viewController: UIViewController? = lh.getWindow()?.rootViewController) -> UIViewController? {
         // presented view controller

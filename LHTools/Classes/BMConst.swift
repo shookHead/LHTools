@@ -114,5 +114,17 @@ public func lhPrint(_ items: Any..., separator: String = " ", terminator: String
 }
 
 
+//协议 WsReusable 包含一个只读的属性 identifier，这个属性返回的是一个遵循该协议的类的类名的字符串儿
+public protocol WsReusable: AnyObject {
+    static var identifier: String { get }
+}
+extension WsReusable {
+    public static var identifier: String {
+        // 这里的 describing 可以变成 reflecting ，reflecting
+        // 更加完整的表述了类名
+        return String(describing: Self.self)
+    }
+}
+
 
 

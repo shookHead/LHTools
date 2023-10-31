@@ -142,6 +142,9 @@ TODO: Add long description of the pod here.
       ss.subspec 'VideoPlayer' do |sss|
           sss.source_files = 'LHTools/Classes/工具类/VideoPlayer/**/*.swift'
       end
+      ss.subspec 'AuthorizationManager' do |sss|
+          sss.source_files = 'LHTools/Classes/工具类/AuthorizationManager/**/*.swift'
+      end
       ss.subspec 'Utils' do |sss|
           sss.source_files = 'LHTools/Classes/工具类/Utils/**/*.swift'
       end

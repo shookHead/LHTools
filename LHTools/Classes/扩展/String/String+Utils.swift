@@ -198,7 +198,23 @@ extension String{
         formatter.locale = Locale.init(identifier: "zh_CN")
         formatter.dateFormat = fromFormate
         let date = formatter.date(from: self)
-        let s = date?.toString(toFormate)
-        return s!
+        let s = date?.toString(toFormate) ?? ""
+        return s
+    }
+}
+
+// MARK: -  ---------------------- 图片大小相关 ------------------------
+extension String{
+    public func getImageSize(block: @escaping (CGSize)->()) {
+        var size = CGSize.zero
+        if let url =  URL(string: self){
+            let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil)
+            if let result = CGImageSourceCopyPropertiesAtIndex(imageSource!, 0, nil) as? Dictionary<String, Any> {
+                if let width = result["PixelWidth"] as? CGFloat, let height = result["PixelHeight"] as? CGFloat {
+                    size = CGSize(width: width, height: height)
+                }
+                block(size)
+            }
+        }
     }
 }

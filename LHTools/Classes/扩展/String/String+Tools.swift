@@ -73,5 +73,15 @@ public extension String{
         self = String(chars)
         return self
     }
-    
+    ///将字符串转HTML 用法htmlLabel.attributedText = htmlString.htmlAttributedString()
+    func htmlAttributedString() -> NSAttributedString? {
+        guard let data = self.data(using: .utf8) else {
+            return nil
+        }
+        return try? NSAttributedString(
+            data: data,
+            options: [.documentType: NSAttributedString.DocumentType.html],
+            documentAttributes: nil
+        )
+    }
 }

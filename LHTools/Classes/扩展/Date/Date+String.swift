@@ -10,14 +10,14 @@ import Foundation
 
 extension String{
     /// "yyyy-MM-dd HH:mm:ss"  ->   Date()  字符串转时间
-    public func toDate(_ dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> Date!{
+    public func toDate(_ dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> Date?{
         let str:String = self
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat
         formatter.timeZone = TimeZone.init(identifier: "Asia/Shanghai")
         formatter.locale = Locale.init(identifier: "zh_CN")
         let date = formatter.date(from: str)
-        return date!
+        return date
     }
     
     /// "yyyy-MM-dd HH:mm:ss"  ->  1348747434  字符串转时间戳
@@ -45,8 +45,8 @@ extension String{
             return ""
         }
         let date = self.toDate(fromFormate)
-        let s = date?.toString(toFormate)
-        return s!
+        let s = date?.toString(toFormate) ?? ""
+        return s
     }
     
     

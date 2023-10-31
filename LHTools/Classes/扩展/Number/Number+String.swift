@@ -13,6 +13,18 @@ extension Int{
     public func toString() -> String?{
         return String(self)
     }
+    //转时间格式
+    public func convertTimeIntervalToHHMMSS() -> String {
+        if self == 0{
+            return "00:00:00"
+        }
+        let timeInterval = TimeInterval(self)
+        let date = Date(timeIntervalSince1970: timeInterval)
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "HH:mm:ss"
+        return formatter.string(from: date)
+    }
 }
 
 // MARK: -  ---------------------- 转换 ------------------------

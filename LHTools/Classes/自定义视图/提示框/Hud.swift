@@ -24,31 +24,18 @@ public class Hud: NSObject {
         if view == nil{
             return
         }
-        let maxW = KScreenWidth - 103.0
-        let lab = UILabel()
-        lab.textAlignment = .center
-        lab.font = UIFont.systemFont(ofSize: 16)
-        lab.text = text
-        let size1 = lab.stringSize(maxSize: CGSize(width: maxW, height: 1000))
-        lab.numberOfLines = 0
-        let size2 = lab.stringSize(maxSize: CGSize(width: maxW, height: 1000))
-
-        if size2.height == size1.height{
-            if Thread.isMainThread {
+        if Thread.isMainThread {
+            self.showHudInView(view: view)
+            hud.mode = MBProgressHUDMode.text
+            hud.label.text = text
+            hud.hide(animated: true, afterDelay: dismissTime)
+        }else{
+            DispatchQueue.main.async {
                 self.showHudInView(view: view)
                 hud.mode = MBProgressHUDMode.text
                 hud.label.text = text
                 hud.hide(animated: true, afterDelay: dismissTime)
-            }else{
-                DispatchQueue.main.async {
-                    self.showHudInView(view: view)
-                    hud.mode = MBProgressHUDMode.text
-                    hud.label.text = text
-                    hud.hide(animated: true, afterDelay: dismissTime)
-                }
             }
-        }else{
-            showDetailText("", text,in:view)
         }
     }
     public static func showDetailText(_ text:String?,_ detailText:String?,in view:UIView! = UIApplication.shared.windows.first {$0.isKeyWindow})  {
@@ -125,6 +112,7 @@ public class Hud: NSObject {
             hud.removeFromSuperview()
         }
         hud = MBProgressHUD(view: view)
+        hud.label.numberOfLines = 0
         hud.isOpaque = true//半透明
         hud.contentColor = UIColor.white
         hud.bezelView.color = UIColor(red: 60/255.0, green: 60/255.0, blue: 60/255.0, alpha: 1)

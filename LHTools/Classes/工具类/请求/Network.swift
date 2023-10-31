@@ -121,6 +121,7 @@ public class BMNetwork{
     //可以通过 BMNetwork.imgUplodeApi = “”修改
     public static var imgUplodeApi = "https://img.163.gg/YmUpload_image"
     public static var videoUplodeApi = "https://img.163.gg/YmUpload_videoFile"
+    public static var audioUplodeApi = "https://img.163.gg/YmUpload_soundFile"
 
     public func upload(_ img:UIImage, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ imgUrl:String?)->()){
         let newImg = img.fixOrientation()//防止图片被旋转
@@ -175,6 +176,68 @@ public class BMNetwork{
         let name = "\(Date().toTimeInterval())" + ".mp4"
         let request = AF.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(fileData, withName: "file", fileName: name, mimeType: "video/mp4")
+        }, to: api, method: .post)
+        request.uploadProgress { (progress) in
+            DispatchQueue.global().async {
+                uploading?(progress.fractionCompleted)
+                print("progress",progress.fractionCompleted)
+            }
+        }
+        request.responseJSON { (response) in
+            DispatchQueue.global().async {
+                switch response.result {
+                case .success:
+                    DispatchQueue.main.async {
+                        var url:String!
+                        defer {
+                            finish(url)
+                        }
+                        let json = String(data: response.data!, encoding: String.Encoding.utf8)
+                        if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
+                            if resp.code == 1{
+                                let data = resp.data
+                                if let urlStr = data?["url"] as? String{
+                                    print(urlStr)
+                                    url = urlStr
+                                }
+                            }
+                        }
+                    }
+                    
+                case .failure:
+                    let statusCode = response.response?.statusCode
+                    print(response.response as Any,statusCode as Any)
+                    finish(nil)
+                }
+            }
+        }
+    }
+    public func uploadAudio(_ file:String, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ fileUrl:String?)->()){
+        guard let fileData = FileManager.default.contents(atPath: file) else {
+            finish(nil)
+            return
+        }
+        let nsString = file as NSString
+        let str = nsString.pathExtension
+        var nameExtensionStr = ".mp3"
+        var mimeTypeStr = "audio/mp3"
+        if str == "aac"{
+            nameExtensionStr = ".aac"
+            mimeTypeStr = "audio/aac"
+        }else if str == "aiff"{
+            nameExtensionStr = ".aiff"
+            mimeTypeStr = "audio/aiff"
+        }else if str == "wav"{
+            nameExtensionStr = ".wav"
+            mimeTypeStr = "audio/wav"
+        }else if str == "m4a"{
+            nameExtensionStr = ".m4a"
+            mimeTypeStr = "audio/mp4"
+        }
+        let api = BMNetwork.audioUplodeApi
+        let name = "\(Date().toTimeInterval())" + nameExtensionStr
+        let request = AF.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(fileData, withName: "file", fileName: name, mimeType: mimeTypeStr)
         }, to: api, method: .post)
         request.uploadProgress { (progress) in
             DispatchQueue.global().async {

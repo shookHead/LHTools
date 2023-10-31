@@ -20,8 +20,11 @@ public enum BMVCDismissType {
 open class BaseVC: UIViewController {
     
     // MARK:  ----------- UI样式 -----------
+    /// 全局navi内容主题色（默认nil，与系统默认保持一致）
+    public static var global_hideNavBottonLine:Bool! = nil
     /// 隐藏导航栏下面的黑线
-    public var hideNavBottonLine:Bool!
+    public var hideNavBottonLine:Bool! = global_hideNavBottonLine
+
     /// 隐藏导航栏
     public var hideNav = false
     /// 是否可以侧划返回
@@ -354,13 +357,13 @@ extension BaseVC {
 
 // MARK:  自定义UI Create方法
 extension UIViewController {
-    public func barItem(_ target:(Any), title:String, imgName:String?, action:Selector , color:UIColor = #colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.2588235294, alpha: 1)) -> UIBarButtonItem {
-        let btn = self.barBtn(target, title: title, imgName: imgName, action: action, color: color)
+    public func barItem(_ target:(Any), title:String, imgName:String?, action:Selector , color:UIColor = #colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.2588235294, alpha: 1),isOriginal:Bool = false) -> UIBarButtonItem {
+        let btn = self.barBtn(target, title: title, imgName: imgName, action: action, color: color,isOriginal: isOriginal)
         let item = UIBarButtonItem(customView: btn)
         return item
     }
     
-    public func barBtn(_ target:(Any), title:String, imgName:String?, action:Selector , color:UIColor = #colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.2588235294, alpha: 1)) -> UIButton {
+    public func barBtn(_ target:(Any), title:String, imgName:String?, action:Selector , color:UIColor = #colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.2588235294, alpha: 1),isOriginal:Bool = false) -> UIButton {
         let btn = UIButton(type: .custom)
         btn.tintColor = color
         btn.addTarget(target, action: action, for: .touchUpInside)
@@ -374,7 +377,12 @@ extension UIViewController {
         
         btn.frame = CGRect(x: 0, y: 0, width: w, height: 44)
         if imgName != nil {
-            let img = UIImage(named:imgName!)?.withRenderingMode(.alwaysTemplate)
+            var img:UIImage?
+            if isOriginal{
+                img = UIImage(named:imgName!)
+            }else{
+                img = UIImage(named:imgName!)?.withRenderingMode(.alwaysTemplate)
+            }
             btn.setImage(img, for: .normal)
         }
         btn.setTitle(title, for: .normal)

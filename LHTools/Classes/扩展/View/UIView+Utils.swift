@@ -235,3 +235,14 @@ public extension UIView {
         layer.add(animation, forKey: "swifty_shake")
     }
 }
+public extension UIView {
+    //是否在当前页面显示
+    var isVisible: Bool {
+        if let window = UIApplication.shared.keyWindow {
+            let viewFrame = convert(bounds, to: window)
+            let intersects = viewFrame.intersects(window.bounds)
+            return !isHidden && alpha > 0 && window == self.window && intersects
+        }
+        return false
+    }
+}
