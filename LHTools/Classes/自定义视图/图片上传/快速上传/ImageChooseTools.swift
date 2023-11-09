@@ -85,6 +85,7 @@ public extension UIViewController{
         config.allowSelectVideo = false
         config.allowSelectGif = false
         config.allowEditImage = false
+        config.allowSelectImage = true
         config.allowSelectOriginal = true
         config.allowPreviewPhotos = true
     }

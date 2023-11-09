@@ -126,10 +126,10 @@ public class BMNetwork{
     public func upload(_ img:UIImage, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ imgUrl:String?)->()){
         let newImg = img.fixOrientation()//防止图片被旋转
         let api = BMNetwork.imgUplodeApi
-        let imageData = newImg.jpegData(compressionQuality: BMNetwork.quality)
-        let name = "\(Date().toTimeInterval())" + ".jpeg"
+        let imageData = newImg.pngData()
+        let name = "\(Date().toTimeInterval())" + ".png"
         let request = AF.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(imageData!, withName: "file", fileName: name, mimeType: "image/jpeg")
+            multipartFormData.append(imageData!, withName: "file", fileName: name, mimeType: "image/png")
         }, to: api, method: .post)
         request.uploadProgress { (progress) in
             DispatchQueue.global().async {
