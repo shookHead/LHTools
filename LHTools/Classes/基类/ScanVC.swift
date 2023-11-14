@@ -22,16 +22,16 @@ open class ScanVC: BaseVC {
     }
     public var holeRect:CGRect!
     
-    public var naviView:UIView = {
-        let v = UIView(frame: CGRect(x: 0, y: 0, width: KScreenWidth, height: KNaviBarH))
-        v.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6044234155)
-        
+    lazy var backBtn: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: KNaviBarH-44, width: 60, height: 44))
         let img = #imageLiteral(resourceName: "fanhui").withRenderingMode(.alwaysTemplate)
         btn.setImage(img, for: .normal)
         btn.tintColor = .white
-        btn.addTarget(ScanVC.self, action: #selector(back), for: .touchUpInside)
-        v.addSubview(btn)
+        return btn
+    }()
+    public var naviView:UIView = {
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: KScreenWidth, height: KNaviBarH))
+        v.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6044234155)
         return v
     }()
     
@@ -46,7 +46,6 @@ open class ScanVC: BaseVC {
         let img = #imageLiteral(resourceName: "scan-light").withRenderingMode(.alwaysTemplate)
         btn.setImage(img, for: .normal)
         btn.tintColor = .white
-        btn.addTarget(ScanVC.self, action: #selector(openLight), for: .touchUpInside)
         return btn
     }()
     public var albumBtn:UIButton = {
@@ -54,7 +53,6 @@ open class ScanVC: BaseVC {
         let img = #imageLiteral(resourceName: "scan-album").withRenderingMode(.alwaysTemplate)
         btn.setImage(img, for: .normal)
         btn.tintColor = .white
-        btn.addTarget(ScanVC.self, action: #selector(albumBtnAction), for: .touchUpInside)
         return btn
     }()
     
@@ -97,7 +95,9 @@ open class ScanVC: BaseVC {
                 lh.judgeAppSetting()
             })
         }
-        
+        backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
+        lightBtn.addTarget(self, action: #selector(openLight), for: .touchUpInside)
+        albumBtn.addTarget(self, action: #selector(albumBtnAction), for: .touchUpInside)
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -132,6 +132,7 @@ open class ScanVC: BaseVC {
         sliderView.frame = CGRect(x: 0, y: -30, width: holeH, height: 30)
         slideBGView.addSubview(sliderView)
         
+        naviView.addSubview(backBtn)
         naviView.addSubview(lightBtn)
         naviView.addSubview(albumBtn)
         self.view.addSubview(naviView)

@@ -17,7 +17,6 @@ open class BMBasePicker: UIView {
         let btn         = UIButton(type: .custom)
         btn.frame       = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         btn.backgroundColor = .maskView
-        btn.addTarget(BMBasePicker.self, action: #selector(close), for: .touchUpInside)
         return btn
     }()
     
@@ -27,7 +26,6 @@ open class BMBasePicker: UIView {
         btn.setTitle(lhDetermineSpace, for: .normal)
         btn.backgroundColor     = BMBasePicker.tintColor
         btn.titleLabel?.font    = UIFont.systemFont(ofSize: 16)
-        btn.addTarget(BMBasePicker.self, action: #selector(comfirm), for: .touchUpInside)
         return btn
     }()
     
@@ -65,6 +63,9 @@ open class BMBasePicker: UIView {
     init(){
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         backgroundColor = .clear
+        bgMaskView.addTarget(self, action: #selector(close), for: .touchUpInside)
+        confirmBtn.addTarget(self, action: #selector(comfirm), for: .touchUpInside)
+
 
         pickerView.delegate = self
         pickerView.dataSource = self

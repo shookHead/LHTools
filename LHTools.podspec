@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/shookHead/LHTools.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '12.0'
   s.swift_version          = '5.0'
   
 #  s.source_files = 'LHTools/Classes/**/*.swift'
@@ -171,7 +171,7 @@ TODO: Add long description of the pod here.
       end
   end
   
-   s.public_header_files = 'Pod/Classes/**/*.h'
+    s.public_header_files = 'Pod/Classes/**/*.h'
     s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
     s.dependency 'Alamofire'
     s.dependency 'Kingfisher'
