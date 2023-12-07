@@ -16,7 +16,7 @@
     "tag": "0.0.1"
   },
   "platforms": {
-    "ios": "11.0"
+    "ios": "12.0"
   },
   "swift_versions": "5.0",
   "source_files": [
@@ -217,6 +217,10 @@
         {
           "name": "VideoPlayer",
           "source_files": "LHTools/Classes/工具类/VideoPlayer/**/*.swift"
+        },
+        {
+          "name": "AuthorizationManager",
+          "source_files": "LHTools/Classes/工具类/AuthorizationManager/**/*.swift"
         },
         {
           "name": "Utils",

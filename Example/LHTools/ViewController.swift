@@ -33,11 +33,22 @@ class GroupActivityModel: HandyJSON {
 class ViewController: UIViewController {
     var camer = CamerView()
     var stackView:UIStackView!
+    var camerV:CamerView! = {
+        let v = CamerView()
+        //        v.maxCount = 8
+        v.backgroundColor = .clear
+        v.canMove = true
+        v.canShowBigImage = true
+        v.frame = CGRect(x: 0, y: 100, width: KScreenWidth, height: 300)
+        v.edg = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        return v
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         let array: [Int] = [1, 1, 3, 3, 2, 2]
         let arr = array.unique
         print(arr)
+        view.addSubview(camerV)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        UIView.animate(withDuration: 0.25) {

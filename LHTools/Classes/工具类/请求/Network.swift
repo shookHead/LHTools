@@ -126,7 +126,7 @@ public class BMNetwork{
     public func upload(_ img:UIImage, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ imgUrl:String?)->()){
         let newImg = img.fixOrientation()//防止图片被旋转
         let api = BMNetwork.imgUplodeApi
-        let imageData = newImg.pngData()
+        let imageData = newImg.cycleCompressDataSize(maxSize: 1024 * 1024 * 3)
         let name = "\(Date().toTimeInterval())" + ".png"
         let request = AF.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(imageData!, withName: "file", fileName: name, mimeType: "image/png")
@@ -230,9 +230,6 @@ public class BMNetwork{
         }else if str == "wav"{
             nameExtensionStr = ".wav"
             mimeTypeStr = "audio/wav"
-        }else if str == "m4a"{
-            nameExtensionStr = ".m4a"
-            mimeTypeStr = "audio/mp4"
         }
         let api = BMNetwork.audioUplodeApi
         let name = "\(Date().toTimeInterval())" + nameExtensionStr

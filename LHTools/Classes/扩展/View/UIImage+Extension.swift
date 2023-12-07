@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIImage{
-
+    
     // 选择图片的时候，直接用.name("")
     // 例如 imgView.image = .name("123")
     public class func name(_ name:String) -> UIImage? {
@@ -178,15 +178,31 @@ extension UIImage{
         gradientLayer.colors = colors
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-
+        
         UIGraphicsBeginImageContext(gradientLayer.bounds.size)
         if let context = UIGraphicsGetCurrentContext() {
             gradientLayer.render(in: context )
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return image!
-
+            
         }
         return UIImage()
+    }
+    /// 循环压缩
+    /// - Parameter maxSize: 最大数据大小
+    /// - Returns: 压缩后数据
+    public func cycleCompressDataSize(maxSize: Int) -> Data? {
+        guard let oldData = self.pngData() else { return nil }
+        if oldData.count < maxSize {
+            return oldData
+        }
+        var compress: CGFloat = 0.9
+        guard var data = self.jpegData(compressionQuality: compress) else { return nil }
+        while data.count > maxSize && compress > 0.01 {
+            compress -= 0.02
+            data = self.jpegData(compressionQuality: compress)!
+        }
+        return data
     }
 }

@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Kingfisher
 import UIKit
-public typealias ImageResource = Kingfisher.ImageResource
+
 extension Optional where Wrapped == String{
-    public var resource:ImageResource?{
+    public var resource:Kingfisher.ImageResource?{
         if self == nil{
             return nil
         }else{
@@ -20,7 +21,7 @@ extension Optional where Wrapped == String{
 }
 
 extension String{
-    public var resource:ImageResource! {
+    public var resource:Kingfisher.ImageResource! {
         if self.count == 0{
             return nil
         }

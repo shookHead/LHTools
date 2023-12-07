@@ -22,8 +22,8 @@ extension UIButton{
         ///图片在右,文字在左
         case right
     }
-
-
+    
+    
     public var isUploading:Bool{
         if let v = self.viewWithTag(progressTag){
             if v.alpha == 0{
@@ -34,7 +34,7 @@ extension UIButton{
         }
         return false
     }
-
+    
     public func upload(img:UIImage,showPrograss:Bool,complish:@escaping (_ btn:UIButton?,_ success:Bool,_ url:String?) -> ()){
         network.upload(img, uploading: {[weak self] (progress) in
             if showPrograss == true{
@@ -52,7 +52,7 @@ extension UIButton{
             }
         }
     }
-
+    
     public func setPrograss(_ show:Bool, _ prograss:Double){
         if !show {
             return
@@ -64,7 +64,7 @@ extension UIButton{
             progressView!.tag = progressTag
             self.addSubview(progressView!)
         }
-
+        
         if prograss == 100{
             UIView.animate(withDuration: 0.15, animations: {
                 progressView!.alpha = 0
@@ -76,7 +76,7 @@ extension UIButton{
             })
         }
     }
-
+    
     public func setFaild(){
         var progressView = self.viewWithTag(progressTag)
         if progressView == nil {
@@ -86,13 +86,13 @@ extension UIButton{
             self.addSubview(progressView!)
         }
         progressView!.backgroundColor = .KRed
-
+        
         progressView!.alpha = 1
         UIView.animate(withDuration: 0.15, animations: {
             progressView!.frame.size.width = self.frame.size.width
         })
     }
-
+    
     // 是否已显示加载器
     public var isShowIndicator:Bool{
         if let view = self.viewWithTag(93339) as? NVActivityIndicatorView {
@@ -100,7 +100,7 @@ extension UIButton{
         }
         return false
     }
-
+    
     // 显示等待 加载器
     public func showIndicator() -> Void {
         let lab = UILabel()
@@ -110,17 +110,17 @@ extension UIButton{
         self.isUserInteractionEnabled = false
         self.addSubview(lab)
         self.setTitle("", for: .normal)
-
-
+        
+        
         let rect = CGRect(x: (self.frame.size.width-30) / 2, y: 7, width: 30, height: 30)
         let activityIndicatorView = NVActivityIndicatorView(frame: rect,
-                                                        type: NVActivityIndicatorType.circleStrokeSpin)
+                                                            type: NVActivityIndicatorType.circleStrokeSpin)
         activityIndicatorView.tag = 93339
         activityIndicatorView.color = .white
         activityIndicatorView.startAnimating()
         self.addSubview(activityIndicatorView)
     }
-
+    
     // 显示等待 加载器
     public func hideIndicator() -> Void {
         if let lab = self.viewWithTag(93338) as? UILabel{
@@ -163,8 +163,8 @@ extension UIButton{
         self.imageEdgeInsets = imageEdgeInsets
     }
     
-
-
+    
+    
 }
 
 

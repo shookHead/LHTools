@@ -99,7 +99,7 @@ EOM
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png"
@@ -112,7 +112,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png"
-  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png"

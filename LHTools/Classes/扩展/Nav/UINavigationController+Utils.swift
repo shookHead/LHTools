@@ -62,7 +62,7 @@ extension UIViewController{
         }
         vc.dismiss(animated: true, completion: nil)
     }
-    public var className: String {
+    public var classNameStr: String {
         return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
     }
 }

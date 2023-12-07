@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0419271D2B15E0B6005B7BAF /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419271C2B15E0B5005B7BAF /* AuthorizationManager.swift */; };
 		044C42EF2AC4101F004DBC4D /* BaseCollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C42ED2AC4101E004DBC4D /* BaseCollView.swift */; };
 		044C42F02AC4101F004DBC4D /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C42EE2AC4101F004DBC4D /* BaseTableView.swift */; };
 		04599778290BBD1800A7043F /* WorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599777290BBD1800A7043F /* WorkModel.swift */; };
-		046E293E2AB2FB2F00F3BA2D /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E293D2AB2FB2F00F3BA2D /* AuthorizationManager.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -36,10 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0419271C2B15E0B5005B7BAF /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
+		041C93E72B0E007B007E34CE /* CamerView_UploadImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CamerView_UploadImg@3x.png"; sourceTree = "<group>"; };
 		044C42ED2AC4101E004DBC4D /* BaseCollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollView.swift; sourceTree = "<group>"; };
 		044C42EE2AC4101F004DBC4D /* BaseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		04599777290BBD1800A7043F /* WorkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkModel.swift; sourceTree = "<group>"; };
-		046E293D2AB2FB2F00F3BA2D /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 		049CCEA029F60F1400149F9C /* LHInternationalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHInternationalization.swift; sourceTree = "<group>"; };
 		049CCEA129F61EB900149F9C /* imageLoadingFailed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageLoadingFailed.png; sourceTree = "<group>"; };
 		04A8D5012912671E00E8B4A3 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
@@ -125,7 +126,6 @@
 		F41E2EA1274C7F5B00C19995 /* LHClearCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHClearCache.swift; sourceTree = "<group>"; };
 		F41E2EA3274C7F5B00C19995 /* QRCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeManager.swift; sourceTree = "<group>"; };
 		F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMback_Icon.png; sourceTree = "<group>"; };
-		F41E2EA7274C7F5B00C19995 /* CamerView_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CamerView_UploadImg.png; sourceTree = "<group>"; };
 		F41E2EA8274C7F5B00C19995 /* city_db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = city_db.sqlite; sourceTree = "<group>"; };
 		F41E2EA9274C7F5B00C19995 /* BMImgItems_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMImgItems_UploadImg.png; sourceTree = "<group>"; };
 		F41E2EAA274C7F5B00C19995 /* photoDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDelete.png; sourceTree = "<group>"; };
@@ -174,10 +174,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		046E293C2AB2FB1700F3BA2D /* AuthorizationManager */ = {
+		0419271B2B15E0B5005B7BAF /* AuthorizationManager */ = {
 			isa = PBXGroup;
 			children = (
-				046E293D2AB2FB2F00F3BA2D /* AuthorizationManager.swift */,
+				0419271C2B15E0B5005B7BAF /* AuthorizationManager.swift */,
 			);
 			path = AuthorizationManager;
 			sourceTree = "<group>";
@@ -567,7 +567,7 @@
 		F41E2E94274C7F5B00C19995 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
-				046E293C2AB2FB1700F3BA2D /* AuthorizationManager */,
+				0419271B2B15E0B5005B7BAF /* AuthorizationManager */,
 				F4618A77277ED27400DFF371 /* VideoPlayer */,
 				F41E2E95274C7F5B00C19995 /* 获取文件 */,
 				F41E2E97274C7F5B00C19995 /* 请求 */,
@@ -635,11 +635,11 @@
 			children = (
 				049CCEA129F61EB900149F9C /* imageLoadingFailed.png */,
 				F47762BD28CDF8C600BA438B /* scan-album@3x.png */,
+				041C93E72B0E007B007E34CE /* CamerView_UploadImg@3x.png */,
 				F4EA3F2528B60FC300D96393 /* scan-bg.png */,
 				F4EA3F2328B60FC200D96393 /* scan-light@3x.png */,
 				F4EA3F2428B60FC300D96393 /* scan-slider.png */,
 				F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */,
-				F41E2EA7274C7F5B00C19995 /* CamerView_UploadImg.png */,
 				F41E2EA8274C7F5B00C19995 /* city_db.sqlite */,
 				F41E2EA9274C7F5B00C19995 /* BMImgItems_UploadImg.png */,
 				F41E2EAA274C7F5B00C19995 /* photoDelete.png */,
@@ -851,7 +851,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example-resources.sh",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png",
-				"${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg.png",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg@3x.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png",
@@ -865,7 +865,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMback_Icon.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMImgItems_UploadImg.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CamerView_UploadImg.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CamerView_UploadImg@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/city_db.sqlite",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/imageLoadingFailed.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/photoDelete.png",
@@ -952,13 +952,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				04599778290BBD1800A7043F /* WorkModel.swift in Sources */,
-				046E293E2AB2FB2F00F3BA2D /* AuthorizationManager.swift in Sources */,
 				044C42EF2AC4101F004DBC4D /* BaseCollView.swift in Sources */,
 				F4618A79277ED27400DFF371 /* Player.swift in Sources */,
 				044C42F02AC4101F004DBC4D /* BaseTableView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F42F22F32788314700E42E4F /* LH_Use.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				0419271D2B15E0B6005B7BAF /* AuthorizationManager.swift in Sources */,
 				F4334717277B044F00F57015 /* UILabel+Extension.swift in Sources */,
 				F4603953286452560073A5D3 /* KeychainSwiftDistrib.swift in Sources */,
 			);
