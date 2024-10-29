@@ -66,6 +66,12 @@ public struct lh{
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         return window
     }
+    public static func max() -> CGFloat {
+        return CGFloat.greatestFiniteMagnitude
+    }
+    public static func min() -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
     ///异步在几秒之后运行方法
     public static func dispatchDelay(_ second: Double, closure:@escaping () -> Void) {
         DispatchQueue.main.asyncAfter(

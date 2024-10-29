@@ -51,9 +51,9 @@ public class BMPicker: NSObject {
     ///   - endTime: 截止时间 可为空
     ///   - finish: 确认点击后回调
     /// - Returns: 返回选择器对象   调用show方法之前 可用于修改参数
-    public static func datePicker(currentTime:Date?=nil,startTime:Date?=nil,endTime:Date?=nil,selected:@escaping (_ time:Date?) -> () ) -> BMDatePicker{
+    public static func datePicker(currentTime:Date?=nil,startTime:Date?=nil,endTime:Date?=nil,mode:BMDatePickerMode = .ymd,selected:@escaping (_ time:Date?) -> () ) -> BMDatePicker{
         let picker = BMDatePicker(selected)
-        picker.datePickMode = .ymd
+        picker.datePickMode = mode
         if currentTime != nil {
             picker.date = currentTime!
         }else{
@@ -62,7 +62,7 @@ public class BMPicker: NSObject {
         
         return picker
     }
-    /// 时间选择器
+    /// 时间选择器 美业平板使用
     ///
     /// - Parameters:
     ///   - currentTime: 当前时间 可为空
@@ -82,7 +82,7 @@ public class BMPicker: NSObject {
         picker.startTime = startTime
         return picker
     }
-    /// 时间选择器
+    /// 时间选择器 美业平板使用
     ///
     /// - Parameters:
     ///   - currentTime: 当前时间 可为空

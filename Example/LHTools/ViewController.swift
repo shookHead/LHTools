@@ -45,10 +45,10 @@ class ViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        let array: [Int] = [1, 1, 3, 3, 2, 2]
-        let arr = array.unique
-        print(arr)
-        view.addSubview(camerV)
+//        let array: [Int] = [1, 1, 3, 3, 2, 2]
+//        let arr = array.unique
+//        print(arr)
+//        view.addSubview(camerV)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        UIView.animate(withDuration: 0.25) {
@@ -57,7 +57,11 @@ class ViewController: UIViewController {
 //            label3.text = "label3"
 //            self.stackView.addArrangedSubview(label3)
 //        }
-        Hud.showText("大叔控房后开始发挥开始发低烧后开始发挥开始发低烧房贷首付")
+//        Hud.showText("大叔控房后开始发挥开始发低烧后开始发挥开始发低烧房贷首付")
+        print("111")
+        BMPicker.datePicker(mode: .ymd_hms) { time in
+            
+        }.show()
     }
     func useSnp() {
         var arr: Array<UIView> = []

@@ -11,6 +11,7 @@
 		044C42EF2AC4101F004DBC4D /* BaseCollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C42ED2AC4101E004DBC4D /* BaseCollView.swift */; };
 		044C42F02AC4101F004DBC4D /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044C42EE2AC4101F004DBC4D /* BaseTableView.swift */; };
 		04599778290BBD1800A7043F /* WorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04599777290BBD1800A7043F /* WorkModel.swift */; };
+		04FD48162B8DB4B300416868 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FD48152B8DB4B300416868 /* UIStackView+Extension.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		049CCEA129F61EB900149F9C /* imageLoadingFailed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageLoadingFailed.png; sourceTree = "<group>"; };
 		04A8D5012912671E00E8B4A3 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		04A8D50229126D5B00E8B4A3 /* CGPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
+		04FD48152B8DB4B300416868 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		07509A03F5415140F749D995 /* Pods_LHTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHTools_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		184B0FDDB348DFF92A6A5AA6 /* Pods-LHTools_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHTools_Tests.release.xcconfig"; path = "Target Support Files/Pods-LHTools_Tests/Pods-LHTools_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2791A5DBE5B9F2832F4B8697 /* Pods-LHTools_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHTools_Example.release.xcconfig"; path = "Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				F4B9D36B27670EB400D01F13 /* UIControl+Extension.swift */,
 				F4B9D36C276721BA00D01F13 /* UITextField+Extension.swift */,
 				F4334716277B044F00F57015 /* UILabel+Extension.swift */,
+				04FD48152B8DB4B300416868 /* UIStackView+Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -961,6 +964,7 @@
 				0419271D2B15E0B6005B7BAF /* AuthorizationManager.swift in Sources */,
 				F4334717277B044F00F57015 /* UILabel+Extension.swift in Sources */,
 				F4603953286452560073A5D3 /* KeychainSwiftDistrib.swift in Sources */,
+				04FD48162B8DB4B300416868 /* UIStackView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

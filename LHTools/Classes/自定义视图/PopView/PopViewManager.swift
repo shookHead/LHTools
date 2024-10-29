@@ -30,6 +30,9 @@ public class PopViewManager: NSObject {
     public var backgroundStyle = JXPopupViewBackgroundStyle.solidColor
     public var backgroundColor = UIColor.black.withAlphaComponent(0.3)
     public var backgroundEffectStyle = UIBlurEffect.Style.light
+    public static var isDismissible = true
+    public static var isInteractive = true
+    public static var isPenetrable = false
     /// 弹出框
     /// - Parameters:
     ///   - contentView: 弹出框的内容
@@ -69,11 +72,11 @@ public class PopViewManager: NSObject {
         }
         let popupView = JXPopupView(containerView: containerView, contentView: contentView, animator: animator!)
         //配置交互
-        popupView.isDismissible = true
-        popupView.isInteractive = true
+        popupView.isDismissible = isDismissible
+        popupView.isInteractive = isInteractive
         //可以设置为false，再点击弹框中的button试试？
         //        popupView.isInteractive = false
-        popupView.isPenetrable = false
+        popupView.isPenetrable = isPenetrable
         if style == .blur {
             popupView.backgroundView.style = style
             popupView.backgroundView.blurEffectStyle = UIBlurEffect.Style.light

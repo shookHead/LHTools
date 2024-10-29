@@ -19,8 +19,13 @@ extension UIView{
         case tiltDown
     }
     ///生成图片
-    public func toImage() -> UIImage?{
+    public func toImage() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(self.frame.size, false, UIScreen.main.scale)
+        // 设置背景为透明
+        if let context = UIGraphicsGetCurrentContext() {
+            UIColor.clear.set()
+            context.fill(self.bounds)
+        }
         self.layer.render(in: UIGraphicsGetCurrentContext()!)
         let img: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

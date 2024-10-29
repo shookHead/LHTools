@@ -11,7 +11,7 @@ import Photos
 import ZLPhotoBrowser
 
 public extension UIViewController{
-    func chooseSingleImg(_ complish:@escaping (_ img:UIImage?)->() ){
+    func chooseSingleImg(_ complish:@escaping (_ img:UIImage?)->(), cancel: (() -> ())? = nil ){
         setconfig(maxSelectCount: 1)
         let alertSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let acrion1 = UIAlertAction(title: lhPhotoGraph, style: .default) { (action) in
@@ -37,7 +37,7 @@ public extension UIViewController{
             ps.showPhotoLibrary(sender: self)
         }
         let acrion3 = UIAlertAction(title: lhCancle, style: .cancel) { (action) in
-            
+            cancel?()
         }
         alertSheet.addAction(acrion1)
         alertSheet.addAction(acrion2)

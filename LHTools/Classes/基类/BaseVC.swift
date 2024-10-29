@@ -42,6 +42,8 @@ open class BaseVC: UIViewController {
     public static var global_navTintColor:UIColor! = nil
     /// 全局navi背景色（默认nil，与系统默认保持一致）
     public static var global_navBarTintColor:UIColor! = nil
+    /// 全局背景背景色默认白色
+    public static var global_bgColor:UIColor! = .white
     
     /// 当前页面 navi 内容主题色
     public var barContenColor:UIColor! = BaseVC.global_navTintColor
@@ -92,6 +94,7 @@ open class BaseVC: UIViewController {
     //MARK: ----------- vc生命周期 -----------
     open override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = BaseVC.global_bgColor
         navigationController?.navigationBar.isTranslucent = false
         edgesForExtendedLayout = []
     }
