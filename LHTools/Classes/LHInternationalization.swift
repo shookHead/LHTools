@@ -70,3 +70,9 @@ public var lhDeviceCannotFlash = "当前设备识别不到闪光灯"
 public var lhCodeRecognitionError = "二维码识别异常，请重新扫描"
 public var lhNotLogged = "未登录，请登录"
 public var lhRequestFailure = "请求失败"
+
+public var lhInvalidUrl = "无效的url"
+public var lhUnknownError = "未知错误"
+public var lhSaveToAlbum = "视频已保存到相册"
+public var lhMoveVideoFail = "移动视频文件失败"
+

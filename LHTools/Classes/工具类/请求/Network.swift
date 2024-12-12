@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Photos
 public let network = BMNetwork()
 
 public class HTMLString {}
@@ -127,6 +128,7 @@ public class BMNetwork{
         let newImg = img.fixOrientation()//防止图片被旋转
         let api = BMNetwork.imgUplodeApi
         let imageData = newImg.cycleCompressDataSize(maxSize: 1024 * 1024 * 3)
+//        let imageData = newImg.pngData()
         let name = "\(Date().toTimeInterval())" + ".png"
         let request = AF.upload(multipartFormData: { (multipartFormData) in
             multipartFormData.append(imageData!, withName: "file", fileName: name, mimeType: "image/png")
@@ -270,6 +272,62 @@ public class BMNetwork{
                 }
             }
         }
+    }
+    public func uploadAsset(_ asset: PHAsset, uploading:((_ progress:Double) -> ())?, finish: @escaping (_ fileUrl:String?)->()){
+        let options = PHVideoRequestOptions()
+        options.version = .original
+        options.isNetworkAccessAllowed = true
+        PHImageManager.default().requestAVAsset(forVideo: asset, options: options) { avAsset, audioTracks, info in
+            guard let urlAsset = avAsset as? AVURLAsset else { return }
+            let videoURL = urlAsset.url
+            
+//            // 上传视频
+//            let headers: HTTPHeaders = [
+//                "Authorization": "Bearer YOUR_ACCESS_TOKEN"
+//            ]
+            
+            let api = BMNetwork.videoUplodeApi
+            let name = "\(Date().toTimeInterval())" + ".mp4"
+            let request = AF.upload(multipartFormData: { (multipartFormData) in
+                multipartFormData.append(videoURL, withName: "file", fileName: name, mimeType: "video/mp4")
+            }, to: api, method: .post)
+            request.uploadProgress { (progress) in
+                DispatchQueue.global().async {
+                    uploading?(progress.fractionCompleted)
+                    print("progress",progress.fractionCompleted)
+                }
+            }
+            request.responseJSON { (response) in
+                DispatchQueue.global().async {
+                    switch response.result {
+                    case .success:
+                        DispatchQueue.main.async {
+                            var url:String!
+                            defer {
+                                finish(url)
+                            }
+                            let json = String(data: response.data!, encoding: String.Encoding.utf8)
+                            if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
+                                if resp.code == 1{
+                                    let data = resp.data
+                                    if let urlStr = data?["url"] as? String{
+                                        print(urlStr)
+                                        url = urlStr
+                                    }
+                                }
+                            }
+                        }
+                        
+                    case .failure:
+                        let statusCode = response.response?.statusCode
+                        print(response.response as Any,statusCode as Any)
+                        finish(nil)
+                    }
+                }
+            }
+        }
+        
+
     }
     public subscript<T:HandyJSON>(key: BMApiTemplete<T?>) -> BMRequester_Model<T> {
         get { return BMRequester_Model(key)}

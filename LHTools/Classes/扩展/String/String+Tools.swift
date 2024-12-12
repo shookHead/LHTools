@@ -6,6 +6,8 @@
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
+import Photos
+
 public extension String{
     //中文转拼音
     func transToPinYin(str:String)->String{
@@ -83,5 +85,61 @@ public extension String{
             options: [.documentType: NSAttributedString.DocumentType.html],
             documentAttributes: nil
         )
+    }
+    
+    func downloadVideoAndSaveToAlbum(finish: @escaping (_ mod:ZBJsonString?)->()) {
+        let mod = ZBJsonString()
+        mod.code = 0
+//        defer {
+//            finish(mod)
+//        }
+        guard let url = URL.init(string: self) else {
+            mod.msg = lhInvalidUrl
+            finish(mod)
+            return
+        }
+        Hud.showWait()
+        let downloadTask = URLSession.shared.downloadTask(with: url) { (location, response, error) in
+
+            guard let location = location, error == nil else {
+                let msg = error?.localizedDescription ?? lhUnknownError
+                print("下载视频失败：\(msg)")
+//                Hud.showText(msg)
+                mod.msg = msg
+                finish(mod)
+                return
+            }
+            let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let destinationURL = documentsDirectoryURL.appendingPathComponent(url.lastPathComponent)
+            
+            do {
+                try FileManager.default.moveItem(at: location, to: destinationURL)
+                PHPhotoLibrary.shared().performChanges({
+                    PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: destinationURL)
+                }) { (s, error) in
+                    lh.runThisInMainThread {
+                        if s {
+//                            Hud.showText("视频已保存到相册")
+//                            success("视频已保存到相册")
+                            mod.code = 1
+                            mod.msg = lhSaveToAlbum
+                            finish(mod)
+                        } else {
+                            let msg = error?.localizedDescription ?? lhUnknownError
+//                            Hud.showText(msg)
+                            mod.msg = msg
+                            finish(mod)
+                        }
+                    }
+                }
+            } catch {
+                lh.runThisInMainThread {
+//                    Hud.showText("移动视频文件失败")
+                    mod.msg = lhMoveVideoFail
+                    finish(mod)
+                }
+            }
+        }
+        downloadTask.resume()
     }
 }

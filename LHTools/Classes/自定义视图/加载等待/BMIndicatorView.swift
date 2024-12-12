@@ -97,7 +97,11 @@ public class BMIndicatorView: UIView {
         requestBtn.layer.masksToBounds = true
         requestBtn.layer.borderColor = UIColor.KTextLightGray.cgColor
         self.contentBG.addSubview(requestBtn)
-        requestBtn.bm.addConstraints([.center_X(0), .under(contentImgView, 10), .w(85), .h(34)])
+        var requestBtnW:CGFloat = 85
+        if lhClickRefresh == "Click Refresh" {
+            requestBtnW = 95
+        }
+        requestBtn.bm.addConstraints([.center_X(0), .under(contentImgView, 10), .w(requestBtnW), .h(34)])
         
         self.contentLab = UILabel()
         self.contentLab.text = lhNoData + "\n"
