@@ -116,8 +116,15 @@ public class CamerView: UIView {
         config.allowSelectVideo = false
         config.allowSelectGif = false
         config.allowEditImage = false
-        config.allowSelectOriginal = false
-        config.allowSelectImage  = true
+        config.allowSelectImage = true
+        config.allowSelectOriginal = true
+        config.allowPreviewPhotos = true
+        
+//        config.cameraConfiguration.all
+//        ZLPhotoConfiguration.default().cameraConfiguration.allowTakePhoto = true
+//        ZLPhotoConfiguration.default().cameraConfiguration.allowRecordVideo = true
+//        ZLPhotoConfiguration.default().cameraConfiguration.maxRecordDuration = 60
+//        ZLPhotoConfiguration.default().cameraConfiguration.minRecordDuration = 0
     }
     func save(image: UIImage?) {
         if let image = image {

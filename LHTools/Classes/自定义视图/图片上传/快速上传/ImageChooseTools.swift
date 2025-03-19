@@ -88,6 +88,11 @@ public extension UIViewController{
         config.allowSelectImage = true
         config.allowSelectOriginal = true
         config.allowPreviewPhotos = true
+        
+//        ZLPhotoConfiguration.default().cameraConfiguration.allowTakePhoto = true
+//        ZLPhotoConfiguration.default().cameraConfiguration.allowRecordVideo = true
+//        ZLPhotoConfiguration.default().cameraConfiguration.maxRecordDuration = 60
+//        ZLPhotoConfiguration.default().cameraConfiguration.minRecordDuration = 0
     }
     func chooseCamera(_ selectedCameraCount:Int = 1,_ complish:@escaping (_ img:UIImage?)->() ) {
         setconfig(maxSelectCount: selectedCameraCount)

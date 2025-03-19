@@ -175,7 +175,8 @@ TODO: Add long description of the pod here.
     s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
     s.dependency 'Alamofire'
     s.dependency 'Kingfisher'
-    s.dependency 'HandyJSON'
+#    s.dependency 'HandyJSON'
+    s.dependency 'HandyJSON', :git => 'https://github.com/Miles-Matheson/HandyJSON.git', :branch => 'master'  # 替换为实际分支名
     s.dependency 'MJRefresh'
     s.dependency 'MBProgressHUD'
     s.dependency 'SwiftyUserDefaults'

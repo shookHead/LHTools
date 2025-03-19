@@ -69,15 +69,16 @@ public class CityDBManager {
 
     public func getProvinceList() -> Array<Address> {
         var provinceArray = Array<Address>()
-
-        let id = Expression<Int64?>("id")
-        let name = Expression<String?>("provincename")
-        let shortname = Expression<String?>("shortname")
+        
+        let id = SQLite.Expression<Int64?>( "id")
+        let name = SQLite.Expression<String?>( "provincename")
+        let shortname = SQLite.Expression<String?>( "shortname")
 
         let query = try! db.prepare(provinces)
         for user in query {
             do {
                 var model = Address()
+//                let aa = try user.get(id)
                 model.ID        = try user.get(id)
                 model.name      = try user.get(name)
                 model.shortName = try user.get(shortname)
@@ -93,10 +94,10 @@ public class CityDBManager {
     public func getCityList(_ chooseProvinceid:Int64) -> Array<Address> {
         var cityArray = Array<Address>()
 
-        let provinceId = Expression<Int64>("provinceid")
-        let ID = Expression<Int64>("id")
-        let name = Expression<String>("cityName")
-        let shortname = Expression<String>("shortCityName")
+        let provinceId = SQLite.Expression<Int64>( "provinceid")
+        let ID = SQLite.Expression<Int64>( "id")
+        let name = SQLite.Expression<String>( "cityName")
+        let shortname = SQLite.Expression<String>( "shortCityName")
 
         let query = try! db.prepare(citys.filter(provinceId == chooseProvinceid))
         for user in query {
@@ -117,10 +118,10 @@ public class CityDBManager {
     public func getDistrictList(_ chooseCityid:Int64) -> Array<Address> {
         var districtArray = Array<Address>()
 
-        let provinceId = Expression<Int64>("cityId")
-        let ID = Expression<Int64>("id")
-        let name = Expression<String>("districtName")
-        let shortname = Expression<String>("districtName")
+        let provinceId = SQLite.Expression<Int64>( "cityId")
+        let ID = SQLite.Expression<Int64>( "id")
+        let name = SQLite.Expression<String>( "districtName")
+        let shortname = SQLite.Expression<String>( "districtName")
 
         let query = try! db.prepare(districts.filter(provinceId == chooseCityid))
         for user in query {
