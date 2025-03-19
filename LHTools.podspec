@@ -42,6 +42,10 @@ TODO: Add long description of the pod here.
    s.static_framework = true
    
    
+   #Source
+   s.subspec 'Source' do |ss|
+       ss.source_files = 'LHTools/Classes/Source/**/*.swift'
+   end
   #Global
   s.subspec 'Global' do |ss|
       ss.source_files = 'LHTools/Classes/GlobalImport.swift','LHTools/Classes/BMConst.swift','LHTools/Classes/LHTools.swift','LHTools/Classes/LHInternationalization.swift'

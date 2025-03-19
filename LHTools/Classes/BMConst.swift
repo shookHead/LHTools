@@ -27,6 +27,8 @@ public func judgeScream() -> Bool {
         guard let window = UIApplication.shared.windows.first else { return false }
         return window.safeAreaInsets.top > 20 ? true:false
     }
+    let s = ""
+    s.notEmpty
     return false
 }
 public enum SafeDirect{

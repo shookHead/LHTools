@@ -8,7 +8,6 @@
 
 
 import Foundation
-import HandyJSON
 import LHTools
 import UIKit
 class WorkModel :HandyJSON,Equatable{

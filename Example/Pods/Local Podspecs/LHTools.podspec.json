@@ -70,6 +70,10 @@
   },
   "subspecs": [
     {
+      "name": "Source",
+      "source_files": "LHTools/Classes/Source/**/*.swift"
+    },
+    {
       "name": "Global",
       "source_files": [
         "LHTools/Classes/GlobalImport.swift",

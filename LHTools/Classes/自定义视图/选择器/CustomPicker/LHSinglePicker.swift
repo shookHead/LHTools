@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import HandyJSON
+//import HandyJSON
 
 open class LHSinglePicker<T:HandyJSON>: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
     /// 灰色 透明 背景视图

@@ -49,6 +49,7 @@ class ViewController: UIViewController {
 //        let arr = array.unique
 //        print(arr)
 //        view.addSubview(camerV)
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        UIView.animate(withDuration: 0.25) {
