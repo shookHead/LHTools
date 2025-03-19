@@ -1,13 +1,11 @@
 PODS:
   - Alamofire (5.4.3)
-  - HandyJSON (5.0.2)
   - Hero (1.6.1)
   - IQKeyboardManagerSwift (6.5.6)
   - JXPhotoBrowser (3.1.3)
   - Kingfisher (6.3.1)
   - LHTools (0.0.1):
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -28,7 +26,6 @@ PODS:
     - ZLPhotoBrowser
   - LHTools/Global (0.0.1):
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -42,7 +39,6 @@ PODS:
     - ZLPhotoBrowser
   - LHTools/Other (0.0.1):
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -57,7 +53,6 @@ PODS:
     - ZLPhotoBrowser
   - LHTools/Other/Distrib (0.0.1):
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -71,7 +66,6 @@ PODS:
     - ZLPhotoBrowser
   - LHTools/View (0.0.1):
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -85,7 +79,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/基类 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -99,7 +92,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/工具类 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -121,7 +113,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/工具类/AuthorizationManager (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -135,7 +126,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/工具类/Utils (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -149,7 +139,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/工具类/VideoPlayer (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -163,7 +152,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/工具类/二维码 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -177,7 +165,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/工具类/约束 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -191,7 +178,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/工具类/缓存 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -205,7 +191,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/工具类/获取文件 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -219,7 +204,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/工具类/请求 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -233,7 +217,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -258,7 +241,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/Color (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -272,7 +254,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/Date (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -286,7 +267,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/Kingfisher (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -300,7 +280,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/Nav (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -314,7 +293,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/Number (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -328,7 +306,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/SegmentedControl (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -342,7 +319,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/Set (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -356,7 +332,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/SnapKit (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -370,7 +345,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/String (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -384,7 +358,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/View (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -398,7 +371,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/扩展/Xib (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -412,7 +384,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -437,7 +408,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/PhotoBrowser (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -451,7 +421,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/PopView (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -465,7 +434,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/加载等待 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -479,7 +447,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/图片上传 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -495,7 +462,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/图片上传/多图选择控件 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -509,7 +475,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/图片上传/快速上传 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -523,7 +488,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/图片缩放预览 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -537,7 +501,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/提示框 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -551,7 +514,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/时间段选择器 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -565,7 +527,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/测试服切换工具 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -579,7 +540,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/点赞动画 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -593,7 +553,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/轮播 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -607,7 +566,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/选择器 (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -622,7 +580,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/选择器/CustomPicker (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -637,7 +594,6 @@ PODS:
     - ZLPhotoBrowser
   - "LHTools/自定义视图/选择器/CustomPicker/CityDataBase (0.0.1)":
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -669,7 +625,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - HandyJSON
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
@@ -688,12 +643,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
-  LHTools: 5f11c1ffcbc1719a13435ff04886e620979640ee
+  LHTools: b5a80ed6066d00541da4cbc049186358a2aa5016
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
