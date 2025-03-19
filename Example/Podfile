@@ -11,7 +11,7 @@ target 'LHTools_Example' do
 
   target 'LHTools_Tests' do
     inherit! :search_paths
-    
+    pod 'HandyJSON', :git => 'https://github.com/Miles-Matheson/HandyJSON.git', :branch => 'master'
 #    pod 'Alamofire'
 #    pod 'Kingfisher'
 #    pod 'HandyJSON'
