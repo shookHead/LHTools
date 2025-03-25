@@ -264,8 +264,10 @@ open class ScanVC: BaseVC {
                     stuckview?.position = CGPoint(x: layerRect.midX, y: layerRect.midY)
                 }
             }
-            captureSession?.startRunning()
-            
+            // 将 startRunning() 放入后台线程
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                self?.captureSession?.startRunning()
+            }
             timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(timeRepateAction), userInfo: nil, repeats: true)
             timeRepateAction()
             
