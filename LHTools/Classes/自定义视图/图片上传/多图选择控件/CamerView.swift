@@ -129,7 +129,7 @@ public class CamerView: UIView {
     func save(image: UIImage?) {
         if let image = image {
             ZLPhotoManager.saveImageToAlbum(image: image) { [weak self] (suc, asset) in
-                if suc {
+                if suc == nil {
                     self?.mutlSelectedPhotos.removeAll()
                     self?.mutlSelectedPhotos.append(image)
                     self?.upDataImagewithimage(index: 0)

@@ -22,22 +22,18 @@
 // THE SOFTWARE.
 //
 
-#if SWIFT_PACKAGE
-import SQLiteObjc
-#endif
-
 extension Module {
 
     public static func FTS4(_ column: Expressible, _ more: Expressible...) -> Module {
-        return FTS4([column] + more)
+        FTS4([column] + more)
     }
 
     public static func FTS4(_ columns: [Expressible] = [], tokenize tokenizer: Tokenizer? = nil) -> Module {
-        return FTS4(FTS4Config().columns(columns).tokenizer(tokenizer))
+        FTS4(FTS4Config().columns(columns).tokenizer(tokenizer))
     }
 
     public static func FTS4(_ config: FTS4Config) -> Module {
-        return Module(name: "fts4", arguments: config.arguments())
+        Module(name: "fts4", arguments: config.arguments())
     }
 }
 
@@ -56,15 +52,15 @@ extension VirtualTable {
     /// - Returns: An expression appended with a `MATCH` query against the given
     ///   pattern.
     public func match(_ pattern: String) -> Expression<Bool> {
-        return "MATCH".infix(tableName(), pattern)
+        "MATCH".infix(tableName(), pattern)
     }
 
     public func match(_ pattern: Expression<String>) -> Expression<Bool> {
-        return "MATCH".infix(tableName(), pattern)
+        "MATCH".infix(tableName(), pattern)
     }
 
     public func match(_ pattern: Expression<String?>) -> Expression<Bool?> {
-        return "MATCH".infix(tableName(), pattern)
+        "MATCH".infix(tableName(), pattern)
     }
 
     /// Builds a copy of the query with a `WHERE … MATCH` clause.
@@ -78,30 +74,32 @@ extension VirtualTable {
     ///
     /// - Returns: A query with the given `WHERE … MATCH` clause applied.
     public func match(_ pattern: String) -> QueryType {
-        return filter(match(pattern))
+        filter(match(pattern))
     }
 
     public func match(_ pattern: Expression<String>) -> QueryType {
-        return filter(match(pattern))
+        filter(match(pattern))
     }
 
     public func match(_ pattern: Expression<String?>) -> QueryType {
-        return filter(match(pattern))
+        filter(match(pattern))
     }
 
 }
 
+// swiftlint:disable identifier_name
 public struct Tokenizer {
 
     public static let Simple = Tokenizer("simple")
-
     public static let Porter = Tokenizer("porter")
 
-    public static func Unicode61(removeDiacritics: Bool? = nil, tokenchars: Set<Character> = [], separators: Set<Character> = []) -> Tokenizer {
+    public static func Unicode61(removeDiacritics: Bool? = nil,
+                                 tokenchars: Set<Character> = [],
+                                 separators: Set<Character> = []) -> Tokenizer {
         var arguments = [String]()
 
-        if let removeDiacritics = removeDiacritics {
-            arguments.append("removeDiacritics=\(removeDiacritics ? 1 : 0)".quote())
+        if let removeDiacritics {
+            arguments.append("remove_diacritics=\(removeDiacritics ? 1 : 0)".quote())
         }
 
         if !tokenchars.isEmpty {
@@ -117,8 +115,13 @@ public struct Tokenizer {
         return Tokenizer("unicode61", arguments)
     }
 
+    // https://sqlite.org/fts5.html#the_experimental_trigram_tokenizer
+    public static func Trigram(caseSensitive: Bool = false) -> Tokenizer {
+        Tokenizer("trigram", ["case_sensitive", caseSensitive ? "1" : "0"])
+    }
+
     public static func Custom(_ name: String) -> Tokenizer {
-        return Tokenizer(Tokenizer.moduleName.quote(), [name.quote()])
+        Tokenizer(Tokenizer.moduleName.quote(), [name.quote()])
     }
 
     public let name: String
@@ -134,35 +137,12 @@ public struct Tokenizer {
 
 }
 
-extension Tokenizer : CustomStringConvertible {
+extension Tokenizer: CustomStringConvertible {
 
     public var description: String {
-        return ([name] + arguments).joined(separator: " ")
+        ([name] + arguments).joined(separator: " ")
     }
 
-}
-
-extension Connection {
-
-    public func registerTokenizer(_ submoduleName: String, next: @escaping (String) -> (String, Range<String.Index>)?) throws {
-        try check(_SQLiteRegisterTokenizer(handle, Tokenizer.moduleName, submoduleName) { (
-                input: UnsafePointer<Int8>, offset: UnsafeMutablePointer<Int32>, length: UnsafeMutablePointer<Int32>) in
-            let string = String(cString: input)
-
-            guard let (token, range) = next(string) else { return nil }
-
-            let view:String.UTF8View = string.utf8
-
-            if let from = range.lowerBound.samePosition(in: view),
-               let to = range.upperBound.samePosition(in: view) {
-                offset.pointee += Int32(string[string.startIndex..<range.lowerBound].utf8.count)
-                length.pointee = Int32(view.distance(from: from, to: to))
-                return token
-            } else {
-                return nil
-            }
-        })
-    }
 }
 
 /// Configuration options shared between the [FTS4](https://www.sqlite.org/fts3.html) and
@@ -182,7 +162,7 @@ open class FTSConfig {
 
     /// Adds a column definition
     @discardableResult open func column(_ column: Expressible, _ options: [ColumnOption] = []) -> Self {
-        self.columnDefinitions.append((column, options))
+        columnDefinitions.append((column, options))
         return self
     }
 
@@ -201,40 +181,40 @@ open class FTSConfig {
 
     /// [The prefix= option](https://www.sqlite.org/fts3.html#section_6_6)
     @discardableResult open func prefix(_ prefix: [Int]) -> Self {
-        self.prefixes += prefix
+        prefixes += prefix
         return self
     }
 
     /// [The content= option](https://www.sqlite.org/fts3.html#section_6_2)
     @discardableResult open func externalContent(_ schema: SchemaType) -> Self {
-        self.externalContentSchema = schema
+        externalContentSchema = schema
         return self
     }
 
     /// [Contentless FTS4 Tables](https://www.sqlite.org/fts3.html#section_6_2_1)
     @discardableResult open func contentless() -> Self {
-        self.isContentless = true
+        isContentless = true
         return self
     }
 
     func formatColumnDefinitions() -> [Expressible] {
-        return columnDefinitions.map { $0.0 }
+        columnDefinitions.map { $0.0 }
     }
 
     func arguments() -> [Expressible] {
-        return options().arguments
+        options().arguments
     }
 
     func options() -> Options {
         var options = Options()
         options.append(formatColumnDefinitions())
-        if let tokenizer = tokenizer {
+        if let tokenizer {
             options.append("tokenize", value: Expression<Void>(literal: tokenizer.description))
         }
-        options.appendCommaSeparated("prefix", values:prefixes.sorted().map { String($0) })
+        options.appendCommaSeparated("prefix", values: prefixes.sorted().map { String($0) })
         if isContentless {
             options.append("content", value: "")
-        } else if let externalContentSchema = externalContentSchema {
+        } else if let externalContentSchema {
             options.append("content", value: externalContentSchema.tableName())
         }
         return options
@@ -256,46 +236,30 @@ open class FTSConfig {
             }
         }
 
-        @discardableResult mutating func append(_ key: String, value: CustomStringConvertible?) -> Options {
-            return append(key, value: value?.description)
+        @discardableResult mutating func append(_ key: String, value: String) -> Options {
+            append(key, value: Expression<String>(value))
         }
 
-        @discardableResult mutating func append(_ key: String, value: String?) -> Options {
-            return append(key, value: value.map { Expression<String>($0) })
-        }
-
-        @discardableResult mutating func append(_ key: String, value: Expressible?) -> Options {
-            if let value = value {
-                arguments.append("=".join([Expression<Void>(literal: key), value]))
-            }
+        @discardableResult mutating func append(_ key: String, value: Expressible) -> Options {
+            arguments.append("=".join([Expression<Void>(literal: key), value]))
             return self
         }
     }
 }
 
 /// Configuration for the [FTS4](https://www.sqlite.org/fts3.html) extension.
-open class FTS4Config : FTSConfig {
+open class FTS4Config: FTSConfig {
     /// [The matchinfo= option](https://www.sqlite.org/fts3.html#section_6_4)
-    public enum MatchInfo : CustomStringConvertible {
+    public enum MatchInfo: String {
         case fts3
-        public var description: String {
-            return "fts3"
-        }
     }
 
     /// [FTS4 options](https://www.sqlite.org/fts3.html#fts4_options)
-    public enum Order : CustomStringConvertible {
+    public enum Order: String {
         /// Data structures are optimized for returning results in ascending order by docid (default)
         case asc
         /// FTS4 stores its data in such a way as to optimize returning results in descending order by docid.
         case desc
-
-        public var description: String {
-            switch self {
-            case .asc: return "asc"
-            case .desc: return "desc"
-            }
-        }
     }
 
     var compressFunction: String?
@@ -309,19 +273,19 @@ open class FTS4Config : FTSConfig {
 
     /// [The compress= and uncompress= options](https://www.sqlite.org/fts3.html#section_6_1)
     @discardableResult open func compress(_ functionName: String) -> Self {
-        self.compressFunction = functionName
+        compressFunction = functionName
         return self
     }
 
     /// [The compress= and uncompress= options](https://www.sqlite.org/fts3.html#section_6_1)
     @discardableResult open func uncompress(_ functionName: String) -> Self {
-        self.uncompressFunction = functionName
+        uncompressFunction = functionName
         return self
     }
 
     /// [The languageid= option](https://www.sqlite.org/fts3.html#section_6_3)
     @discardableResult open func languageId(_ columnName: String) -> Self {
-        self.languageId = columnName
+        languageId = columnName
         return self
     }
 
@@ -342,11 +306,21 @@ open class FTS4Config : FTSConfig {
         for (column, _) in (columnDefinitions.filter { $0.options.contains(.unindexed) }) {
             options.append("notindexed", value: column)
         }
-        options.append("languageid", value: languageId)
-        options.append("compress", value: compressFunction)
-        options.append("uncompress", value: uncompressFunction)
-        options.append("matchinfo", value: matchInfo)
-        options.append("order", value: order)
+        if let languageId {
+            options.append("languageid", value: languageId)
+        }
+        if let compressFunction {
+            options.append("compress", value: compressFunction)
+        }
+        if let uncompressFunction {
+            options.append("uncompress", value: uncompressFunction)
+        }
+        if let matchInfo {
+            options.append("matchinfo", value: matchInfo.rawValue)
+        }
+        if let order {
+            options.append("order", value: order.rawValue)
+        }
         return options
     }
 }

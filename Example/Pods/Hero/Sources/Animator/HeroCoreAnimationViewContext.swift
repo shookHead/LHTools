@@ -72,6 +72,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
            state.cornerRadius != nil ||
            state.opacity != nil ||
            state.overlay != nil ||
+           state.anchorPoint != nil ||
            state.backgroundColor != nil ||
            state.borderColor != nil ||
            state.borderWidth != nil ||
@@ -269,8 +270,8 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     if let size = targetState.size {
       if targetState.useScaleBasedSizeChange ?? self.targetState.useScaleBasedSizeChange ?? false {
         let currentSize = snapshot.bounds.size
-        targetState.append(.scale(x:size.width / currentSize.width,
-                                  y:size.height / currentSize.height))
+        targetState.append(.scale(x: size.width / currentSize.width,
+                                  y: size.height / currentSize.height))
       } else {
         rtn["bounds.size"] = NSValue(cgSize: size)
       }
@@ -289,6 +290,9 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     }
     if let zPosition = targetState.zPosition {
       rtn["zPosition"] = NSNumber(value: zPosition.native)
+    }
+    if let anchorPoint = targetState.anchorPoint {
+      rtn["anchorPoint"] = NSValue(cgPoint: anchorPoint)
     }
 
     if let borderWidth = targetState.borderWidth {

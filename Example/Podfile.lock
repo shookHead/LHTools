@@ -1,23 +1,23 @@
 PODS:
-  - Alamofire (5.4.3)
-  - Hero (1.6.1)
-  - IQKeyboardManagerSwift (6.5.6)
-  - JXPhotoBrowser (3.1.3)
-  - Kingfisher (6.3.1)
-  - LHTools (0.0.2):
+  - Alamofire (5.10.2)
+  - Hero (1.6.4)
+  - IQKeyboardManagerSwift (6.5.16)
+  - JXPhotoBrowser (3.1.5)
+  - Kingfisher (7.12.0)
+  - LHTools (0.0.4):
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
     - Kingfisher
-    - LHTools/Global (= 0.0.2)
-    - LHTools/Other (= 0.0.2)
-    - LHTools/Source (= 0.0.2)
-    - LHTools/View (= 0.0.2)
-    - "LHTools/基类 (= 0.0.2)"
-    - "LHTools/工具类 (= 0.0.2)"
-    - "LHTools/扩展 (= 0.0.2)"
-    - "LHTools/自定义视图 (= 0.0.2)"
+    - LHTools/Global (= 0.0.4)
+    - LHTools/Other (= 0.0.4)
+    - LHTools/Source (= 0.0.4)
+    - LHTools/View (= 0.0.4)
+    - "LHTools/基类 (= 0.0.4)"
+    - "LHTools/工具类 (= 0.0.4)"
+    - "LHTools/扩展 (= 0.0.4)"
+    - "LHTools/自定义视图 (= 0.0.4)"
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
@@ -25,34 +25,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - LHTools/Global (0.0.2):
-    - Alamofire
-    - Hero
-    - IQKeyboardManagerSwift
-    - JXPhotoBrowser
-    - Kingfisher
-    - MBProgressHUD
-    - MJRefresh
-    - NVActivityIndicatorView
-    - SnapKit
-    - SQLite.swift
-    - SwiftyUserDefaults
-    - ZLPhotoBrowser
-  - LHTools/Other (0.0.2):
-    - Alamofire
-    - Hero
-    - IQKeyboardManagerSwift
-    - JXPhotoBrowser
-    - Kingfisher
-    - LHTools/Other/Distrib (= 0.0.2)
-    - MBProgressHUD
-    - MJRefresh
-    - NVActivityIndicatorView
-    - SnapKit
-    - SQLite.swift
-    - SwiftyUserDefaults
-    - ZLPhotoBrowser
-  - LHTools/Other/Distrib (0.0.2):
+  - LHTools/Global (0.0.4):
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -65,7 +38,21 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - LHTools/Source (0.0.2):
+  - LHTools/Other (0.0.4):
+    - Alamofire
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - LHTools/Other/Distrib (= 0.0.4)
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+    - ZLPhotoBrowser
+  - LHTools/Other/Distrib (0.0.4):
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -78,7 +65,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - LHTools/View (0.0.2):
+  - LHTools/Source (0.0.4):
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -91,7 +78,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/基类 (0.0.2)":
+  - LHTools/View (0.0.4):
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -104,28 +91,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/工具类 (0.0.2)":
-    - Alamofire
-    - Hero
-    - IQKeyboardManagerSwift
-    - JXPhotoBrowser
-    - Kingfisher
-    - "LHTools/工具类/AuthorizationManager (= 0.0.2)"
-    - "LHTools/工具类/Utils (= 0.0.2)"
-    - "LHTools/工具类/VideoPlayer (= 0.0.2)"
-    - "LHTools/工具类/二维码 (= 0.0.2)"
-    - "LHTools/工具类/约束 (= 0.0.2)"
-    - "LHTools/工具类/缓存 (= 0.0.2)"
-    - "LHTools/工具类/获取文件 (= 0.0.2)"
-    - "LHTools/工具类/请求 (= 0.0.2)"
-    - MBProgressHUD
-    - MJRefresh
-    - NVActivityIndicatorView
-    - SnapKit
-    - SQLite.swift
-    - SwiftyUserDefaults
-    - ZLPhotoBrowser
-  - "LHTools/工具类/AuthorizationManager (0.0.2)":
+  - "LHTools/基类 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -138,7 +104,28 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/工具类/Utils (0.0.2)":
+  - "LHTools/工具类 (0.0.4)":
+    - Alamofire
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - "LHTools/工具类/AuthorizationManager (= 0.0.4)"
+    - "LHTools/工具类/Utils (= 0.0.4)"
+    - "LHTools/工具类/VideoPlayer (= 0.0.4)"
+    - "LHTools/工具类/二维码 (= 0.0.4)"
+    - "LHTools/工具类/约束 (= 0.0.4)"
+    - "LHTools/工具类/缓存 (= 0.0.4)"
+    - "LHTools/工具类/获取文件 (= 0.0.4)"
+    - "LHTools/工具类/请求 (= 0.0.4)"
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+    - ZLPhotoBrowser
+  - "LHTools/工具类/AuthorizationManager (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -151,7 +138,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/工具类/VideoPlayer (0.0.2)":
+  - "LHTools/工具类/Utils (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -164,7 +151,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/工具类/二维码 (0.0.2)":
+  - "LHTools/工具类/VideoPlayer (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -177,7 +164,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/工具类/约束 (0.0.2)":
+  - "LHTools/工具类/二维码 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -190,7 +177,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/工具类/缓存 (0.0.2)":
+  - "LHTools/工具类/约束 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -203,7 +190,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/工具类/获取文件 (0.0.2)":
+  - "LHTools/工具类/缓存 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -216,7 +203,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/工具类/请求 (0.0.2)":
+  - "LHTools/工具类/获取文件 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -229,31 +216,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展 (0.0.2)":
-    - Alamofire
-    - Hero
-    - IQKeyboardManagerSwift
-    - JXPhotoBrowser
-    - Kingfisher
-    - "LHTools/扩展/Color (= 0.0.2)"
-    - "LHTools/扩展/Date (= 0.0.2)"
-    - "LHTools/扩展/Kingfisher (= 0.0.2)"
-    - "LHTools/扩展/Nav (= 0.0.2)"
-    - "LHTools/扩展/Number (= 0.0.2)"
-    - "LHTools/扩展/SegmentedControl (= 0.0.2)"
-    - "LHTools/扩展/Set (= 0.0.2)"
-    - "LHTools/扩展/SnapKit (= 0.0.2)"
-    - "LHTools/扩展/String (= 0.0.2)"
-    - "LHTools/扩展/View (= 0.0.2)"
-    - "LHTools/扩展/Xib (= 0.0.2)"
-    - MBProgressHUD
-    - MJRefresh
-    - NVActivityIndicatorView
-    - SnapKit
-    - SQLite.swift
-    - SwiftyUserDefaults
-    - ZLPhotoBrowser
-  - "LHTools/扩展/Color (0.0.2)":
+  - "LHTools/工具类/请求 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -266,7 +229,31 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/Date (0.0.2)":
+  - "LHTools/扩展 (0.0.4)":
+    - Alamofire
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - "LHTools/扩展/Color (= 0.0.4)"
+    - "LHTools/扩展/Date (= 0.0.4)"
+    - "LHTools/扩展/Kingfisher (= 0.0.4)"
+    - "LHTools/扩展/Nav (= 0.0.4)"
+    - "LHTools/扩展/Number (= 0.0.4)"
+    - "LHTools/扩展/SegmentedControl (= 0.0.4)"
+    - "LHTools/扩展/Set (= 0.0.4)"
+    - "LHTools/扩展/SnapKit (= 0.0.4)"
+    - "LHTools/扩展/String (= 0.0.4)"
+    - "LHTools/扩展/View (= 0.0.4)"
+    - "LHTools/扩展/Xib (= 0.0.4)"
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+    - ZLPhotoBrowser
+  - "LHTools/扩展/Color (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -279,7 +266,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/Kingfisher (0.0.2)":
+  - "LHTools/扩展/Date (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -292,7 +279,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/Nav (0.0.2)":
+  - "LHTools/扩展/Kingfisher (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -305,7 +292,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/Number (0.0.2)":
+  - "LHTools/扩展/Nav (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -318,7 +305,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/SegmentedControl (0.0.2)":
+  - "LHTools/扩展/Number (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -331,7 +318,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/Set (0.0.2)":
+  - "LHTools/扩展/SegmentedControl (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -344,7 +331,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/SnapKit (0.0.2)":
+  - "LHTools/扩展/Set (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -357,7 +344,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/String (0.0.2)":
+  - "LHTools/扩展/SnapKit (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -370,7 +357,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/View (0.0.2)":
+  - "LHTools/扩展/String (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -383,7 +370,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/扩展/Xib (0.0.2)":
+  - "LHTools/扩展/View (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -396,31 +383,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图 (0.0.2)":
-    - Alamofire
-    - Hero
-    - IQKeyboardManagerSwift
-    - JXPhotoBrowser
-    - Kingfisher
-    - "LHTools/自定义视图/PhotoBrowser (= 0.0.2)"
-    - "LHTools/自定义视图/PopView (= 0.0.2)"
-    - "LHTools/自定义视图/加载等待 (= 0.0.2)"
-    - "LHTools/自定义视图/图片上传 (= 0.0.2)"
-    - "LHTools/自定义视图/图片缩放预览 (= 0.0.2)"
-    - "LHTools/自定义视图/提示框 (= 0.0.2)"
-    - "LHTools/自定义视图/时间段选择器 (= 0.0.2)"
-    - "LHTools/自定义视图/测试服切换工具 (= 0.0.2)"
-    - "LHTools/自定义视图/点赞动画 (= 0.0.2)"
-    - "LHTools/自定义视图/轮播 (= 0.0.2)"
-    - "LHTools/自定义视图/选择器 (= 0.0.2)"
-    - MBProgressHUD
-    - MJRefresh
-    - NVActivityIndicatorView
-    - SnapKit
-    - SQLite.swift
-    - SwiftyUserDefaults
-    - ZLPhotoBrowser
-  - "LHTools/自定义视图/PhotoBrowser (0.0.2)":
+  - "LHTools/扩展/Xib (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -433,7 +396,31 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/PopView (0.0.2)":
+  - "LHTools/自定义视图 (0.0.4)":
+    - Alamofire
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - "LHTools/自定义视图/PhotoBrowser (= 0.0.4)"
+    - "LHTools/自定义视图/PopView (= 0.0.4)"
+    - "LHTools/自定义视图/加载等待 (= 0.0.4)"
+    - "LHTools/自定义视图/图片上传 (= 0.0.4)"
+    - "LHTools/自定义视图/图片缩放预览 (= 0.0.4)"
+    - "LHTools/自定义视图/提示框 (= 0.0.4)"
+    - "LHTools/自定义视图/时间段选择器 (= 0.0.4)"
+    - "LHTools/自定义视图/测试服切换工具 (= 0.0.4)"
+    - "LHTools/自定义视图/点赞动画 (= 0.0.4)"
+    - "LHTools/自定义视图/轮播 (= 0.0.4)"
+    - "LHTools/自定义视图/选择器 (= 0.0.4)"
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+    - ZLPhotoBrowser
+  - "LHTools/自定义视图/PhotoBrowser (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -446,7 +433,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/加载等待 (0.0.2)":
+  - "LHTools/自定义视图/PopView (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -459,22 +446,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/图片上传 (0.0.2)":
-    - Alamofire
-    - Hero
-    - IQKeyboardManagerSwift
-    - JXPhotoBrowser
-    - Kingfisher
-    - "LHTools/自定义视图/图片上传/多图选择控件 (= 0.0.2)"
-    - "LHTools/自定义视图/图片上传/快速上传 (= 0.0.2)"
-    - MBProgressHUD
-    - MJRefresh
-    - NVActivityIndicatorView
-    - SnapKit
-    - SQLite.swift
-    - SwiftyUserDefaults
-    - ZLPhotoBrowser
-  - "LHTools/自定义视图/图片上传/多图选择控件 (0.0.2)":
+  - "LHTools/自定义视图/加载等待 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -487,7 +459,22 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/图片上传/快速上传 (0.0.2)":
+  - "LHTools/自定义视图/图片上传 (0.0.4)":
+    - Alamofire
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - "LHTools/自定义视图/图片上传/多图选择控件 (= 0.0.4)"
+    - "LHTools/自定义视图/图片上传/快速上传 (= 0.0.4)"
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+    - ZLPhotoBrowser
+  - "LHTools/自定义视图/图片上传/多图选择控件 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -500,7 +487,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/图片缩放预览 (0.0.2)":
+  - "LHTools/自定义视图/图片上传/快速上传 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -513,7 +500,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/提示框 (0.0.2)":
+  - "LHTools/自定义视图/图片缩放预览 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -526,7 +513,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/时间段选择器 (0.0.2)":
+  - "LHTools/自定义视图/提示框 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -539,7 +526,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/测试服切换工具 (0.0.2)":
+  - "LHTools/自定义视图/时间段选择器 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -552,7 +539,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/点赞动画 (0.0.2)":
+  - "LHTools/自定义视图/测试服切换工具 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -565,7 +552,7 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/轮播 (0.0.2)":
+  - "LHTools/自定义视图/点赞动画 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -578,13 +565,12 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/选择器 (0.0.2)":
+  - "LHTools/自定义视图/轮播 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
     - Kingfisher
-    - "LHTools/自定义视图/选择器/CustomPicker (= 0.0.2)"
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
@@ -592,13 +578,13 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/选择器/CustomPicker (0.0.2)":
+  - "LHTools/自定义视图/选择器 (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
     - JXPhotoBrowser
     - Kingfisher
-    - "LHTools/自定义视图/选择器/CustomPicker/CityDataBase (= 0.0.2)"
+    - "LHTools/自定义视图/选择器/CustomPicker (= 0.0.4)"
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
@@ -606,7 +592,21 @@ PODS:
     - SQLite.swift
     - SwiftyUserDefaults
     - ZLPhotoBrowser
-  - "LHTools/自定义视图/选择器/CustomPicker/CityDataBase (0.0.2)":
+  - "LHTools/自定义视图/选择器/CustomPicker (0.0.4)":
+    - Alamofire
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - "LHTools/自定义视图/选择器/CustomPicker/CityDataBase (= 0.0.4)"
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+    - ZLPhotoBrowser
+  - "LHTools/自定义视图/选择器/CustomPicker/CityDataBase (0.0.4)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -620,18 +620,18 @@ PODS:
     - SwiftyUserDefaults
     - ZLPhotoBrowser
   - MBProgressHUD (1.2.0)
-  - MJRefresh (3.7.2)
-  - NVActivityIndicatorView (5.1.1):
-    - NVActivityIndicatorView/Base (= 5.1.1)
-  - NVActivityIndicatorView/Base (5.1.1)
-  - SnapKit (5.0.1)
-  - SQLite.swift (0.13.0):
-    - SQLite.swift/standard (= 0.13.0)
-  - SQLite.swift/standard (0.13.0)
+  - MJRefresh (3.7.9)
+  - NVActivityIndicatorView (5.2.0):
+    - NVActivityIndicatorView/Base (= 5.2.0)
+  - NVActivityIndicatorView/Base (5.2.0)
+  - SnapKit (5.7.1)
+  - SQLite.swift (0.15.3):
+    - SQLite.swift/standard (= 0.15.3)
+  - SQLite.swift/standard (0.15.3)
   - SwiftyUserDefaults (5.3.0)
-  - ZLPhotoBrowser (4.3.7):
-    - ZLPhotoBrowser/Core (= 4.3.7)
-  - ZLPhotoBrowser/Core (4.3.7)
+  - ZLPhotoBrowser (4.5.8):
+    - ZLPhotoBrowser/Core (= 4.5.8)
+  - ZLPhotoBrowser/Core (4.5.8)
 
 DEPENDENCIES:
   - LHTools (from `../`)
@@ -656,19 +656,19 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
-  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
-  JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
-  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
-  LHTools: 8297596945cdf9aa8198f36cb6e064e588482c0e
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  Hero: 473a0143017e1371d050fcbedb67d317925097f2
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
+  JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
+  Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  LHTools: ffdb60129c2f02eb49f31f66af1aeae573b3344f
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
-  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SQLite.swift: 8add701609fd0ef78d097dcc75d20a9782e6f5fc
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
+  NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SQLite.swift: 8d054987f02728cc912b0eb5a9659650573a65a2
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
-  ZLPhotoBrowser: f571bdaec6d0b64ae94a29787e4c7cbd8900d10f
+  ZLPhotoBrowser: 52c8b386e3f9a7885676027c529a015147df502c
 
 PODFILE CHECKSUM: 3a9c614dcd527850fd330a9aad5e9668abe2694f
 

@@ -24,7 +24,7 @@
 
 extension Module {
     public static func FTS5(_ config: FTS5Config) -> Module {
-        return Module(name: "fts5", arguments: config.arguments())
+        Module(name: "fts5", arguments: config.arguments())
     }
 }
 
@@ -32,22 +32,14 @@ extension Module {
 ///
 /// **Note:** this is currently only applicable when using SQLite.swift together with a FTS5-enabled version
 /// of SQLite.
-open class FTS5Config : FTSConfig {
-    public enum Detail : CustomStringConvertible {
+open class FTS5Config: FTSConfig {
+    public enum Detail: String {
         /// store rowid, column number, term offset
         case full
         /// store rowid, column number
         case column
         /// store rowid
         case none
-
-        public var description: String {
-            switch self {
-            case .full: return "full"
-            case .column: return "column"
-            case .none: return "none"
-            }
-        }
     }
 
     var detail: Detail?
@@ -59,13 +51,13 @@ open class FTS5Config : FTSConfig {
 
     /// [External Content Tables](https://www.sqlite.org/fts5.html#section_4_4_2)
     @discardableResult open func contentRowId(_ column: Expressible) -> Self {
-        self.contentRowId = column
+        contentRowId = column
         return self
     }
 
     /// [The Columnsize Option](https://www.sqlite.org/fts5.html#section_4_5)
     @discardableResult open func columnSize(_ size: Int) -> Self {
-        self.columnSize = size
+        columnSize = size
         return self
     }
 
@@ -77,16 +69,20 @@ open class FTS5Config : FTSConfig {
 
     override func options() -> Options {
         var options = super.options()
-        options.append("content_rowid", value: contentRowId)
-        if let columnSize = columnSize {
+        if let contentRowId {
+            options.append("content_rowid", value: contentRowId)
+        }
+        if let columnSize {
             options.append("columnsize", value: Expression<Int>(value: columnSize))
         }
-        options.append("detail", value: detail)
+        if let detail {
+            options.append("detail", value: detail.rawValue)
+        }
         return options
     }
 
     override func formatColumnDefinitions() -> [Expressible] {
-        return columnDefinitions.map { definition in
+        columnDefinitions.map { definition in
             if definition.options.contains(.unindexed) {
                 return " ".join([definition.0, Expression<Void>(literal: "UNINDEXED")])
             } else {

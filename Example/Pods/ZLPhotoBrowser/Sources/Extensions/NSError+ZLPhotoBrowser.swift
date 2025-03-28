@@ -34,6 +34,8 @@ extension NSError {
 }
 
 extension NSError {
+    static let noWriteAuthError = NSError(message: "No permission to write to the album")
+    
     static let videoMergeError = NSError(message: "video merge failed")
     
     static let videoExportTypeError = NSError(message: "The mediaType of asset must be video")
@@ -41,4 +43,6 @@ extension NSError {
     static let videoExportError = NSError(message: "Video export failed")
     
     static let assetSaveError = NSError(message: "Asset save failed")
+    
+    static let timeoutError = NSError(message: "timeout")
 }

@@ -190,6 +190,7 @@ TODO: Add long description of the pod here.
     s.frameworks = 'UIKit', "Foundation"#, 'MapKit'
     s.dependency 'Alamofire'
     s.dependency 'Kingfisher'
+#    s.dependency 'SmartCodable'
    # s.dependency 'HandyJSON'
     s.dependency 'MJRefresh'
     s.dependency 'MBProgressHUD'

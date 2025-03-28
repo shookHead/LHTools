@@ -28,13 +28,6 @@ import UIKit
 import Photos
 
 public extension ZLPhotoConfiguration {
-    
-    @discardableResult
-    func sortAscending(_ ascending: Bool) -> ZLPhotoConfiguration {
-        sortAscending = ascending
-        return self
-    }
-    
     @discardableResult
     func maxSelectCount(_ count: Int) -> ZLPhotoConfiguration {
         maxSelectCount = count
@@ -66,8 +59,8 @@ public extension ZLPhotoConfiguration {
     }
     
     @discardableResult
-    func cellCornerRadio(_ cornerRadio: CGFloat) -> ZLPhotoConfiguration {
-        cellCornerRadio = cornerRadio
+    func initialIndex(_ index: Int) -> ZLPhotoConfiguration {
+        initialIndex = index
         return self
     }
     
@@ -80,6 +73,12 @@ public extension ZLPhotoConfiguration {
     @discardableResult
     @objc func allowSelectVideo(_ value: Bool) -> ZLPhotoConfiguration {
         allowSelectVideo = value
+        return self
+    }
+    
+    @discardableResult
+    @objc func downloadVideoBeforeSelecting(_ value: Bool) -> ZLPhotoConfiguration {
+        downloadVideoBeforeSelecting = value
         return self
     }
     
@@ -102,6 +101,12 @@ public extension ZLPhotoConfiguration {
     }
     
     @discardableResult
+    func callbackDirectlyAfterTakingPhoto(_ value: Bool) -> ZLPhotoConfiguration {
+        callbackDirectlyAfterTakingPhoto = value
+        return self
+    }
+    
+    @discardableResult
     func allowEditImage(_ value: Bool) -> ZLPhotoConfiguration {
         allowEditImage = value
         return self
@@ -114,18 +119,6 @@ public extension ZLPhotoConfiguration {
     }
     
     @discardableResult
-    func animateSelectBtnWhenSelect(_ animate: Bool) -> ZLPhotoConfiguration {
-        animateSelectBtnWhenSelect = animate
-        return self
-    }
-    
-    @discardableResult
-    func selectBtnAnimationDuration(_ duration: CFTimeInterval) -> ZLPhotoConfiguration {
-        selectBtnAnimationDuration = duration
-        return self
-    }
-    
-    @discardableResult
     func editAfterSelectThumbnailImage(_ value: Bool) -> ZLPhotoConfiguration {
         editAfterSelectThumbnailImage = value
         return self
@@ -134,12 +127,6 @@ public extension ZLPhotoConfiguration {
     @discardableResult
     func cropVideoAfterSelectThumbnail(_ value: Bool) -> ZLPhotoConfiguration {
         cropVideoAfterSelectThumbnail = value
-        return self
-    }
-    
-    @discardableResult
-    func showClipDirectlyIfOnlyHasClipTool(_ value: Bool) -> ZLPhotoConfiguration {
-        showClipDirectlyIfOnlyHasClipTool = value
         return self
     }
     
@@ -204,8 +191,14 @@ public extension ZLPhotoConfiguration {
     }
     
     @discardableResult
-    func columnCount(_ count: Int) -> ZLPhotoConfiguration {
-        columnCount = count
+    func showSelectBtnWhenSingleSelect(_ value: Bool) -> ZLPhotoConfiguration {
+        showSelectBtnWhenSingleSelect = value
+        return self
+    }
+    
+    @discardableResult
+    func showSelectedIndex(_ value: Bool) -> ZLPhotoConfiguration {
+        showSelectedIndex = value
         return self
     }
     
@@ -228,86 +221,26 @@ public extension ZLPhotoConfiguration {
     }
     
     @discardableResult
+    func maxSelectVideoDataSize(_ size: ZLPhotoConfiguration.KBUnit) -> ZLPhotoConfiguration {
+        maxSelectVideoDataSize = size
+        return self
+    }
+    
+    @discardableResult
+    func minSelectVideoDataSize(_ size: ZLPhotoConfiguration.KBUnit) -> ZLPhotoConfiguration {
+        minSelectVideoDataSize = size
+        return self
+    }
+    
+    @discardableResult
     func editImageConfiguration(_ configuration: ZLEditImageConfiguration) -> ZLPhotoConfiguration {
         editImageConfiguration = configuration
         return self
     }
     
     @discardableResult
-    func showCaptureImageOnTakePhotoBtn(_ value: Bool) -> ZLPhotoConfiguration {
-        showCaptureImageOnTakePhotoBtn = value
-        return self
-    }
-    
-    @discardableResult
-    func showSelectBtnWhenSingleSelect(_ value: Bool) -> ZLPhotoConfiguration {
-        showSelectBtnWhenSingleSelect = value
-        return self
-    }
-    
-    @discardableResult
-    func showSelectedMask(_ value: Bool) -> ZLPhotoConfiguration {
-        showSelectedMask = value
-        return self
-    }
-    
-    @discardableResult
-    func showSelectedBorder(_ value: Bool) -> ZLPhotoConfiguration {
-        showSelectedBorder = value
-        return self
-    }
-    
-    @discardableResult
-    func showInvalidMask(_ value: Bool) -> ZLPhotoConfiguration {
-        showInvalidMask = value
-        return self
-    }
-    
-    @discardableResult
-    func showSelectedIndex(_ value: Bool) -> ZLPhotoConfiguration {
-        showSelectedIndex = value
-        return self
-    }
-    
-    @discardableResult
-    func showSelectedPhotoPreview(_ value: Bool) -> ZLPhotoConfiguration {
-        showSelectedPhotoPreview = value
-        return self
-    }
-    
-    @discardableResult
-    func timeout(_ timeout: TimeInterval) -> ZLPhotoConfiguration {
-        self.timeout = timeout
-        return self
-    }
-    
-    @discardableResult
     func useCustomCamera(_ value: Bool) -> ZLPhotoConfiguration {
         useCustomCamera = value
-        return self
-    }
-    
-    @discardableResult
-    func allowTakePhoto(_ value: Bool) -> ZLPhotoConfiguration {
-        allowTakePhoto = value
-        return self
-    }
-    
-    @discardableResult
-    func allowRecordVideo(_ value: Bool) -> ZLPhotoConfiguration {
-        allowRecordVideo = value
-        return self
-    }
-    
-    @discardableResult
-    func minRecordDuration(_ duration: Second) -> ZLPhotoConfiguration {
-        minRecordDuration = duration
-        return self
-    }
-    
-    @discardableResult
-    func maxRecordDuration(_ duration: Second) -> ZLPhotoConfiguration {
-        maxRecordDuration = duration
         return self
     }
     
@@ -324,14 +257,38 @@ public extension ZLPhotoConfiguration {
     }
     
     @discardableResult
-    func showAddPhotoButton(_ value: Bool) -> ZLPhotoConfiguration {
-        showAddPhotoButton = value
+    func didSelectAsset(_ block: ((PHAsset) -> Void)?) -> ZLPhotoConfiguration {
+        didSelectAsset = block
         return self
     }
     
     @discardableResult
-    func showEnterSettingTips(_ value: Bool) -> ZLPhotoConfiguration {
-        showEnterSettingTips = value
+    func didDeselectAsset(_ block: ((PHAsset) -> Void)?) -> ZLPhotoConfiguration {
+        didDeselectAsset = block
+        return self
+    }
+    
+    @discardableResult
+    func maxFrameCountForGIF(_ frameCount: Int) -> ZLPhotoConfiguration {
+        maxFrameCountForGIF = frameCount
+        return self
+    }
+    
+    @discardableResult
+    func gifPlayBlock(_ block: ((UIImageView, Data, [AnyHashable: Any]?) -> Void)?) -> ZLPhotoConfiguration {
+        gifPlayBlock = block
+        return self
+    }
+    
+    @discardableResult
+    func pauseGIFBlock(_ block: ((UIImageView) -> Void)?) -> ZLPhotoConfiguration {
+        pauseGIFBlock = block
+        return self
+    }
+    
+    @discardableResult
+    func resumeGIFBlock(_ block: ((UIImageView) -> Void)?) -> ZLPhotoConfiguration {
+        resumeGIFBlock = block
         return self
     }
     
@@ -342,9 +299,14 @@ public extension ZLPhotoConfiguration {
     }
     
     @discardableResult
+    func customAlertWhenNoAuthority(_ callback: ((ZLNoAuthorityType) -> Void)?) -> ZLPhotoConfiguration {
+        customAlertWhenNoAuthority = callback
+        return self
+    }
+    
+    @discardableResult
     func operateBeforeDoneAction(_ block: ((UIViewController, @escaping () -> Void) -> Void)?) -> ZLPhotoConfiguration {
         operateBeforeDoneAction = block
         return self
     }
-    
 }

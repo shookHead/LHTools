@@ -10,12 +10,9 @@
 	<img src="https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/Transition.png" width = "30%" div/>
 	<img src="https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/Browser.png" width = "30%" div/>
 </div>
-(截图待更新)
 
-## 说明
+(更多演示请看Demo)
 
-> 新项目Lantern在本库的基础上优化迭代。Lantern由丰巢团队维护，未来会投入更多的开发资源，问题反馈和解决更及时，推荐大家关注。
-> https://github.com/fcbox/Lantern
 
 ## 特性
 
@@ -29,65 +26,22 @@
 - [x] 支持网络图片加载、查看原图加载，由用户自由选择其他框架进行图片加载与缓存
 - [x] 支持添加附加控件，框架提供了两种页面指示器的实现，以及在例子工程提供了加载进度环的实现
 
-## 版本更新记录
+## 近期版本更新
 
-### Version 3.1.3
+### Version 3.1.5
 
-> 2021/02/20
+> 2024/02/05
 
-- 优化JXPhotoBrowserImageCell，监听imageView的image赋值，自动layout
+- 优化和修复已知问题，包括#213 #216 #217 #221 #224 #225
 
-### Version 3.1.2
+### 历史更新记录
 
-> 2020/05/30
-
-- 优化JXPhotoBrowserImageCell，暴露方法支持子类自定义创建视图
-
-### Version 3.1.1
-
-> 2020/05/08
-
-- 修复嵌入导航栏场景下的转场动画Bug.
-
-### Version 3.1.0
-
-> 2020/05/06
-
-- 更好支持嵌入导航栏场景下的转场动画
-- 修复转场过程中可能出现的崩溃
-
-### Version 3.0.9
-
-> 2020/02/20
-
-- 修复：非嵌入导航栏的Fade动画Dismiss问题
-
-### Version 3.0.8
-
-> 2020/02/09
-
-- 修复：嵌入导航控制器后的Fade动画显示问题
-- 优化：deinit时还原导航控制器的delegate
-
-### Version 3.0.7
-
-> 2020/02/04
-
-- 修复屏幕旋转后的滑动问题
-
-### Version 3.0.6
-
-> 2020/01/13
-
-- 适配Swift低版本的语法
-
-查看更早记录：[CHANGELOG](CHANGELOG.md)
+- [CHANGELOG](CHANGELOG.md)
 
 
 ## 环境要求
 
-- iOS 8.0 以上
-- Swift 4.2 以上
+- iOS 11.0 及以上
 
 ## 安装方法
 
@@ -96,7 +50,7 @@
 在`podfile`配置
 
 ```
-pod 'JXPhotoBrowser', '~> 3.0'
+pod 'JXPhotoBrowser'
 ```
 
 ### Swift Package Manager (Xcode 11+)

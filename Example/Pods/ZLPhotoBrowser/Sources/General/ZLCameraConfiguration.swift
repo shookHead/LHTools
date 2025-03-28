@@ -27,9 +27,121 @@
 import UIKit
 import AVFoundation
 
+@objcMembers
 public class ZLCameraConfiguration: NSObject {
+    private var pri_allowTakePhoto = true
+    /// Allow taking photos in the camera (Need allowSelectImage to be true). Defaults to true.
+    public var allowTakePhoto: Bool {
+        get {
+            pri_allowTakePhoto && ZLPhotoConfiguration.default().allowSelectImage
+        }
+        set {
+            pri_allowTakePhoto = newValue
+        }
+    }
     
-    @objc public enum CaptureSessionPreset: Int {
+    private var pri_allowRecordVideo = true
+    /// Allow recording in the camera (Need allowSelectVideo to be true). Defaults to true.
+    public var allowRecordVideo: Bool {
+        get {
+            pri_allowRecordVideo && ZLPhotoConfiguration.default().allowSelectVideo
+        }
+        set {
+            pri_allowRecordVideo = newValue
+        }
+    }
+    
+    private var pri_minRecordDuration: ZLPhotoConfiguration.Second = 0
+    /// Minimum recording duration. Defaults to 0.
+    public var minRecordDuration: ZLPhotoConfiguration.Second {
+        get {
+            pri_minRecordDuration
+        }
+        set {
+            pri_minRecordDuration = max(0, newValue)
+        }
+    }
+    
+    private var pri_maxRecordDuration: ZLPhotoConfiguration.Second = 20
+    /// Maximum recording duration. Defaults to 20, minimum is 1.
+    public var maxRecordDuration: ZLPhotoConfiguration.Second {
+        get {
+            pri_maxRecordDuration
+        }
+        set {
+            pri_maxRecordDuration = max(1, newValue)
+        }
+    }
+    
+    /// Indicates whether the video flowing through the connection should be mirrored about its vertical axis.
+    public var isVideoMirrored = true
+    
+    /// Video resolution. Defaults to hd1920x1080.
+    public var sessionPreset: ZLCameraConfiguration.CaptureSessionPreset = .hd1920x1080
+    
+    /// Camera focus mode. Defaults to continuousAutoFocus
+    public var focusMode: ZLCameraConfiguration.FocusMode = .continuousAutoFocus
+    
+    /// Camera exposure mode. Defaults to continuousAutoExposure
+    public var exposureMode: ZLCameraConfiguration.ExposureMode = .continuousAutoExposure
+    
+    /// Camera flahs switch. Defaults to true.
+    public var showFlashSwitch = true
+    
+    /// Whether to support switch camera. Defaults to true.
+    public var allowSwitchCamera = true
+    
+    /// Flag to enable tap-to-record functionality. Default is false.
+    /// Note: This property is prioritized lower than `allowTakePhoto`.
+    /// If `allowTakePhoto` is true, `tapToRecordVideo` will be ignored.
+    public var tapToRecordVideo: Bool = false
+    
+    private var _enableWideCameras: Bool = false
+    
+    /// Enable the use of wide cameras (e.g., .builtInTripleCamera, .builtInDualWideCamera, .builtInDualCamera).
+    /// Only available on iOS 13.0 and higher, defaults to false.
+    @available(iOS 13.0, *)
+    public var enableWideCameras: Bool {
+        get {
+            return _enableWideCameras
+        }
+        set {
+            _enableWideCameras = newValue
+        }
+    }
+    
+    /// Overlay view to be displayed on top of the camera view.
+    /// User interaction is disabled for this view.
+    public var overlayView: UIView? {
+        didSet {
+            overlayView?.isUserInteractionEnabled = false
+        }
+    }
+    
+    /// Video stabilization mode. Defaults to .off.
+    public var videoStabilizationMode: AVCaptureVideoStabilizationMode = .off
+    
+    /// Video export format for recording video and editing video. Defaults to mov.
+    public var videoExportType: ZLCameraConfiguration.VideoExportType = .mov
+    
+    /// The default camera position after entering the camera. Defaults to back.
+    public var devicePosition: ZLCameraConfiguration.DevicePosition = .back
+    
+    private var pri_videoCodecType: Any?
+    /// The codecs for video capture. Defaults to .h264
+    @available(iOS 11.0, *)
+    public var videoCodecType: AVVideoCodecType {
+        get {
+            (pri_videoCodecType as? AVVideoCodecType) ?? .h264
+        }
+        set {
+            pri_videoCodecType = newValue
+        }
+    }
+}
+
+public extension ZLCameraConfiguration {
+    @objc enum CaptureSessionPreset: Int {
         var avSessionPreset: AVCaptureSession.Preset {
             switch self {
             case .cif352x288:
@@ -42,6 +154,8 @@ public class ZLCameraConfiguration: NSObject {
                 return .hd1920x1080
             case .hd4K3840x2160:
                 return .hd4K3840x2160
+            case .photo:
+                return .photo
             }
         }
         
@@ -50,9 +164,10 @@ public class ZLCameraConfiguration: NSObject {
         case hd1280x720
         case hd1920x1080
         case hd4K3840x2160
+        case photo
     }
     
-    @objc public enum FocusMode: Int {
+    @objc enum FocusMode: Int {
         var avFocusMode: AVCaptureDevice.FocusMode {
             switch self {
             case .autoFocus:
@@ -66,7 +181,7 @@ public class ZLCameraConfiguration: NSObject {
         case continuousAutoFocus
     }
     
-    @objc public enum ExposureMode: Int {
+    @objc enum ExposureMode: Int {
         var avFocusMode: AVCaptureDevice.ExposureMode {
             switch self {
             case .autoExpose:
@@ -80,36 +195,7 @@ public class ZLCameraConfiguration: NSObject {
         case continuousAutoExposure
     }
     
-    @objc public enum FlashMode: Int {
-        var avFlashMode: AVCaptureDevice.FlashMode {
-            switch self {
-            case .auto:
-                return .auto
-            case .on:
-                return .on
-            case .off:
-                return .off
-            }
-        }
-        
-        // 转系统相机
-        var imagePickerFlashMode: UIImagePickerController.CameraFlashMode {
-            switch self {
-            case .auto:
-                return .auto
-            case .on:
-                return .on
-            case .off:
-                return .off
-            }
-        }
-        
-        case auto
-        case on
-        case off
-    }
-    
-    @objc public enum VideoExportType: Int {
+    @objc enum VideoExportType: Int {
         var format: String {
             switch self {
             case .mov:
@@ -132,25 +218,59 @@ public class ZLCameraConfiguration: NSObject {
         case mp4
     }
     
-    /// Video resolution. Defaults to hd1280x720.
-    @objc public var sessionPreset: ZLCameraConfiguration.CaptureSessionPreset = .hd1280x720
-    
-    /// Camera focus mode. Defaults to continuousAutoFocus
-    @objc public var focusMode: ZLCameraConfiguration.FocusMode = .continuousAutoFocus
-    
-    /// Camera exposure mode. Defaults to continuousAutoExposure
-    @objc public var exposureMode: ZLCameraConfiguration.ExposureMode = .continuousAutoExposure
-    
-    /// Camera flahs mode. Default is off. Defaults to off.
-    @objc public var flashMode: ZLCameraConfiguration.FlashMode = .off
-    
-    /// Video export format for recording video and editing video. Defaults to mov.
-    @objc public var videoExportType: ZLCameraConfiguration.VideoExportType = .mov
+    @objc enum DevicePosition: Int {
+        case back
+        case front
+        
+        /// For custom camera
+        var avDevicePosition: AVCaptureDevice.Position {
+            switch self {
+            case .back:
+                return .back
+            case .front:
+                return .front
+            }
+        }
+        
+        /// For system camera
+        var cameraDevice: UIImagePickerController.CameraDevice {
+            switch self {
+            case .back:
+                return .rear
+            case .front:
+                return .front
+            }
+        }
+    }
 }
 
 // MARK: chaining
 
 public extension ZLCameraConfiguration {
+    @discardableResult
+    func allowTakePhoto(_ value: Bool) -> ZLCameraConfiguration {
+        allowTakePhoto = value
+        return self
+    }
+    
+    @discardableResult
+    func allowRecordVideo(_ value: Bool) -> ZLCameraConfiguration {
+        allowRecordVideo = value
+        return self
+    }
+    
+    @discardableResult
+    func minRecordDuration(_ duration: ZLPhotoConfiguration.Second) -> ZLCameraConfiguration {
+        minRecordDuration = duration
+        return self
+    }
+    
+    @discardableResult
+    func maxRecordDuration(_ duration: ZLPhotoConfiguration.Second) -> ZLCameraConfiguration {
+        maxRecordDuration = duration
+        return self
+    }
+    
     @discardableResult
     func sessionPreset(_ sessionPreset: ZLCameraConfiguration.CaptureSessionPreset) -> ZLCameraConfiguration {
         self.sessionPreset = sessionPreset
@@ -170,8 +290,14 @@ public extension ZLCameraConfiguration {
     }
     
     @discardableResult
-    func flashMode(_ mode: ZLCameraConfiguration.FlashMode) -> ZLCameraConfiguration {
-        flashMode = mode
+    func showFlashSwitch(_ value: Bool) -> ZLCameraConfiguration {
+        showFlashSwitch = value
+        return self
+    }
+    
+    @discardableResult
+    func allowSwitchCamera(_ value: Bool) -> ZLCameraConfiguration {
+        allowSwitchCamera = value
         return self
     }
     
@@ -181,4 +307,41 @@ public extension ZLCameraConfiguration {
         return self
     }
     
+    @discardableResult
+    func devicePosition(_ position: ZLCameraConfiguration.DevicePosition) -> ZLCameraConfiguration {
+        devicePosition = position
+        return self
+    }
+    
+    @available(iOS 11.0, *)
+    @discardableResult
+    func videoCodecType(_ type: AVVideoCodecType) -> ZLCameraConfiguration {
+        videoCodecType = type
+        return self
+    }
+    
+    @discardableResult
+    func tapToRecordVideo(_ value: Bool) -> ZLCameraConfiguration {
+        tapToRecordVideo = value
+        return self
+    }
+    
+    @available(iOS 13.0, *)
+    @discardableResult
+    func enableWideCameras(_ value: Bool) -> ZLCameraConfiguration {
+        enableWideCameras = value
+        return self
+    }
+    
+    @discardableResult
+    func overlayView(_ value: UIView) -> ZLCameraConfiguration {
+        overlayView = value
+        return self
+    }
+    
+    @discardableResult
+    func videoStabilizationMode(_ value: AVCaptureVideoStabilizationMode) -> ZLCameraConfiguration {
+        videoStabilizationMode = value
+        return self
+    }
 }
