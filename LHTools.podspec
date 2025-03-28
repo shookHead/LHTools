@@ -7,28 +7,39 @@
 #
 
 Pod::Spec.new do |s|
+  # 项目名
   s.name             = 'LHTools'
+  # 版本号
   s.version          = '0.0.4'
+  # 简单描述
   s.summary          = 'A base tool for swift develop'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  # 详细介绍
+  s.description      = '这是Swift版本的基础类'
 
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
                        DESC
 
+  # 项目的gitub地址，只支持HTTP和HTTPS地址，不支持ssh的地址
   s.homepage         = 'https://github.com/shookHead/LHTools'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  # listen文件的类型
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  # 作者和邮箱
   s.author           = { 'shookHead' => 'lin.hai2020@foxmail.com' }
+  # git仓库的https地址
   s.source           = { :git => 'https://github.com/shookHead/LHTools.git', :tag => s.version.to_s }
+  # 多媒体介绍地址
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
+  # 最低要求的系统版本
   s.ios.deployment_target = '12.0'
+  # s.tvos.deployment_target = "12.0"
+  # s.osx.deployment_target = "10.14"
+  # s.watchos.deployment_target = "2.0"
+  # Wait for CocoaPods 1.13.0 (visionOS support)
+  # s.visionos.deployment_target = "1.0"
+  # swift 支持的版本
   s.swift_version          = '5.0'
   
 #  s.source_files = 'LHTools/Classes/**/*.swift'
