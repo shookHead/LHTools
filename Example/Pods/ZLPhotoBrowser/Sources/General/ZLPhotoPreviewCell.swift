@@ -679,7 +679,7 @@ class ZLVideoPreviewCell: ZLPreviewBaseCell {
         playerLayer?.frame = playerView.bounds
         playerView.layer.insertSublayer(playerLayer!, at: 0)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(playFinish), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+        NotificationCenter.default.addObserver(self, selector: #selector(playFinish), name: AVPlayerItem.didPlayToEndTimeNotification, object: player?.currentItem)
     }
     
     @objc private func playBtnClick() {
@@ -701,18 +701,26 @@ class ZLVideoPreviewCell: ZLPreviewBaseCell {
     }
     
     @objc private func playFinish() {
-        pausePlayer(seekToZero: true)
+        pausePlayer(seekToZero: true, ignorePlayStatus: true)
     }
     
     @objc private func appWillResignActive() {
         pausePlayer(seekToZero: false)
     }
     
-    private func pausePlayer(seekToZero: Bool) {
-        guard isPlaying else { return }
+    /// 暂停播放器
+    /// - Parameters:
+    ///   - seekToZero: 是否seek到0秒
+    ///   - ignorePlayStatus: 是否忽略当前播放器播放状态（
+    /// - Note: 由于`iOS16`后，收到`AVPlayerItem.didPlayToEndTimeNotification`通知后，`player`的`rate`值已经是`0`，所以会被`guard isPlaying else { return }`拦截。所以加了`ignorePlayStatus`参数
+    private func pausePlayer(seekToZero: Bool, ignorePlayStatus: Bool = false) {
+        guard isPlaying || ignorePlayStatus else { return }
         
         player?.pause()
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        }
+        
         if seekToZero {
             player?.seek(to: .zero)
         }
@@ -841,7 +849,7 @@ class ZLNetVideoPreviewCell: ZLPreviewBaseCell {
     }
     
     @objc private func playFinish() {
-        pausePlayer(seekToZero: true)
+        pausePlayer(seekToZero: true, ignorePlayStatus: true)
     }
     
     @objc private func appWillResignActive() {
@@ -852,11 +860,18 @@ class ZLNetVideoPreviewCell: ZLPreviewBaseCell {
         pausePlayer(seekToZero: false)
     }
     
-    func pausePlayer(seekToZero: Bool) {
-        guard isPlaying else { return }
+    /// 暂停播放器
+    /// - Parameters:
+    ///   - seekToZero: 是否seek到0秒
+    ///   - ignorePlayStatus: 是否忽略当前播放器播放状态（
+    /// - Note: 由于`iOS16`后，收到`AVPlayerItem.didPlayToEndTimeNotification`通知后，`player`的`rate`值已经是`0`，所以会被`guard isPlaying else { return }`拦截。所以加了`ignorePlayStatus`参数
+    private func pausePlayer(seekToZero: Bool, ignorePlayStatus: Bool = false) {
+        guard isPlaying || ignorePlayStatus else { return }
         
         player?.pause()
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        }
         if seekToZero {
             player?.seek(to: .zero)
         }
@@ -888,7 +903,7 @@ class ZLNetVideoPreviewCell: ZLPreviewBaseCell {
             CATransaction.commit()
         }
         playerView.layer.insertSublayer(playerLayer!, at: 0)
-        NotificationCenter.default.addObserver(self, selector: #selector(playFinish), name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+        NotificationCenter.default.addObserver(self, selector: #selector(playFinish), name: AVPlayerItem.didPlayToEndTimeNotification, object: player?.currentItem)
     }
     
     private func calculatePlayerFrame(for item: AVPlayerItem, completion: ((CGRect) -> Void)?) {
@@ -914,7 +929,7 @@ class ZLNetVideoPreviewCell: ZLPreviewBaseCell {
             let videoTracks = item.asset.tracks(withMediaType: .video)
             
             if let videoTrack = videoTracks.first {
-                let size = videoTrack.naturalSize.applying(videoTrack.preferredTransform)
+                let size = self.correctVideoSize(for: videoTrack)
                 self.videoSizeCache[self.videoURLString] = size
                 
                 ZLMainAsync {
@@ -925,6 +940,22 @@ class ZLNetVideoPreviewCell: ZLPreviewBaseCell {
                     completion?(self.bounds)
                 }
             }
+        }
+    }
+    
+    /// 计算视频实际宽高
+    private func correctVideoSize(for track: AVAssetTrack) -> CGSize {
+        let size = track.naturalSize
+        let transform = track.preferredTransform
+        
+        // 获取视频的旋转角度
+        let angle = atan2(transform.b, transform.a) * (180 / .pi)
+        if angle == 90 || angle == -90 {
+            // 竖屏视频（宽高需要对调）
+            return CGSize(width: abs(size.height), height: abs(size.width))
+        } else {
+            // 横屏视频（宽高不变）
+            return CGSize(width: abs(size.width), height: abs(size.height))
         }
     }
     

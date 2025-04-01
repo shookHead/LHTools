@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.description      = '这是Swift版本的基础类'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  TODO: Add long description of the pod here.
                        DESC
 
   # 项目的gitub地址，只支持HTTP和HTTPS地址，不支持ssh的地址
@@ -33,8 +33,8 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   # 最低要求的系统版本
-  s.ios.deployment_target = '12.0'
-  # s.tvos.deployment_target = "12.0"
+  s.ios.deployment_target = '13.0'
+  # s.tvos.deployment_target = "13.0"
   # s.osx.deployment_target = "10.14"
   # s.watchos.deployment_target = "2.0"
   # Wait for CocoaPods 1.13.0 (visionOS support)

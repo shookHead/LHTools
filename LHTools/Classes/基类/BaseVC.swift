@@ -135,7 +135,7 @@ open class BaseVC: UIViewController {
             }
         }
         
-        IQKeyboardManager.shared.shouldResignOnTouchOutside = self.autoHideKeyboard
+        IQKeyboardManager.shared.resignOnTouchOutside = self.autoHideKeyboard
         IQKeyboardManager.shared.enableAutoToolbar = self.autoToolbar
     }
     
