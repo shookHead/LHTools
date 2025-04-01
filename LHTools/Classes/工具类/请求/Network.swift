@@ -149,7 +149,7 @@ public class BMNetwork{
                             finish(url)
                         }
                         let json = String(data: response.data!, encoding: String.Encoding.utf8)
-                        if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
+                        if let resp = ZBJsonDic.deserialize(from: json)  {
                             if resp.code == 1{
                                 let data = resp.data
                                 if let urlStr = data?["url"] as? String{
@@ -195,7 +195,7 @@ public class BMNetwork{
                             finish(url)
                         }
                         let json = String(data: response.data!, encoding: String.Encoding.utf8)
-                        if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
+                        if let resp = ZBJsonDic.deserialize(from: json)  {
                             if resp.code == 1{
                                 let data = resp.data
                                 if let urlStr = data?["url"] as? String{
@@ -254,7 +254,7 @@ public class BMNetwork{
                             finish(url)
                         }
                         let json = String(data: response.data!, encoding: String.Encoding.utf8)
-                        if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
+                        if let resp = ZBJsonDic.deserialize(from: json) {
                             if resp.code == 1{
                                 let data = resp.data
                                 if let urlStr = data?["url"] as? String{
@@ -307,7 +307,7 @@ public class BMNetwork{
                                 finish(url)
                             }
                             let json = String(data: response.data!, encoding: String.Encoding.utf8)
-                            if let resp = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: json)  {
+                            if let resp = ZBJsonDic.deserialize(from: json)  {
                                 if resp.code == 1{
                                     let data = resp.data
                                     if let urlStr = data?["url"] as? String{
@@ -329,12 +329,12 @@ public class BMNetwork{
         
 
     }
-    public subscript<T:HandyJSON>(key: BMApiTemplete<T?>) -> BMRequester_Model<T> {
+    public subscript<T:SmartCodable>(key: BMApiTemplete<T?>) -> BMRequester_Model<T> {
         get { return BMRequester_Model(key)}
         set { }
     }
     
-    public subscript<T:HandyJSON>(key: BMApiTemplete<Array<T>?>) -> BMRequester_ModelList<T> {
+    public subscript<T:SmartCodable>(key: BMApiTemplete<Array<T>?>) -> BMRequester_ModelList<T> {
         get { return BMRequester_ModelList(key)}
         set { }
     }
@@ -457,7 +457,7 @@ public class BMRequester{
 }
 
 // MARK: -  ---------------------- 封装了返回类型的请求类 ------------------------
-public class BMRequester_Model<T:HandyJSON>: BMRequester{
+public class BMRequester_Model<T:SmartCodable>: BMRequester{
 
     var api:BMApiTemplete<T?>
 
@@ -465,7 +465,7 @@ public class BMRequester_Model<T:HandyJSON>: BMRequester{
         self.api = api
     }
     
-    /// 返回 HandyJSON 对象
+    /// 返回 SmartCodable 对象
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调
@@ -485,7 +485,8 @@ public class BMRequester_Model<T:HandyJSON>: BMRequester{
                 finish(err)
                 return
             }
-            let mod = JSONDeserializer<ZBJsonModel<T>>.deserializeFrom(json: jsonStr)
+            let mod = ZBJsonModel<T>.deserialize(from: jsonStr)
+//            let mod = JSONDeserializer<ZBJsonModel<T>>.deserializeFrom(json: jsonStr)
             if mod != nil{
                 print("code:\(mod!.code ?? -99)")
                 print("msg:\(mod!.msg ?? "")")
@@ -513,14 +514,14 @@ public class BMRequester_Model<T:HandyJSON>: BMRequester{
     
 }
 
-public class BMRequester_ModelList<T:HandyJSON> : BMRequester{
+public class BMRequester_ModelList<T:SmartCodable> : BMRequester{
 
     var api: BMApiTemplete<Array<T>?>
 
     init(_ api: BMApiTemplete<Array<T>?>) {
         self.api = api
     }
-    /// 返回 HandyJSON 对象数组
+    /// 返回 SmartCodable 对象数组
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调
@@ -531,6 +532,7 @@ public class BMRequester_ModelList<T:HandyJSON> : BMRequester{
         for (key,value) in api.defaultParam{
             withDefault[key] = value
         }
+        
         return self.requestJson(url, method: api.method, params: withDefault) { (code,jsonStr) in
             if jsonStr == nil{
                 let err = ZBJsonArrayModel<T>()
@@ -539,10 +541,11 @@ public class BMRequester_ModelList<T:HandyJSON> : BMRequester{
                 finish(err)
                 return
             }
-            var mod = JSONDeserializer<ZBJsonArrayModel<T>>.deserializeFrom(json: jsonStr)
+            var mod = ZBJsonArrayModel<T>.deserialize(from: jsonStr)
+//            var mod = JSONDeserializer<ZBJsonArrayModel<T>>.deserializeFrom(json: jsonStr)
             // 为其他App做适配，外面不套ZBJson***再解析一次
             if mod == nil{
-                if let data = [T].deserialize(from: jsonStr) as? [T]{
+                if let data = [T].deserialize(from: jsonStr) {
                     mod = ZBJsonArrayModel<T>()
                     mod?.code = 1
                     mod?.data = data
@@ -581,7 +584,7 @@ public class BMRequester_Int : BMRequester{
     init(_ api: BMApiTemplete<Int?>) {
         self.api = api
     }
-    /// 返回 HandyJSON 对象数组
+    /// 返回 SmartCodable 对象数组
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调
@@ -593,7 +596,8 @@ public class BMRequester_Int : BMRequester{
             withDefault[key] = value
         }
         return self.requestJson(url, method: api.method, params: withDefault) { (code,jsonStr) in
-            let mod = JSONDeserializer<ZBJsonInt>.deserializeFrom(json: jsonStr)
+            let mod = ZBJsonInt.deserialize(from: jsonStr)
+//            let mod = JSONDeserializer<ZBJsonInt>.deserializeFrom(json: jsonStr)
             if mod != nil{
                 print("code:\(mod!.code ?? -99)")
                 print("msg:\(mod!.msg ?? "")")
@@ -625,7 +629,7 @@ public class BMRequester_String : BMRequester{
         self.api = api
     }
     
-    /// 返回 HandyJSON 对象数组
+    /// 返回 SmartCodable 对象数组
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调
@@ -637,7 +641,8 @@ public class BMRequester_String : BMRequester{
             withDefault[key] = value
         }
         return self.requestJson(url, method: api.method, params: withDefault) { (code,jsonStr) in
-            let mod = JSONDeserializer<ZBJsonString>.deserializeFrom(json: jsonStr)
+            let mod = ZBJsonString.deserialize(from: jsonStr)
+//            let mod = JSONDeserializer<ZBJsonString>.deserializeFrom(json: jsonStr)
             if mod != nil{
                 print("code:\(mod!.code ?? -99)")
                 print("msg:\(mod!.msg ?? "")")
@@ -671,7 +676,7 @@ public class BMRequester_Dic : BMRequester{
         self.api = api
     }
     
-    /// 返回 HandyJSON 字典
+    /// 返回 SmartCodable 字典
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调
@@ -683,7 +688,7 @@ public class BMRequester_Dic : BMRequester{
             withDefault[key] = value
         }
         return self.requestJson(url, method: api.method, params: withDefault) { (code,jsonStr) in
-            let mod = JSONDeserializer<ZBJsonDic>.deserializeFrom(json: jsonStr)
+            let mod = ZBJsonDic.deserialize(from: jsonStr)
             if mod != nil{
                 print("code:\(mod!.code ?? -99)")
                 print("msg:\(mod!.msg ?? "")")

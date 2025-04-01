@@ -34,7 +34,7 @@ public class BMPicker: NSObject {
     ///  - selected    : 点击确认后 回调 返回模型
     ///  - changed     : 数据改变 回调 返回模型
     /// - Returns: 返回选择器对象   调用show方法之前 可用于修改参数
-    public static func singleModelPicker<T:HandyJSON>(_ data:Array<T>,_ index:Int,_ key:String, _ selected:@escaping(_:T)->(), _ changed:((_:T)->())? = nil) -> LHSinglePicker<T>{
+    public static func singleModelPicker<T:SmartCodable>(_ data:Array<T>,_ index:Int,_ key:String, _ selected:@escaping(_:T)->(), _ changed:((_:T)->())? = nil) -> LHSinglePicker<T>{
         var newIndex = index
         if index < 0 || index >= data.count{
             newIndex = 0

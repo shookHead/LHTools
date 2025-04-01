@@ -7,9 +7,9 @@
 //
 
 import UIKit
-//import HandyJSON
+//import SmartCodable
 
-open class LHSinglePicker<T:HandyJSON>: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
+open class LHSinglePicker<T:SmartCodable>: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
     /// 灰色 透明 背景视图
     public var bgMaskView:UIButton = {
         let btn         = UIButton(type: .custom)
@@ -116,23 +116,25 @@ open class LHSinglePicker<T:HandyJSON>: UIView,UIPickerViewDelegate,UIPickerView
         return rowH
     }
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let arr = dataArray.toJSON()
         var pick_name = ""
-        if let dic = arr[row] {
-            if let name = dic[key] as? String {
-                pick_name = name
-            }
+        guard let arr = dataArray.toArray() as? [[String : Any]] else {
+            return pick_name
+        }
+        let dic = arr[row]
+        if let name = dic[key] as? String {
+            pick_name = name
         }
         return pick_name
     }
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let arr = dataArray.toJSON()
         var pick_name = ""
-        if let dic = arr[row] {
-            if let name = dic[key] as? String {
-                pick_name = name
-                changed?(dataArray[row])
-            }
+        guard let arr = dataArray.toArray() as? [[String : Any]] else {
+            return 
+        }
+        let dic = arr[row]
+        if let name = dic[key] as? String {
+            pick_name = name
+            changed?(dataArray[row])
         }
         self.bgLab.text = pick_name
         self.selectedIndex = row

@@ -10,9 +10,7 @@ import UIKit
 import NVActivityIndicatorView
 import MJRefresh
 
-class ListModel: HandyJSON {
-    required init() {}
-}
+
 //@objc public protocol MyTableViewGestureDelegate {
 //    func myTableViewGestureRecognizer() -> Bool
 //}
@@ -125,12 +123,13 @@ open class BaseTableVC: BaseVC {
     }
     
     @discardableResult
-    public func getList<T:HandyJSON>(key: BMApiTemplete<Array<T>?>, page:Int, finished:@escaping ()->()) -> DataRequest{
+    public func getList<T:SmartCodable>(key: BMApiTemplete<Array<T>?>, page:Int, finished:@escaping ()->()) -> DataRequest{
         param["pageNumber"] = page
         param["pageNo"] = page
         param["pageSize"] = PageSize
         param["row"] = PageSize
         let count = self.dataArr.count
+
         return network[key].request(params: param) { (resp) in
             self.listRequestCode = resp!.code
             if resp?.code == 1{

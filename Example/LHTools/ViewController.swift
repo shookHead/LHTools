@@ -15,19 +15,28 @@ import ZLPhotoBrowser
 import SwiftUI
 import WebKit
 
-class GroupActivityModel: HandyJSON {
-    var name:String! = ""{
-        didSet{
-            pick_name = name
-        }
-    }
+struct GroupActivityModel: SmartCodable {
+    var name:String! = ""
     ///
     var userActivityId  : Int! = 0
     ///活动id
     var activityId  : Int!
     var pick_name:String! = ""
     
-    required init() {}
+}
+
+public class ZBJsonM<T: SmartCodable>: SmartCodable {
+    public var code: Int?
+    public var msg: String?
+    public var data: T?
+    
+    required public init() { }
+    
+//    // 如果需要自定义解码逻辑可以重写映射方法
+//    public func mapping(mapper: SmartMapper) {
+//        // 示例：自定义字段映射（如果字段名不一致）
+//        // mapper <<< self.data <-- "result"
+//    }
 }
 
 class ViewController: UIViewController {
@@ -45,24 +54,29 @@ class ViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let array: [Int] = [1, 1, 3, 3, 2, 2]
-//        let arr = array.unique
-//        print(arr)
-//        view.addSubview(camerV)
-        
+        if let arr = cache[.saveGroupActivityModel] {
+            print("有值")
+            print(arr)
+        }else{
+            print("没有值")
+        }
     }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        UIView.animate(withDuration: 0.25) {
-//            let label3 = UILabel()
-//            label3.backgroundColor = .random
-//            label3.text = "label3"
-//            self.stackView.addArrangedSubview(label3)
-//        }
-//        Hud.showText("大叔控房后开始发挥开始发低烧后开始发挥开始发低烧房贷首付")
-        print("111")
-        BMPicker.datePicker(mode: .ymd_hms) { time in
-            
-        }.show()
+        var mod1 = GroupActivityModel()
+        mod1.name = "111"
+        var mod2 = GroupActivityModel()
+        mod2.name = "222"
+        var arr:[GroupActivityModel] = []
+        arr.append(mod1)
+        arr.append(mod2)
+        cache[.saveGroupActivityModel] = mod2
+        if let arr = cache[.saveGroupActivityModel] {
+            print("有值")
+            print(arr)
+        }else{
+            print("没有值")
+        }
     }
     func useSnp() {
         var arr: Array<UIView> = []
@@ -112,4 +126,73 @@ extension Array where Element: Hashable {
         var seen: Set<Element> = []
         return filter { seen.insert($0).inserted }
     }
+}
+
+extension BMApiSet {
+    static let AgenterOemInstitution_getSzrOemInstitution = Huitun<OemInstitutionAuthModel?>("api/AgenterOemInstitution_getSzrOemInstitution")
+    
+}
+
+public class Huitun<ValueType> : BMApiTemplete<ValueType> {
+    public override var host: String{
+        return HostConfig.getHost("https://www.huitunai.com/", index: 0)
+    }
+    public override var defaultParam: Dictionary<String, Any>{
+        var params = Dictionary<String,Any>()
+       
+//        params = ["platform":"2","appid":"10","inapp":"false","liveid":"1"]
+//        params["yodaReady"] = "h5"
+//        params["csecplatform"] = 4
+//        params["csecversion"] = "2.3.1"
+
+        return params
+    }
+}
+class OemInstitutionAuthModel :SmartCodable{
+    
+    var szrAppName:String!
+    ///机构号
+    var oemInstitutionNo  : Int! = 0
+    ///是否可用 视频剪辑
+    var openAliVideoEdit  : Int! = 0
+    ///是否可用 声音人直播
+    var openSoundLive  : Int! = 0
+    ///数字人直播
+    var openAvatarLive  : Int! = 0
+    ///数字人直播(v2) 场景化
+    var openAvatarV2Live  : Int! = 0
+    ///AI语音互动
+    var openSoundInteract  : Int! = 0
+    ///声音克隆
+    var openSoundClone  : Int! = 0
+    ///开启自托管生成数字人
+    var openAiGenAvatarSelf  : Int! = 0
+    ///数字人名片
+    var openAvatarCard  : Int! = 0
+    ///数字人克隆自审核
+    var openAvatarVerifySelf  : Int! = 0
+    ///是否开通矩阵（总）
+    var openJzBdm  : Int! = 0
+    ///是否开通矩阵（快手）
+    var openKsJzBdm  : Int! = 0
+    ///是否开通矩阵 （抖音）
+    var openDyJzBdm  : Int! = 0
+    ///AI聊天数字人
+    var openAiChatAvatar  : Int! = 0
+    ///系统公告
+    var openSystemNotice  : Int! = 0
+    ///文生视频
+    var openAiTextVideo  : Int! = 0
+    var szrAppShopServiceProtocolUrl :String! = ""
+    var szrAppShopPrivacyProtocolUrl:String! = ""
+    var masterWebUrl:String! = ""
+    
+    
+    required init() {}
+}
+
+extension BMDefaultsKeys{
+    //MARK:- 包含save的字段退出后不会被清除
+    static let saveGroupActivityModelArr = BMCacheKey<Array<GroupActivityModel>?>("saveGroupActivityModelArr")
+    static let saveGroupActivityModel = BMCacheKey<GroupActivityModel?>("saveGroupActivityModel")
 }

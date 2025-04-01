@@ -10,7 +10,7 @@
 import Foundation
 import LHTools
 import UIKit
-class WorkModel :HandyJSON,Equatable{
+class WorkModel :SmartCodable,Equatable{
 //    static func == (lhs: WorkModel, rhs: WorkModel) -> Bool {
 //        var lhsHasher = Hasher()
 //        var rhsHasher = Hasher()
@@ -35,7 +35,7 @@ class WorkModel :HandyJSON,Equatable{
     
     var index:Int!
     var nickName : String! = ""
-    var image_mo : UIImage! = nil
+//    var image_mo : UIImage! = nil
     ///作者的头像
     var headLogo  : String! = ""
     ///(null)

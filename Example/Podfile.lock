@@ -21,6 +21,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -34,6 +35,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -48,6 +50,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -61,6 +64,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -74,6 +78,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -87,6 +92,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -100,6 +106,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -121,6 +128,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -134,6 +142,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -147,6 +156,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -160,6 +170,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -173,6 +184,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -186,6 +198,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -199,6 +212,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -212,6 +226,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -225,6 +240,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -249,6 +265,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -262,6 +279,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -275,6 +293,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -288,6 +307,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -301,6 +321,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -314,6 +335,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -327,6 +349,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -340,6 +363,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -353,6 +377,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -366,6 +391,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -379,6 +405,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -392,6 +419,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -416,6 +444,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -429,6 +458,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -442,6 +472,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -455,6 +486,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -470,6 +502,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -483,6 +516,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -496,6 +530,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -509,6 +544,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -522,6 +558,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -535,6 +572,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -548,6 +586,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -561,6 +600,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -574,6 +614,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -588,6 +629,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -602,6 +644,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -615,6 +658,7 @@ PODS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -624,6 +668,7 @@ PODS:
   - NVActivityIndicatorView (5.2.0):
     - NVActivityIndicatorView/Base (= 5.2.0)
   - NVActivityIndicatorView/Base (5.2.0)
+  - SmartCodable (4.3.8)
   - SnapKit (5.7.1)
   - SQLite.swift (0.15.3):
     - SQLite.swift/standard (= 0.15.3)
@@ -646,6 +691,7 @@ SPEC REPOS:
     - MBProgressHUD
     - MJRefresh
     - NVActivityIndicatorView
+    - SmartCodable
     - SnapKit
     - SQLite.swift
     - SwiftyUserDefaults
@@ -661,10 +707,11 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
   Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
-  LHTools: ffdb60129c2f02eb49f31f66af1aeae573b3344f
+  LHTools: 74539d29fbe9694bf5b97c36e46b67effa06b899
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
   NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
+  SmartCodable: 744380d15166c824dcfbcd4d6827c547609e59f1
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SQLite.swift: 8d054987f02728cc912b0eb5a9659650573a65a2
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040

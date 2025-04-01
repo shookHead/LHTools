@@ -6,9 +6,9 @@
 //  Copyright © 2019 zhuanbangTec. All rights reserved.
 //
 
-import HandyJSON
+import SmartCodable
 
-class ResourceModel: HandyJSON {
+class ResourceModel: SmartCodable {
 
     var id :Int!
 

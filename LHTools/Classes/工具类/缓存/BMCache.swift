@@ -9,7 +9,7 @@
 import Foundation
 
 ///     示例：
-///     // 支持基础数据类型，自定义模型<:HandyJSON>,数组，字典
+///     // 支持基础数据类型，自定义模型<:SmartCodable>,数组，字典
 ///
 ///
 ///     extension BMDefaultsKeys{
@@ -71,12 +71,16 @@ public class BMCache{
         get { return Defaults.dictionary(forKey: key._key) }
         set { Defaults.set(newValue, forKey: key._key) }
     }
-    // 模型 HandyJSON?
-    public subscript<T:HandyJSON>(key: BMCacheKey<T?>) -> T? {
+    // 模型 SmartCodable?
+    public subscript<T:SmartCodable>(key: BMCacheKey<T?>) -> T? {
         get {
-            let value = Defaults.string(forKey: key._key)
-            let model = JSONDeserializer<T>.deserializeFrom(json: value)
+            guard let jsonString = Defaults.string(forKey: key._key) else { return nil }
+//            return T.deserialize(from: data)
+            let model = T.deserialize(from: jsonString)
             return model
+//            let value = Defaults.string(forKey: key._key)
+//            let model = JSONDeserializer<T>.deserializeFrom(json: value)
+//            return model
         }
         set {
             if let newValueReal = newValue{
@@ -88,12 +92,16 @@ public class BMCache{
             }
         }
     }
-    // 模型数组 Array<HandyJSON>
-    public subscript<T:HandyJSON>(key: BMCacheKey<Array<T>?>) -> Array<T>? {
+    // 模型数组 Array<SmartCodable>
+    public subscript<T:SmartCodable>(key: BMCacheKey<Array<T>?>) -> Array<T>? {
         get {
-            let value = Defaults.string(forKey: key._key)
-            let modelArr = JSONDeserializer<T>.deserializeModelArrayFrom(json: value) as? Array<T>
-            return modelArr
+            guard let jsonString = Defaults.string(forKey: key._key) else { return nil }
+//            return T.deserialize(from: data)
+            let arr = [T].deserialize(from: jsonString)
+            return arr
+//            let value = Defaults.string(forKey: key._key)
+//            let modelArr = JSONDeserializer<T>.deserializeModelArrayFrom(json: value) as? Array<T>
+//            return modelArr
         }
         set {
             if let newValueReal = newValue{

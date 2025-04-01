@@ -83,7 +83,7 @@ open class BaseCollVC: BaseVC {
         return
     }
     @discardableResult
-    public func getList<T:HandyJSON>(key: BMApiTemplete<Array<T>?>, page:Int, finished:@escaping ()->()) -> DataRequest{
+    public func getList<T:SmartCodable>(key: BMApiTemplete<Array<T>?>, page:Int, finished:@escaping ()->()) -> DataRequest{
         param["pageNumber"] = page
         param["pageNo"] = page
         param["pageSize"] = PageSize
