@@ -63,20 +63,8 @@ class ViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        var mod1 = GroupActivityModel()
-        mod1.name = "111"
-        var mod2 = GroupActivityModel()
-        mod2.name = "222"
-        var arr:[GroupActivityModel] = []
-        arr.append(mod1)
-        arr.append(mod2)
-        cache[.saveGroupActivityModel] = mod2
-        if let arr = cache[.saveGroupActivityModel] {
-            print("有值")
-            print(arr)
-        }else{
-            print("没有值")
-        }
+       let p = CityDBManager.share.getAddressModel(0, 0, 0)
+        print(p)
     }
     func useSnp() {
         var arr: Array<UIView> = []

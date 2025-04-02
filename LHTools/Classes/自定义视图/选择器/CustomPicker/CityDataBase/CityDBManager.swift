@@ -32,11 +32,21 @@ public class CityDBManager {
 //        if let path = Bundle.current()?.path(forResource: "city_db", ofType: "sqlite") {
 //            db = try! Connection(path, readonly: true)
 //        }
+
+        
         if let path = Bundle.main.path(forResource: "city_db", ofType: "sqlite") {
             db = try! Connection(path, readonly: true)
         }
     }
-    
+
+//    func getBundleResource(bundName: String, resourceName: String, ofType ext: String?) -> String? {
+//        let resourcePath = bundleType == .otherBundle ? "Frameworks/\(bundName).framework/\(bundName)" : "\(bundName)"
+//        guard let bundlePath = Bundle.main.path(forResource: resourcePath, ofType: "bundle"), let bundle = Bundle(path: bundlePath) else {
+//            return nil
+//        }
+//        let imageStr = bundle.path(forResource: resourceName, ofType: ext)
+//        return imageStr
+//    }
     public func getAddressModel(_ provinceId:Int64!,_ cityId:Int64!,_ districtsId:Int64!) -> Array<Address>{
         var result = Array<Address>()
         var list = getProvinceList()

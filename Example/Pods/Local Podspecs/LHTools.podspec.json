@@ -113,7 +113,7 @@
               "subspecs": [
                 {
                   "name": "CityDataBase",
-                  "source_files": "LHTools/Classes/自定义视图/选择器/CustomPicker/CityDataBase/CityDBManager.swift"
+                  "source_files": "LHTools/Classes/自定义视图/选择器/CustomPicker/CityDataBase/*.swift"
                 }
               ]
             }
