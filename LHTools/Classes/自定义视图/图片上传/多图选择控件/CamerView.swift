@@ -190,11 +190,11 @@ public class CamerView: UIView {
         network.upload(mutlSelectedPhotos[index]) { (progress) in
             
         } finish: { [self] (imageUrl) in
-            if imageUrl == nil{
+            guard let url = imageUrl else {
                 Hud.showText(lhUploadFailed)
                 return
             }
-            add(url: imageUrl!, index: selectedPhotos.count)
+            add(url: url)
             if (index + 1) < mutlSelectedPhotos.count{
                 upDataImagewithimage(index: index + 1)
             }else{//上传完毕
@@ -205,26 +205,25 @@ public class CamerView: UIView {
             }
         }
     }
-    func add(url:String,index:Int) {
-        selectedPhotos.append(url)
-        if #available(iOS 13.0, *) {
-            updateCollectionView(index: index)
-        }else{
-            if maxCount <= selectedPhotos.count {
-                collectionView.reloadData()
-            }else{
-                updateCollectionView(index: index)
-            }
+    func add(url:String) {
+        // 检查是否超过最大数量
+        guard selectedPhotos.count < maxCount else {
+            // 可以在此处添加提示或直接返回
+            return
         }
-
-//        collectionView.reloadData()
+        selectedPhotos.append(url)
+        let index = selectedPhotos.count - 1 // 内部计算正确的索引
+        if maxCount <= selectedPhotos.count {
+            collectionView.reloadData()
+        }else{
+            updateCollectionView(index: index)
+        }
     }
     func updateCollectionView(index:Int) {
         collectionView.performBatchUpdates {
             let indexPath = IndexPath.init(row: index, section: 0)
             collectionView.insertItems(at: [indexPath])
         } completion: { [self] (_) in
-            collectionView.reloadData()
             setHeightBlock()
         }
     }
