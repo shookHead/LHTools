@@ -1,6 +1,6 @@
 {
   "name": "LHTools",
-  "version": "0.0.4",
+  "version": "1.0",
   "summary": "A base tool for swift develop",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/shookHead/LHTools",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/shookHead/LHTools.git",
-    "tag": "0.0.4"
+    "tag": "1.0"
   },
   "platforms": {
     "ios": "13.0"
@@ -113,7 +113,7 @@
               "subspecs": [
                 {
                   "name": "CityDataBase",
-                  "source_files": "LHTools/Classes/自定义视图/选择器/CustomPicker/CityDataBase/*.swift"
+                  "source_files": "LHTools/Classes/自定义视图/选择器/CustomPicker/CityDataBase/CityDBManager.swift"
                 }
               ]
             }

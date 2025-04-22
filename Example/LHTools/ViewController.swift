@@ -63,8 +63,10 @@ class ViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       let p = CityDBManager.share.getAddressModel(0, 0, 0)
+       let p = CityDBManager.share.getAddressModel(1, 1, 1)
         print(p)
+        
+      
     }
     func useSnp() {
         var arr: Array<UIView> = []

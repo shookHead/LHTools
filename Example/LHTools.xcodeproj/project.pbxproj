@@ -42,6 +42,7 @@
 		049CCEA129F61EB900149F9C /* imageLoadingFailed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageLoadingFailed.png; sourceTree = "<group>"; };
 		04A8D5012912671E00E8B4A3 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		04A8D50229126D5B00E8B4A3 /* CGPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
+		04BB8DD92DB78B9600D73117 /* city.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = city.sqlite; sourceTree = "<group>"; };
 		04FD48152B8DB4B300416868 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		07509A03F5415140F749D995 /* Pods_LHTools_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LHTools_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		184B0FDDB348DFF92A6A5AA6 /* Pods-LHTools_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LHTools_Tests.release.xcconfig"; path = "Target Support Files/Pods-LHTools_Tests/Pods-LHTools_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		F41E2EA1274C7F5B00C19995 /* LHClearCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHClearCache.swift; sourceTree = "<group>"; };
 		F41E2EA3274C7F5B00C19995 /* QRCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeManager.swift; sourceTree = "<group>"; };
 		F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMback_Icon.png; sourceTree = "<group>"; };
-		F41E2EA8274C7F5B00C19995 /* city_db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = city_db.sqlite; sourceTree = "<group>"; };
 		F41E2EA9274C7F5B00C19995 /* BMImgItems_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMImgItems_UploadImg.png; sourceTree = "<group>"; };
 		F41E2EAA274C7F5B00C19995 /* photoDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDelete.png; sourceTree = "<group>"; };
 		F41E2EAB274C7F5B00C19995 /* wuwangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wuwangluo.png; sourceTree = "<group>"; };
@@ -630,6 +630,7 @@
 		F41E2EA4274C7F5B00C19995 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				04BB8DD92DB78B9600D73117 /* city.sqlite */,
 				049CCEA129F61EB900149F9C /* imageLoadingFailed.png */,
 				F47762BD28CDF8C600BA438B /* scan-album@3x.png */,
 				041C93E72B0E007B007E34CE /* CamerView_UploadImg@3x.png */,
@@ -637,7 +638,6 @@
 				F4EA3F2328B60FC200D96393 /* scan-light@3x.png */,
 				F4EA3F2428B60FC300D96393 /* scan-slider.png */,
 				F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */,
-				F41E2EA8274C7F5B00C19995 /* city_db.sqlite */,
 				F41E2EA9274C7F5B00C19995 /* BMImgItems_UploadImg.png */,
 				F41E2EAA274C7F5B00C19995 /* photoDelete.png */,
 				F41E2EAB274C7F5B00C19995 /* wuwangluo.png */,
@@ -849,7 +849,7 @@
 				"${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg@3x.png",
-				"${PODS_ROOT}/../../LHTools/Classes/resource/city_db.sqlite",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/city.sqlite",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-album@3x.png",
@@ -863,7 +863,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMback_Icon.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMImgItems_UploadImg.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CamerView_UploadImg@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/city_db.sqlite",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/city.sqlite",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/imageLoadingFailed.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/photoDelete.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-album@3x.png",

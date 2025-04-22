@@ -29,24 +29,17 @@ public class CityDBManager {
     }()
 
     init() {
-//        if let path = Bundle.current()?.path(forResource: "city_db", ofType: "sqlite") {
-//            db = try! Connection(path, readonly: true)
-//        }
-
-        
-        if let path = Bundle.main.path(forResource: "city_db", ofType: "sqlite") {
+        if let path = Bundle.main.path(forResource: "city.sqlite", ofType: "") {
             db = try! Connection(path, readonly: true)
+            print("拿到city地址\(path)")
         }
-    }
-
-//    func getBundleResource(bundName: String, resourceName: String, ofType ext: String?) -> String? {
-//        let resourcePath = bundleType == .otherBundle ? "Frameworks/\(bundName).framework/\(bundName)" : "\(bundName)"
-//        guard let bundlePath = Bundle.main.path(forResource: resourcePath, ofType: "bundle"), let bundle = Bundle(path: bundlePath) else {
-//            return nil
+//        if let path = Bundle.main.path(forResource: "mei.mp3", ofType: "") {
+//            print("拿到mp3地址\(path)")
 //        }
-//        let imageStr = bundle.path(forResource: resourceName, ofType: ext)
-//        return imageStr
-//    }
+//        if let path = Bundle.main.path(forResource: "BMback_Icon.png", ofType: "") {
+//            print("拿到图片地址\(path)")
+//        }
+    }
     public func getAddressModel(_ provinceId:Int64!,_ cityId:Int64!,_ districtsId:Int64!) -> Array<Address>{
         var result = Array<Address>()
         var list = getProvinceList()
@@ -149,4 +142,3 @@ public class CityDBManager {
         return districtArray
     }
 }
-
