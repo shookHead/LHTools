@@ -60,6 +60,13 @@ class ViewController: UIViewController {
         }else{
             print("没有值")
         }
+        let tf = UITextField()
+        tf.placeholder = "123"
+        
+//        tf.setPlaceholder("123")
+        tf.frame = CGRect(x: 100, y: 100, width: 100, height: 50)
+        tf.setPlaceholderColor(color: .red)
+        view.addSubview(tf)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

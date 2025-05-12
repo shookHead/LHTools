@@ -100,10 +100,7 @@ public extension Array{
         let data : NSData! = try! JSONSerialization.data(withJSONObject: self, options: []) as NSData?
         let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
         return JSONString! as String
-        
     }
-
-
 }
 public extension Array{
     ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]

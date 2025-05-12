@@ -11,7 +11,7 @@ import Kingfisher
 import UIKit
 
 extension Optional where Wrapped == String{
-    public var resource:Kingfisher.ImageResource?{
+    public var resource:Kingfisher.KF.ImageResource?{
         if self == nil{
             return nil
         }else{
@@ -21,7 +21,7 @@ extension Optional where Wrapped == String{
 }
 
 extension String{
-    public var resource:Kingfisher.ImageResource! {
+    public var resource:Kingfisher.KF.ImageResource! {
         if self.count == 0{
             return nil
         }
@@ -29,16 +29,16 @@ extension String{
             return nil
         }
         if let url = URL(string: self) {
-            return ImageResource(downloadURL: url)
+            return KF.ImageResource(downloadURL: url)
         }else{
             return nil
         }
     }
 }
 
-extension UIImageView {
-    public func setImage(_ url:String,placeholder: Placeholder? = nil,options: KingfisherOptionsInfo? = [.transition(.fade(0.2))],completionHandler: ((Result<RetrieveImageResult, KingfisherError>) -> Void)? = nil) {
-        self.kf.setImage(with: url.resource, placeholder: placeholder, options: options,completionHandler: completionHandler)
-    }
-}
+//extension UIImageView {
+//    public func setImage(_ url:String,placeholder: Placeholder? = nil,options: KingfisherOptionsInfo? = [.transition(.fade(0.2))],completionHandler: ((Result<RetrieveImageResult, KingfisherError>) -> Void)? = nil) {
+//        self.kf.setImage(with: url.resource, placeholder: placeholder, options: options,completionHandler: completionHandler)
+//    }
+//}
 

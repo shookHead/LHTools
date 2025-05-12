@@ -54,7 +54,7 @@ open class BMDatePicker: BMBasePicker {
         set{
             for i in 0..<componentsArray.count {
                 let formate = dateFormateArr[i]
-                let str = newValue.toString(formate)
+                let str = newValue.dateToString(formate)
                 let dateArr = componentsArray[i]
                 for j in 0..<dateArr.count{
                     if str == dateArr[j]{

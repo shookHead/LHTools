@@ -299,10 +299,10 @@ extension BMTimeIntervalPicker :UIPickerViewDelegate , UIPickerViewDataSource{
         let choose = self.getDate(result, formate)
         if (currentBtnTag == 1){
             self.startTime = choose
-            _startTimeLab.text = choose?.toString("yyyy-MM-dd")
+            _startTimeLab.text = choose?.dateToString("yyyy-MM-dd")
         }else{
             self.endTime = choose
-            _endTimeLab.text = choose?.toString("yyyy-MM-dd")
+            _endTimeLab.text = choose?.dateToString("yyyy-MM-dd")
         }
     }
 
@@ -353,7 +353,7 @@ extension BMTimeIntervalPicker{
     }
     
     public func getDateString(_ date:Date, _ formateStr:String) -> String{
-        return date.toString(formateStr)
+        return date.dateToString(formateStr)
     }
     
     public func getDate(_ string:String, _ formateStr:String) -> Date?{

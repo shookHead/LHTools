@@ -40,7 +40,7 @@ extension String{
 //        return scan.scanInt(&val) && scan.isAtEnd
     }
     
-    public func  toInt() -> Int{
+    public func toInt() -> Int{
         if let i = Int(self){
             return i
         }else{

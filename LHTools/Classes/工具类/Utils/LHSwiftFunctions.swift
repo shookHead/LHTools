@@ -150,7 +150,7 @@ public struct lh{
         let isMustUpgrade = data["isMustUpgrade"] as? NSNumber ?? 0//是否强制 0 非强制  1.强制升级
         if isMustUpgrade == 0 {//非强制 判断是否是今天第一次
             let time = cache[.saveLastUpdateTime] ?? ""
-            let nowDate = Date().toString("yyyy-MM-dd")
+            let nowDate = Date().dateToString("yyyy-MM-dd")
             if time == nowDate {
                 return
             }

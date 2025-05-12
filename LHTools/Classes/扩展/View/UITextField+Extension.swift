@@ -14,6 +14,7 @@ extension UITextField {
     ///   - string: 字符串
     ///   - color: 颜色
     ///   - font: 字体
+    @available(*, deprecated, message: "此方法已过期，请使用新方法 setPlaceholderColor() 替代")
     public func setPlaceholder(_ string: String, color: UIColor? = nil, font: UIFont? = nil) {
         let attributedString = NSMutableAttributedString(string: string)
         if let color = color {
@@ -24,4 +25,18 @@ extension UITextField {
         }
         attributedPlaceholder = attributedString
     }
+    
+    public func setPlaceholderColor(color: UIColor? = nil) {
+        let string = self.placeholder ?? ""
+        let font = self.font
+        let attributedString = NSMutableAttributedString(string: string)
+        if let color = color {
+            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: color], range: NSRange(location: 0, length: string.count))
+        }
+        if let font = font {
+            attributedString.addAttributes([NSAttributedString.Key.font: font], range: NSRange(location: 0, length: string.count))
+        }
+        attributedPlaceholder = attributedString
+    }
+    
 }

@@ -45,7 +45,7 @@ extension String{
             return ""
         }
         let date = self.toDate(fromFormate)
-        let s = date?.toString(toFormate) ?? ""
+        let s = date?.dateToString(toFormate) ?? ""
         return s
     }
     

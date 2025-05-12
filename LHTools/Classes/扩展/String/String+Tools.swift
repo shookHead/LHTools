@@ -22,8 +22,7 @@ public extension String{
         //去除字符串之间的空格
         return string.replacingOccurrences(of: " ", with: "")
     }
-    
-    ///此方法弃用请使用jsonToDictionary
+    @available(*, deprecated, message: "此方法已过期，请使用新方法 jsonToDictionary() 替代")
     func getJsonDic() -> Any?{
         if self.count == 0{
             return nil

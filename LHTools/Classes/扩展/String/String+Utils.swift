@@ -184,7 +184,7 @@ extension String{
             return ""
         }
         let d = self.toDate("yyyy-MM-dd HH:mm:ss")
-        let s = d?.toString(formate) ?? ""
+        let s = d?.dateToString(formate) ?? ""
         return s
     }
     public func toDateString(_ fromFormate:String = "yyyy-MM-dd HH:mm:ss",toFormate:String = "yyyy-MM-dd") -> String{
@@ -198,7 +198,7 @@ extension String{
         formatter.locale = Locale.init(identifier: "zh_CN")
         formatter.dateFormat = fromFormate
         let date = formatter.date(from: self)
-        let s = date?.toString(toFormate) ?? ""
+        let s = date?.dateToString(toFormate) ?? ""
         return s
     }
 }

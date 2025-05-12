@@ -24,7 +24,17 @@ prefix operator +
 prefix operator -
 prefix operator ==
 extension Date {
+    @available(*, deprecated, message: "此方法已过期，请使用新方法 dateToString() 替代")
     public func toString(_ dateFormat:String="yyyy-MM-dd HH:mm") -> String {
+        let timeZone = TimeZone(identifier: "Asia/Shanghai")
+        let formatter = DateFormatter()
+        formatter.timeZone = timeZone
+        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.dateFormat = dateFormat
+        let date = formatter.string(from: self)
+        return date
+    }
+    public func dateToString(_ dateFormat:String="yyyy-MM-dd HH:mm:ss") -> String {
         let timeZone = TimeZone(identifier: "Asia/Shanghai")
         let formatter = DateFormatter()
         formatter.timeZone = timeZone
@@ -39,27 +49,27 @@ extension Date {
     }
 
     public var yearString:String{
-        return toString("yyyy")
+        return dateToString("yyyy")
     }
     
     public var monthString:String{
-        return toString("MM")
+        return dateToString("MM")
     }
     
     public var dayString:String{
-        return toString("dd")
+        return dateToString("dd")
     }
     
     public var hourString:String{
-        return toString("HH")
+        return dateToString("HH")
     }
     
     public var minuteString:String{
-        return toString("mm")
+        return dateToString("mm")
     }
     
     public var secendString:String{
-        return toString("ss")
+        return dateToString("ss")
     }
     
     public var weekend:Int{

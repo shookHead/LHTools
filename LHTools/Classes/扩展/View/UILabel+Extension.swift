@@ -8,50 +8,84 @@
 
 import UIKit
 
-extension UILabel{
+extension UILabel {
     ///拿到文本宽度，默认一行
     public func getLabelWidth(maxSize: CGSize = CGSize(width: 10000, height: 0)) -> CGFloat {
         let size = stringSize(maxSize: maxSize)
-        return ceil(size.width)
+        return size.width
     }
     ///拿到文本高度
     public func getLabelHeight(maxSize: CGSize) -> CGFloat {
         let size = stringSize(maxSize: maxSize)
-        return ceil(size.height)
+        return size.height
     }
-    ///计算UILabel宽高
-    public func stringSize(maxSize: CGSize) -> CGSize {
-        guard let textTemp = text, textTemp.count > 0 else {
+    ///计算UILabel宽高,可以不传maxSize
+    public func stringSize(maxSize: CGSize = CGSizeZero) -> CGSize {
+        guard let text = text, !text.isEmpty else {
             return CGSize.zero
         }
-        let size = textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
-        if numberOfLines == 0 {
-            return size
+        // 强制使用当前有效宽度（重要！）
+        let effectiveWidth = bounds.width > 0 ? bounds.width : .greatestFiniteMagnitude
+        
+        let font = self.font ?? UIFont.systemFont(ofSize: 17)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = .byWordWrapping // 明确换行模式
+        paragraphStyle.alignment = textAlignment
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .paragraphStyle: paragraphStyle
+        ]
+        var constraintSize = CGSizeZero
+        if maxSize == CGSizeZero {
+            constraintSize = CGSize(width: effectiveWidth, height: .greatestFiniteMagnitude)
+        }else{
+            constraintSize = maxSize
         }
-        let singleSize = lhGood.boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
-        let h = size.height > CGFloat(numberOfLines) * singleSize.height ? CGFloat(numberOfLines) * singleSize.height:size.height
-        return CGSize(width: ceil(size.width), height: ceil(h))
+        let size = text.boundingRect(
+            with: constraintSize,
+            options: [.usesLineFragmentOrigin, .usesFontLeading],
+            attributes: attributes,
+            context: nil
+        )
+        var newSize = CGSizeMake(size.width.rounded(.up), size.height.rounded(.up))
+        if numberOfLines != 0 {
+            let maxLinesHeight = CGFloat(numberOfLines) * font.lineHeight
+            newSize.height = maxLinesHeight.rounded(.up)
+            return newSize
+        }
+        return newSize
     }
-    ///此方法需先设置宽度
-    public func stringGetHeight(minH:CGFloat? = nil) -> CGFloat {
-        guard let textTemp = text, textTemp.count > 0 else {
-            return minH == nil ? 0:18
-        }
-        let size = textTemp.boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
-        if numberOfLines == 0 {
-            if let minHeight = minH {
-                return size.height < minHeight ? minHeight:size.height
-            }
-            return ceil(size.height)
-        }
-        let singleSize = lhGood.boundingRect(with: CGSize(width: self.w, height: 10000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: self.font as Any], context: nil).size
-        var h = size.height > CGFloat(numberOfLines) * singleSize.height ? CGFloat(numberOfLines) * singleSize.height:size.height
-        h = ceil(h)
-        if let minHeight = minH {
-            return h < minHeight ? minHeight:h
-        }
-        return h
-    }
+    /// 计算UILabel所需高度，需先设置宽度
+    public func stringGetHeight(minH: CGFloat? = nil) -> CGFloat {
+           guard let text = text, !text.isEmpty else {
+               return minH ?? 0
+           }
+           // 强制使用当前有效宽度（重要！）
+           let effectiveWidth = bounds.width > 0 ? bounds.width : .greatestFiniteMagnitude
+           let font = self.font ?? UIFont.systemFont(ofSize: 17)
+           let paragraphStyle = NSMutableParagraphStyle()
+           paragraphStyle.lineBreakMode = .byWordWrapping // 明确换行模式
+           paragraphStyle.alignment = textAlignment
+           let attributes: [NSAttributedString.Key: Any] = [
+               .font: font,
+               .paragraphStyle: paragraphStyle
+           ]
+           
+           let constraintSize = CGSize(width: effectiveWidth, height: .greatestFiniteMagnitude)
+           let textHeight = text.boundingRect(
+               with: constraintSize,
+               options: [.usesLineFragmentOrigin, .usesFontLeading],
+               attributes: attributes,
+               context: nil
+           ).height.rounded(.up)
+           
+           if numberOfLines != 0 {
+               let maxLinesHeight = CGFloat(numberOfLines) * font.lineHeight
+               return max(min(textHeight, maxLinesHeight), minH ?? 0)
+           }
+           return max(textHeight, minH ?? 0)
+       }
     ///计算UILabel宽高 带NSMutableParagraphStyle
     public func stringSizeParaStyle(maxSize: CGSize,paraStyle:NSMutableParagraphStyle) -> CGSize {
         guard let textTemp = text, textTemp.count > 0 else {
@@ -61,7 +95,7 @@ extension UILabel{
         textDict[.font] = self.font
         textDict[.paragraphStyle] = paraStyle
         let size = textTemp.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: textDict, context: nil).size
-        return CGSize(width: ceil(size.width), height: ceil(size.height))
+        return CGSize(width: size.width.rounded(.up), height: size.height.rounded(.up))
     }
     ///拿到最后一个文字的位置
     public func getLast(width:CGFloat) -> CGPoint{
