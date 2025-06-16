@@ -153,7 +153,7 @@ open class BaseCollVC: BaseVC {
     }
     
     //刷新数据
-    public func reloadData(_ code:Int = 1) -> Void {
+    open func reloadData(_ code:Int = 1) -> Void {
         if self.dataArr.count == 0 && code == -1{
             self.collectionView?.isHidden = true
             indicatorView.showNoData()

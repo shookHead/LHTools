@@ -127,3 +127,58 @@ extension UILabel {
         self.attributedText = attributedString
     }
 }
+
+
+// MARK: - UILabel扩展 设置文字渐变色
+extension UILabel {
+    // 当需要更新文字时（比如在按钮点击事件中）：或者在layoutSubviews里更新
+    //myLabel.text = "新文字"
+    //myLabel.sizeToFit()
+    //myLabel.applyGradientText(colors: colors)
+    ///设置文字渐变色
+    public func applyGradientText(colors: [UIColor]) {
+        guard !colors.isEmpty else { return }
+        
+        // 确保布局已更新
+        self.layoutIfNeeded()
+        
+        // 移除已有渐变层
+        self.layer.sublayers?
+            .filter { $0 is CAGradientLayer }
+            .forEach { $0.removeFromSuperlayer() }
+        
+        // 创建渐变层
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        
+        // 创建文本遮罩
+        let textMaskLayer = CATextLayer()
+        textMaskLayer.string = self.text
+        textMaskLayer.font = self.font
+        textMaskLayer.fontSize = self.font.pointSize
+        textMaskLayer.alignmentMode = self.textAlignment.caTextAlignmentMode
+        textMaskLayer.frame = self.bounds
+        textMaskLayer.contentsScale = UIScreen.main.scale
+        
+        // 设置遮罩
+        gradientLayer.mask = textMaskLayer
+        
+        // 添加渐变层
+        self.layer.addSublayer(gradientLayer)
+    }
+}
+
+// MARK: - 文本对齐模式转换
+extension NSTextAlignment {
+    var caTextAlignmentMode: CATextLayerAlignmentMode {
+        switch self {
+        case .left: return .left
+        case .center: return .center
+        case .right: return .right
+        default: return .natural
+        }
+    }
+}

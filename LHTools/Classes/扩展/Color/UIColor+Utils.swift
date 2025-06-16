@@ -115,6 +115,47 @@ extension UIColor {
     public static var random: UIColor{
         return UIColor.init(red: CGFloat(arc4random()&255)/255, green: CGFloat(arc4random()&255)/255, blue: CGFloat(arc4random()&255)/255, alpha: 1)
     }
+    
+    //MARK: 将 UIColor 转换为十六进制字符串（格式：#RRGGBB）
+    ///不包含透明度
+    func toHexString() -> String {
+        // 确保颜色在 RGB 色彩空间
+        guard let components = cgColor.components, components.count >= 3 else {
+            return "#000000"
+        }
+        
+        // 提取 RGB 分量并转换为 0-255 范围
+        let r = Float(components[0])
+        let g = Float(components[1])
+        let b = Float(components[2])
+        
+        // 转换为整数
+        let red = Int(r * 255.0)
+        let green = Int(g * 255.0)
+        let blue = Int(b * 255.0)
+        
+        // 格式化为十六进制字符串
+        return String(format: "#%02X%02X%02X", red, green, blue)
+    }
+    ///包含透明度
+    func toHexWithAlphaString() -> String {
+        guard let components = cgColor.components, components.count >= 4 else {
+            return "#000000FF"
+        }
+        
+        let r = Float(components[0])
+        let g = Float(components[1])
+        let b = Float(components[2])
+        let a = Float(components[3])
+        
+        return String(
+            format: "#%02X%02X%02X%02X",
+            Int(r * 255.0),
+            Int(g * 255.0),
+            Int(b * 255.0),
+            Int(a * 255.0)
+        )
+    }
 }
 
 
