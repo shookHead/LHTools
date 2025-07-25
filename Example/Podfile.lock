@@ -160,6 +160,7 @@ PODS:
     - "LHTools/工具类/Utils (= 1.0)"
     - "LHTools/工具类/VideoPlayer (= 1.0)"
     - "LHTools/工具类/二维码 (= 1.0)"
+    - "LHTools/工具类/播放 (= 1.0)"
     - "LHTools/工具类/约束 (= 1.0)"
     - "LHTools/工具类/缓存 (= 1.0)"
     - "LHTools/工具类/获取文件 (= 1.0)"
@@ -215,6 +216,20 @@ PODS:
     - SwiftyUserDefaults
     - ZLPhotoBrowser
   - "LHTools/工具类/二维码 (1.0)":
+    - Alamofire
+    - Hero
+    - IQKeyboardManagerSwift
+    - JXPhotoBrowser
+    - Kingfisher
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - SmartCodable
+    - SnapKit
+    - SQLite.swift
+    - SwiftyUserDefaults
+    - ZLPhotoBrowser
+  - "LHTools/工具类/播放 (1.0)":
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -760,7 +775,7 @@ SPEC CHECKSUMS:
   IQTextView: ae13b4922f22e6f027f62c557d9f4f236b19d5c7
   JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
   Kingfisher: 3204d23de16b5ea53541c44ca5a8efb55741dec3
-  LHTools: 4d9f58540535d614e42ada284fa8bad11f35911b
+  LHTools: a02d20525fdc2283513ce05b5a7d9d9fe57c840e
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
   NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53

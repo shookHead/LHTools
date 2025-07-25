@@ -122,13 +122,13 @@ public class BMIndicatorView: UIView {
         self.contentImgView.alpha = 0
     }
     
-    // 可以在初始化的时候链式调用
-    @discardableResult
-    public func setBackgroundColor(_ color:UIColor = #colorLiteral(red: 0.9612547589, green: 0.9591583015, blue: 0.8952967111, alpha: 1)) -> BMIndicatorView{
-        self.myMaskView.isHidden = false
-        self.myMaskView.backgroundColor = color
-        return self
-    }
+//    // 可以在初始化的时候链式调用
+//    @discardableResult
+//    func setBackgroundColor(_ color:UIColor = #colorLiteral(red: 0.9612547589, green: 0.9591583015, blue: 0.8952967111, alpha: 1)) -> BMIndicatorView{
+//        self.myMaskView.isHidden = false
+//        self.myMaskView.backgroundColor = color
+//        return self
+//    }
     
     /// 显示等待
     public func showWait(){

@@ -8,16 +8,16 @@
 import UIKit
 
 extension UINavigationController{
-    // MARK:pop 到某个vc，以传入的vc类型为准，从栈顶逐个便利，直到找到这个vc，如果遍历完成后没找到，则返回false
-    /// pop 到某个vc，以传入的vc类型为准，从栈顶逐个便利，直到找到这个vc，如果遍历完成后没找到，则返回false
+    
+    /// Pop 到指定类型的 ViewController（从栈顶向下查找）
     /// - Parameters:
-    ///   - aClass: 要pop到的vc的类型
-    ///   - animated: 是否有动画
-    /// - Returns: 成功找到vc并pop 返回true  否则 false
+    ///   - aClass: 要 pop 到的控制器类型
+    ///   - animated: 是否使用动画
+    /// - Returns: 是否成功 pop 到目标控制器
     @discardableResult
     public func popToViewController(as aClass: AnyClass, animated: Bool) -> Bool {
         for vc in viewControllers.reversed() {
-            if vc.isMember(of: aClass) {
+            if vc.isKind(of: aClass) {
                 popToViewController(vc, animated: animated)
                 return true
             }
@@ -41,28 +41,45 @@ extension UINavigationController{
         }
         viewControllers = childrens
     }
+    
+    /// 移除导航栈中指定类名的控制器
+    /// - Parameter classNames: 要移除的控制器类名数组（例如：["LoginViewController", "IntroVC"]）
+    public func removeViewControllers(classNames: [String]) {
+        viewControllers = viewControllers.filter { vc in
+            !classNames.contains(vc.className)
+        }
+    }
 }
 extension UIViewController{
-    public func dismissToRootViewController() {
-        var vc = self
-        while vc.presentingViewController != nil {
-            vc = vc.presentingViewController!
+    /// dismiss 回根控制器（最早被 present 的控制器）
+    public func dismissToRootViewController(animated: Bool = true) {
+        var root = self
+        while let presenter = root.presentingViewController {
+            root = presenter
         }
-        vc.dismiss(animated: true, completion: nil)
+        root.dismiss(animated: animated, completion: nil)
     }
-    public func dismissViewControllerClass(as aClass: AnyClass) {
-        let disvc = String(describing: aClass)
-        var vc = self
-        while let oldvc = vc.presentingViewController{
-            let name = String(describing: oldvc.classForCoder)
-            vc = oldvc
-            if name == disvc {
-                break
+    /// dismiss 回指定类型的控制器
+    /// - Parameter aClass: 要 dismiss 回的控制器类型
+    public func dismissToViewController(ofClass aClass: AnyClass, animated: Bool = true) {
+        let targetName = String(describing: aClass)
+        var current = self
+        while let presenter = current.presentingViewController {
+            if presenter.className == targetName {
+                presenter.dismiss(animated: animated, completion: nil)
+                return
             }
+            current = presenter
         }
-        vc.dismiss(animated: true, completion: nil)
+        // 如果未找到目标 VC，也 dismiss 到最上层
+        current.dismiss(animated: animated, completion: nil)
     }
     public var classNameStr: String {
-        return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
+//        return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!
+        return String(describing: type(of: self))
+    }
+    /// 获取控制器的类名（不带模块名）
+    public var className: String {
+        return String(describing: type(of: self))
     }
 }

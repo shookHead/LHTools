@@ -106,3 +106,18 @@ extension Double : BMNumberFormate{
         return result
     }
 }
+
+public extension CGFloat {
+    /// 保留到小数点后两位，去除小数点后面的0
+    func formatCGFloat(_ value: CGFloat) -> String {
+        // 保留两位小数
+        let formatted = String(format: "%.2f", value)
+        // 检查小数点后是否为 .00 或 .80
+        if formatted.hasSuffix(".00") {
+            return String(formatted.dropLast(3))
+        } else if formatted.hasSuffix(".80") {
+            return String(formatted.dropLast(1))
+        }
+        return formatted
+    }
+}

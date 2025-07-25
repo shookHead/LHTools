@@ -9,34 +9,35 @@
 import UIKit
 
 extension UITextField {
-    /// 设置占位文字
+    
+    /// 设置占位符的文字、颜色和字体
     /// - Parameters:
-    ///   - string: 字符串
-    ///   - color: 颜色
-    ///   - font: 字体
-    @available(*, deprecated, message: "此方法已过期，请使用新方法 setPlaceholderColor() 替代")
-    public func setPlaceholder(_ string: String, color: UIColor? = nil, font: UIFont? = nil) {
-        let attributedString = NSMutableAttributedString(string: string)
+    ///   - text: 占位符文字，如果不传则使用当前 placeholder
+    ///   - color: 占位符颜色
+    ///   - font: 占位符字体
+    public func setPlaceholder(_ text: String? = nil, color: UIColor? = nil, font: UIFont? = nil) {
+        let placeholderText = text ?? self.placeholder ?? ""
+        let fontToUse = font ?? self.font
+        let attributedString = NSMutableAttributedString(string: placeholderText)
+        
+        let fullRange = NSRange(location: 0, length: placeholderText.count)
+        
         if let color = color {
-            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: color], range: NSRange(location: 0, length: string.count))
+            attributedString.addAttribute(.foregroundColor, value: color, range: fullRange)
         }
-        if let font = font {
-            attributedString.addAttributes([NSAttributedString.Key.font: font], range: NSRange(location: 0, length: string.count))
+        if let fontToUse = fontToUse {
+            attributedString.addAttribute(.font, value: fontToUse, range: fullRange)
         }
-        attributedPlaceholder = attributedString
+        self.attributedPlaceholder = attributedString
     }
     
+    
+    /// 已废弃：请使用 `setPlaceholder(_:color:font:)` 替代
     public func setPlaceholderColor(color: UIColor? = nil) {
         let string = self.placeholder ?? ""
         let font = self.font
-        let attributedString = NSMutableAttributedString(string: string)
-        if let color = color {
-            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: color], range: NSRange(location: 0, length: string.count))
-        }
-        if let font = font {
-            attributedString.addAttributes([NSAttributedString.Key.font: font], range: NSRange(location: 0, length: string.count))
-        }
-        attributedPlaceholder = attributedString
+        setPlaceholder(string, color: color, font: font)
     }
+
     
 }

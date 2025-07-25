@@ -21,7 +21,7 @@ open class BaseVC: UIViewController {
     
     // MARK:  ----------- UI样式 -----------
     /// 全局navi内容主题色（默认nil，与系统默认保持一致）
-    public static var global_hideNavBottonLine:Bool! = nil
+    public static var global_hideNavBottonLine:Bool = true
     /// 隐藏导航栏下面的黑线
     public var hideNavBottonLine:Bool! = global_hideNavBottonLine
 
@@ -50,16 +50,6 @@ open class BaseVC: UIViewController {
     /// 当前页面 navi 背景色
     public var barBGColor:UIColor! = BaseVC.global_navBarTintColor
     
-    
-    // MARK:  ----------- 功能View -----------
-    // 遮照背景视图
-    public var maskView = UIView()
-    // 弹出框使用的 灰色背景遮照
-    public var blurMask: UIButton = {
-        let btn = UIButton(frame: .init(x: 0, y: 0, width: KScreenWidth, height: KScreenHeight))
-        btn.backgroundColor = UIColor.maskView
-        return btn
-    }()
 
     public var window:UIWindow! {
         return UIApplication.shared.windows.filter{$0.isKeyWindow}.first
@@ -109,34 +99,40 @@ open class BaseVC: UIViewController {
         
         navigationController?.setNavigationBarHidden(hideNav, animated: true)
         navigationController?.interactivePopGestureRecognizer?.isEnabled = popGestureEnable
-        if !hideNav {
-            let att = [NSAttributedString.Key.foregroundColor : barContenColor!,
-                       NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
-            if #available(iOS 15.0, *){
-                let app = UINavigationBarAppearance()
-                app.configureWithOpaqueBackground()  // 重置背景和阴影颜色
-                app.titleTextAttributes = att
-                app.backgroundColor = barBGColor == nil ? .white:barBGColor  // 设置导航栏背景色
-                if let b = self.hideNavBottonLine, b == true{
-                    app.backgroundEffect = nil
-                    app.shadowColor = .clear
-                    app.shadowImage = UIColor.clear.image  // 设置导航栏下边界分割线透明
-                }
-                navigationController?.navigationBar.scrollEdgeAppearance = app  // 带scroll滑动的页面
-                navigationController?.navigationBar.standardAppearance = app // 常规页面
-            }else{
-                navigationController?.navigationBar.barTintColor = barBGColor
-                if let _ = barContenColor {//设置中间文字大小和颜色
-                    navigationController?.navigationBar.titleTextAttributes = att
-                }
-                if let b = self.hideNavBottonLine, b == true{
-                    self.findHairlineImageViewUnder(sView: self.navigationController?.navigationBar)?.isHidden = true
-                }
-            }
-        }
+        applyNavigationStyle()
         
         IQKeyboardManager.shared.resignOnTouchOutside = self.autoHideKeyboard
         IQKeyboardManager.shared.enableAutoToolbar = self.autoToolbar
+    }
+    deinit {
+        print("deinit: \(self)")
+        backClosure = nil
+    }
+
+    func applyNavigationStyle() {
+        guard !hideNav else { return }
+
+        let att = [NSAttributedString.Key.foregroundColor : barContenColor!,
+                   NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18)]
+
+        if #available(iOS 15.0, *) {
+            let app = UINavigationBarAppearance()
+            app.configureWithOpaqueBackground()// 重置背景和阴影颜色
+            app.titleTextAttributes = att
+            app.backgroundColor = barBGColor ?? .white
+            if hideNavBottonLine == true {
+                app.shadowColor = .clear
+                app.backgroundEffect = nil
+            }
+            navigationController?.navigationBar.scrollEdgeAppearance = app
+            navigationController?.navigationBar.standardAppearance = app
+        } else {
+            navigationController?.navigationBar.barTintColor = barBGColor
+            navigationController?.navigationBar.titleTextAttributes = att
+            if hideNavBottonLine == true {
+                self.findHairlineImageViewUnder(sView: navigationController?.navigationBar)?.isHidden = true
+            }
+        }
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
@@ -174,11 +170,7 @@ open class BaseVC: UIViewController {
     
     /// 忽略自适应内边距
     public func ignoreAutoAdjustScrollViewInsets(_ sc:UIScrollView?) {
-        if #available(iOS 11.0, *) {
-            sc?.contentInsetAdjustmentBehavior = .never
-        }else{
-            self.automaticallyAdjustsScrollViewInsets = NO
-        }
+        sc?.contentInsetAdjustmentBehavior = .never
     }
     
     public func findHairlineImageViewUnder(sView: UIView?) -> UIImageView?{
@@ -212,103 +204,6 @@ open class BaseVC: UIViewController {
             }
         }
         lastCellDisplayTimeInterval = now + delay
-    }
-}
-
-
-// MARK:  提示框
-extension BaseVC {
-    public func showMask(){
-        if maskView.superview == nil{
-            self.window.addSubview(maskView)
-            maskView.bm.addConstraints([.fill])
-        }
-    }
-    
-    /// 居中显示View
-    public func showMaskWithViewInCenter(_ content:UIView){
-        maskView.removeFromSuperview()
-        self.window.addSubview(maskView)
-        maskView.bm.addConstraints([.fill])
-
-        blurMask.removeFromSuperview()
-        maskView.addSubview(blurMask)
-        blurMask.bm.addConstraints([.fill])
-
-        blurMask.tag = 0
-        blurMask.addTarget(self, action: #selector(hideMaskView), for: .touchUpInside)
-
-        content.removeFromSuperview()
-        maskView.addSubview(content)//把view的宽高布局转为约束
-        content.bm.addConstraints([.w(content.w), .h(content.h), .center])
-        
-        //animation
-        blurMask.alpha = 0;
-        content.alpha = 0.5 //透明度渐变不带弹性
-        UIView.animate(withDuration: 0.2, animations: {
-            content.alpha = 1
-            self.blurMask.alpha = 1
-        })
-        
-        content.transform = CGAffineTransform.init(scaleX: 0.5, y: 0.5) //缩放带弹性
-        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
-            content.transform = CGAffineTransform.identity
-        }) { (_) in}
-    }
-    
-    /// 居下显示View
-    public func showMaskWithViewAtBottom(_ content:UIView){
-        maskView.removeFromSuperview()
-        self.window.addSubview(maskView)
-        maskView.bm.addConstraints([.fill])
-
-        blurMask.removeFromSuperview()
-        maskView.addSubview(blurMask)
-        blurMask.bm.addConstraints([.fill])
-        
-        blurMask.tag = 1;
-        blurMask.addTarget(self, action: #selector(hideMaskView), for: .touchUpInside)
-
-        content.removeFromSuperview()
-        maskView.addSubview(content)//把view的宽高布局转为约束
-        content.bm.addConstraints([.w(content.w), .h(content.h), .center_X(0), .bottom(40)])
-        
-        //animation
-        blurMask.alpha = 0;
-        content.alpha = 0.5 //透明度渐变不带弹性
-        UIView.animate(withDuration: 0.2, animations: {
-            content.alpha = 1
-            self.blurMask.alpha = 1
-        })
-        
-        content.transform = CGAffineTransform.init(translationX: 0, y: 50) //缩放带弹性
-        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
-            content.transform = CGAffineTransform.identity
-        }) { (_) in}
-    }
-    
-    /// 隐藏
-    @objc public func hideMaskView() -> Void {
-        let views = maskView.subviews
-        let content = views.last//提示框
-        
-        UIView.animate(withDuration: 0.3) {
-            self.blurMask.alpha = 0
-        } completion: { (_) in
-            self.maskView.removeFromSuperview()
-        }
-
-        UIView.animate(withDuration: 0.15, animations: {
-            content?.alpha = 0
-            if self.maskView.tag == 1{
-                content?.transform = CGAffineTransform.init(translationX: 0, y: 50)
-            }else{
-                content?.transform = CGAffineTransform.init(scaleX: 0.5, y: 0.5)
-            }
-        }) { (_) in
-            content?.removeFromSuperview()
-            content?.transform = CGAffineTransform.identity
-        }
     }
 }
 

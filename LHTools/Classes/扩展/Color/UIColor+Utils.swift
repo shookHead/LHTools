@@ -118,7 +118,7 @@ extension UIColor {
     
     //MARK: 将 UIColor 转换为十六进制字符串（格式：#RRGGBB）
     ///不包含透明度
-    func toHexString() -> String {
+    public func toHexString() -> String {
         // 确保颜色在 RGB 色彩空间
         guard let components = cgColor.components, components.count >= 3 else {
             return "#000000"
@@ -138,7 +138,7 @@ extension UIColor {
         return String(format: "#%02X%02X%02X", red, green, blue)
     }
     ///包含透明度
-    func toHexWithAlphaString() -> String {
+    public func toHexWithAlphaString() -> String {
         guard let components = cgColor.components, components.count >= 4 else {
             return "#000000FF"
         }

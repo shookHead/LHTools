@@ -143,6 +143,9 @@ TODO: Add long description of the pod here.
   end
   #工具类
   s.subspec '工具类' do |ss|
+      ss.subspec '播放' do |sss|
+          sss.source_files = 'LHTools/Classes/工具类/播放/**/*.swift'
+      end
       ss.subspec 'VideoPlayer' do |sss|
           sss.source_files = 'LHTools/Classes/工具类/VideoPlayer/**/*.swift'
       end

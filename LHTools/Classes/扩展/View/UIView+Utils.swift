@@ -251,3 +251,137 @@ public extension UIView {
         return false
     }
 }
+
+/**
+ let bgView = UIView()
+ bgView.frame = CGRect(x: 100, y: 100, width: 100, height: 40)
+ bgView.setCornerRadius(10)
+//        v.setSolidBorder(color: .red, width: 2)
+ bgView.setGradientBorder(
+     colors: [.blue, .green],
+     width: 3,
+     startPoint: .zero,
+     endPoint: CGPoint(x: 1, y: 1),
+     cornerRadius: 8 // 可选参数
+ )
+ view.addSubview(bgView)
+ */
+// MARK: - 关联对象键
+private struct AssociatedKeys {
+    static var gradientBorderLayer = "gradientBorderLayer"
+    static var shapeBorderLayer = "shapeBorderLayer"
+}
+
+extension UIView {
+    // MARK: - 圆角设置
+    /// 设置圆角（可选）
+    func setCornerRadius(_ radius: CGFloat) {
+        layer.cornerRadius = radius
+        layer.masksToBounds = true
+    }
+    
+    // MARK: - 纯色边框
+    /// 设置纯色边框（会移除渐变色边框）
+    func setSolidBorder(color: UIColor, width: CGFloat) {
+        // 移除之前的渐变效果
+        removeGradientBorder()
+        
+        // 设置纯色边框
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
+    }
+    
+    // MARK: - 渐变色边框
+    /// 设置渐变色边框（会移除纯色边框）
+    func setGradientBorder(
+        colors: [UIColor],
+        width: CGFloat,
+        startPoint: CGPoint = CGPoint(x: 0, y: 0.5),
+        endPoint: CGPoint = CGPoint(x: 1, y: 0.5),
+        cornerRadius: CGFloat? = nil
+    ) {
+        // 移除之前的边框效果
+        layer.borderWidth = 0
+        removeGradientBorder()
+        
+        // 获取当前圆角值（优先使用参数值）
+        let radius = cornerRadius ?? layer.cornerRadius
+        
+        // 创建渐变层
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.startPoint = startPoint
+        gradientLayer.endPoint = endPoint
+        
+        // 创建形状遮罩层
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.lineWidth = width
+        shapeLayer.path = UIBezierPath(
+            roundedRect: bounds.insetBy(dx: width/2, dy: width/2),
+            cornerRadius: radius
+        ).cgPath
+        shapeLayer.fillColor = nil
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        gradientLayer.mask = shapeLayer
+        
+        // 添加渐变层
+        layer.addSublayer(gradientLayer)
+        
+        // 保存引用以便后续移除
+        objc_setAssociatedObject(
+            self,
+            &AssociatedKeys.gradientBorderLayer,
+            gradientLayer,
+            .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+        )
+    }
+    
+    // MARK: - 移除所有边框效果
+    /// 移除所有边框（纯色和渐变色）
+    func removeAllBorders() {
+        // 移除纯色边框
+        layer.borderWidth = 0
+        
+        // 移除渐变色边框
+        removeGradientBorder()
+    }
+    
+    // MARK: - 私有方法
+    /// 移除渐变色边框
+    private func removeGradientBorder() {
+        if let gradientLayer = objc_getAssociatedObject(
+            self,
+            &AssociatedKeys.gradientBorderLayer
+        ) as? CALayer {
+            gradientLayer.removeFromSuperlayer()
+            objc_setAssociatedObject(
+                self,
+                &AssociatedKeys.gradientBorderLayer,
+                nil,
+                .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+            )
+        }
+    }
+    
+    // MARK: - 布局更新
+    /// 需要在布局变化时调用（如 viewDidLayoutSubviews）
+    func updateGradientBorder() {
+        guard let gradientLayer = objc_getAssociatedObject(
+            self,
+            &AssociatedKeys.gradientBorderLayer
+        ) as? CAGradientLayer else { return }
+        
+        // 更新渐变层尺寸
+        gradientLayer.frame = bounds
+        
+        // 更新遮罩路径
+        if let shapeLayer = gradientLayer.mask as? CAShapeLayer {
+            let lineWidth = shapeLayer.lineWidth
+            shapeLayer.path = UIBezierPath(
+                roundedRect: bounds.insetBy(dx: lineWidth/2, dy: lineWidth/2),
+                cornerRadius: layer.cornerRadius
+            ).cgPath
+        }
+    }
+}
