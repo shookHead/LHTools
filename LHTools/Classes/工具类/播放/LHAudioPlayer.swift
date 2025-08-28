@@ -8,10 +8,13 @@
 import UIKit
 import AVFoundation
 
-@objc protocol LHAudioPlayerDelegate: AnyObject {
-    @objc func audioPlayerDidFinishPlaying()
-    @objc func audioPlayerDidFail(withError error: Error?)
-    @objc func audioPlayerDidUpdate(currentTime: TimeInterval, duration: TimeInterval)
+@objc public protocol LHAudioPlayerDelegate: AnyObject {
+    /// 必须实现
+    func audioPlayerDidFinishPlaying()
+    func audioPlayerDidFail(withError error: Error?)
+    
+    /// 可选实现
+    @objc optional func audioPlayerDidUpdate(currentTime: TimeInterval, duration: TimeInterval)
 }
 
 public class LHAudioPlayer: NSObject, AVAudioPlayerDelegate {
@@ -19,9 +22,9 @@ public class LHAudioPlayer: NSObject, AVAudioPlayerDelegate {
     private var audioPlayer: AVAudioPlayer?
     private var timer: Timer?
     private var playbackTime: TimeInterval = 0
-    weak var delegate: LHAudioPlayerDelegate?
+    public weak var delegate: LHAudioPlayerDelegate?
     
-    enum PlaybackStatus {
+    public enum PlaybackStatus {
         case stopped
         case playing
         case paused
@@ -31,7 +34,7 @@ public class LHAudioPlayer: NSObject, AVAudioPlayerDelegate {
     
     // MARK: - Init
     
-    override init() {
+    public override init() {
         super.init()
         setupAudioSession()
     }
@@ -166,7 +169,7 @@ public class LHAudioPlayer: NSObject, AVAudioPlayerDelegate {
 
     @objc private func updatePlaybackTime() {
         guard let player = audioPlayer else { return }
-        delegate?.audioPlayerDidUpdate(currentTime: player.currentTime, duration: player.duration)
+        delegate?.audioPlayerDidUpdate?(currentTime: player.currentTime, duration: player.duration)
     }
 
     // MARK: - AVAudioPlayerDelegate

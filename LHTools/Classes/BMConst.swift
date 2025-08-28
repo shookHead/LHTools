@@ -27,8 +27,6 @@ public func judgeScream() -> Bool {
         guard let window = UIApplication.shared.windows.first else { return false }
         return window.safeAreaInsets.top > 20 ? true:false
     }
-    let s = ""
-    s.notEmpty
     return false
 }
 public enum SafeDirect{
@@ -62,7 +60,7 @@ func safeArea(_ direct:SafeDirect) -> CGFloat{
 }
 /// safeArea
 public let safeArea_Top    = safeArea(.top)
-/// safeArea
+/// safeArea底部多余的高度 34
 public let safeArea_Bottom = safeArea(.bottom)
 
 /// 屏幕的宽度
@@ -72,17 +70,33 @@ public let KScreenHeight   = UIScreen.main.bounds.height
 /// 是否是IphoneX
 public let KIsIphoneX      = judgeScream()
 /// 导航栏下内容高度
-public let KHeightInNav    = KScreenHeight - KNaviBarH
+public var KHeightInNav : CGFloat { return KScreenHeight - KNaviBarH }
 /// 导航栏顶部状态栏高度
 public let KNaviStatusBar  = safeArea_Top
 /// 导航栏高度
-public let KNaviBarH       = safeArea(.top) + 44
+public var KNaviBarH: CGFloat { return 44 + StatusBarFrameH }
 /// tabbar高度
-public let KTabBarH        = safeArea(.bottom) + 49
-/// 底部多余的高度 34
-public let KBottomH        = safeArea(.bottom)
+public var KTabBarH: CGFloat { safeArea_Bottom + 49 }
 /// 375下的尺寸  size*KRatio375
 public let KRatio375       = UIScreen.main.bounds.width / 375.0
+/// 获取statusBar状态栏的高度
+public var StatusBarFrameH: CGFloat {
+    if #available(iOS 13.0, *) {
+        let window: UIWindow? = UIApplication.shared.windows.first
+        let statusBarHeight = (window?.windowScene?.statusBarManager?.statusBarFrame.height) ?? 0
+        return statusBarHeight
+        /*
+        let scene = UIApplication.shared.connectedScenes.first
+        guard let windowScene = scene as? UIWindowScene else { return 0 }
+        guard let statusBarManager = windowScene.statusBarManager else { return 0 }
+        return statusBarManager.statusBarFrame.height
+         */
+    } else {
+        // 防止界面没有出来获取为0的情况
+        return UIApplication.shared.statusBarFrame.height > 0 ? UIApplication.shared.statusBarFrame.height : 44
+    }
+}
+
 
 ///全局返回按钮颜色
 public var globalBackColor:UIColor = #colorLiteral(red: 0.2588235294, green: 0.2588235294, blue: 0.2588235294, alpha: 1)

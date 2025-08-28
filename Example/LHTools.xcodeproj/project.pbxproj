@@ -39,6 +39,8 @@
 		0419271C2B15E0B5005B7BAF /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 		041C93E72B0E007B007E34CE /* CamerView_UploadImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CamerView_UploadImg@3x.png"; sourceTree = "<group>"; };
 		04599777290BBD1800A7043F /* WorkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkModel.swift; sourceTree = "<group>"; };
+		048D9B7A2E604AA900B89547 /* fanhui@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fanhui@3x.png"; sourceTree = "<group>"; };
+		048D9B7B2E60586000B89547 /* BMback_Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BMback_Icon@3x.png"; sourceTree = "<group>"; };
 		049CCEA029F60F1400149F9C /* LHInternationalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHInternationalization.swift; sourceTree = "<group>"; };
 		049CCEA129F61EB900149F9C /* imageLoadingFailed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageLoadingFailed.png; sourceTree = "<group>"; };
 		04A8D5012912671E00E8B4A3 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
@@ -126,7 +128,6 @@
 		F41E2EA0274C7F5B00C19995 /* BMCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMCache.swift; sourceTree = "<group>"; };
 		F41E2EA1274C7F5B00C19995 /* LHClearCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHClearCache.swift; sourceTree = "<group>"; };
 		F41E2EA3274C7F5B00C19995 /* QRCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeManager.swift; sourceTree = "<group>"; };
-		F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMback_Icon.png; sourceTree = "<group>"; };
 		F41E2EA9274C7F5B00C19995 /* BMImgItems_UploadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BMImgItems_UploadImg.png; sourceTree = "<group>"; };
 		F41E2EAA274C7F5B00C19995 /* photoDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDelete.png; sourceTree = "<group>"; };
 		F41E2EAB274C7F5B00C19995 /* wuwangluo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wuwangluo.png; sourceTree = "<group>"; };
@@ -641,6 +642,8 @@
 		F41E2EA4274C7F5B00C19995 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				048D9B7B2E60586000B89547 /* BMback_Icon@3x.png */,
+				048D9B7A2E604AA900B89547 /* fanhui@3x.png */,
 				04BB8DD92DB78B9600D73117 /* city.sqlite */,
 				049CCEA129F61EB900149F9C /* imageLoadingFailed.png */,
 				F47762BD28CDF8C600BA438B /* scan-album@3x.png */,
@@ -648,7 +651,6 @@
 				F4EA3F2528B60FC300D96393 /* scan-bg.png */,
 				F4EA3F2328B60FC200D96393 /* scan-light@3x.png */,
 				F4EA3F2428B60FC300D96393 /* scan-slider.png */,
-				F41E2EA6274C7F5B00C19995 /* BMback_Icon.png */,
 				F41E2EA9274C7F5B00C19995 /* BMImgItems_UploadImg.png */,
 				F41E2EAA274C7F5B00C19995 /* photoDelete.png */,
 				F41E2EAB274C7F5B00C19995 /* wuwangluo.png */,
@@ -857,10 +859,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LHTools_Example/Pods-LHTools_Example-resources.sh",
-				"${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon@3x.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg@3x.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/city.sqlite",
+				"${PODS_ROOT}/../../LHTools/Classes/resource/fanhui@3x.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png",
 				"${PODS_ROOT}/../../LHTools/Classes/resource/scan-album@3x.png",
@@ -871,10 +874,11 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMback_Icon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMback_Icon@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BMImgItems_UploadImg.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CamerView_UploadImg@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/city.sqlite",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fanhui@3x.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/imageLoadingFailed.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/photoDelete.png",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scan-album@3x.png",

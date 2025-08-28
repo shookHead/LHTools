@@ -185,9 +185,51 @@ extension UIImage{
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return image!
-            
+        
         }
         return UIImage()
+    }
+    /// 创建渐变色图片
+    /// - Parameters:
+    ///   - size: 图片大小
+    ///   - colors: 渐变颜色数组（必须两个及以上）
+    ///   - startPoint: 渐变起点（默认左中）
+    ///   - endPoint: 渐变终点（默认右中）
+    /// - Returns: 渐变色图片
+    public static func gradientImage(
+        size: CGSize,
+        colors: [UIColor],
+        startPoint: CGPoint = CGPoint(x: 0, y: 0.5),
+        endPoint: CGPoint = CGPoint(x: 1, y: 0.5)
+    ) -> UIImage? {
+        guard colors.count >= 2 else {
+            // 如果只有一个颜色，生成纯色图
+            return solidColorImage(color: colors.first ?? .clear, size: size)
+        }
+
+        let layer = CAGradientLayer()
+        layer.frame = CGRect(origin: .zero, size: size)
+        layer.colors = colors.map { $0.cgColor }
+        layer.startPoint = startPoint
+        layer.endPoint = endPoint
+
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { context in
+            layer.render(in: context.cgContext)
+        }
+    }
+
+    /// 创建纯色图片
+    /// - Parameters:
+    ///   - color: 颜色
+    ///   - size: 图片大小
+    /// - Returns: 纯色图片
+    public static func solidColorImage(color: UIColor, size: CGSize) -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { context in
+            color.setFill()
+            context.fill(CGRect(origin: .zero, size: size))
+        }
     }
     /// 循环压缩
     /// - Parameter maxSize: 最大数据大小

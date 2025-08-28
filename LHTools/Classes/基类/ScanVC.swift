@@ -22,7 +22,7 @@ open class ScanVC: BaseVC {
     }
     public var holeRect:CGRect!
     
-    lazy var backBtn: UIButton = {
+    public lazy var backBtn: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: KNaviBarH-44, width: 60, height: 44))
         let img = #imageLiteral(resourceName: "fanhui").withRenderingMode(.alwaysTemplate)
         btn.setImage(img, for: .normal)

@@ -11,15 +11,21 @@ import UIKit
 
 extension UIColor {
     ///生成颜色图片
-    public var image:UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        context?.setFillColor(self.cgColor)
-        context?.fill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image!
+    public var image: UIImage? {
+        return self.toImage()
+    }
+    /// 生成当前颜色的图片
+    /// - Parameter size: 图片尺寸（默认为1x1）
+    /// - Returns: 图片（可选）
+    public func toImage(size: CGSize = CGSize(width: 1, height: 1)) -> UIImage? {
+        guard size.width > 0, size.height > 0 else {
+            return nil
+        }
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { context in
+            self.setFill()
+            context.fill(CGRect(origin: .zero, size: size))
+        }
     }
 }
 

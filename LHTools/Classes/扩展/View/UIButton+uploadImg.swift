@@ -139,28 +139,72 @@ extension UIButton{
     ///   - style: 设置图片和文字位置
     ///   - space: 间距
     public func buttonWithEdgeInsetsStyle(style:ButtonEdgeInsetsStyle,space:CGFloat = 4.0)  {
-        let imageWith = self.imageView?.frame.size.width
-        let imageHeight = self.imageView?.frame.size.height
-        let labelWidth = self.titleLabel?.intrinsicContentSize.width
-        let labelHeight = self.titleLabel?.intrinsicContentSize.height
-        var imageEdgeInsets=UIEdgeInsets.zero
-        var labelEdgeInsets=UIEdgeInsets.zero
-        switch style {
-        case .top:
-            imageEdgeInsets = UIEdgeInsets(top: -labelHeight!-space/2.0, left: 0, bottom: 0, right: -labelWidth!)
-            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWith!, bottom: -imageHeight!-space/2.0, right: 0)
-        case .left:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: -space/2.0, bottom: 0, right: space/2.0)
-            labelEdgeInsets = UIEdgeInsets(top: 0, left: space/2.0, bottom: 0, right: -space/2.0)
-        case .bottom:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: -labelHeight!-space/2.0, right: -labelWidth!)
-            labelEdgeInsets = UIEdgeInsets(top: -imageHeight!-space/2.0, left: -imageWith!, bottom: 0, right: 0)
-        case .right:
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: labelWidth!+space/2.0, bottom: 0, right: -labelWidth!-space/2.0)
-            labelEdgeInsets = UIEdgeInsets(top: 0, left: -imageWith!-space/2.0, bottom: 0, right: imageWith!+space/2.0)
-        }
-        self.titleEdgeInsets = labelEdgeInsets
-        self.imageEdgeInsets = imageEdgeInsets
+        // 确保 image 和 title 都存在
+              guard let imageSize = self.imageView?.intrinsicContentSize,
+                    let titleSize = self.titleLabel?.intrinsicContentSize else {
+                  return
+              }
+
+              var imageEdgeInsets = UIEdgeInsets.zero
+              var titleEdgeInsets = UIEdgeInsets.zero
+
+              switch style {
+              case .top:
+                  imageEdgeInsets = UIEdgeInsets(
+                      top: -titleSize.height - space / 2,
+                      left: 0,
+                      bottom: 0,
+                      right: -titleSize.width
+                  )
+                  titleEdgeInsets = UIEdgeInsets(
+                      top: 0,
+                      left: -imageSize.width,
+                      bottom: -imageSize.height - space / 2,
+                      right: 0
+                  )
+              case .left:
+                  imageEdgeInsets = UIEdgeInsets(
+                      top: 0,
+                      left: -space / 2,
+                      bottom: 0,
+                      right: space / 2
+                  )
+                  titleEdgeInsets = UIEdgeInsets(
+                      top: 0,
+                      left: space / 2,
+                      bottom: 0,
+                      right: -space / 2
+                  )
+              case .bottom:
+                  imageEdgeInsets = UIEdgeInsets(
+                      top: 0,
+                      left: 0,
+                      bottom: -titleSize.height - space / 2,
+                      right: -titleSize.width
+                  )
+                  titleEdgeInsets = UIEdgeInsets(
+                      top: -imageSize.height - space / 2,
+                      left: -imageSize.width,
+                      bottom: 0,
+                      right: 0
+                  )
+              case .right:
+                  imageEdgeInsets = UIEdgeInsets(
+                      top: 0,
+                      left: titleSize.width + space / 2,
+                      bottom: 0,
+                      right: -titleSize.width - space / 2
+                  )
+                  titleEdgeInsets = UIEdgeInsets(
+                      top: 0,
+                      left: -imageSize.width - space / 2,
+                      bottom: 0,
+                      right: imageSize.width + space / 2
+                  )
+              }
+
+              self.titleEdgeInsets = titleEdgeInsets
+              self.imageEdgeInsets = imageEdgeInsets
     }
     
     

@@ -97,10 +97,11 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/city.sqlite"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/fanhui@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-album@3x.png"
@@ -110,10 +111,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/wuwangluo.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon.png"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMback_Icon@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/BMImgItems_UploadImg.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/CamerView_UploadImg@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/city.sqlite"
+  install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/fanhui@3x.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/imageLoadingFailed.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/photoDelete.png"
   install_resource "${PODS_ROOT}/../../LHTools/Classes/resource/scan-album@3x.png"
