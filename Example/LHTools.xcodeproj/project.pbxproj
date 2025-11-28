@@ -39,6 +39,7 @@
 		0419271C2B15E0B5005B7BAF /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 		041C93E72B0E007B007E34CE /* CamerView_UploadImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CamerView_UploadImg@3x.png"; sourceTree = "<group>"; };
 		04599777290BBD1800A7043F /* WorkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkModel.swift; sourceTree = "<group>"; };
+		047BD1452EB9AF2B004D187E /* BaseStackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStackVC.swift; sourceTree = "<group>"; };
 		048D9B7A2E604AA900B89547 /* fanhui@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fanhui@3x.png"; sourceTree = "<group>"; };
 		048D9B7B2E60586000B89547 /* BMback_Icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BMback_Icon@3x.png"; sourceTree = "<group>"; };
 		049CCEA029F60F1400149F9C /* LHInternationalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LHInternationalization.swift; sourceTree = "<group>"; };
@@ -559,6 +560,7 @@
 				F41E2E8E274C7F5B00C19995 /* BaseCell.swift */,
 				F41E2E8F274C7F5B00C19995 /* ScanVC.swift */,
 				F41E2E90274C7F5B00C19995 /* BaseNavigationVC.swift */,
+				047BD1452EB9AF2B004D187E /* BaseStackVC.swift */,
 			);
 			path = "基类";
 			sourceTree = "<group>";

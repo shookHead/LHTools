@@ -39,9 +39,9 @@ open class BaseVC: UIViewController {
     public var autoToolbar:Bool = true
     
     /// 全局navi内容主题色（默认nil，与系统默认保持一致）
-    public static var global_navTintColor:UIColor! = nil
+    public static var global_navTintColor:UIColor! = .black
     /// 全局navi背景色（默认nil，与系统默认保持一致）
-    public static var global_navBarTintColor:UIColor! = nil
+    public static var global_navBarTintColor:UIColor! = .white
     /// 全局背景背景色默认白色
     public static var global_bgColor:UIColor! = .white
     

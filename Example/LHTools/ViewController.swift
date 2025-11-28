@@ -39,9 +39,8 @@ public class ZBJsonM<T: SmartCodable>: SmartCodable {
 //    }
 }
 
-class ViewController: UIViewController {
+class ViewController: BaseStackVC {
     var camer = CamerView()
-    var stackView:UIStackView!
     var camerV:CamerView! = {
         let v = CamerView()
         //        v.maxCount = 8
@@ -52,21 +51,26 @@ class ViewController: UIViewController {
         v.edg = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         return v
     }()
+    override var stackContentInsets: UIEdgeInsets {
+        .init(top: 24, left: 0, bottom: 40, right: 0)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let arr = cache[.saveGroupActivityModel] {
-            print("有值")
-            print(arr)
-        }else{
-            print("没有值")
+        let btn = UIButton()
+        btn.backgroundColor = .red
+//        btn.snp.makeConstraints { make in
+//            make.height.equalTo(100)
+//        }
+        btn.frame.size.height = 100
+        stackView.addArrangedSubview(btn)
+        let lab = UILabel()
+        lab.text = "等哈科技护肤科技大厦"
+        lab.backgroundColor = .yellow
+        lab.h = 200
+        lab.snp.makeConstraints { make in
+            make.height.equalTo(200)
         }
-        let tf = UITextField()
-        tf.placeholder = "123"
-        
-//        tf.setPlaceholder("123")
-        tf.frame = CGRect(x: 100, y: 100, width: 100, height: 50)
-        tf.setPlaceholderColor(color: .red)
-        view.addSubview(tf)
+        stackView.addArrangedSubview(lab)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

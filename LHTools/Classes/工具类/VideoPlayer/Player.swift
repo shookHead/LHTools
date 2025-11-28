@@ -917,7 +917,7 @@ public class PlayerView: UIView {
 
     // MARK: - internal properties
 
-    internal var playerLayer: AVPlayerLayer {
+    public var playerLayer: AVPlayerLayer {
         get {
             return self.layer as! AVPlayerLayer
         }

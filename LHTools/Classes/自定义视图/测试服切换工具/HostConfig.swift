@@ -131,7 +131,11 @@ open class HostConfig{
         }
         var arr : Array<String> = []
         for tf in tfArray{
-            arr.append(tf.text ?? "")
+            var text = tf.text ?? ""
+            if !text.notEmpty {
+                text = tf.placeholder ?? ""
+            }
+            arr.append(text)
         }
         
         // 存档
