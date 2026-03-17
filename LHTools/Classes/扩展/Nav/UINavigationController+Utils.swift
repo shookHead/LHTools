@@ -83,3 +83,62 @@ extension UIViewController{
         return String(describing: type(of: self))
     }
 }
+public extension UIViewController {
+    /**
+     场景 A -> B ..... -> G
+     你想在 G 返回时直接返回到 A，包括保留返回手势，又支持手势交互式返回？
+     通常的方案不是在返回时处理，而是在进入 G 页面时就处理好
+     跳转（Push）G 时，代入一个 sourceVC 或者称为 returnVC
+     然后 F.replace(sourceVC: A, toVC: G)
+     */
+    
+    func replace(_ vc: UIViewController, animated: Bool = true) {
+        if var viewControllers = navigationController?.viewControllers {
+            viewControllers.removeLast()
+            viewControllers.append(vc)
+            navigationController?.setViewControllers(viewControllers, animated: animated)
+        }
+    }
+    
+    func replace(sourceVC: UIViewController?, toVC: UIViewController, animated: Bool = true) {
+        let sourceVC = sourceVC?.findParentInNavication()
+        
+        guard
+            let navigationController = navigationController,
+            let sourceVC,
+            navigationController.viewControllers.contains(sourceVC)
+        else {
+            replace(toVC, animated: animated)
+            return
+        }
+        
+        var vcs = [UIViewController]()
+        
+        for vc in navigationController.viewControllers {
+            vcs.append(vc)
+            if vc == sourceVC {
+                break
+            }
+        }
+        
+        vcs.append(toVC)
+        
+        navigationController.setViewControllers(vcs, animated: animated)
+    }
+    
+    func findParentInNavication(_ parent: UIViewController? = nil) -> UIViewController? {
+        let parent = parent ?? self
+        
+        guard
+            let viewControllers = navigationController?.viewControllers
+        else { return nil }
+        
+        if viewControllers.contains(parent) {
+            return parent
+        } else if let parent = parent.parent {
+            return findParentInNavication(parent)
+        } else {
+            return nil
+        }
+    }
+}

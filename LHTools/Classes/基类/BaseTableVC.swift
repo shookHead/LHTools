@@ -96,7 +96,7 @@ open class BaseTableVC: BaseVC {
         loadNewData()
     }
     
-    @objc public func loadNewData() -> Void {
+    @objc open func loadNewData() -> Void {
         //记录刷新时间
         lastLoadTime = Date()
         tableview?.mj_footer?.resetNoMoreData()
@@ -111,7 +111,7 @@ open class BaseTableVC: BaseVC {
             }
         }
     }
-    @objc public func loadMoreData() -> Void {
+    @objc open func loadMoreData() -> Void {
         if tableview?.mj_footer != nil && tableview?.mj_footer?.state != .noMoreData{
             loadData(pageNo+1)
         }

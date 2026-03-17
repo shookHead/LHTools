@@ -56,27 +56,15 @@ class ViewController: BaseStackVC {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let btn = UIButton()
-        btn.backgroundColor = .red
-//        btn.snp.makeConstraints { make in
-//            make.height.equalTo(100)
-//        }
-        btn.frame.size.height = 100
-        stackView.addArrangedSubview(btn)
-        let lab = UILabel()
-        lab.text = "等哈科技护肤科技大厦"
-        lab.backgroundColor = .yellow
-        lab.h = 200
-        lab.snp.makeConstraints { make in
-            make.height.equalTo(200)
-        }
-        stackView.addArrangedSubview(lab)
+
+//        CityDBManager.share.requestData()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       let p = CityDBManager.share.getAddressModel(1, 1, 1)
-        print(p)
-        
+//       let p = CityDBManager.share.getAddressModel(1, 1, 1)
+//        print(p)
+//        CityDBManager.share.requestData()
+
       
     }
     func useSnp() {
