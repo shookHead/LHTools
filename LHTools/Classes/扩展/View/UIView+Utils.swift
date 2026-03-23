@@ -275,7 +275,7 @@ private struct AssociatedKeys {
 extension UIView {
     // MARK: - 圆角设置
     /// 设置圆角（可选）
-    func setCornerRadius(_ radius: CGFloat) {
+    public func setCornerRadius(_ radius: CGFloat) {
         layer.cornerRadius = radius
         layer.masksToBounds = true
     }
@@ -293,7 +293,7 @@ extension UIView {
     
     // MARK: - 渐变色边框
     /// 设置渐变色边框（会移除纯色边框）
-    func setGradientBorder(
+    public func setGradientBorder(
         colors: [UIColor],
         width: CGFloat,
         startPoint: CGPoint = CGPoint(x: 0, y: 0.5),
