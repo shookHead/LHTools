@@ -44,13 +44,6 @@ open class ZLCustomCamera: UIViewController {
     @objc public var takeDoneBlock: ((UIImage?, URL?) -> Void)?
     
     @objc public var cancelBlock: (() -> Void)?
-
-    /// An optional block that gets called right before photo capture or video recording starts.
-    /// - Parameters:
-    ///   - completion: Call this closure when you want the camera to proceed with capture.
-    ///   - isCapturing: Boolean indicating if a capture operation is already in progress
-    //  (e.g. during camera switch while recording). If true, you might want to skip countdown or effects.
-    @objc public var willCaptureBlock: ((@escaping () -> Void, _ isCapturing: Bool) -> Void)?
     
     public lazy var tipsLabel: UILabel = {
         let label = UILabel()
@@ -252,6 +245,8 @@ open class ZLCustomCamera: UIViewController {
     }
     
     private lazy var cameraConfig = ZLPhotoConfiguration.default().cameraConfiguration
+    
+    private lazy var willCaptureBlock = cameraConfig.willCaptureBlock
     
     /// Automatically stops recording video after maxRecordDuration on tapToRecordVideo.
     private var autoStopTimer: Timer?
@@ -964,7 +959,7 @@ open class ZLCustomCamera: UIViewController {
             guard !isCapturePending else { return }
             isCapturePending = true
             
-            willCaptureBlock({ [weak self] in
+            willCaptureBlock(self, { [weak self] in
                 self?.performPhotoCapture()
             }, isTakingPicture)
         } else {
@@ -991,7 +986,14 @@ open class ZLCustomCamera: UIViewController {
         if videoInput?.device.position == .front, connection?.isVideoMirroringSupported == true {
             connection?.isVideoMirrored = ZLPhotoConfiguration.default().cameraConfiguration.isVideoMirrored
         }
-        let setting = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecJPEG])
+        
+        let settingFormat: [String: Any]
+        if #available(iOS 11.0, *) {
+            settingFormat = [AVVideoCodecKey: AVVideoCodecType.jpeg]
+        } else {
+            settingFormat = [AVVideoCodecKey: AVVideoCodecJPEG]
+        }
+        let setting = AVCapturePhotoSettings(format: settingFormat)
         if videoInput?.device.hasFlash == true, flashBtn.isSelected {
             setting.flashMode = .on
         } else {
@@ -1206,7 +1208,7 @@ open class ZLCustomCamera: UIViewController {
             isCapturePending = true
             // Pass information about current capture state.
             let isCapturing = movieFileOutput?.isRecording == true || restartRecordAfterSwitchCamera
-            willCaptureBlock({ [weak self] in
+            willCaptureBlock(self, { [weak self] in
                 self?.startRecording(shouldScheduleStop: shouldScheduleStop)
                 self?.isCapturePending = false
             }, isCapturing)
@@ -1378,31 +1380,48 @@ extension ZLCustomCamera: AVCapturePhotoCaptureDelegate {
         }
     }
     
-    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
-        cameraConfig.overlayView?.isHidden = true
+    @available(iOS 11.0, *)
+    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: (any Error)?) {
+        handlePhotoOutputData(photo.fileDataRepresentation(), isError: error != nil)
+    }
+    
+    public func photoOutput(
+        _ output: AVCapturePhotoOutput,
+        didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?,
+        previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?,
+        resolvedSettings: AVCaptureResolvedPhotoSettings,
+        bracketSettings: AVCaptureBracketedStillImageSettings?,
+        error: Error?
+    ) {
+        var data: Data?
+        if let photoSampleBuffer {
+            data = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
+        }
+        handlePhotoOutputData(data, isError: photoSampleBuffer == nil || error != nil)
+    }
+    
+    private func handlePhotoOutputData(_ data: Data?, isError: Bool) {
         ZLMainAsync {
             defer {
                 self.isTakingPicture = false
                 self.isCapturePending = false
             }
             
-            if photoSampleBuffer == nil || error != nil {
-                zl_debugPrint("拍照失败 \(error?.localizedDescription ?? "")")
+            guard let data, !isError else {
+                zl_debugPrint("take photo failed")
                 return
             }
             
-            if let data = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer!, previewPhotoSampleBuffer: previewPhotoSampleBuffer) {
-                self.sessionQueue.async {
-                    self.session.stopRunning()
-                    self.resetSubViewStatus()
-                }
-                self.takedImage = UIImage(data: data)?.zl.fixOrientation()
-                self.takedImageView.image = self.takedImage
-                self.takedImageView.isHidden = false
-                self.editImage()
-            } else {
-                zl_debugPrint("拍照失败，data为空")
+            self.cameraConfig.overlayView?.isHidden = true
+            
+            self.sessionQueue.async {
+                self.session.stopRunning()
+                self.resetSubViewStatus()
             }
+            self.takedImage = UIImage(data: data)?.zl.fixOrientation()
+            self.takedImageView.image = self.takedImage
+            self.takedImageView.isHidden = false
+            self.editImage()
         }
     }
 }

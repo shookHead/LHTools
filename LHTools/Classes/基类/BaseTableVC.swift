@@ -123,7 +123,7 @@ open class BaseTableVC: BaseVC {
     }
     
     @discardableResult
-    public func getList<T:SmartCodable>(key: BMApiTemplete<Array<T>?>, page:Int, finished:@escaping ()->()) -> DataRequest{
+    public func getList<T:SmartCodableX>(key: BMApiTemplete<Array<T>?>, page:Int, finished:@escaping ()->()) -> DataRequest{
         param["pageNumber"] = page
         param["pageNo"] = page
         param["pageSize"] = PageSize

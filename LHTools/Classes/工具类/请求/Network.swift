@@ -329,12 +329,12 @@ public class BMNetwork{
         
 
     }
-    public subscript<T:SmartCodable>(key: BMApiTemplete<T?>) -> BMRequester_Model<T> {
+    public subscript<T:SmartCodableX>(key: BMApiTemplete<T?>) -> BMRequester_Model<T> {
         get { return BMRequester_Model(key)}
         set { }
     }
     
-    public subscript<T:SmartCodable>(key: BMApiTemplete<Array<T>?>) -> BMRequester_ModelList<T> {
+    public subscript<T:SmartCodableX>(key: BMApiTemplete<Array<T>?>) -> BMRequester_ModelList<T> {
         get { return BMRequester_ModelList(key)}
         set { }
     }
@@ -457,7 +457,7 @@ public class BMRequester{
 }
 
 // MARK: -  ---------------------- 封装了返回类型的请求类 ------------------------
-public class BMRequester_Model<T:SmartCodable>: BMRequester{
+public class BMRequester_Model<T:SmartCodableX>: BMRequester{
 
     var api:BMApiTemplete<T?>
 
@@ -465,7 +465,7 @@ public class BMRequester_Model<T:SmartCodable>: BMRequester{
         self.api = api
     }
     
-    /// 返回 SmartCodable 对象
+    /// 返回 SmartCodableX 对象
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调
@@ -514,14 +514,14 @@ public class BMRequester_Model<T:SmartCodable>: BMRequester{
     
 }
 
-public class BMRequester_ModelList<T:SmartCodable> : BMRequester{
+public class BMRequester_ModelList<T:SmartCodableX> : BMRequester{
 
     var api: BMApiTemplete<Array<T>?>
 
     init(_ api: BMApiTemplete<Array<T>?>) {
         self.api = api
     }
-    /// 返回 SmartCodable 对象数组
+    /// 返回 SmartCodableX 对象数组
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调
@@ -584,7 +584,7 @@ public class BMRequester_Int : BMRequester{
     init(_ api: BMApiTemplete<Int?>) {
         self.api = api
     }
-    /// 返回 SmartCodable 对象数组
+    /// 返回 SmartCodableX 对象数组
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调
@@ -629,7 +629,7 @@ public class BMRequester_String : BMRequester{
         self.api = api
     }
     
-    /// 返回 SmartCodable 对象数组
+    /// 返回 SmartCodableX 对象数组
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调
@@ -676,7 +676,7 @@ public class BMRequester_Dic : BMRequester{
         self.api = api
     }
     
-    /// 返回 SmartCodable 字典
+    /// 返回 SmartCodableX 字典
     /// - Parameters:
     ///   - params: 参数
     ///   - finish: 回调

@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "Không thể chọn video nhỏ hơn %@MB";
 "exceededMaxVideoSelectCount" = "Số lượng lựa chọn tối đa của video: %ld";
 "lessThanMinVideoSelectCount" = "Số phút chọn tối thiểu của video: %ld";
+"cannotMixSelect" = "Không thể chọn hình ảnh và video cùng một lúc";
 
 "noCameraAuthorityAlertMessage" = "Vui lòng cho phép %@ truy cập máy ảnh trên thiết bị của bạn trong \"Cài đặt\" > \"Quyền riêng tư\" > \"Máy ảnh\"";
 "noPhotoLibraryAuthorityAlertMessage" = "Vui lòng cho phép %@ truy cập anbom của bạn trong \"Cài đặt\" > \"Bảo mật\" > \"Ảnh\"";

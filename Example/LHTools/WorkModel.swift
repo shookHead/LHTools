@@ -10,7 +10,7 @@
 import Foundation
 import LHTools
 import UIKit
-class WorkModel :SmartCodable,Equatable{
+class WorkModel :SmartCodableX,Equatable{
 //    static func == (lhs: WorkModel, rhs: WorkModel) -> Bool {
 //        var lhsHasher = Hasher()
 //        var rhsHasher = Hasher()

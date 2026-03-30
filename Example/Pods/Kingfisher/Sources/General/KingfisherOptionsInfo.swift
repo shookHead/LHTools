@@ -72,6 +72,9 @@ public enum KingfisherOptionsInfoItem: Sendable {
     /// By default, the transition does not occur when the image is retrieved from either memory or disk cache. To
     /// force the transition even when the image is retrieved from the cache, also set
     /// ``KingfisherOptionsInfoItem/forceTransition``.
+    ///
+    /// - Important: This option is designed for UIKit/AppKit transitions. For SwiftUI applications, use the
+    /// ``KFImageProtocol/loadTransition(_:animation:)`` method instead, which provides native SwiftUI transition support.
     case transition(ImageTransition)
     
     /// The associated `Float` value to be set as the priority of the image download task.
@@ -283,9 +286,22 @@ public enum KingfisherOptionsInfoItem: Sendable {
     /// Determines the queue on which image processing should occur.
     ///
     /// By default, Kingfisher uses an internal pre-defined serial queue to process images. Use this option to modify
-    /// this behavior. For instance, you can specify ``CallbackQueue/mainCurrentOrAsync`` to process the image on the
-    /// main queue, preventing potential flickering (but with the risk of blocking the UI, especially if the processor
-    /// is time-consuming).
+    /// this behavior.
+    ///
+    /// For instance, you can specify ``CallbackQueue/mainCurrentOrAsync`` to process the image on the main queue,
+    /// preventing potential flickering (but with the risk of blocking the UI, especially if the processor is
+    /// time-consuming).
+    ///
+    /// If you need more control over scheduling (such as limiting concurrency, changing priority, or using a LIFO
+    /// strategy), you can provide an operation queue by using ``CallbackQueue/operationQueue(_:)``.
+    ///
+    /// ```swift
+    /// let queue = OperationQueue()
+    /// // Configure `queue` as needed.
+    /// options = [.processingQueue(.operationQueue(queue))]
+    /// ```
+    ///
+    /// - Note: The execution order depends on the provided queue.
     case processingQueue(CallbackQueue)
     
     /// Enables progressive image loading.

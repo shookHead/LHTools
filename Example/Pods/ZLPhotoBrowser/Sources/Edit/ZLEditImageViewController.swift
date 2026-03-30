@@ -485,7 +485,12 @@ open class ZLEditImageViewController: UIViewController {
         originalImage = image.zl.fixOrientation()
         editImage = originalImage
         editImageWithoutAdjust = originalImage
-        currentClipStatus = editModel?.clipStatus ?? ZLClipStatus(editRect: CGRect(origin: .zero, size: image.size))
+        currentClipStatus = editModel?.clipStatus ?? ZLClipStatus(editRect: CGRect(origin: .zero, size: originalImage.size))
+        if !currentClipStatus.editRect.width.isNormal ||
+            !currentClipStatus.editRect.height.isNormal {
+            currentClipStatus.editRect.size = originalImage.size
+        }
+        
         preClipStatus = currentClipStatus
         drawColors = editConfig.drawColors
         currentFilter = editModel?.selectFilter ?? .normal
@@ -1324,22 +1329,7 @@ open class ZLEditImageViewController: UIViewController {
         }
         
         if pan.state == .began || pan.state == .changed {
-            var transform: CGAffineTransform = .identity
-            
-            let angle = ((Int(currentClipStatus.angle) % 360) + 360) % 360
-            let drawingImageViewSize = drawingImageView.frame.size
-            if angle == 90 {
-                transform = transform.translatedBy(x: 0, y: -drawingImageViewSize.width)
-            } else if angle == 180 {
-                transform = transform.translatedBy(x: -drawingImageViewSize.width, y: -drawingImageViewSize.height)
-            } else if angle == 270 {
-                transform = transform.translatedBy(x: -drawingImageViewSize.height, y: 0)
-            }
-            transform = transform.concatenating(drawingImageView.transform)
-            let transformedPoint = point.applying(transform)
-            // 将变换后的点转换到 containerView 的坐标系
-            let pointInContainerView = drawingImageView.convert(transformedPoint, to: containerView)
-            eraserCircleView.center = pointInContainerView
+            eraserCircleView.center = pan.location(in: containerView)
             
             var needDraw = false
             for path in drawPaths {

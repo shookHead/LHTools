@@ -202,7 +202,7 @@ public extension ZLProgressHUD {
     enum Toast {
         case loading
         case processing
-        case custome(String)
+        case custom(String)
         
         var value: String {
             switch self {
@@ -210,7 +210,7 @@ public extension ZLProgressHUD {
                 return localLanguageTextValue(.hudLoading)
             case .processing:
                 return localLanguageTextValue(.hudProcessing)
-            case let .custome(text):
+            case let .custom(text):
                 return text
             }
         }

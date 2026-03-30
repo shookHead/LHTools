@@ -27,8 +27,7 @@
 import UIKit
 import Photos
 
-@available(*, deprecated, message: "Please use ZLPhotoPicker instead. The permission of ZLPhotoPreviewSheet will be changed to private later.")
-public class ZLPhotoPreviewSheet: UIView {
+class ZLPhotoPreviewSheet: UIView {
     private enum Layout {
         static let colH: CGFloat = 155
         
@@ -464,6 +463,8 @@ public class ZLPhotoPreviewSheet: UIView {
     
     @objc private func cameraBtnClick() {
         let config = ZLPhotoConfiguration.default()
+        guard config.canEnterCamera?() ?? true else { return }
+        
         if config.useCustomCamera {
             let camera = ZLCustomCamera()
             camera.takeDoneBlock = { [weak self] image, videoUrl in
@@ -666,7 +667,7 @@ public class ZLPhotoPreviewSheet: UIView {
                 
                 sucCount += 1
                 
-                if let image = image {
+                if let image {
                     let isEdited = m.editImage != nil && !config.saveNewImageAfterEdit
                     let model = ZLResultModel(
                         asset: asset ?? m.asset,
@@ -774,29 +775,14 @@ public class ZLPhotoPreviewSheet: UIView {
         
         func inner_showEditVideoVC(_ avAsset: AVAsset) {
             let vc = ZLEditVideoViewController(avAsset: avAsset)
-            vc.editFinishBlock = { [weak self] url in
-                if let url = url {
-                    ZLPhotoManager.saveVideoToAlbum(url: url) { [weak self] error, asset in
-                        if error == nil, let asset {
-                            let m = ZLPhotoModel(asset: asset)
-                            m.isSelected = true
-                            self?.arrSelectedModels.removeAll()
-                            self?.arrSelectedModels.append(m)
-                            config.didSelectAsset?(asset)
-                            
-                            self?.requestSelectPhoto()
-                        } else {
-                            showAlertView(localLanguageTextValue(.saveVideoError), self?.sender)
-                        }
-                    }
-                } else {
-                    self?.arrSelectedModels.removeAll()
-                    model.isSelected = true
-                    self?.arrSelectedModels.append(model)
-                    config.didSelectAsset?(model.asset)
-                    
-                    self?.requestSelectPhoto()
-                }
+            vc.editFinishBlock = { [weak self] editModel in
+                model.isSelected = true
+                model.editVideoModel = editModel
+                self?.arrSelectedModels.removeAll()
+                self?.arrSelectedModels.append(model)
+                config.didSelectAsset?(model.asset)
+                
+                self?.requestSelectPhoto()
             }
             vc.modalPresentationStyle = .fullScreen
             sender?.showDetailViewController(vc, sender: nil)
@@ -881,7 +867,7 @@ public class ZLPhotoPreviewSheet: UIView {
         if config.maxSelectCount == 1, !config.showSelectBtnWhenSingleSelect {
             canSelect = false
         }
-        if canSelect, canAddModel(newModel, currentSelectCount: arrSelectedModels.count, sender: sender, showAlert: false) {
+        if canSelect, canAddModel(newModel, currentSelectModels: arrSelectedModels, sender: sender, showAlert: false) {
             if !shouldDirectEdit(newModel) {
                 newModel.isSelected = true
                 arrSelectedModels.append(newModel)
@@ -899,7 +885,10 @@ public class ZLPhotoPreviewSheet: UIView {
             self.collectionView.insertItems(at: [insertIndexPath])
         } completion: { _ in
             self.collectionView.scrollToItem(at: insertIndexPath, at: .centeredHorizontally, animated: true)
-            self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
+            }
         }
         
         changeCancelBtnTitle()
@@ -938,7 +927,7 @@ extension ZLPhotoPreviewSheet: UICollectionViewDataSource, UICollectionViewDeleg
             guard let `self` = self else { return }
             
             if !model.isSelected {
-                guard canAddModel(model, currentSelectCount: self.arrSelectedModels.count, sender: self.sender) else {
+                guard canAddModel(model, currentSelectModels: self.arrSelectedModels, sender: self.sender) else {
                     return
                 }
                 
@@ -1047,14 +1036,10 @@ extension ZLPhotoPreviewSheet: UICollectionViewDataSource, UICollectionViewDeleg
             config.maxSelectCount == 1 &&
             model.type.rawValue < ZLPhotoModel.MediaType.video.rawValue
         
-        let canEditVideo = (config.editAfterSelectThumbnailImage &&
+        let canEditVideo = config.editAfterSelectThumbnailImage &&
             config.allowEditVideo &&
             model.type == .video &&
-            config.maxSelectCount == 1) ||
-            (config.allowEditVideo &&
-                model.type == .video &&
-                !config.allowMixSelect &&
-                config.cropVideoAfterSelectThumbnail)
+            config.maxSelectCount == 1
         
         // 当前未选择图片 或已经选择了一张并且点击的是已选择的图片
         let flag = arrSelectedModels.isEmpty || (arrSelectedModels.count == 1 && arrSelectedModels.first?.ident == model.ident)
@@ -1132,33 +1117,24 @@ extension ZLPhotoPreviewSheet: UICollectionViewDataSource, UICollectionViewDeleg
             if uiConfig.showSelectedBorder {
                 cell.layer.borderWidth = 4
             }
-        } else {
-            let selCount = arrSelectedModels.count
-            if selCount < config.maxSelectCount {
-                if config.allowMixSelect {
-                    let videoCount = arrSelectedModels.filter { $0.type == .video }.count
-                    if videoCount >= config.maxVideoSelectCount, model.type == .video {
-                        cell.coverView.backgroundColor = .zl.invalidMaskColor
-                        cell.coverView.isHidden = !uiConfig.showInvalidMask
-                        cell.enableSelect = false
-                    } else if (config.maxSelectCount - selCount) <= (config.minVideoSelectCount - videoCount), model.type != .video {
-                        cell.coverView.backgroundColor = .zl.invalidMaskColor
-                        cell.coverView.isHidden = !uiConfig.showInvalidMask
-                        cell.enableSelect = false
-                    }
-                } else if selCount > 0 {
-                    cell.coverView.backgroundColor = .zl.invalidMaskColor
-                    cell.coverView.isHidden = (!uiConfig.showInvalidMask || model.type != .video)
-                    cell.enableSelect = model.type != .video
-                }
-            } else if selCount >= config.maxSelectCount {
+            return
+        }
+        
+        let selCount = arrSelectedModels.count
+        if selCount < config.maxSelectCount {
+            if !config.allowMixSelect, selCount > 0 {
+                let selectIsVideo = arrSelectedModels.first?.isVideo ?? false
                 cell.coverView.backgroundColor = .zl.invalidMaskColor
-                cell.coverView.isHidden = !uiConfig.showInvalidMask
-                cell.enableSelect = false
+                cell.coverView.isHidden = (!uiConfig.showInvalidMask || model.isVideo == selectIsVideo)
+                cell.enableSelect = model.isVideo == selectIsVideo
             }
-            if uiConfig.showSelectedBorder {
-                cell.layer.borderWidth = 0
-            }
+        } else if selCount >= config.maxSelectCount {
+            cell.coverView.backgroundColor = .zl.invalidMaskColor
+            cell.coverView.isHidden = !uiConfig.showInvalidMask
+            cell.enableSelect = false
+        }
+        if uiConfig.showSelectedBorder {
+            cell.layer.borderWidth = 0
         }
     }
     

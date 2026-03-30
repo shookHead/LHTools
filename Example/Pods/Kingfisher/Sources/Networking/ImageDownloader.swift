@@ -43,6 +43,9 @@ public struct ImageLoadingResult: Sendable {
 
     /// The raw data received from the downloader.
     public let originalData: Data
+    
+    /// The network metrics collected during the download process.
+    public let metrics: NetworkMetrics?
 
     /// Creates an `ImageDownloadResult` object.
     ///
@@ -50,10 +53,12 @@ public struct ImageLoadingResult: Sendable {
     ///   - image: The image of the download result.
     ///   - url: The URL from which the image was downloaded.
     ///   - originalData: The binary data of the image.
-    public init(image: KFCrossPlatformImage, url: URL? = nil, originalData: Data) {
+    ///   - metrics: The network metrics collected during the download.
+    public init(image: KFCrossPlatformImage, url: URL? = nil, originalData: Data, metrics: NetworkMetrics? = nil) {
         self.image = image
         self.url = url
         self.originalData = originalData
+        self.metrics = metrics
     }
 }
 
@@ -243,6 +248,8 @@ open class ImageDownloader: @unchecked Sendable {
     // The session bound to the downloader.
     private var session: URLSession
 
+    private let lock = NSLock()
+
     // MARK: Initializers
 
     /// Creates a downloader with a given name.
@@ -370,6 +377,9 @@ open class ImageDownloader: @unchecked Sendable {
         callback: SessionDataTask.TaskCallback
     ) -> DownloadTask
     {
+        lock.lock()
+        defer { lock.unlock() }
+
         // Ready to start download. Add it to session task manager (`sessionHandler`)
         let downloadTask: DownloadTask
         if let existingTask = sessionDelegate.task(for: context.url) {
@@ -413,16 +423,18 @@ open class ImageDownloader: @unchecked Sendable {
 
     private func startDownloadTask(
         context: DownloadingContext,
-        callback: SessionDataTask.TaskCallback
+        callback: SessionDataTask.TaskCallback,
+        beforeTaskResume: ((DownloadTask) -> Void)? = nil
     ) -> DownloadTask
     {
         let downloadTask = addDownloadTask(context: context, callback: callback)
 
         guard let sessionTask = downloadTask.sessionTask, !sessionTask.started else {
+            beforeTaskResume?(downloadTask)
             return downloadTask
         }
 
-        sessionTask.onTaskDone.delegate(on: self) { (self, done) in
+        sessionTask.onTaskDone.delegate(on: self) { [weak sessionTask] (self, done) in
             // Underlying downloading finishes.
             // result: Result<(Data, URLResponse?)>, callbacks: [TaskCallback]
             let (result, callbacks) = done
@@ -444,7 +456,7 @@ open class ImageDownloader: @unchecked Sendable {
 
                     self.reportDidProcessImage(result: result, url: context.url, response: response)
 
-                    let imageResult = result.map { ImageLoadingResult(image: $0, url: context.url, originalData: data) }
+                    let imageResult = result.map { ImageLoadingResult(image: $0, url: context.url, originalData: data, metrics: sessionTask?.metrics) }
                     let queue = callback.options.callbackQueue
                     queue.execute { callback.onCompleted?.call(imageResult) }
                 }
@@ -457,6 +469,10 @@ open class ImageDownloader: @unchecked Sendable {
                 }
             }
         }
+
+        // Ensure `beforeTaskResume` runs before `resume()`. Some stubbing layers may complete the request
+        // synchronously during `resume()`, so any "task started" callback should be invoked before that.
+        beforeTaskResume?(downloadTask)
 
         reportWillDownloadImage(url: context.url, request: context.request)
         sessionTask.resume()
@@ -483,18 +499,15 @@ open class ImageDownloader: @unchecked Sendable {
         createDownloadContext(with: url, options: options) { result in
             switch result {
             case .success(let context):
-                // `downloadTask` will be set if the downloading started immediately. This is the case when no request
-                // modifier or a sync modifier (`ImageDownloadRequestModifier`) is used. Otherwise, when an
-                // `AsyncImageDownloadRequestModifier` is used the returned `downloadTask` of this method will be `nil`
-                // and the actual "delayed" task is given in `AsyncImageDownloadRequestModifier.onDownloadTaskStarted`
-                // callback.
-                let actualDownloadTask = self.startDownloadTask(
-                    context: context,
-                    callback: self.createTaskCallback(completionHandler, options: options)
-                )
-                downloadTask.linkToTask(actualDownloadTask)
+                let taskCallback = self.createTaskCallback(completionHandler, options: options)
                 if let modifier = options.requestModifier {
-                    modifier.onDownloadTaskStarted?(downloadTask)
+                    _ = self.startDownloadTask(context: context, callback: taskCallback, beforeTaskResume: { actualDownloadTask in
+                        downloadTask.linkToTask(actualDownloadTask)
+                        modifier.onDownloadTaskStarted?(downloadTask)
+                    })
+                } else {
+                    let actualDownloadTask = self.startDownloadTask(context: context, callback: taskCallback)
+                    downloadTask.linkToTask(actualDownloadTask)
                 }
             case .failure(let error):
                 options.callbackQueue.execute {

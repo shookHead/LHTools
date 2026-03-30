@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "不能選擇小於%@MB的視頻";
 "exceededMaxVideoSelectCount" = "最多只能選擇%ld個視頻";
 "lessThanMinVideoSelectCount" = "最少選擇%ld個視頻";
+"cannotMixSelect" = "不能同時選擇圖片和視頻";
 
 "noCameraAuthorityAlertMessage" = "請在iPhone的\"設置 > 隱私 > 相機\"選項中，允許%@訪問你的相機";
 "noPhotoLibraryAuthorityAlertMessage" = "請在iPhone的\"設置 > 隱私 > 相冊\"選項中，允許%@訪問你的照片";

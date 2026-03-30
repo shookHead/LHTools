@@ -30,7 +30,7 @@ precedencegroup ColumnAssignment {
 
 infix operator <- : ColumnAssignment
 
-public struct Setter {
+public struct Setter: Sendable {
 
     let column: Expressible
     let value: Expressible
@@ -73,6 +73,12 @@ extension Setter: Expressible {
         "=".infix(column, value, wrap: false)
     }
 
+}
+
+extension Setter: CustomStringConvertible {
+    public var description: String {
+        asSQL()
+    }
 }
 
 public func <-<V: Value>(column: Expression<V>, value: Expression<V>) -> Setter {

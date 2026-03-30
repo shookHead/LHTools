@@ -159,7 +159,7 @@ open class ScanVC: BaseVC {
         config.allowEditImage = false
         config.allowSelectOriginal = false
         config.allowSelectImage  = true
-        let ps = ZLPhotoPreviewSheet()
+        let ps = ZLPhotoPicker()
         ps.selectImageBlock = { (results, isOriginal) in
             let images = results.map { $0.image }
             print(images)

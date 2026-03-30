@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "Não é possível selecionar vídeos com menos de %@MB";
 "exceededMaxVideoSelectCount" = "Contagem máxima para seleção de vídeo: %ld";
 "lessThanMinVideoSelectCount" = "Contagem mínima para seleção de vídeo: %ld";
+"cannotMixSelect" = "Não é possível selecionar imagens e vídeos ao mesmo tempo";
 
 "noCameraAuthorityAlertMessage" = "Por favor, permita a %@ aceder à câmara do seu dispositivo em \"Definições\" > \"Privacidade\" > \"Câmara\".";
 "noPhotoLibraryAuthorityAlertMessage" = "Por favor, permita que %@ acesse seu álbum em \"Configurações\" > \"Privacidade\" > \"Fotos\".";

@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "%@MB 미만의 동영상은 선택할 수 없습니다";
 "exceededMaxVideoSelectCount" = "동영상 최대 선택 수: %ld";
 "lessThanMinVideoSelectCount" = "동영상 최소 선택 횟수: %ld";
+"cannotMixSelect" = "이미지와 동영상을 동시에 선택할 수 없습니다";
 
 "noCameraAuthorityAlertMessage" = "%@ 에서 장치의 카메라에 액세스하도록 허용하십시오 에서 \"설정\" > \"개인 정보\" > \"카메라\"";
 "noPhotoLibraryAuthorityAlertMessage" = "%@ 이 \"설정\" > \"개인 정보\" > \"사진\"에서 앨범에 액세스하도록 허용하세요";

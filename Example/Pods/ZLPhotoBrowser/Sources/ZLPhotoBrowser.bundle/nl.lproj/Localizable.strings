@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "Kan geen video's selecteren die kleiner zijn dan %@MB";
 "exceededMaxVideoSelectCount" = "Op z'n hoogst %ld video";
 "lessThanMinVideoSelectCount" = "Selecteer ten minste %ld video's";
+"cannotMixSelect" = "U kunt geen afbeeldingen en video's tegelijkertijd selecteren";
 
 "noCameraAuthorityAlertMessage" = "Geef %@ toegang tot uw microfoon via de optie \"Instellingen-Privacy-microfoon\" van uw telefoon";
 "noPhotoLibraryAuthorityAlertMessage" = "Geef %@ toegang tot uw foto's in de optie \"Instellingen-Privacy-Foto's\" van uw telefoon";

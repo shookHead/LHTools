@@ -90,7 +90,7 @@ public class CamerView: UIView {
         }
         let acrion2 = UIAlertAction(title: lhSelectFromAlbum, style: .default) { [self] (action) in
             self.setconfig(maxSelectCount: maxCount - selectedPhotos.count)
-            let ps = ZLPhotoPreviewSheet()
+            let ps = ZLPhotoPicker()
             ps.selectImageBlock = { [weak self] (results, isOriginal) in
                 guard let `self` = self else { return }
                 self.selectedResults = results

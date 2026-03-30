@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
+// swiftlint:disable file_length
 import Foundation
 
 public protocol QueryType: Expressible {
@@ -1055,7 +1056,7 @@ extension Connection {
             }
 
             func expandGlob(_ namespace: Bool) -> (QueryType) throws -> Void {
-                { (queryType: QueryType) throws -> Void in
+                { (queryType: QueryType) throws in
                     var query = type(of: queryType).init(queryType.clauses.from.name, database: queryType.clauses.from.database)
                     query.clauses.select = queryType.clauses.select
                     query.clauses.with = strip(queryType.clauses.with)
@@ -1168,7 +1169,7 @@ extension Connection {
 
 }
 
-public struct Row {
+public struct Row: Sendable {
 
     let columnNames: [String: Int]
 
@@ -1242,7 +1243,7 @@ public struct Row {
 }
 
 /// Determines the join operator for a query’s `JOIN` clause.
-public enum JoinType: String {
+public enum JoinType: String, Sendable {
 
     /// A `CROSS` join.
     case cross = "CROSS"
@@ -1256,7 +1257,7 @@ public enum JoinType: String {
 }
 
 /// ON CONFLICT resolutions.
-public enum OnConflict: String {
+public enum OnConflict: String, Sendable {
 
     case replace = "REPLACE"
 
@@ -1272,7 +1273,7 @@ public enum OnConflict: String {
 
 // MARK: - Private
 
-public struct QueryClauses {
+public struct QueryClauses: Sendable {
 
     var select = (distinct: false, columns: [Expression<Void>(literal: "*") as Expressible])
 

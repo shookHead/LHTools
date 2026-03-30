@@ -13,7 +13,7 @@ import Foundation
 // MARK: -  ---------------------- 专帮Json外层格式 ------------------------
 
 /// data = 模型
-public class ZBJsonModel<T:SmartCodable>: SmartCodable {
+public class ZBJsonModel<T:SmartCodableX>: SmartCodableX {
     public var code: Int!
     public var msg: String!
     public var data: T?
@@ -21,7 +21,7 @@ public class ZBJsonModel<T:SmartCodable>: SmartCodable {
 }
 
 /// data = 模型数组
-public class ZBJsonArrayModel<T:SmartCodable>: SmartCodable {
+public class ZBJsonArrayModel<T:SmartCodableX>: SmartCodableX {
     public var code: Int!
     public var msg: String!
     public var data: Array<T>?
@@ -29,7 +29,7 @@ public class ZBJsonArrayModel<T:SmartCodable>: SmartCodable {
 }
 
 /// data = 数字
-public class ZBJsonInt: SmartCodable {
+public class ZBJsonInt: SmartCodableX {
     public var code: Int!
     public var msg: String!
     public var data: Int!
@@ -37,7 +37,7 @@ public class ZBJsonInt: SmartCodable {
 }
 
 /// data = 字符串
-public class ZBJsonString: SmartCodable {
+public class ZBJsonString: SmartCodableX {
     public var code: Int!
     public var msg: String!
     public var data: String!
@@ -45,7 +45,7 @@ public class ZBJsonString: SmartCodable {
 }
 
 /// data = 字符串
-public class ZBJsonDic: SmartCodable {
+public class ZBJsonDic: SmartCodableX {
     public var code: Int!
     public var msg: String!
     @SmartAny

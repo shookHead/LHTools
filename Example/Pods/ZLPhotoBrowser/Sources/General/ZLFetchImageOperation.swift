@@ -27,7 +27,7 @@
 import UIKit
 import Photos
 
-class ZLFetchImageOperation: Operation {
+class ZLFetchImageOperation: Operation, @unchecked Sendable {
     private let model: ZLPhotoModel
     
     private let isOriginal: Bool
@@ -114,6 +114,25 @@ class ZLFetchImageOperation: Operation {
             return
         }
         
+        // 存在编辑的视频
+        if let url = model.editVideoModel?.url {
+            ZLPhotoManager.saveVideoToAlbum(url: url) { [weak self] error, asset in
+                guard let asset else {
+                    self?.completion(nil, nil)
+                    self?.fetchFinish()
+                    return
+                }
+                
+                let newVideoModel = ZLPhotoModel(asset: asset)
+                self?.fetchImage(for: newVideoModel) { image in
+                    self?.completion(image, asset)
+                    self?.fetchFinish()
+                }
+            }
+            
+            return
+        }
+        
         if ZLPhotoConfiguration.default().allowSelectGif, model.type == .gif {
             requestImageID = ZLPhotoManager.fetchOriginalImageData(for: model.asset) { [weak self] data, _, isDegraded in
                 if !isDegraded {
@@ -125,20 +144,25 @@ class ZLFetchImageOperation: Operation {
             return
         }
         
+        fetchImage(for: model) { [weak self] image in
+            self?.completion(image, nil)
+            self?.fetchFinish()
+        }
+    }
+    
+    private func fetchImage(for model: ZLPhotoModel, completion: @escaping ((UIImage?) -> Void)) {
         if isOriginal {
             requestImageID = ZLPhotoManager.fetchOriginalImage(for: model.asset, progress: progress) { [weak self] image, isDegraded in
                 if !isDegraded {
                     zl_debugPrint("---- 原图加载完成 \(String(describing: self?.isCancelled))")
-                    self?.completion(image?.zl.fixOrientation(), nil)
-                    self?.fetchFinish()
+                    completion(image?.zl.fixOrientation())
                 }
             }
         } else {
             requestImageID = ZLPhotoManager.fetchImage(for: model.asset, size: model.previewSize, progress: progress) { [weak self] image, isDegraded in
                 if !isDegraded {
                     zl_debugPrint("---- 加载完成 isCancelled: \(String(describing: self?.isCancelled))")
-                    self?.completion(self?.scaleImage(image?.zl.fixOrientation()), nil)
-                    self?.fetchFinish()
+                    completion(self?.scaleImage(image?.zl.fixOrientation()))
                 }
             }
         }

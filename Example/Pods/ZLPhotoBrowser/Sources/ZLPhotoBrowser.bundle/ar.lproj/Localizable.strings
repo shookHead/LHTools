@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "لا يمكن تحديد مقاطع فيديو أصغر من %@ ميغا بايت";
 "exceededMaxVideoSelectCount" = "أقصى عدد لتحديد الفيديو: %ld";
 "lessThanMinVideoSelectCount" = "الحد الأدنى لتحديد الفيديو: %ld";
+"cannotMixSelect" = "لا يمكن تحديد الصور ومقاطع الفيديو في نفس الوقت";
 
 "noCameraAuthorityAlertMessage" = "يُرجى السماح لـ %@ بالوصول إلى كاميرا جهازك في الإعدادات > الخصوصية > الكاميرا ";
 "noPhotoLibraryAuthorityAlertMessage" = "يُرجى السماح لـ %@ بالوصول إلى ألبومك في الإعدادات > الخصوصية > الكاميرا ";

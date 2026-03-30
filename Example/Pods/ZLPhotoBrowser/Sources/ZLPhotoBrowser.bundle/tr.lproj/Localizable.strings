@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "%@MB'tan küçük videolar seçilemez";
 "exceededMaxVideoSelectCount" = "Maksimum video seçim adeti: %ld";
 "lessThanMinVideoSelectCount" = "Minimum video seçim adeti: %ld";
+"cannotMixSelect" = "Aynı anda hem görsel hem de video seçilemez";
 
 "noCameraAuthorityAlertMessage" = "Lütfen %@'nin \"Ayarlar\" > \"Gizlilik\" > \"Kamera\" bölümünden cihazınızın kamerasına erişmesine izin verin";
 "noPhotoLibraryAuthorityAlertMessage" = "Lütfen %@'nin \"Ayarlar\" > \"Gizlilik\" > \"Fotoğraflar\" bölümünde albümünüze erişmesine izin verin";

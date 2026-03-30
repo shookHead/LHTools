@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "Tidak dapat memilih video yang lebih kecil dari %@MB";
 "exceededMaxVideoSelectCount" = "Jumlah maksimum untuk pemilihan video: %ld";
 "lessThanMinVideoSelectCount" = "Jumlah minimum untuk pemilihan video: %ld";
+"cannotMixSelect" = "Anda tidak dapat memilih gambar dan video secara bersamaan";
 
 "noCameraAuthorityAlertMessage" = "Izinkan akses kamera di \"Pengaturan\" > \"%@\" iPhone Anda.";
 "noPhotoLibraryAuthorityAlertMessage" = "Izinkan %@ mengakses album Anda di \"Setelan\" > \"Privasi\" > \"Foto\"";

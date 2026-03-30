@@ -221,6 +221,21 @@ class ZLPhotoPreviewPopInteractiveTransition: UIPercentDrivenInteractiveTransiti
             playerLayer.removeFromSuperlayer()
             self.playerLayer = playerLayer
             imageView?.layer.insertSublayer(playerLayer, at: 0)
+        } else if let videoCell = cell as? ZLNetVideoPreviewCell,
+                  let playerLayer = videoCell.playerLayer {
+            if videoCell.isPlaying {
+                playerLayer.removeFromSuperlayer()
+                self.playerLayer = playerLayer
+                imageView?.layer.insertSublayer(playerLayer, at: 0)
+            } else {
+                let image: UIImage?
+                if let time = playerLayer.player?.currentTime().seconds, time.isFinite, time != 0 {
+                    image = videoCell.currentImage
+                } else {
+                    image = videoCell.coverImageView.image ?? videoCell.currentImage
+                }
+                imageView?.image = image
+            }
         } else {
             imageView?.image = cell.currentImage
         }
@@ -321,7 +336,11 @@ class ZLPhotoPreviewPopInteractiveTransition: UIPercentDrivenInteractiveTransiti
             self.resetViewStatus(isStart: false)
             if let playerLayer = self.playerLayer {
                 playerLayer.removeFromSuperlayer()
-                (self.currentCell as? ZLVideoPreviewCell)?.playerView.layer.insertSublayer(playerLayer, at: 0)
+                if let cell = self.currentCell as? ZLVideoPreviewCell {
+                    cell.playerView.layer.insertSublayer(playerLayer, at: 0)
+                } else if let cell = self.currentCell as? ZLNetVideoPreviewCell {
+                    cell.playerView.layer.insertSublayer(playerLayer, at: 0)
+                }
             }
             self.currentCell = nil
             self.playerLayer = nil
@@ -337,6 +356,7 @@ class ZLPhotoPreviewPopInteractiveTransition: UIPercentDrivenInteractiveTransiti
         currentCell?.scrollView?.isScrollEnabled = !isStart
         currentCell?.scrollView?.pinchGestureRecognizer?.isEnabled = !isStart
         (currentCell as? ZLVideoPreviewCell)?.singleTapGes.isEnabled = !isStart
+        (currentCell as? ZLNetVideoPreviewCell)?.singleTapGes.isEnabled = !isStart
         
         guard let transitionContext = transitionContext,
               let fromVC = transitionContext.viewController(forKey: .from) as? ZLPhotoPreviewController else {

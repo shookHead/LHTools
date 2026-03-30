@@ -9,7 +9,7 @@
 import Foundation
 
 ///     示例：
-///     // 支持基础数据类型，自定义模型<:SmartCodable>,数组，字典
+///     // 支持基础数据类型，自定义模型<:SmartCodableX>,数组，字典
 ///
 ///
 ///     extension BMDefaultsKeys{
@@ -71,8 +71,8 @@ public class BMCache{
         get { return Defaults.dictionary(forKey: key._key) }
         set { Defaults.set(newValue, forKey: key._key) }
     }
-    // 模型 SmartCodable?
-    public subscript<T:SmartCodable>(key: BMCacheKey<T?>) -> T? {
+    // 模型 SmartCodableX?
+    public subscript<T:SmartCodableX>(key: BMCacheKey<T?>) -> T? {
         get {
             guard let jsonString = Defaults.string(forKey: key._key) else { return nil }
 //            return T.deserialize(from: data)
@@ -92,8 +92,8 @@ public class BMCache{
             }
         }
     }
-    // 模型数组 Array<SmartCodable>
-    public subscript<T:SmartCodable>(key: BMCacheKey<Array<T>?>) -> Array<T>? {
+    // 模型数组 Array<SmartCodableX>
+    public subscript<T:SmartCodableX>(key: BMCacheKey<Array<T>?>) -> Array<T>? {
         get {
             guard let jsonString = Defaults.string(forKey: key._key) else { return nil }
 //            return T.deserialize(from: data)

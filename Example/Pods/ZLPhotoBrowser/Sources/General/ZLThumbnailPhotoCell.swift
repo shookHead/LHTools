@@ -169,7 +169,7 @@ class ZLThumbnailPhotoCell: UICollectionViewCell {
         
         bottomShadowView.frame = CGRect(x: 0, y: bounds.height - 25, width: bounds.width, height: 25)
         videoTag.frame = CGRect(x: 5, y: 1, width: 20, height: 15)
-        livePhotoTag.frame = CGRect(x: 5, y: -1, width: 20, height: 20)
+        livePhotoTag.frame = CGRect(x: 5, y: 0, width: 18, height: 18)
         editImageTag.frame = CGRect(x: 5, y: -1, width: 20, height: 20)
         descLabel.frame = CGRect(x: 30, y: 1, width: bounds.width - 35, height: 17)
         progressView.frame = CGRect(x: (bounds.width - 20) / 2, y: (bounds.height - 20) / 2, width: 20, height: 20)
@@ -205,24 +205,27 @@ class ZLThumbnailPhotoCell: UICollectionViewCell {
         
         if model.type == .video {
             bottomShadowView.isHidden = false
-            videoTag.isHidden = false
+            let hasEdit = model.editVideoModel != nil
+            
+            videoTag.isHidden = hasEdit
             livePhotoTag.isHidden = true
-            editImageTag.isHidden = true
+            editImageTag.isHidden = !hasEdit
+            descLabel.isHidden = hasEdit
             descLabel.text = model.duration
-        } else if model.type == .gif {
-            bottomShadowView.isHidden = !config.allowSelectGif
+        } else if model.type == .gif, config.allowSelectGif  {
+            bottomShadowView.isHidden = false
             videoTag.isHidden = true
             livePhotoTag.isHidden = true
             editImageTag.isHidden = true
             descLabel.text = "GIF"
-        } else if model.type == .livePhoto {
-            bottomShadowView.isHidden = !config.allowSelectLivePhoto
+        } else if model.type == .livePhoto, config.allowSelectLivePhoto {
+            bottomShadowView.isHidden = false
             videoTag.isHidden = true
             livePhotoTag.isHidden = false
             editImageTag.isHidden = true
-            descLabel.text = "Live"
+            descLabel.text = ""
         } else {
-            if let _ = model.editImage {
+            if model.editImage != nil {
                 bottomShadowView.isHidden = false
                 videoTag.isHidden = true
                 livePhotoTag.isHidden = true
@@ -235,11 +238,7 @@ class ZLThumbnailPhotoCell: UICollectionViewCell {
         
         let showSelBtn: Bool
         if config.maxSelectCount > 1 {
-            if !config.allowMixSelect {
-                showSelBtn = model.type.rawValue < ZLPhotoModel.MediaType.video.rawValue
-            } else {
-                showSelBtn = true
-            }
+            showSelBtn = true
         } else {
             showSelBtn = config.showSelectBtnWhenSingleSelect
         }
@@ -256,6 +255,8 @@ class ZLThumbnailPhotoCell: UICollectionViewCell {
         
         if let editImage = model.editImage {
             imageView.image = editImage
+        } else if let editVideoCoverImage = model.editVideoModel?.coverImage {
+            imageView.image = editVideoCoverImage
         } else {
             fetchSmallImage()
         }

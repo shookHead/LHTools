@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "%@MB未満の動画は選択できません";
 "exceededMaxVideoSelectCount" = "動画の最大選択数: %ld";
 "lessThanMinVideoSelectCount" = "動画の最小選択数: %ld";
+"cannotMixSelect" = "画像と動画は同時に選択できません";
 
 "noCameraAuthorityAlertMessage" = "「設定」>「プライパシー」>「カメラ」から、%@があなたのデバイスのカメラにアクセスする許可をしてください";
 "noPhotoLibraryAuthorityAlertMessage" = "「設定」>「プライバシー」>「写真」から、%@があなたのアルバムにアクセスする許可をしてください";

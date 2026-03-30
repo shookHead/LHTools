@@ -80,6 +80,37 @@ public struct RetrieveImageResult: Sendable {
     /// - Note: Retrieving this data can be a time-consuming operation, so it is advisable to store it if you need to 
     /// use it multiple times and avoid frequent calls to this method.
     public let data: @Sendable () -> Data?
+    
+    /// The network metrics collected during the download process.
+    ///
+    /// This property contains network performance metrics when the image was downloaded from the network
+    /// (`cacheType == .none`). For cached images (`cacheType == .memory` or `.disk`), this will be `nil`.
+    public let metrics: NetworkMetrics?
+    
+    /// Creates a RetrieveImageResult.
+    ///
+    /// - Parameters:
+    ///   - image: The retrieved image.
+    ///   - cacheType: The cache source type.
+    ///   - source: The source of the image.
+    ///   - originalSource: The original source that initiated the retrieval.
+    ///   - data: A closure that provides the image data.
+    ///   - metrics: The network metrics collected during download. Defaults to nil for cached images.
+    public init(
+        image: KFCrossPlatformImage,
+        cacheType: CacheType,
+        source: Source,
+        originalSource: Source,
+        data: @escaping @Sendable () -> Data?,
+        metrics: NetworkMetrics? = nil
+    ) {
+        self.image = image
+        self.cacheType = cacheType
+        self.source = source
+        self.originalSource = originalSource
+        self.data = data
+        self.metrics = metrics
+    }
 }
 
 /// A structure that stores related information about a ``KingfisherError``. It provides contextual information
@@ -308,7 +339,11 @@ public class KingfisherManager: @unchecked Sendable {
             retryContext: RetryContext?,
             downloadTaskUpdated: DownloadTaskUpdatedBlock?
         ) {
-            let newTask = self.retrieveImage(with: source, context: retrievingContext) { result in
+            let newTask = self.retrieveImage(
+                with: source,
+                context: retrievingContext,
+                downloadTaskUpdated: downloadTaskUpdated
+            ) { result in
                 handler(currentSource: source, retryContext: retryContext, result: result)
             }
             downloadTaskUpdated?(newTask)
@@ -376,7 +411,8 @@ public class KingfisherManager: @unchecked Sendable {
 
         return retrieveImage(
             with: source,
-            context: retrievingContext)
+            context: retrievingContext,
+            downloadTaskUpdated: downloadTaskUpdated)
         {
             result in
             handler(currentSource: source, retryContext: nil, result: result)
@@ -387,6 +423,7 @@ public class KingfisherManager: @unchecked Sendable {
     private func retrieveImage(
         with source: Source,
         context: RetrievingContext<Source>,
+        downloadTaskUpdated: DownloadTaskUpdatedBlock?,
         completionHandler: (@Sendable (Result<RetrieveImageResult, KingfisherError>) -> Void)?) -> DownloadTask?
     {
         let options = context.options
@@ -400,6 +437,7 @@ public class KingfisherManager: @unchecked Sendable {
             let loadedFromCache = retrieveImageFromCache(
                 source: source,
                 context: context,
+                downloadTaskUpdated: downloadTaskUpdated,
                 completionHandler: completionHandler)
             
             if loadedFromCache {
@@ -475,7 +513,8 @@ public class KingfisherManager: @unchecked Sendable {
                 cacheType: .none,
                 source: source,
                 originalSource: context.originalSource,
-                data: {  value.originalData }
+                data: { value.originalData },
+                metrics: value.metrics
             )
             // Add image to cache.
             let targetCache = options.targetCache ?? self.cache
@@ -585,6 +624,7 @@ public class KingfisherManager: @unchecked Sendable {
     func retrieveImageFromCache(
         source: Source,
         context: RetrievingContext<Source>,
+        downloadTaskUpdated: DownloadTaskUpdatedBlock?,
         completionHandler: (@Sendable (Result<RetrieveImageResult, KingfisherError>) -> Void)?) -> Bool
     {
         let options = context.options
@@ -683,7 +723,19 @@ public class KingfisherManager: @unchecked Sendable {
                 result.match(
                     onSuccess: { cacheResult in
                         guard let image = cacheResult.image else {
-                            assertionFailure("The image (under key: \(key) should be existing in the original cache.")
+                            // The original cache type check is not a strong guarantee. When it happens, treat it as a cache miss.
+                            // In this case, fall back to download or provider loading.
+                            if options.onlyFromCache {
+                                let error = KingfisherError.cacheError(reason: .imageNotExisting(key: key))
+                                options.callbackQueue.execute { completionHandler?(.failure(error)) }
+                            } else {
+                                let task = self.loadAndCacheImage(
+                                    source: source,
+                                    context: context,
+                                    completionHandler: completionHandler
+                                )
+                                downloadTaskUpdated?(task?.value)
+                            }
                             return
                         }
 
@@ -830,9 +882,37 @@ extension KingfisherManager {
         referenceTaskIdentifierChecker: (() -> Bool)? = nil
     ) async throws -> RetrieveImageResult
     {
+        // Early cancellation check
+        if Task.isCancelled {
+            throw CancellationError()
+        }
+        
         let task = CancellationDownloadTask()
         return try await withTaskCancellationHandler {
             try await withCheckedThrowingContinuation { continuation in
+                // Use an actor to ensure continuation is only resumed once in a Swift 6 compatible way
+                actor ContinuationState {
+                    var isResumed = false
+                    
+                    func tryResume() -> Bool {
+                        if !isResumed {
+                            isResumed = true
+                            return true
+                        }
+                        return false
+                    }
+                }
+                
+                let state = ContinuationState()
+                
+                @Sendable func safeResume(with result: Result<RetrieveImageResult, KingfisherError>) {
+                    Task {
+                        if await state.tryResume() {
+                            continuation.resume(with: result)
+                        }
+                    }
+                }
+                
                 let downloadTask = retrieveImage(
                     with: source,
                     options: options,
@@ -844,11 +924,20 @@ extension KingfisherManager {
                     progressiveImageSetter: progressiveImageSetter,
                     referenceTaskIdentifierChecker: referenceTaskIdentifierChecker,
                     completionHandler: { result in
-                        continuation.resume(with: result)
+                        safeResume(with: result)
                     }
                 )
+                
+                // Check for cancellation that may have occurred during setup
                 if Task.isCancelled {
                     downloadTask?.cancel()
+                    let error: KingfisherError
+                    if let sessionTask = downloadTask?.sessionTask, let cancelToken = downloadTask?.cancelToken {
+                        error = .requestError(reason: .taskCancelled(task: sessionTask, token: cancelToken))
+                    } else {
+                        error = .requestError(reason: .asyncTaskContextCancelled)
+                    }
+                    safeResume(with: .failure(error))
                 } else {
                     Task {
                         await task.setTask(downloadTask)

@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "Невозможно выбрать видео размером менее %@МБ";
 "exceededMaxVideoSelectCount" = "Максимальное количество выбранных видео: %ld";
 "lessThanMinVideoSelectCount" = "Количество мин. Выбора видео: %ld";
+"cannotMixSelect" = "Нельзя выбрать и изображения, и видео одновременно";
 
 "noCameraAuthorityAlertMessage" = "Разрешите %@ доступ к камере вашего устройства в \"Настройки\" > \"Конфиденциальность\" > \"Камера\"";
 "noPhotoLibraryAuthorityAlertMessage" = "Разрешите %@ доступ к вашему альбому в \"Настройки\" > \"Конфиденциальность\" > \"Фото\"";

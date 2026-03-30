@@ -6,9 +6,9 @@
 //  Copyright © 2019 zhuanbangTec. All rights reserved.
 //
 
-import SmartCodable
+import SmartCodableX
 
-class ResourceModel: SmartCodable {
+class ResourceModel: SmartCodableX {
 
     var id :Int!
 

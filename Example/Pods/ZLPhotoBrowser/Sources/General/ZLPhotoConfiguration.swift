@@ -142,7 +142,6 @@ public class ZLPhotoConfiguration: NSObject {
         }
     }
     
-    /// - warning: The video can only be edited when no photos are selected, or only one video is selected, and the selection callback is executed immediately after editing is completed.
     private var pri_allowEditVideo = false
     public var allowEditVideo: Bool {
         get {
@@ -157,10 +156,6 @@ public class ZLPhotoConfiguration: NSObject {
     /// - discussion: Editing image is only valid when allowEditImage is true and maxSelectCount is 1.
     /// Editing video is only valid when allowEditVideo is true and maxSelectCount is 1.
     public var editAfterSelectThumbnailImage = false
-    
-    /// Only valid when allowMixSelect is false and allowEditVideo is true. Defaults to true.
-    /// Just like the Wechat-Timeline selection style. If you want to crop the video after select thumbnail under allowMixSelect = true, please use **editAfterSelectThumbnailImage**.
-    public var cropVideoAfterSelectThumbnail = true
     
     /// Save the edited image to the album after editing. Defaults to true.
     public var saveNewImageAfterEdit = true
@@ -203,8 +198,17 @@ public class ZLPhotoConfiguration: NSObject {
     /// Display the index of the selected photos. Defaults to true.
     public var showSelectedIndex = true
     
+    private var _maxEditVideoTime: ZLPhotoConfiguration.Second = 10
     /// Maximum cropping time when editing video, unit: second. Defaults to 10.
-    public var maxEditVideoTime: ZLPhotoConfiguration.Second = 10
+    /// - Note: The minimum value must be greater than 1.
+    public var maxEditVideoTime: ZLPhotoConfiguration.Second {
+        get {
+            _maxEditVideoTime
+        }
+        set {
+            _maxEditVideoTime = max(1, newValue)
+        }
+    }
     
     /// Allow to choose the maximum duration of the video. Defaults to 120.
     public var maxSelectVideoDuration: ZLPhotoConfiguration.Second = 120
@@ -238,11 +242,14 @@ public class ZLPhotoConfiguration: NSObject {
     /// This block will be called when cancel selecting an asset.
     public var didDeselectAsset: ((PHAsset) -> Void)?
     
+    /// This block will be called when clicking the camera button in the library.
+    public var canEnterCamera: (() -> Bool)?
+    
     /// The maximum number of frames for GIF images. To avoid crashes due to memory spikes caused by loading GIF images with too many frames, it is recommended that this value is not too large. Defaults to 50.
     public var maxFrameCountForGIF = 50
     
     /// You can use this block to customize the playback of GIF images to achieve better results. For example, use FLAnimatedImage to play GIFs. Defaults to nil.
-    public var gifPlayBlock: ((UIImageView, Data, [AnyHashable: Any]?) -> Void)?
+    public var gifPlayBlock: ((UIImageView, Data, PHAsset, [AnyHashable: Any]?) -> Void)?
     
     /// Pause GIF image playback, used together with gifPlayBlock. Defaults to nil.
     public var pauseGIFBlock: ((UIImageView) -> Void)?
@@ -259,8 +266,15 @@ public class ZLPhotoConfiguration: NSObject {
     /// Allow user to do something before select photo result callback.
     /// And you must call the second parameter of this block to continue the photos selection.
     /// The first parameter is the current controller.
-    /// The second parameter is the block that needs to be called after the user completes the operation.
-    public var operateBeforeDoneAction: ((UIViewController, @escaping () -> Void) -> Void)?
+    /// The second parameter is the current selected models.
+    /// The third parameter is the block that needs to be called after the user completes the operation.
+    public var operateBeforeDoneAction: ((_ currVC: UIViewController, _ selModels: [ZLPhotoModel], _ continueBlock: @escaping (_ shouldContinue: Bool) -> Void) -> Void)?
+}
+
+extension ZLPhotoConfiguration {
+    var shouldCheckVideoDataSize: Bool {
+        minSelectVideoDataSize > 0 || maxSelectVideoDataSize != .greatestFiniteMagnitude
+    }
 }
 
 @objc public enum ZLNoAuthorityType: Int {

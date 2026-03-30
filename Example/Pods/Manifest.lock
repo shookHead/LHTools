@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (5.10.2)
+  - Alamofire (5.11.1)
   - Hero (1.6.4)
-  - IQKeyboardCore (1.0.5)
+  - IQKeyboardCore (1.0.8)
   - IQKeyboardManagerSwift (8.0.1):
     - IQKeyboardManagerSwift/Appearance (= 8.0.1)
     - IQKeyboardManagerSwift/Core (= 8.0.1)
@@ -23,31 +23,29 @@ PODS:
     - IQTextView
   - IQKeyboardManagerSwift/Resign (8.0.1):
     - IQKeyboardManagerSwift/Core
-  - IQKeyboardNotification (1.0.3)
-  - IQKeyboardReturnManager (1.0.4):
-    - IQKeyboardCore (= 1.0.5)
-  - IQKeyboardToolbar (1.1.1):
+  - IQKeyboardNotification (1.0.6)
+  - IQKeyboardReturnManager (1.0.6):
     - IQKeyboardCore
-    - IQKeyboardToolbar/Core (= 1.1.1)
-  - IQKeyboardToolbar/Core (1.1.1):
+  - IQKeyboardToolbar (1.1.3):
+    - IQKeyboardToolbar/Core (= 1.1.3)
+  - IQKeyboardToolbar/Core (1.1.3):
     - IQKeyboardCore
     - IQKeyboardToolbar/Placeholderable
-  - IQKeyboardToolbar/Placeholderable (1.1.1):
-    - IQKeyboardCore
-  - IQKeyboardToolbarManager (1.1.3):
+  - IQKeyboardToolbar/Placeholderable (1.1.3)
+  - IQKeyboardToolbarManager (1.1.5):
     - IQKeyboardToolbar
     - IQTextInputViewNotification
-  - IQTextInputViewNotification (1.0.8):
+  - IQTextInputViewNotification (1.0.9):
     - IQKeyboardCore
   - IQTextView (1.0.5):
     - IQKeyboardToolbar/Placeholderable
   - JXPhotoBrowser (3.1.5)
-  - Kingfisher (8.3.1)
+  - Kingfisher (8.8.0)
   - LHTools (1.0):
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - LHTools/Global (= 1.0)
     - LHTools/Other (= 1.0)
@@ -69,7 +67,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -83,7 +81,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - LHTools/Other/Distrib (= 1.0)
     - MBProgressHUD
@@ -98,7 +96,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -112,7 +110,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -126,7 +124,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -140,7 +138,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -154,7 +152,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - "LHTools/工具类/AuthorizationManager (= 1.0)"
     - "LHTools/工具类/Utils (= 1.0)"
@@ -177,7 +175,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -191,7 +189,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -205,7 +203,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -219,7 +217,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -233,7 +231,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -247,7 +245,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -261,7 +259,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -275,7 +273,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -289,7 +287,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -303,7 +301,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - "LHTools/扩展/Color (= 1.0)"
     - "LHTools/扩展/Date (= 1.0)"
@@ -328,7 +326,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -342,7 +340,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -356,7 +354,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -370,7 +368,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -384,7 +382,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -398,7 +396,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -412,7 +410,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -426,7 +424,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -440,7 +438,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -454,7 +452,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -468,7 +466,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -482,7 +480,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - "LHTools/自定义视图/PhotoBrowser (= 1.0)"
     - "LHTools/自定义视图/PopView (= 1.0)"
@@ -507,7 +505,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -521,7 +519,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -535,7 +533,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -549,7 +547,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - "LHTools/自定义视图/图片上传/多图选择控件 (= 1.0)"
     - "LHTools/自定义视图/图片上传/快速上传 (= 1.0)"
@@ -565,7 +563,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -579,7 +577,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -593,7 +591,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -607,7 +605,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -621,7 +619,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -635,7 +633,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -649,7 +647,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -663,7 +661,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -677,7 +675,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - "LHTools/自定义视图/选择器/CustomPicker (= 1.0)"
     - MBProgressHUD
@@ -692,7 +690,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - "LHTools/自定义视图/选择器/CustomPicker/CityDataBase (= 1.0)"
     - MBProgressHUD
@@ -707,7 +705,7 @@ PODS:
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
-    - JXPhotoBrowser
+    - JXPhotoBrowser (= 3.1.5)
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -722,15 +720,17 @@ PODS:
   - NVActivityIndicatorView (5.2.0):
     - NVActivityIndicatorView/Base (= 5.2.0)
   - NVActivityIndicatorView/Base (5.2.0)
-  - SmartCodable (4.3.9)
+  - SmartCodable (6.0.6):
+    - SmartCodable/Core (= 6.0.6)
+  - SmartCodable/Core (6.0.6)
   - SnapKit (5.7.1)
-  - SQLite.swift (0.15.3):
-    - SQLite.swift/standard (= 0.15.3)
-  - SQLite.swift/standard (0.15.3)
+  - SQLite.swift (0.16.0):
+    - SQLite.swift/standard (= 0.16.0)
+  - SQLite.swift/standard (0.16.0)
   - SwiftyUserDefaults (5.3.0)
-  - ZLPhotoBrowser (4.6.0.1):
-    - ZLPhotoBrowser/Core (= 4.6.0.1)
-  - ZLPhotoBrowser/Core (4.6.0.1)
+  - ZLPhotoBrowser (4.7.4):
+    - ZLPhotoBrowser/Core (= 4.7.4)
+  - ZLPhotoBrowser/Core (4.7.4)
 
 DEPENDENCIES:
   - LHTools (from `../`)
@@ -763,27 +763,27 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  Alamofire: eec6cd8f73b242b59e34153a606a909eb9864b14
   Hero: 473a0143017e1371d050fcbedb67d317925097f2
-  IQKeyboardCore: 28c8bf3bcd8ba5aa1570b318cbc4da94b861711e
+  IQKeyboardCore: 8652977ec919cf5351aa2977fedd1a6546476fbc
   IQKeyboardManagerSwift: 835fc9c6e4732398113406d84900ad2e8f141218
-  IQKeyboardNotification: d7382c4466c5a5adef92c7452ebf861b36050088
-  IQKeyboardReturnManager: 972be48528ce9e7508ab3ab15ac7efac803f17f5
-  IQKeyboardToolbar: d4bdccfb78324aec2f3920659c77bb89acd33312
-  IQKeyboardToolbarManager: 6c693c8478d6327a7ef2107528d29698b3514dbb
-  IQTextInputViewNotification: f5e954d8881fd9808b744e49e024cc0d4bcfe572
+  IQKeyboardNotification: eb4910401f5a0e68f97e71c62f8a0c5b7e9d535c
+  IQKeyboardReturnManager: fcbf51fc68d7536fc1fbcca5231c4e82576b12ac
+  IQKeyboardToolbar: 9fe900f8e7def414be4025af0ca098df764d4fe3
+  IQKeyboardToolbarManager: d449479b5843d4a3fb902d03bf62d6ca031ac20e
+  IQTextInputViewNotification: 3b9fb27a16e7ee8958cc9092cfb07a1a9e1fd559
   IQTextView: ae13b4922f22e6f027f62c557d9f4f236b19d5c7
   JXPhotoBrowser: a6d745f5711bde79b02ba29165e2456ab5bde476
-  Kingfisher: 3204d23de16b5ea53541c44ca5a8efb55741dec3
-  LHTools: a02d20525fdc2283513ce05b5a7d9d9fe57c840e
+  Kingfisher: beeaf65ed57dfa710d416aea4093277e8a9b1968
+  LHTools: 8c93f5ce283985dcd9e0517b81cd73fa6981e1b8
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
   NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
-  SmartCodable: efc682e18fb5eac77f4c0497e37c79590710c192
+  SmartCodable: b423095dd1041f8b0bacbdcc251814e5d5f583f8
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
-  SQLite.swift: 8d054987f02728cc912b0eb5a9659650573a65a2
+  SQLite.swift: c914f905e13b6318cdc07fd66661db14c6cdd330
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
-  ZLPhotoBrowser: 20f32e6429448cc1c008795a1b55472d5772939c
+  ZLPhotoBrowser: 165f9afee5d238a2c39b52128a94a4445aae2fdf
 
 PODFILE CHECKSUM: 6ac2dbf35ada204c2e6f419ccf246667a9a31cfb
 

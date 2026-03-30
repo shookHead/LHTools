@@ -15,7 +15,7 @@ import ZLPhotoBrowser
 import SwiftUI
 import WebKit
 
-struct GroupActivityModel: SmartCodable {
+struct GroupActivityModel: SmartCodableX {
     var name:String! = ""
     ///
     var userActivityId  : Int! = 0
@@ -25,7 +25,7 @@ struct GroupActivityModel: SmartCodable {
     
 }
 
-public class ZBJsonM<T: SmartCodable>: SmartCodable {
+public class ZBJsonM<T: SmartCodableX>: SmartCodableX {
     public var code: Int?
     public var msg: String?
     public var data: T?
@@ -137,7 +137,7 @@ public class Huitun<ValueType> : BMApiTemplete<ValueType> {
         return params
     }
 }
-class OemInstitutionAuthModel :SmartCodable{
+class OemInstitutionAuthModel :SmartCodableX{
     
     var szrAppName:String!
     ///机构号

@@ -7,9 +7,9 @@
 //
 
 import UIKit
-//import SmartCodable
+//import SmartCodableX
 
-open class LHSinglePicker<T:SmartCodable>: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
+open class LHSinglePicker<T:SmartCodableX>: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
     /// 灰色 透明 背景视图
     public var bgMaskView:UIButton = {
         let btn         = UIButton(type: .custom)

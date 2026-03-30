@@ -1,203 +1,323 @@
 <p align="center">
 <img src="https://github.com/intsig171/SmartCodable/assets/87351449/89de27ac-1760-42ee-a680-4811a043c8b1" alt="SmartCodable" title="SmartCodable" width="500"/>
 </p>
+<h1 align="center">SmartCodable - Resilient & Flexible Codable for Swift </h1>
 
-<h1 align="center">SmartCodable - Swift data decoding & encoding</h1>
+<p align="center">
+<a href="https://github.com/iAmMccc/SmartCodable/releases">
+    <img src="https://img.shields.io/github/v/release/iAmMccc/SmartCodable?color=blue&label=version" alt="Latest Release">
+</a>
+<a href="https://swift.org/">
+    <img src="https://img.shields.io/badge/Swift-5.0%2B-orange.svg" alt="Swift 5.0+">
+</a>
+<a href="https://github.com/iAmMccc/SmartCodable/wiki">
+    <img src="https://img.shields.io/badge/Documentation-available-brightgreen.svg" alt="Documentation">
+</a>
+<a href="https://swift.org/package-manager/">
+    <img src="https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat" alt="SPM Supported">
+</a>
+<a href="https://github.com/iAmMccc/SmartCodable/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-black.svg" alt="MIT License">
+</a>
+<a href="https://deepwiki.com/intsig171/SmartCodable">
+    <img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki">
+</a>
+</p>
 
 
+**SmartCodable** redefines Swift data parsing by enhancing Apple's native Codable with production-ready resilience and flexibility. It provides seamless support for default values, nested flattening, and ignored properties, reducing boilerplate while increasing reliability. 
 
-[![Swift Package Manager](https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager/)
-[![Platforms](https://img.shields.io/cocoapods/p/ExCodable.svg)](#readme)
-[![Build and Test](https://github.com/iwill/ExCodable/actions/workflows/build-and-test.yml/badge.svg)]()
-[![LICENSE](https://img.shields.io/github/license/iwill/ExCodable.svg)](https://github.com/intsig171/SmartCodable/blob/main/LICENSE)
+## Features
 
-**SmartCodable** is a data parsing library based on Swift's **Codable** protocol, designed to provide more powerful and flexible parsing capabilities. By optimizing and rewriting the standard features of **Codable**, **SmartCodable** effectively solves common problems in the traditional parsing process and improves the fault tolerance and flexibility of parsing.
+### **Compatibility**
 
-**SmartCodable** 是一个基于Swift的**Codable**协议的数据解析库，旨在提供更为强大和灵活的解析能力。通过优化和重写**Codable**的标准功能，**SmartCodable** 有效地解决了传统解析过程中的常见问题，并提高了解析的容错性和灵活性。
+- **Robust Parsing** – Handles missing keys, type mismatches, and null values safely.
+- **Safe Defaults** – Falls back to property initializers when parsing fails.
+- **Smart Type Conversion** – Converts common types automatically (e.g., `Int ⇄ String`, `Bool ⇄ String`).
 
-```
-struct Model: SmartCodable {
-    var age: Int?
-    var name: String = ""
-}
+### **Enhancements**
 
-let model = Model.deserialize(from: json)
-```
+- **Any & Collection Support** – Parses `Any`, `[Any]`, `[String: Any]` safely.
+- **Nested Path Parsing** – Decode nested JSON using designated paths.
+- **Custom Value Transformation** – Apply transformers for advanced conversions.
+- **SmartFlat Support** – Flatten nested objects into parent models seamlessly.
+- **SmartPublished Support** – Supports `ObservableObject` properties with real-time updates.
+- **Inheritance Support** – Enables model inheritance via `@SmartSubclass`.
+- **Stringified JSON Parsing** – Converts string-encoded JSON into objects or arrays automatically.
 
+### **Convenience**
 
+- **Property Ignoring** – Skip specific properties with `@SmartIgnored`, including non-`Codable` fields.
+- **Flexible Input Formats** – Deserialize from dictionaries, arrays, JSON strings, or `Data`.
 
-SmartCodable在Codable基础上做了大幅度的优化，支持：
+### **Callbacks**
 
-| 类型   | 特性             | 说明                                                         |
-| ------ | ---------------- | ------------------------------------------------------------ |
-| 兼容   | 强大的异常兼容   | 当遇到数据类型错误/值为null/缺少数据等情况触发的Codable异常，可以完美兼容。 |
-| 兼容   | 支持类型自适应   | 如JSON中是一个Int，但对应Model是String字段，会自动完成转化。 |
-| 兼容   | 支持属性初始值   | 当解析失败时，使用此值填充。                                 |
-| 兼容   | 内json的模型化   | 当某个数据是json时，支持进行Model化解析。                    |
-| 新特性 | 支持Any的解析    | Codable不支持Any，SmartCodable支持！                         |
-| 新特性 | 自定义Key映射    | 当数据字段和Model属性名不一致时，可以方便的自定义映射关系。  |
-| 新特性 | 自定义Value解析  | 支持自定义解析规则                                           |
-| 新特性 | 提供多种全局策略 | 数据的蛇形命名转驼峰，首字母转小写，首字母转大写             |
-| 新特性 | 解析完成的回调   | 你可以知道解析完成的时机，去做一些事情。                     |
-| 新特性 | 支持解析更新     | 对一个解析完成的model进行增量更新。                          |
+- **Post-Processing Callback** – `didFinishMapping()` runs after decoding for custom initialization or adjustments.
 
-## Use SmartCodable
+### **Debugging**
 
-### Installation - cocopods 
-
-Add the following line to your `Podfile`:
-
-```
-pod 'SmartCodable'
-```
-
-Then, run the following command:
-
-```
-$ pod install
-```
-
-### Installation - Swift Package Manager
-
-- File > Swift Packages > Add Package Dependency
-- Add `https://github.com/intsig171/SmartCodable.git`
+- **SmartSentinel Logging** – Real-time parsing logs to track errors and data issues.
 
 
 
-### Usages
+## Quick Start
 
-```
+```swift
 import SmartCodable
 
-struct Model: SmartCodable {
-    var string: String?
-    var date: Date?
-    var subModel: SubModel?
-    
-    @SmartAny
-    var dict: [String: Any]?
-    
-    @IgnoredKey
-    var ignoreKey: String?
-    
-    static func mappingForKey() -> [SmartKeyTransformer]? {
-        [
-            CodingKeys.date <--- "nowDate"
-        ]
-    }
-    
-    static func mappingForValue() -> [SmartValueTransformer]? {
-        [
-            CodingKeys.date <--- SmartDateTransformer(),
-        ]
-    }
-    
-    func didFinishMapping() {
-        // do something
-    }
+struct User: SmartCodableX {
+    var name: String = ""
+    var age: Int = 0
 }
 
+let user = User.deserialize(from: ["name": "John", "age": 30])
 ```
 
-If you don't know how to use it, check it out.
-
-如果你不知道如何使用，请查看它。
-
- [👉 How to use SmartCodable?](https://github.com/intsig171/SmartCodable/blob/develop/Document/README/Usages.md)
 
 
+## Explore & Contribute
 
-### Supported types
+| Project / Tool                                               | Description                                                  |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| 🔧 [HandyJSON](https://github.com/iAmMccc/SmartCodable/blob/main/Explore%26Contribute/CompareWithHandyJSON.md) | Step-by-step guide to replace HandyJSON with SmartCodable in your project. |
+| 🛠 [SmartModeler](https://github.com/iAmMccc/SmartModeler)    | Companion tool for converting JSON into SmartCodable Swift models. |
+| 👀 [SmartSentinel](https://github.com/iAmMccc/SmartCodable/blob/main/Explore%26Contribute/Sentinel.md) | Real-time parsing logs to track errors and issues. Supports. |
+| 💖 [Contributing](https://github.com/iAmMccc/SmartCodable/blob/main/Explore%26Contribute/Contributing.md) | Support the development of SmartCodable through donations.   |
+| 🏆 [Contributors](https://github.com/iAmMccc/SmartCodable/blob/main/Explore%26Contribute/Contributors.md) | Key contributors to the SmartCodable codebase.               |
 
-只要遵循了Codable，就可以参与解析。
 
-* Int/Int8/Int16/Int32/Int64
 
-* UInt/UInt8/UInt16/UInt32/UInt64
+## Installation
 
-* String
+### 🛠 CocoaPods Installation
 
-* Bool
+| Version     | Installation Method          | Platform Requirements                                        |
+| :---------- | :--------------------------- | :----------------------------------------------------------- |
+| Basic       | `pod 'SmartCodable'`         | `iOS 13+` `tvOS 15+` `macOS 10.15+` `watchOS 6.0+` `visionOS 1.0+` |
+| Inheritance | `pod 'SmartCodable/Inherit'` | `iOS 13+` `macOS 11+`                                        |
 
-* Float/CGFloat/Double
+⚠️ **Important Notes**:
 
-* Dictionary（如果包含Any，请使用@SmartAny修饰该字典）
+- If you don't have strong inheritance requirements, the basic version is recommended
 
-* Array（如果包含Any，请使用@SmartAny修饰该数组）
-
-* URL/Date/Data/UIColor/enum
-
-* 其他遵循了Codable协议的类型。
+- Inheritance features require **Swift Macro support**, **Xcode 15+**, and **Swift 5.9+**
 
   
 
 
+📌 **About Swift Macros Support (CocoaPods)**:
 
-## SmarCodable Test
+* requires downloading `swift-syntax` dependencies for the first time (may take longer)
+* CocoaPods internally sets `user_target_xcconfig["OTHER_SWIFT_FLAGS"]` to load the macro plugin during build.
+* This may affect your main target's build flags and lead to subtle differences in complex projects or CI environments.
+* If needed, please [open an issue](https://github.com/iAmMccc/SmartCodable/issues) for custom setups.
 
- [👉 To learn more about how SmartCodable is tested, click here](https://github.com/intsig171/SmartCodable/blob/main/Document/README/HowToTest.md)
 
 
+### 📦 Swift Package Manager
 
-## **Sentinel** 哨兵模式
-
-SmartCodable内部集成了**Smart Sentinel**，它可以监听整个解析过程。当解析结束之后，输出格式化的日志信息。
-
-该信息仅作辅助信息，帮助发现并排查问题。并不代表本次解析失败。
-
-```
-================================  [Smart Sentinel]  ================================
-Array<SomeModel> 👈🏻 👀
-   ╆━ Index 0
-      ┆┄ a: Expected to decode 'Int' but found ‘String’ instead.
-      ┆┄ b: Expected to decode 'Int' but found ’Array‘ instead.
-      ┆┄ c: No value associated with key.
-      ╆━ sub: SubModel
-         ┆┄ sub_a: No value associated with key.
-         ┆┄ sub_b: No value associated with key.
-         ┆┄ sub_c: No value associated with key.
-      ╆━ sub2s: [SubTwoModel]
-         ╆━ Index 0
-            ┆┄ sub2_a: No value associated with key.
-            ┆┄ sub2_b: No value associated with key.
-            ┆┄ sub2_c: No value associated with key.
-         ╆━ Index 1
-            ┆┄ sub2_a: Expected to decode 'Int' but found ’Array‘ instead.
-   ╆━ Index 1
-      ┆┄ a: No value associated with key.
-      ┆┄ b: Expected to decode 'Int' but found ‘String’ instead.
-      ┆┄ c: Expected to decode 'Int' but found ’Array‘ instead.
-      ╆━ sub: SubModel
-         ┆┄ sub_a: Expected to decode 'Int' but found ‘String’ instead.
-      ╆━ sub2s: [SubTwoModel]
-         ╆━ Index 0
-            ┆┄ sub2_a: Expected to decode 'Int' but found ‘String’ instead.
-         ╆━ Index 1
-            ┆┄ sub2_a: Expected to decode 'Int' but found 'null' instead.
-====================================================================================
+```swift
+dependencies: [
+    .package(url: "https://github.com/iAmMccc/SmartCodable.git", from: "xxx")
+]
 ```
 
+Notes:
+
+- `SmartCodable` (runtime) works without Swift Macros.
+- `SmartCodableInherit` (inheritance + macros) requires **Xcode 15+** and **Swift 5.9+**. Older SwiftPM toolchains will only expose the runtime library.
 
 
-如果你要使用它，请开启它：
 
+## Documentation
+
+### 1. The Basics
+
+To conform to 'SmartCodable', a class need to implement an empty initializer
+
+```swift
+class BasicTypes: SmartCodableX {
+    var int: Int = 2
+    var doubleOptional: Double?
+    required init() {}
+}
+let model = BasicTypes.deserialize(from: json)
 ```
-SmartSentinel.debugMode = .verbose
 
-public enum Level: Int {
-    /// 不记录日志
-    case none
-    /// 详细的日志
-    case verbose
-    /// 警告日志：仅仅包含类型不匹配的情况
-    case alert
+For struct, since the compiler provide a default empty initializer, we use it for free.
+
+```swift
+struct BasicTypes: SmartCodableX {
+    var int: Int = 2
+    var doubleOptional: Double?
+}
+let model = BasicTypes.deserialize(from: json)
+```
+
+
+
+### 2. Deserialization API
+
+#### 2.1 deserialize
+
+Only types conforming to `SmartCodable` (or `[SmartCodable]` for arrays) can use these methods
+
+```swift
+public static func deserialize(from dict: [String: Any]?, designatedPath: String? = nil,  options: Set<SmartDecodingOption>? = nil) -> Self?
+
+public static func deserialize(from json: String?, designatedPath: String? = nil, options: Set<SmartDecodingOption>? = nil) -> Self?
+
+public static func deserialize(from data: Data?, designatedPath: String? = nil, options: Set<SmartDecodingOption>? = nil) -> Self?
+
+public static func deserializePlist(from data: Data?, designatedPath: String? = nil, options: Set<SmartDecodingOption>? = nil) -> Self?
+```
+
+**1. Multi-Format Input Support**
+
+| Input Type  | Example Usage                         | Internal Conversion                   |
+| :---------- | :------------------------------------ | :------------------------------------ |
+| Dictionary  | `Model.deserialize(from: dict)`       | Directly processes native collections |
+| Array       | `[Model].deserialize(from: arr)`      | Directly processes native collections |
+| JSON String | `Model.deserialize(from: jsonString)` | Converts to `Data` via UTF-8          |
+| Data        | `Model.deserialize(from: data)`       | Processes directly                    |
+
+**2. Deep Path Navigation (`designatedPath`)**
+
+```swift
+// JSON Structure:
+{
+  "data": {
+    "user": {
+      "info": { ...target content... }
+    }
+  }
+}
+
+// Access nested data:
+Model.deserialize(from: json, designatedPath: "data.user.info")
+```
+
+**Path Resolution Rules:**
+
+1. Dot-separated path components
+2. Handles both dictionaries and arrays
+3. Returns `nil` if any path segment is invalid
+4. Empty path returns entire content
+
+**3. Decoding Strategies (`options`)**
+
+```swift
+let options: Set<SmartDecodingOption> = [
+    .key(.convertFromSnakeCase),
+    .date(.iso8601),
+    .data(.base64)
+]
+```
+
+| Strategy Type      | Available Options                     | Description                  |
+| :----------------- | :------------------------------------ | :--------------------------- |
+| **Key Decoding**   | `.fromSnakeCase`                      | snake_case → camelCase       |
+|                    | `.firstLetterLower`                   | "FirstName" → "firstName"    |
+|                    | `.firstLetterUpper`                   | "firstName" → "FirstName"    |
+| **Date Decoding**  | `.iso8601`, `.secondsSince1970`, etc. | Full Codable date strategies |
+| **Data Decoding**  | `.base64`                             | Binary data processing       |
+| **Float Decoding** | `.convertToString`, `.throw`          | NaN/∞ handling               |
+
+> ⚠️ **Important**: Only one strategy per type is allowed (last one wins if duplicates exist)
+
+
+
+#### 2.2 Post-processing callback invoked after successful decoding
+
+```swift
+struct Model: SmartCodableX {
+    var name: String = ""
+    
+    mutating func didFinishMapping() {
+        name = "I am \(name)"
+    }
 }
 ```
 
-如果你想获取这个日志用来上传服务器：
 
+
+#### 3.2 Key Transformation
+
+Defines key mapping transformations during decoding，First non-null mapping is preferred。
+
+```swift
+static func mappingForKey() -> [SmartKeyTransformer]? {
+    return [
+        CodingKeys.id <--- ["user_id", "userId", "id"],
+        CodingKeys.joinDate <--- "joined_at"
+    ]
+}
 ```
-SmartSentinel.onLogGenerated { logs in
+
+
+
+#### 4.3 **Value Transformation**
+
+Convert between JSON values and custom types
+
+**Built-in Value Transformers**
+
+| Transformer                    | JSON Type     | Object Type | Description                                                  |
+| :----------------------------- | :------------ | :---------- | :----------------------------------------------------------- |
+| **SmartDataTransformer**       | String        | Data        | Converts between Base64 strings and Data objects             |
+| **SmartHexColorTransformer**   | String        | ColorObject | Converts hex color strings to platform-specific color objects (UIColor/NSColor) |
+| **SmartDateTransformer**       | Double/String | Date        | Handles multiple date formats (timestamp Double or String) to Date objects |
+| **SmartDateFormatTransformer** | String        | Date        | Uses DateFormatter for custom date string formats            |
+| **SmartURLTransformer**        | String        | URL         | Converts strings to URLs with optional encoding and prefixing |
+
+```swift
+struct Model: SmartCodableX {
+    
+    ...
+    
+    static func mappingForValue() -> [SmartValueTransformer]? {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        return [
+            CodingKeys.url <--- SmartURLTransformer(prefix: "https://"),
+            CodingKeys.date2 <--- SmartDateTransformer(),
+            CodingKeys.date1 <--- SmartDateFormatTransformer(format)
+        ]
+    }
+}
+```
+
+If you need additional parsing rules, **Transformer** will implement them yourself. Follow **ValueTransformable** to implement the requirements of the protocol.
+
+```swift
+public protocol ValueTransformable {
+    associatedtype Object
+    associatedtype JSON
+    
+    /// transform from ’json‘ to ’object‘
+    func transformFromJSON(_ value: Any?) -> Object?
+    
+    /// transform to ‘json’ from ‘object’
+    func transformToJSON(_ value: Object?) -> JSON?
+}
+```
+
+**Built-in Fast Transformer Helper**
+
+```swift
+static func mappingForValue() -> [SmartValueTransformer]? {
+    [
+        CodingKeys.name <--- FastTransformer<String, String>(fromJSON: { json in
+            "abc"
+        }, toJSON: { object in
+            "123"
+        }),
+        CodingKeys.subModel <--- FastTransformer<TestEnum, String>(fromJSON: { json in
+            TestEnum.man
+        }, toJSON: { object in
+            object?.rawValue
+        }),
+    ]
 }
 ```
 
@@ -205,51 +325,409 @@ SmartSentinel.onLogGenerated { logs in
 
 
 
-## Codable vs HandyJSON 
 
-If you are using HandyJSON and would like to replace it, follow this link.
+### 3. propertyWrapper
 
-如果你正在使用HandyJSON，并希望替换掉它，请关注该链接。
+#### 3.1 @SmartAny
 
- [👉 SmartCodable - Compare With HandyJSON](https://github.com/intsig171/SmartCodable/blob/develop/Document/README/CompareWithHandyJSON.md)
+Codable does not support Any resolution, but can be implemented using @SmartAny。
 
-| 序号 | 🎯 特性                        | 💬 特性说明 💬                                                 | SmartCodable | HandyJSON |
-| ---- | ----------------------------- | ------------------------------------------------------------ | ------------ | --------- |
-| 1    | **强大的兼容性**              | 完美兼容：**字段缺失** & **字段值为nul** & **字段类型错误**  | ✅            | ✅         |
-| 2    | **类型自适应**                | 如JSON中是一个Int，但对应Model是String字段，会自动完成转化   | ✅            | ✅         |
-| 3    | **解析Any**                   | 支持解析 **[Any], [String: Any]** 等类型                     | ✅            | ✅         |
-| 4    | **解码回调**                  | 支持Model解码完成的回调，即：**didFinishingMapping**         | ✅            | ✅         |
-| 5    | **属性初始化值填充**          | 当解析失败时，支持使用初始的Model属性的赋值。                | ✅            | ✅         |
-| 6    | **字符串的Model化**           | 字符串是json字符串，支持进行Model化解析                      | ✅            | ✅         |
-| 7    | **枚举的解析**                | 当枚举解析失败时，支持兼容。                                 | ✅            | ✅         |
-| 8    | **属性的自定义解析** - 重命名 | 自定义解码key（对解码的Model属性重命名）                     | ✅            | ✅         |
-| 9    | **属性的自定义解析** - 忽略   | 忽略某个Model属性的解码                                      | ✅            | ✅         |
-| 10   | **支持designatedPath**        | 实现自定义解析路径                                           | ✅            | ✅         |
-| 11   | **Model的继承**               | 在model的继承关系下，Codable的支持力度较弱，使用不便（可以支持） | ❌            | ✅         |
-| 12   | **自定义解析路径**            | 指定从json的层级开始解析                                     | ✅            | ✅         |
-| 13   | **超复杂的数据解码**          | 解码过程中，多数据做进一步的整合/处理。如： 数据的扁平化处理 | ✅            | ⚠️         |
-| 14   | **解码性能**                  | 在解码性能上，SmartCodable 平均强 30%                        | ✅            | ⚠️         |
-| 15   | **异常解码日志**              | 当解码异常进行了兼容处理时，提供排查日志                     | ✅            | ❌         |
-| 16   | **安全性方面**                | 底层实现的稳定性和安全性。                                   | ✅            | ❌         |
+```swift
+struct Model: SmartCodableX {
+    @SmartAny var dict: [String: Any] = [:]
+    @SmartAny var arr: [Any] = []
+    @SmartAny var any: Any?
+}
+let dict: [String: Any] = [
+    "dict": ["name": "Lisa"],
+    "arr": [1,2,3],
+    "any": "Mccc"
+]
+
+let model = Model.deserialize(from: dict)
+print(model)
+// Model(dict: ["name": "Lisa"], arr: [1, 2, 3], any: "Mccc")
+```
 
 
 
-## Matters need attention（注意事项）
+#### 3.2 @SmartIgnored
 
-### 1.  parse very large data(大数据量解析)
+If you need to ignore the parsing of attributes, you can override `CodingKeys` or use `@SmartIgnored`.
+
+```swift
+struct Model: SmartCodableX {
+    @SmartIgnored
+    var name: String = ""
+}
+
+let dict: [String: Any] = [
+    "name": "Mccc"
+]
+
+let model = Model.deserialize(from: dict)
+print(model)
+// Model(name: "")
+```
+
+
+
+#### 3.3 @SmartFlat
+
+```swift
+struct Model: SmartCodableX {
+    var name: String = ""
+    var age: Int = 0
+  
+    @SmartFlat
+    var model: FlatModel?
+   
+}
+struct FlatModel: SmartCodableX {
+    var name: String = ""
+    var age: Int = 0
+}
+
+let dict: [String: Any] =  [
+    "name": "Mccc",
+    "age": 18,
+]
+
+let model = Model.deserialize(from: dict)
+print(model)
+// Model(name: "Mccc", age: 18, model: FlatModel(name: "Mccc", age: 18))
+```
+
+
+
+#### 3.4 @SmartPublished
+
+```swift
+class PublishedModel: ObservableObject, SmartCodable {
+    required init() {}
+    
+    @SmartPublished
+    var name: ABC?
+}
+
+struct ABC: SmartCodableX {
+    var a: String = ""
+}
+
+if let model = PublishedModel.deserialize(from: dict) {
+    model.$name
+        .sink { newName in
+            print("name updated，newValue is: \(newName)")
+        }
+        .store(in: &cancellables)
+}
+```
+
+#### 3.5 @SmartHexColor
+
+Adds Codable support for UIColor/NSColor using hex string encoding/decoding.
+
+```swift
+struct Model: SmartCodableX {
+    @SmartHexColor
+    var color: UIColor?
+}
+
+let dict: [String: Any] = [
+    "color": "7DA5E3"
+]
+
+let model = Model.deserialize(from: dict)
+print(model)
+// print: Model(color: UIExtendedSRGBColorSpace 0.490196 0.647059 0.890196 1)
+```
+
+
+
+#### 3.6 @SmartCompact
+
+Adds Codable support for arrays and dictionaries with tolerant decoding.
+
+- **@SmartCompact.Array**
+  When decoding an array, any element that cannot be decoded to the target element type will be skipped instead of failing the whole decode.
+- **@SmartCompact.Dictionary**
+  When decoding a dictionary, any key-value pair that cannot be decoded will be skipped instead of failing the whole decode.
+
+```Swift
+struct Model: Decodable {
+    // Array may contain invalid values, those will be ignored
+    @SmartCompact.Array
+    var ages: [Int]
+
+    // Dictionary may contain invalid entries, those will be ignored
+    @SmartCompact.Dictionary
+    var info: [String: String]
+}
+
+let dict: [String: Any] = [
+    "ages": ["Tom", 1, [:], 2, 3, "4"],
+    "info": [
+        "name": "Tom",
+        "age": 18,
+        "extra": [:]
+    ]
+]
+
+let model = try! JSONDecoder().decode(Model.self, from: JSONSerialization.data(withJSONObject: dict))
+print(model)
+// print: Model(ages: [1, 2, 3, 4], info: ["name": "Tom", "age": "18"])
+```
+
+
+
+
+
+
+
+### 4. Inheritance Support
+
+This feature relies on **Swift Macros**, which requires **Swift 5.9+** and is compatible with **iOS 13+**. Therefore, it is only supported in SmartCodable version 5.0 and above.
+
+> For using inheritance on lower versions, refer to: [Inheritance in Lower Versions](https://github.com/iAmMccc/SmartCodable/blob/main/Document/QA/QA2.md)
+
+If you need inheritance support, annotate your subclass with `@SmartSubclass`.
+
+#### 4.1 Basic Usage
+
+```swift
+class BaseModel: SmartCodableX {
+    var name: String = ""
+    required init() { }
+}
+
+@SmartSubclass
+class StudentModel: BaseModel {
+    var age: Int?
+}
+```
+
+#### 4.2 Subclass Implements Protocol Method
+
+Just implement it directly—no need for the `override` keyword.
+
+```swift
+class BaseModel: SmartCodableX {
+    var name: String = ""
+    required init() { }
+    
+    class func mappingForKey() -> [SmartKeyTransformer]? {
+        retrun nil
+    }
+}
+
+@SmartSubclass
+class StudentModel: BaseModel {
+    var age: Int?
+    
+    override static func mappingForKey() -> [SmartKeyTransformer]? {
+        [ CodingKeys.age <--- "stu_age" ]
+    }
+}
+```
+
+#### 4.3 Parent Class Implements Protocol Method
+
+```swift
+class BaseModel: SmartCodableX {
+    var name: String = ""
+    required init() { }
+    
+    static func mappingForKey() -> [SmartKeyTransformer]? {
+        [ CodingKeys.name <--- "stu_name" ]
+    }
+}
+
+@SmartSubclass
+class StudentModel: BaseModel {
+    var age: Int?
+}
+```
+
+#### 4.4 Both Parent and Subclass Implement Protocol Method
+
+A few things to note:
+
+- The protocol method in the parent class must be marked with `class`.
+- The subclass should call the parent class's implementation.
+
+```swift
+class BaseModel: SmartCodableX {
+    var name: String = ""
+    required init() { }
+    
+    class func mappingForKey() -> [SmartKeyTransformer]? {
+        [ CodingKeys.name <--- "stu_name" ]
+    }
+}
+
+@SmartSubclass
+class StudentModel: BaseModel {
+    var age: Int?
+    
+    override static func mappingForKey() -> [SmartKeyTransformer]? {
+        let trans = [ CodingKeys.age <--- "stu_age" ]
+        
+        if let superTrans = super.mappingForKey() {
+            return trans + superTrans
+        } else {
+            return trans
+        }
+    }
+}
+```
+
+
+
+### 5. Special support
+
+#### 5.1 Smart Stringified JSON Parsing
+
+SmartCodable automatically handles string-encoded JSON values during decoding, seamlessly converting them into nested model objects or arrays while maintaining all key mapping rules.
+
+- **Automatic Parsing**: Detects and decodes stringified JSON (`"{\"key\":value}"`) into proper objects/arrays
+- **Recursive Mapping**: Applies `mappingForKey()` rules to parsed nested structures
+- **Type Inference**: Determines parsing strategy (object/array) based on property type
+
+```swift
+struct Model: SmartCodableX {
+    var hobby: Hobby?
+    var hobbys: [Hobby]?
+}
+
+struct Hobby: SmartCodableX {
+    var name: String = ""
+}
+
+let dict: [String: Any] = [
+    "hobby": "{\"name\":\"sleep1\"}",
+    "hobbys": "[{\"name\":\"sleep2\"}]",
+]
+
+guard let model = Model.deserialize(from: dict) else { return }
+```
+
+
+
+#### 5.2 Compatibility
+
+If attribute resolution fails, SmartCodable performs compatibility processing for thrown exceptions. Ensure that the entire parsing is not interrupted. Even better, you don't have to do anything about it.
+
+```swift
+let dict = [
+    "number1": "123",
+    "number2": "Mccc",
+    "number3": "Mccc"
+]
+
+struct Model: SmartCodableX {
+    var number1: Int?
+    var number2: Int?
+    var number3: Int = 1
+}
+
+// decode result
+// Model(number1: 123, number2: nil, number3: 1)
+```
+
+**Type conversion compatibility**
+
+When the data is parsed, the type cannot be matched. Raises a.typeMismatch error. SmartCodable will attempt to convert data of type String to the desired type Int.
+
+**Default Fill compatible**
+
+When the type conversion fails, the initialization value of the currently parsed property is retrieved for padding.
+
+#### 5.3 parse very large data
 
 When you parse very large data, try to avoid the compatibility of parsing exceptions, such as: more than one attribute is declared in the attribute, and the declared attribute type does not match. 
 
-Do not use @IgnoredKey when there are attributes that do not need to be parsed, override CodingKeys to ignore unwanted attribute parsing. 
+Do not use @SmartIgnored when there are attributes that do not need to be parsed, override CodingKeys to ignore unwanted attribute parsing. 
 
 This can greatly improve the analytical efficiency.
 
-当你解析超大大数据时候，尽量避免解析异常的兼容，比如：属性中多声明了一属性，声明的属性类型不匹配。
 
-当有不需要参与解析属性，不要使用@IgnoredKey修饰，请重写CodingKeys忽略不需要的属性解析。
 
-这样可以大幅度的提升解析效率。
+#### 5.4 The Enum
 
+To be convertable, An `enum` must conform to `SmartCaseDefaultable` protocol. Nothing special need to do now.
+
+```swift
+struct Student: SmartCodableX {
+    var name: String = ""
+    var sex: Sex = .man
+
+    enum Sex: String, SmartCaseDefaultable {
+        case man = "man"
+        case woman = "woman"
+    }
+}
+let model = Student.deserialize(from: json)
+```
+
+
+
+**Decoding of associative value enum**
+
+Make the enumeration follow **SmartAssociatedEnumerable**。Override the **mappingForValue** method and take over the decoding process yourself.
+
+```swift
+struct Model: SmartCodableX {
+    var sex: Sex = .man
+    static func mappingForValue() -> [SmartValueTransformer]? {
+        [
+            CodingKeys.sex <--- RelationEnumTranformer()
+        ]
+    }
+}
+
+enum Sex: SmartAssociatedEnumerable {    
+    case man
+    case women
+    case other(String)
+}
+
+struct RelationEnumTranformer: ValueTransformable {
+    typealias Object = Sex
+    typealias JSON = String
+
+    func transformToJSON(_ value: Introduce_8ViewController.Sex?) -> String? {
+        // do something
+    }
+    func transformFromJSON(_ value: Any?) -> Sex? {
+        // do something
+    }
+}
+```
+
+
+
+#### 5.5 Update Existing Model
+
+It can accommodate any data structure, including nested array structures.
+
+```swift
+struct Model: SmartCodableX {
+    var name: String = ""
+    var age: Int = 0
+}
+
+var dic1: [String : Any] = [
+    "name": "mccc",
+    "age": 10
+]
+let dic2: [String : Any] = [
+    "age": 200
+]
+guard var model = Model.deserialize(from: dic1) else { return }
+SmartUpdater.update(&model, from: dic2)
+
+// now: model is ["name": mccc, "age": 200].
+```
 
 
 
@@ -260,19 +738,27 @@ This can greatly improve the analytical efficiency.
 
 If you're looking forward to learning more about the Codable protocol and the design thinking behind SmartCodable, check it out.
 
-如果你期望了解更多Codable协议以及SmartCodable的设计思考，请关注它。	
+[👉 **learn SmartCodable**](https://github.com/iAmMccc/SmartCodable/blob/main/Document/Usages/LearnMore.md)
 
-[👉 learn more](https://github.com/intsig171/SmartCodable/blob/develop/Document/README/LearnMore.md)
+[👉 **github discussions**](https://github.com/iAmMccc/SmartCodable/discussions)
+
+[👉 **SmartCodable Test**](https://github.com/iAmMccc/SmartCodable/blob/main/Document/Usages/HowToTest.md)
 
 
 
 ## Github Stars
-![GitHub stars](https://starchart.cc/intsig171/SmartCodable.svg?theme=dark)
 
-## Join us
+<p style="margin:0">
+  <img src="https://starchart.cc/iAmMccc/SmartCodable.svg" alt="Stars" width="750">
+</p>
 
-**SmartCodable** is an open source project, and we welcome all developers interested in improving data parsing performance and robustness. Whether it's using feedback, feature suggestions, or code contributions, your participation will greatly advance the **SmartCodable** project.
 
-**SmartCodable** 是一个开源项目，我们欢迎所有对提高数据解析性能和健壮性感兴趣的开发者加入。无论是使用反馈、功能建议还是代码贡献，你的参与都将极大地推动 **SmartCodable** 项目的发展。
 
-![QQ](https://github.com/intsig171/SmartCodable/assets/87351449/5d3a98fe-17ba-402f-aefe-3e7472f35f82)
+## Join Community 🚀
+
+SmartCodable is an open-source project dedicated to making Swift data parsing more robust, flexible and efficient. We welcome all developers to join our community!
+
+<p>
+  <img src="https://github.com/user-attachments/assets/7b1f8108-968e-4a38-91dd-b99abdd3e500" alt="JoinUs" width="700">
+</p>
+

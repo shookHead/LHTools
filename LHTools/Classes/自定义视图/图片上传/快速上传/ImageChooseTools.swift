@@ -25,7 +25,7 @@ public extension UIViewController{
             self.showDetailViewController(camera, sender: nil)
         }
         let acrion2 = UIAlertAction(title: lhSelectFromAlbum, style: .default) { (action) in
-            let ps = ZLPhotoPreviewSheet()
+            let ps = ZLPhotoPicker()
             ps.selectImageBlock = { (results, isOriginal) in
                 let images = results.map { $0.image }
                 print(images)
@@ -60,7 +60,7 @@ public extension UIViewController{
         }
         let acrion2 = UIAlertAction(title: lhSelectFromAlbum, style: .default) { (action) in
             self.setconfig(maxSelectCount: num)
-            let ps = ZLPhotoPreviewSheet()
+            let ps = ZLPhotoPicker()
             ps.selectImageBlock = { (results, isOriginal) in
                 let images = results.map { $0.image }
                 print(images)
@@ -99,7 +99,7 @@ public extension UIViewController{
         let config = ZLPhotoConfiguration.default()
         config.allowSelectOriginal = false
         config.allowPreviewPhotos = false
-        let ps = ZLPhotoPreviewSheet()
+        let ps = ZLPhotoPicker()
         ps.selectImageBlock = { (results, isOriginal) in
             let images = results.map { $0.image }
             print(images)

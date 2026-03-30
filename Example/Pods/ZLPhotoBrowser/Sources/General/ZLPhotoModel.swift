@@ -61,18 +61,13 @@ public class ZLPhotoModel: NSObject {
         return size
     }
     
-    private var pri_editImage: UIImage?
-    
+    private var _editImage: UIImage?
     public var editImage: UIImage? {
-        set {
-            pri_editImage = newValue
-        }
         get {
-            if let _ = editImageModel {
-                return pri_editImage
-            } else {
-                return nil
-            }
+            return editImageModel != nil ? _editImage : nil
+        }
+        set {
+            _editImage = newValue
         }
     }
     
@@ -100,8 +95,13 @@ public class ZLPhotoModel: NSObject {
         }
     }
     
-    // Content of the last edit.
+    // The content of the last edit of the image
     public var editImageModel: ZLEditImageModel?
+    
+    // The content of the last edit of the video
+    public var editVideoModel: ZLEditVideoModel?
+    
+    public var isVideo: Bool { type == .video }
     
     public init(asset: PHAsset) {
         ident = asset.localIdentifier
@@ -110,7 +110,7 @@ public class ZLPhotoModel: NSObject {
         
         type = transformAssetType(for: asset)
         if type == .video {
-            duration = transformDuration(for: asset)
+            duration = ZLCommonTools.formatVideoDuration(asset.duration)
         }
     }
     
@@ -128,26 +128,6 @@ public class ZLPhotoModel: NSObject {
             return .image
         default:
             return .unknown
-        }
-    }
-    
-    public func transformDuration(for asset: PHAsset) -> String {
-        let dur = Int(round(asset.duration))
-        
-        switch dur {
-        case 0..<60:
-            return String(format: "00:%02d", dur)
-        case 60..<3600:
-            let m = dur / 60
-            let s = dur % 60
-            return String(format: "%02d:%02d", m, s)
-        case 3600...:
-            let h = dur / 3600
-            let m = (dur % 3600) / 60
-            let s = dur % 60
-            return String(format: "%02d:%02d:%02d", h, m, s)
-        default:
-            return ""
         }
     }
 }

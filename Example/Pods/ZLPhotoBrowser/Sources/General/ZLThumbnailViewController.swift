@@ -171,7 +171,7 @@ class ZLThumbnailViewController: UIViewController {
         }
     }
     
-    private lazy var panGes: UIPanGestureRecognizer = {
+    lazy var panGes: UIPanGestureRecognizer = {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(slideSelectAction(_:)))
         pan.delegate = self
         return pan
@@ -221,6 +221,10 @@ class ZLThumbnailViewController: UIViewController {
     }
     
     private var didLayout = false
+    
+    private var canPreload = false
+    
+    private var dismissInteractiveTransition: ZLThumbnailDismissInteractiveTransition?
     
     override var prefersStatusBarHidden: Bool { hiddenStatusBar }
     
@@ -273,7 +277,6 @@ class ZLThumbnailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
         resetBottomToolBtnStatus()
     }
     
@@ -362,6 +365,7 @@ class ZLThumbnailViewController: UIViewController {
         if isSwitchOrientation {
             isSwitchOrientation = false
             
+            collectionView.collectionViewLayout.invalidateLayout()
             if let lastVisibleIndexPathBeforeRotation {
                 collectionView.scrollToItem(at: lastVisibleIndexPathBeforeRotation, at: .bottom, animated: false)
             }
@@ -416,11 +420,12 @@ class ZLThumbnailViewController: UIViewController {
         lastVisibleIndexPathBeforeRotation = collectionView.indexPathsForVisibleItems
             .max { $0.row < $1.row }
         isSwitchOrientation = true
-        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     private func setupUI() {
-        automaticallyAdjustsScrollViewInsets = true
+        if #unavailable(iOS 11.0) {
+            automaticallyAdjustsScrollViewInsets = true
+        }
         edgesForExtendedLayout = .all
         view.backgroundColor = .zl.thumbnailBgColor
         
@@ -439,6 +444,7 @@ class ZLThumbnailViewController: UIViewController {
         bottomView.addSubview(doneBtn)
         
         setupNavView()
+        setupDismissInteractiveTransition()
     }
     
     private func showNoAuthTipsView() {
@@ -489,6 +495,24 @@ class ZLThumbnailViewController: UIViewController {
         }
     }
     
+    private func setupDismissInteractiveTransition() {
+        guard ZLPhotoUIConfiguration.default().style == .embedAlbumList else {
+            return
+        }
+        
+        navigationController?.transitioningDelegate = self
+        dismissInteractiveTransition = ZLThumbnailDismissInteractiveTransition(viewController: self)
+        
+        dismissInteractiveTransition?.startTransition = {
+        }
+        
+        dismissInteractiveTransition?.cancelTransition = {
+        }
+        
+        dismissInteractiveTransition?.finishTransition = {
+        }
+    }
+    
     /// 获取到相册后刷新导航
     private func refreshSubviewAfterRequestAuth() {
         if showLimitAuthTipsView {
@@ -511,6 +535,7 @@ class ZLThumbnailViewController: UIViewController {
             guard self?.albumList != album else {
                 return
             }
+            
             self?.albumList = album
             self?.embedNavView?.title = album.title
             self?.loadPhotos()
@@ -541,7 +566,7 @@ class ZLThumbnailViewController: UIViewController {
     }
     
     private func fetchCameraRollAlbumIfNeed() {
-        if let albumList {
+        if albumList != nil {
             refreshSubviewAfterRequestAuth()
             loadPhotos()
         } else {
@@ -567,13 +592,28 @@ class ZLThumbnailViewController: UIViewController {
             return
         }
         
-        let hud = ZLProgressHUD.show(in: view)
+        var insets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        if #available(iOS 11.0, *), deviceIsFringeScreen() {
+            insets = deviceSafeAreaInsets()
+        }
         
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            let colViewW1 = view.zl.width - insets.left - insets.right
+            let colViewW2 = view.zl.height
+            albumList.columnCounts = (getColumnCount(totalWidth: colViewW2), getColumnCount(totalWidth: colViewW1))
+        } else {
+            let colViewW1 = view.zl.width - insets.left - insets.right
+            let colViewW2 = view.zl.height - max(insets.top, insets.bottom) * 2
+            albumList.columnCounts = (getColumnCount(totalWidth: colViewW1), getColumnCount(totalWidth: colViewW2))
+        }
+        
+        let hud = ZLProgressHUD.show(in: view)
         DispatchQueue.global().async {
             var datas: [ZLPhotoModel] = []
             
+            self.canPreload = false
             if albumList.models.isEmpty {
-                albumList.refetchPhotos()
+                albumList.preloadPhotos(loadAll: !ZLPhotoUIConfiguration.default().allowPageLoading)
                 
                 datas.append(contentsOf: albumList.models)
                 markSelected(source: &datas, selected: &nav.arrSelectedModels)
@@ -596,6 +636,8 @@ class ZLThumbnailViewController: UIViewController {
                     transform = transform.rotated(by: .pi)
                 }
                 self.scrollToBottomBtn.transform = transform
+                
+                self.canPreload = true
             }
         }
     }
@@ -668,8 +710,10 @@ class ZLThumbnailViewController: UIViewController {
     @objc private func doneBtnClick() {
         let nav = navigationController as? ZLImageNavController
         if let block = ZLPhotoConfiguration.default().operateBeforeDoneAction {
-            block(self) { [weak nav] in
-                nav?.selectImageBlock?()
+            block(self, nav?.arrSelectedModels ?? []) { [weak nav] shouldContinue in
+                if shouldContinue {
+                    nav?.selectImageBlock?()
+                }
             }
         } else {
             nav?.selectImageBlock?()
@@ -721,7 +765,7 @@ class ZLThumbnailViewController: UIViewController {
                         return
                     }
                     
-                    if !(cell?.enableSelect ?? true) || !canAddModel(m, currentSelectCount: nav.arrSelectedModels.count, sender: self) {
+                    if !(cell?.enableSelect ?? true) || !canAddModel(m, currentSelectModels: nav.arrSelectedModels, sender: self) {
                         panSelectType = .none
                         return
                     }
@@ -792,7 +836,7 @@ class ZLThumbnailViewController: UIViewController {
                     if inSection {
                         if self.panSelectType == .select {
                             if !m.isSelected,
-                               canAddModel(m, currentSelectCount: nav.arrSelectedModels.count, sender: self, showAlert: false) {
+                               canAddModel(m, currentSelectModels: nav.arrSelectedModels, sender: self, showAlert: false) {
                                 m.isSelected = true
                             }
                         } else if self.panSelectType == .cancel {
@@ -986,6 +1030,8 @@ class ZLThumbnailViewController: UIViewController {
     
     private func showCamera() {
         let config = ZLPhotoConfiguration.default()
+        guard config.canEnterCamera?() ?? true else { return }
+        
         if config.useCustomCamera {
             let camera = ZLCustomCamera()
             camera.takeDoneBlock = { [weak self] image, videoURL in
@@ -1061,10 +1107,12 @@ class ZLThumbnailViewController: UIViewController {
         if uiConfig.sortAscending {
             insertIndex = arrDataSources.count
             arrDataSources.append(newModel)
+            albumList?.models.append(newModel)
         } else {
             // 保存拍照的照片或者视频，说明肯定有camera cell
             insertIndex = offset
             arrDataSources.insert(newModel, at: 0)
+            albumList?.models.insert(newModel, at: 0)
         }
         
         var canSelect = true
@@ -1089,7 +1137,7 @@ class ZLThumbnailViewController: UIViewController {
         // 是否是单选模式，且不显示选择按钮
         let isSingleAndNotShowSelectBtnMode = config.maxSelectCount == 1 && !config.showSelectBtnWhenSingleSelect
         
-        if canSelect, canAddModel(newModel, currentSelectCount: nav?.arrSelectedModels.count ?? 0, sender: self, showAlert: false) {
+        if canSelect, canAddModel(newModel, currentSelectModels: nav?.arrSelectedModels, sender: self, showAlert: false) {
             if !shouldDirectEdit(newModel) {
                 if config.callbackDirectlyAfterTakingPhoto || !isSingleAndNotShowSelectBtnMode {
                     newModel.isSelected = true
@@ -1109,7 +1157,10 @@ class ZLThumbnailViewController: UIViewController {
             self.collectionView.insertItems(at: [insertIndexPath])
         } completion: { _ in
             self.collectionView.scrollToItem(at: insertIndexPath, at: .centeredVertically, animated: true)
-            self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
+            }
         }
         
         resetBottomToolBtnStatus()
@@ -1168,27 +1219,14 @@ class ZLThumbnailViewController: UIViewController {
         
         func inner_showEditVideoVC(_ avAsset: AVAsset) {
             let vc = ZLEditVideoViewController(avAsset: avAsset)
-            vc.editFinishBlock = { [weak self, weak nav] url in
-                if let url = url {
-                    ZLPhotoManager.saveVideoToAlbum(url: url) { [weak self, weak nav] error, asset in
-                        if error == nil, let asset {
-                            let m = ZLPhotoModel(asset: asset)
-                            m.isSelected = true
-                            nav?.arrSelectedModels.append(m)
-                            config.didSelectAsset?(m.asset)
-                            
-                            self?.doneBtnClick()
-                        } else {
-                            showAlertView(localLanguageTextValue(.saveVideoError), self)
-                        }
-                    }
-                } else {
-                    model.isSelected = true
-                    nav?.arrSelectedModels.append(model)
-                    config.didSelectAsset?(model.asset)
-                    
-                    self?.doneBtnClick()
-                }
+            vc.editFinishBlock = { [weak self, weak nav] editModel in
+                model.isSelected = true
+                model.editVideoModel = editModel
+                nav?.arrSelectedModels.removeAll()
+                nav?.arrSelectedModels.append(model)
+                config.didSelectAsset?(model.asset)
+                
+                self?.doneBtnClick()
             }
             vc.modalPresentationStyle = .fullScreen
             showDetailViewController(vc, sender: nil)
@@ -1207,6 +1245,7 @@ class ZLThumbnailViewController: UIViewController {
     
     /// 预判界面执行pop动画时，该界面需要执行的内容
     func endPopTransition() {
+        collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
         hiddenStatusBar = false
         if deviceIsiPad() {
             view.setNeedsLayout()
@@ -1239,9 +1278,38 @@ extension ZLThumbnailViewController: UIGestureRecognizerDelegate {
     }
 }
 
+// MARK: UIViewControllerTransitioningDelegate
+
+extension ZLThumbnailViewController: UIViewControllerTransitioningDelegate {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return dismissInteractiveTransition?.interactive == true ? ZLPhotoPreviewAnimatedTransition() : nil
+    }
+    
+    public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return dismissInteractiveTransition?.interactive == true ? dismissInteractiveTransition : nil
+    }
+}
+
 // MARK: CollectionView Delegate & DataSource
 
 extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    private func getColumnCount(totalWidth: CGFloat) -> Int {
+        let uiConfig = ZLPhotoUIConfiguration.default()
+        var columnCount: Int
+        
+        if let columnCountBlock = uiConfig.columnCountBlock {
+            columnCount = columnCountBlock(totalWidth)
+        } else {
+            let defaultCount = uiConfig.columnCount
+            columnCount = deviceIsiPad() ? (defaultCount + 2) : defaultCount
+            if UIApplication.shared.statusBarOrientation.isLandscape {
+                columnCount += 2
+            }
+        }
+        
+        return columnCount
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return ZLPhotoUIConfiguration.default().minimumInteritemSpacing
     }
@@ -1252,19 +1320,9 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let uiConfig = ZLPhotoUIConfiguration.default()
-        var columnCount: Int
+        let columnCount = getColumnCount(totalWidth: collectionView.zl.width)
         
-        if let columnCountBlock = uiConfig.columnCountBlock {
-            columnCount = columnCountBlock(collectionView.zl.width)
-        } else {
-            let defaultCount = uiConfig.columnCount
-            columnCount = deviceIsiPad() ? (defaultCount + 2) : defaultCount
-            if UIApplication.shared.statusBarOrientation.isLandscape {
-                columnCount += 2
-            }
-        }
-        
-        let totalW = collectionView.bounds.width - CGFloat(columnCount - 1) * uiConfig.minimumInteritemSpacing
+        let totalW = collectionView.zl.width - CGFloat(columnCount - 1) * uiConfig.minimumInteritemSpacing
         let singleW = totalW / CGFloat(columnCount)
         return CGSize(width: singleW, height: singleW)
     }
@@ -1310,8 +1368,7 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
         
         cell.selectedBlock = { [weak self, weak nav] block in
             if !model.isSelected {
-                let currentSelectCount = nav?.arrSelectedModels.count ?? 0
-                guard canAddModel(model, currentSelectCount: currentSelectCount, sender: self) else {
+                guard canAddModel(model, currentSelectModels: nav?.arrSelectedModels, sender: self) else {
                     return
                 }
                 
@@ -1358,7 +1415,7 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let c = cell as? ZLThumbnailPhotoCell else {
+        guard let cell = cell as? ZLThumbnailPhotoCell else {
             return
         }
         var index = indexPath.row
@@ -1371,7 +1428,7 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
         }
         
         let model = arrDataSources[index]
-        setCellMaskView(c, isSelected: model.isSelected, model: model)
+        setCellMaskView(cell, isSelected: model.isSelected, model: model)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -1422,9 +1479,16 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
         }
         
         let vc = ZLPhotoPreviewController(photos: arrDataSources, index: index)
+        if uiConfig.allowPageLoading {
+            vc.preloadBlock = { [weak self] loadAll in
+                self?.preloadPhotos(loadAll: loadAll, force: true) ?? []
+            }
+        }
+        
         vc.backBlock = { [weak self] in
             guard let `self` = self, self.hiddenStatusBar else { return }
             self.hiddenStatusBar = false
+            self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
         }
         show(vc, sender: nil)
     }
@@ -1437,14 +1501,10 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
             config.maxSelectCount == 1 &&
             model.type.rawValue < ZLPhotoModel.MediaType.video.rawValue
         
-        let canEditVideo = (config.editAfterSelectThumbnailImage &&
+        let canEditVideo = config.editAfterSelectThumbnailImage &&
             config.allowEditVideo &&
             model.type == .video &&
-            config.maxSelectCount == 1) ||
-            (config.allowEditVideo &&
-                model.type == .video &&
-                !config.allowMixSelect &&
-                config.cropVideoAfterSelectThumbnail)
+            config.maxSelectCount == 1
         
         // 当前未选择图片 或已经选择了一张并且点击的是已选择的图片
         let nav = navigationController as? ZLImageNavController
@@ -1525,33 +1585,24 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
             if uiConfig.showSelectedBorder {
                 cell.layer.borderWidth = 4
             }
-        } else {
-            let selCount = arrSel.count
-            if selCount < config.maxSelectCount {
-                if config.allowMixSelect {
-                    let videoCount = arrSel.filter { $0.type == .video }.count
-                    if videoCount >= config.maxVideoSelectCount, model.type == .video {
-                        cell.coverView.backgroundColor = .zl.invalidMaskColor
-                        cell.coverView.isHidden = !uiConfig.showInvalidMask
-                        cell.enableSelect = false
-                    } else if (config.maxSelectCount - selCount) <= (config.minVideoSelectCount - videoCount), model.type != .video {
-                        cell.coverView.backgroundColor = .zl.invalidMaskColor
-                        cell.coverView.isHidden = !uiConfig.showInvalidMask
-                        cell.enableSelect = false
-                    }
-                } else if selCount > 0 {
-                    cell.coverView.backgroundColor = .zl.invalidMaskColor
-                    cell.coverView.isHidden = (!uiConfig.showInvalidMask || model.type != .video)
-                    cell.enableSelect = model.type != .video
-                }
-            } else if selCount >= config.maxSelectCount {
+            return
+        }
+        
+        let selCount = arrSel.count
+        if selCount < config.maxSelectCount {
+            if !config.allowMixSelect, selCount > 0 {
+                let selectIsVideo = arrSel.first?.isVideo ?? false
                 cell.coverView.backgroundColor = .zl.invalidMaskColor
-                cell.coverView.isHidden = !uiConfig.showInvalidMask
-                cell.enableSelect = false
+                cell.coverView.isHidden = (!uiConfig.showInvalidMask || model.isVideo == selectIsVideo)
+                cell.enableSelect = model.isVideo == selectIsVideo
             }
-            if uiConfig.showSelectedBorder {
-                cell.layer.borderWidth = 0
-            }
+        } else if selCount >= config.maxSelectCount {
+            cell.coverView.backgroundColor = .zl.invalidMaskColor
+            cell.coverView.isHidden = !uiConfig.showInvalidMask
+            cell.enableSelect = false
+        }
+        if uiConfig.showSelectedBorder {
+            cell.layer.borderWidth = 0
         }
     }
     
@@ -1572,6 +1623,76 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
 extension ZLThumbnailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateScrollToBottomVisibility()
+        
+        preloadPhotos()
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        guard ZLPhotoUIConfiguration.default().sortAscending else { return true }
+        
+        preloadPhotos(loadAll: true, force: true)
+        return true
+    }
+    
+    @discardableResult
+    private func preloadPhotos(loadAll: Bool = false, force: Bool = false) -> [ZLPhotoModel] {
+        let uiConfig = ZLPhotoUIConfiguration.default()
+        
+        guard uiConfig.allowPageLoading,
+              canPreload,
+              let nav = navigationController as? ZLImageNavController,
+              let albumList else {
+            return []
+        }
+        
+        let offset = collectionView.contentOffset
+        if uiConfig.sortAscending {
+            if force || offset.y <= view.zl.height * 3 {
+                var models = albumList.preloadPhotos(loadAll: loadAll)
+                guard !models.isEmpty else { return [] }
+                
+                var selectedModels = nav.arrSelectedModels
+                handlePreloadPhotos(models: &models, selectedModels: &selectedModels)
+                nav.arrSelectedModels = selectedModels
+                return models
+            }
+        } else {
+            let contentH = collectionView.contentSize.height
+            if force || contentH - offset.y <= view.zl.height * 4 {
+                var models = albumList.preloadPhotos(loadAll: loadAll)
+                guard !models.isEmpty else { return [] }
+                
+                var selectedModels = nav.arrSelectedModels
+                handlePreloadPhotos(models: &models, selectedModels: &selectedModels)
+                nav.arrSelectedModels = selectedModels
+                return models
+            }
+        }
+        
+        return []
+    }
+    
+    private func handlePreloadPhotos(models: inout [ZLPhotoModel], selectedModels: inout [ZLPhotoModel]) {
+        markSelected(source: &models, selected: &selectedModels)
+        
+        if ZLPhotoUIConfiguration.default().sortAscending {
+            arrDataSources.insert(contentsOf: models, at: 0)
+            let indexPaths = models.indices.map { IndexPath(item: $0, section: 0) }
+            
+            UIView.animate(withDuration: 0) {
+                self.collectionView.performBatchUpdates {
+                    self.collectionView.insertItems(at: indexPaths)
+                }
+            }
+        } else {
+            let oldCount = arrDataSources.count
+            arrDataSources.append(contentsOf: models)
+            
+            collectionView.performBatchUpdates {
+                let indexPaths = models.indices.map { IndexPath(item: oldCount + $0, section: 0) }
+                self.collectionView.insertItems(at: indexPaths)
+            }
+        }
     }
 }
 

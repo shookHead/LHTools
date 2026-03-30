@@ -8,7 +8,7 @@
 //    public var name:String?
 //    public var shortName:String?
 //}
-//class LHCityModel: SmartCodable {
+//class LHCityModel: SmartCodableX {
 //    
 //    public var ID:Int64?
 //    public var name:String?

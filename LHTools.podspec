@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LHTools'
-  s.version          = '1.0'
-  s.summary          = 'A base tool for swift develop'
+  s.version          = '2.0'
+  s.summary          = '2.0开发'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -192,7 +192,7 @@ TODO: Add long description of the pod here.
 
     s.dependency 'NVActivityIndicatorView'
     s.dependency 'ZLPhotoBrowser'
-    s.dependency 'JXPhotoBrowser'
+    s.dependency 'JXPhotoBrowser', '3.1.5'
     s.dependency 'SnapKit'
     
 #

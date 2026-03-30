@@ -33,6 +33,7 @@
 "smallerThanMinVideoDataSize" = "Tidak boleh memilih video yang lebih kecil daripada %@MB";
 "exceededMaxVideoSelectCount" = "Jumlah maksimum untuk pemilihan video: %ld";
 "lessThanMinVideoSelectCount" = "Kiraan minimum untuk pemilihan video: %ld";
+"cannotMixSelect" = "Anda tidak boleh memilih kedua-dua gambar dan video serentak";
 
 "noCameraAuthorityAlertMessage" = "Izinkan %@ mengakses kamera peranti anda di \"Tetapan\" > \"Privasi\" > \"Kamera\"";
 "noPhotoLibraryAuthorityAlertMessage" = "Izinkan %@ mengakses album anda di \"Tetapan\" > \"Privasi\" > \"Foto\"";
