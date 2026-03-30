@@ -192,7 +192,7 @@ TODO: Add long description of the pod here.
 
     s.dependency 'NVActivityIndicatorView'
     s.dependency 'ZLPhotoBrowser'
-    s.dependency 'JXPhotoBrowser', '3.1.5'
+    s.dependency 'JXPhotoBrowser'
     s.dependency 'SnapKit'
     
 #

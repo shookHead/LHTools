@@ -56,16 +56,29 @@ class ViewController: BaseStackVC {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("启动了")
 //        CityDBManager.share.requestData()
+        let btn = UIButton()
+        btn.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        btn.backgroundColor = .red
+        btn.addTarget(self, action: #selector(btnAction), for: .touchUpInside)
+        view.addSubview(btn)
+        ImageCache.default.clearMemoryCache()
+        ImageCache.default.clearDiskCache {
+            print("磁盘缓存清理完成")
+        }
     }
-
+    @objc func btnAction() {
+        print("点击了")
+      let arr = ["https://raw.githubusercontent.com/JiongXing/MediaResources/master/PhotoBrowser/photo_0.png","https://raw.githubusercontent.com/JiongXing/MediaResources/master/PhotoBrowser/photo_1_thumbnail.png"]
+        PhotoBrowser.show(images: arr)
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //       let p = CityDBManager.share.getAddressModel(1, 1, 1)
 //        print(p)
 //        CityDBManager.share.requestData()
+        
 
-      
     }
     func useSnp() {
         var arr: Array<UIView> = []
