@@ -118,6 +118,7 @@
 //        let name = SQLite.Expression<String?>( "provincename")
 //        let shortname = SQLite.Expression<String?>( "shortname")
 //
+//        guard let db else { return [] }
 //        let query = try! db.prepare(provinces)
 //        for user in query {
 //            do {
@@ -143,6 +144,7 @@
 //        let name = SQLite.Expression<String>( "cityName")
 //        let shortname = SQLite.Expression<String>( "shortCityName")
 //
+//        guard let db else { return [] }
 //        let query = try! db.prepare(citys.filter(provinceId == chooseProvinceid))
 //        for user in query {
 //            do {
@@ -167,6 +169,7 @@
 //        let name = SQLite.Expression<String>( "districtName")
 //        let shortname = SQLite.Expression<String>( "districtName")
 //
+//        guard let db else { return [] }
 //        let query = try! db.prepare(districts.filter(provinceId == chooseCityid))
 //        for user in query {
 //            do {
@@ -225,7 +228,7 @@ public struct Address {
 
 public class CityDBManager {
 
-    public var db:Connection!
+    public var db:Connection?
     //表
     private let provinces = Table("province")
     private let citys = Table("city")
@@ -237,14 +240,47 @@ public class CityDBManager {
     }()
 
     init() {
-//        if let path = Bundle.current()?.path(forResource: "city_db", ofType: "sqlite") {
-//            db = try! Connection(path, readonly: true)
-//        }
-
-        
-        if let path = Bundle.main.path(forResource: "city_db", ofType: "sqlite") {
-            db = try! Connection(path, readonly: true)
+        if let path = Self.cityDatabasePath() {
+            db = try? Connection(path, readonly: true)
         }
+    }
+
+    private static func cityDatabasePath() -> String? {
+        let resourceNames = ["city.sqlite", "city_db.sqlite"]
+        let bundles = [
+            Bundle.main,
+            Bundle(for: CityDBManager.self)
+        ]
+
+        for bundle in bundles {
+            for resourceName in resourceNames {
+                let fileName = (resourceName as NSString).deletingPathExtension
+                let fileExt = (resourceName as NSString).pathExtension
+                if let path = bundle.path(forResource: fileName, ofType: fileExt) {
+                    return path
+                }
+            }
+        }
+
+        if let resourcePath = Bundle(for: CityDBManager.self).resourcePath {
+            let candidateBundles = [
+                URL(fileURLWithPath: resourcePath).appendingPathComponent("LHTools.bundle"),
+                URL(fileURLWithPath: resourcePath).appendingPathComponent("Frameworks/LHTools.framework/LHTools.bundle")
+            ]
+            for bundleURL in candidateBundles {
+                if let bundle = Bundle(url: bundleURL) {
+                    for resourceName in resourceNames {
+                        let fileName = (resourceName as NSString).deletingPathExtension
+                        let fileExt = (resourceName as NSString).pathExtension
+                        if let path = bundle.path(forResource: fileName, ofType: fileExt) {
+                            return path
+                        }
+                    }
+                }
+            }
+        }
+
+        return nil
     }
 
 //    func getBundleResource(bundName: String, resourceName: String, ofType ext: String?) -> String? {
@@ -292,6 +328,7 @@ public class CityDBManager {
         let name = SQLite.Expression<String?>( "provincename")
         let shortname = SQLite.Expression<String?>( "shortname")
 
+        guard let db else { return [] }
         let query = try! db.prepare(provinces)
         for user in query {
             do {
@@ -317,6 +354,7 @@ public class CityDBManager {
         let name = SQLite.Expression<String>( "cityName")
         let shortname = SQLite.Expression<String>( "shortCityName")
 
+        guard let db else { return [] }
         let query = try! db.prepare(citys.filter(provinceId == chooseProvinceid))
         for user in query {
             do {
@@ -341,6 +379,7 @@ public class CityDBManager {
         let name = SQLite.Expression<String>( "districtName")
         let shortname = SQLite.Expression<String>( "districtName")
 
+        guard let db else { return [] }
         let query = try! db.prepare(districts.filter(provinceId == chooseCityid))
         for user in query {
             do {

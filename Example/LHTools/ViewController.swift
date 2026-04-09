@@ -69,9 +69,10 @@ class ViewController: BaseStackVC {
         }
     }
     @objc func btnAction() {
-        print("点击了")
-      let arr = ["https://raw.githubusercontent.com/JiongXing/MediaResources/master/PhotoBrowser/photo_0.png","https://raw.githubusercontent.com/JiongXing/MediaResources/master/PhotoBrowser/photo_1_thumbnail.png"]
-        PhotoBrowser.show(images: arr)
+        BMPicker.cityPicker(0, 0, 0) { arr in
+            
+        }.show()
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //       let p = CityDBManager.share.getAddressModel(1, 1, 1)

@@ -80,7 +80,27 @@ open class BMBasePicker: UIView {
     }
 
     required public init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
+
+    private func currentKeyWindow() -> UIWindow? {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .first(where: { $0.activationState == .foregroundActive })?
+                .windows
+                .first(where: \.isKeyWindow)
+                ?? UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap(\.windows)
+                .first(where: \.isKeyWindow)
+        } else {
+            return UIApplication.shared.windows.first(where: \.isKeyWindow)
+        }
+    }
+
+    private func currentBottomSafeAreaInset() -> CGFloat {
+        currentKeyWindow()?.safeAreaInsets.bottom ?? 0
+    }
+
 }
 
 
@@ -90,9 +110,12 @@ open class BMBasePicker: UIView {
     ///
     /// - Parameter high: 下方内容高度
     public func setContentH(_ high:CGFloat,contentY:CGFloat = 0){
-      
-        let safeBottom = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
-        contentViewY = UIScreen.main.bounds.height - high - safeBottom - 15
+        let bottomInset = currentBottomSafeAreaInset()
+        if contentY == 0 {
+            contentViewY = UIScreen.main.bounds.height - high - 15 - bottomInset
+        } else {
+            contentViewY = contentY
+        }
         let leftBlock:CGFloat   = 10.0 // 选择器 距左 宽度
         let comfirmBtnH:CGFloat = 44 //确认按钮 高度
         contentView.frame   = CGRect(x: leftBlock, y: contentViewY!, width: UIScreen.main.bounds.width-leftBlock*2, height: high)
@@ -103,10 +126,10 @@ open class BMBasePicker: UIView {
 
     /// 显示
     public func show(){
-//        let w = UIApplication.shared.windows.filter({$0.isKeyWindow}).first
-//        w?.addSubview(self)
-        if let w = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
-            w.addSubview(self)
+        if let window = currentKeyWindow() {
+            frame = window.bounds
+            bgMaskView.frame = bounds
+            window.addSubview(self)
         }
         bgMaskView.alpha = 0
         self.contentView.alpha = 0
