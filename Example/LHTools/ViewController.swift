@@ -67,9 +67,13 @@ class ViewController: BaseStackVC {
         ImageCache.default.clearDiskCache {
             print("磁盘缓存清理完成")
         }
+        CityDBManager.share.forceRefreshAllData()
+        
     }
     @objc func btnAction() {
+
         BMPicker.cityPicker(0, 0, 0) { arr in
+            print(arr)
             
         }.show()
         
