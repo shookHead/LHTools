@@ -20,6 +20,9 @@ Options:
   --skip-import-validation   Pass --skip-import-validation to CocoaPods lint/push.
   --skip-tests               Pass --skip-tests to CocoaPods lint/push.
   --repo-update              Pass --repo-update to CocoaPods lint/push.
+  --lint-deployment-target N Use N as minimum deployment target for lint Pods.
+                             Defaults to 13.0.
+  --no-lint-target-patch     Do not patch CocoaPods lint Pods deployment target.
   --no-push                  Do not push commit/tag to git remote.
   --no-trunk                 Do not publish to CocoaPods trunk.
   -h, --help                 Show this help.
@@ -57,6 +60,18 @@ run_with_cocoapods_args() {
     run "$@" "${COCOAPODS_ARGS[@]}"
   else
     run "$@"
+  fi
+}
+
+run_pod_with_cocoapods_args() {
+  if [[ "$ENABLE_LINT_TARGET_PATCH" == "1" ]]; then
+    if [[ "$COCOAPODS_ARGS_COUNT" -gt 0 ]]; then
+      run env "RUBYOPT=$POD_RUBYOPT" "COCOAPODS_LINT_DEPLOYMENT_TARGET=$LINT_DEPLOYMENT_TARGET" pod "$@" "${COCOAPODS_ARGS[@]}"
+    else
+      run env "RUBYOPT=$POD_RUBYOPT" "COCOAPODS_LINT_DEPLOYMENT_TARGET=$LINT_DEPLOYMENT_TARGET" pod "$@"
+    fi
+  else
+    run_with_cocoapods_args pod "$@"
   fi
 }
 
@@ -146,6 +161,8 @@ ALLOW_WARNINGS=0
 SKIP_IMPORT_VALIDATION=0
 SKIP_TESTS=0
 REPO_UPDATE=0
+LINT_DEPLOYMENT_TARGET="13.0"
+ENABLE_LINT_TARGET_PATCH=1
 PUSH=1
 TRUNK=1
 
@@ -190,6 +207,15 @@ while [[ $# -gt 0 ]]; do
       REPO_UPDATE=1
       shift
       ;;
+    --lint-deployment-target)
+      need_value "$1" "${2:-}"
+      LINT_DEPLOYMENT_TARGET="$2"
+      shift 2
+      ;;
+    --no-lint-target-patch)
+      ENABLE_LINT_TARGET_PATCH=0
+      shift
+      ;;
     --no-push)
       PUSH=0
       shift
@@ -222,12 +248,21 @@ COMMIT_MESSAGE="${COMMIT_MESSAGE:-Release $VERSION}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+LINT_TARGET_PATCH="$SCRIPT_DIR/cocoapods_lint_deployment_target_patch.rb"
+if [[ -n "${RUBYOPT:-}" ]]; then
+  POD_RUBYOPT="${RUBYOPT} -r$LINT_TARGET_PATCH"
+else
+  POD_RUBYOPT="-r$LINT_TARGET_PATCH"
+fi
 cd "$REPO_ROOT"
 
 command -v git >/dev/null 2>&1 || die "git is required."
 command -v ruby >/dev/null 2>&1 || die "ruby is required."
 if [[ "$DRY_RUN" == "0" ]]; then
   command -v pod >/dev/null 2>&1 || die "CocoaPods is required."
+fi
+if [[ "$ENABLE_LINT_TARGET_PATCH" == "1" ]]; then
+  [[ -f "$LINT_TARGET_PATCH" ]] || die "Lint deployment target patch not found: $LINT_TARGET_PATCH"
 fi
 
 PODSPEC="$(detect_podspec)"
@@ -289,7 +324,7 @@ if [[ "$REPO_UPDATE" == "1" ]]; then
 fi
 
 if [[ "$RUN_LINT" == "1" ]]; then
-  run_with_cocoapods_args pod lib lint "$PODSPEC"
+  run_pod_with_cocoapods_args lib lint "$PODSPEC"
 else
   info "Skipping pod lib lint."
 fi
@@ -310,7 +345,7 @@ else
 fi
 
 if [[ "$TRUNK" == "1" ]]; then
-  run_with_cocoapods_args pod trunk push "$PODSPEC"
+  run_pod_with_cocoapods_args trunk push "$PODSPEC"
 else
   info "Skipping pod trunk push."
 fi
