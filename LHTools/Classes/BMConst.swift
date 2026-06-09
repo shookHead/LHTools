@@ -62,6 +62,8 @@ func safeArea(_ direct:SafeDirect) -> CGFloat{
 public let safeArea_Top    = safeArea(.top)
 /// safeArea底部多余的高度 34
 public let safeArea_Bottom = safeArea(.bottom)
+/// 底部多余的高度 34
+public let KBottomH        = safeArea(.bottom)
 
 /// 屏幕的宽度
 public let KScreenWidth    = UIScreen.main.bounds.width

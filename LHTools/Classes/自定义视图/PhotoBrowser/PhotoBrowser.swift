@@ -12,20 +12,21 @@ import JXPhotoBrowser
 public class PhotoBrowser: NSObject,JXPhotoBrowserDelegate {
     private var images: [String] = []
 
-    public static func show(images:[String],index:Int=0)  {
+    public static func show(images:[String],index:Int=0,transitionType:JXPhotoBrowserTransitionType = .fade)  {
         let instance = PhotoBrowser()
         instance.images = images
-        instance.show(index: index)
+        instance.show(index: index,transitionType: transitionType)
     }
-    private func show(index: Int) {
+    private func show(index: Int,transitionType:JXPhotoBrowserTransitionType = .fade) {
         let browser = JXPhotoBrowserViewController()
         browser.register(LoadingImageCell.self, forReuseIdentifier: LoadingImageCell.videoReuseIdentifier)
+        browser.isLoopingEnabled = images.count > 1
 
         browser.delegate = self
         browser.initialIndex = index
         // 使用浏览器设置面板的配置
         browser.scrollDirection = .horizontal
-        browser.transitionType = .zoom
+        browser.transitionType = transitionType
         browser.itemSpacing = 20
         objc_setAssociatedObject(browser, "delegate", self, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         
