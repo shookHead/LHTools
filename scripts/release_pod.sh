@@ -24,6 +24,10 @@ Options:
   --no-trunk                 Do not publish to CocoaPods trunk.
   -h, --help                 Show this help.
 
+Notes:
+  If the podspec already has VERSION, the script skips the version commit and
+  continues with lint, tag, push, and trunk publish.
+
 Environment:
   PODSPEC                    Podspec path. Auto-detected when only one exists.
 USAGE
@@ -54,6 +58,25 @@ run_with_cocoapods_args() {
   else
     run "$@"
   fi
+}
+
+podspec_has_release_values() {
+  local podspec="$1"
+  local version="$2"
+  local summary="$3"
+
+  ruby - "$podspec" "$version" "$summary" <<'RUBY'
+path, version, summary = ARGV
+text = File.read(path)
+
+version_match = text.match(/\bs\.version\s*=\s*['"]([^'"]+)['"]/)
+exit 1 unless version_match && version_match[1] == version
+
+if summary && !summary.empty?
+  summary_match = text.match(/\bs\.summary\s*=\s*['"]([^'"]*)['"]/)
+  exit 1 unless summary_match && summary_match[1] == summary
+end
+RUBY
 }
 
 need_value() {
@@ -202,8 +225,8 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$REPO_ROOT"
 
 command -v git >/dev/null 2>&1 || die "git is required."
+command -v ruby >/dev/null 2>&1 || die "ruby is required."
 if [[ "$DRY_RUN" == "0" ]]; then
-  command -v ruby >/dev/null 2>&1 || die "ruby is required."
   command -v pod >/dev/null 2>&1 || die "CocoaPods is required."
 fi
 
@@ -215,7 +238,7 @@ git remote get-url "$REMOTE" >/dev/null 2>&1 || die "Git remote not found: $REMO
 BRANCH="$(git symbolic-ref --short HEAD 2>/dev/null || true)"
 [[ -n "$BRANCH" ]] || die "Cannot release from a detached HEAD."
 
-git update-index -q --refresh
+git update-index -q --refresh || true
 if [[ -n "$(git status --porcelain)" ]]; then
   if [[ "$DRY_RUN" == "1" ]]; then
     info "Working tree is not clean. A real release would stop here."
@@ -235,8 +258,15 @@ fi
 info "Releasing $PODSPEC version $VERSION from branch $BRANCH."
 replace_podspec_values "$PODSPEC" "$VERSION" "$SUMMARY"
 
-if [[ "$DRY_RUN" == "0" ]] && git diff --quiet -- "$PODSPEC"; then
-  die "No changes made to $PODSPEC. Is version $VERSION already set?"
+PODSPEC_CHANGED=1
+if [[ "$DRY_RUN" == "1" ]]; then
+  if podspec_has_release_values "$PODSPEC" "$VERSION" "$SUMMARY"; then
+    PODSPEC_CHANGED=0
+    info "$PODSPEC already has version $VERSION. A real release would skip the version commit."
+  fi
+elif git diff --quiet -- "$PODSPEC"; then
+  PODSPEC_CHANGED=0
+  info "$PODSPEC already has version $VERSION. Skipping version commit."
 fi
 
 COCOAPODS_ARGS=()
@@ -264,8 +294,12 @@ else
   info "Skipping pod lib lint."
 fi
 
-run git add "$PODSPEC"
-run git commit -m "$COMMIT_MESSAGE"
+if [[ "$PODSPEC_CHANGED" == "1" ]]; then
+  run git add "$PODSPEC"
+  run git commit -m "$COMMIT_MESSAGE"
+else
+  info "Skipping git add/commit."
+fi
 run git tag "$VERSION"
 
 if [[ "$PUSH" == "1" ]]; then
